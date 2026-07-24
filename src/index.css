@@ -630,11 +630,11 @@ p, h1, h2, h3, h4, h5, span, li, button, a {
 
   /* Badges: don't let them overflow on tiny screens */
   .badge {
-    font-size: 0.55rem;
+    font-size: clamp(0.45rem, 3vw, 0.55rem);
     padding: 0.35rem 0.85rem;
     max-width: 100%;
     text-align: center;
-    white-space: normal;
+    white-space: nowrap;
   }
 
   /* Section padding tighter on mobile */

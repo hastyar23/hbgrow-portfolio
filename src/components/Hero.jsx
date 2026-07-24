@@ -75,7 +75,7 @@ export default function Hero() {
         <div className="animate-fade-in-up delay-100" style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'center', padding: '0 0.5rem' }}>
           <span className="badge">
             <span className="dot" />
-            متمانەپێکراوە لە +١٠٠ کڕیار لە کوردستان و عێراق
+            متمانەپێکراوە لەلایەن +١٠٠ کڕیار لە کوردستان و عێراق
           </span>
         </div>
 
