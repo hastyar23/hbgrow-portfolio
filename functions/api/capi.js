@@ -7,7 +7,7 @@ export async function onRequestPost(context) {
 
     const PIXEL_ID = '26153004324379179';
     // For production on Cloudflare Pages, set META_CAPI_TOKEN in your Pages project Settings -> Environment variables
-    const ACCESS_TOKEN = typeof process !== 'undefined' && process.env.META_CAPI_TOKEN ? process.env.META_CAPI_TOKEN : 'EAAnSFSdfRhABSICSQYbPvWe1vkIKyMDmSxAEflFLVCnD35niBXuQJMp2oPdqSzM4r92LM1Wg5eZCVVgjV2q1ObRj4mG7dCOeAfZAVxoE3rOKd2wrZB9R2ECkq0SIrR6EWfYNTjokjZAVcdHSyudo5zSBGrztSrfZAEwqva1Flt3HgbrasRe3hOlvzQsG9zgZDZD';
+    const ACCESS_TOKEN = typeof process !== 'undefined' && process.env.META_CAPI_TOKEN ? process.env.META_CAPI_TOKEN : 'EAAnSFSdfRhABSEINfGeQUPZAbDWcmN9nZAy74HuCYErAfzB39sQAggFM6GYuC37aytYmidfw5tOi21h03sdwtS8AC5lGCnAGIemuQUYRZAI6tnDelxn4yqJ5wPBD8OyiEknnZCi19LLRHdZB2mMg8WZCjs6twCHLkUgR1Fhi2fOajEceElTpyMB6S2bm1l3QZDZD';
 
     // Helper to hash data for Meta (Web Crypto API for Cloudflare Workers)
     const hashData = async (data) => {
