@@ -84,17 +84,19 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <a
-            href="#contact"
-            className="btn-primary hidden md:inline-flex"
-            style={{ padding: '0.7rem 1.4rem', fontSize: '0.8rem' }}
-          >
-            کاتێک دیاریبکە
-          </a>
+          <div className="hidden md:block">
+            <a
+              href="#contact"
+              className="btn-primary"
+              style={{ padding: '0.7rem 1.4rem', fontSize: '0.8rem' }}
+            >
+              کاتێک دیاریبکە
+            </a>
+          </div>
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden"
+            className="md:hidden flex items-center justify-center"
             onClick={() => setOpen(!open)}
             aria-label={open ? 'داخستنی مینیو' : 'کردنەوەی مینیو'}
             style={{
@@ -106,7 +108,6 @@ export default function Navbar() {
               borderRadius: '0.5rem',
               backdropFilter: 'blur(12px)',
               transition: 'all 0.3s',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
               flexShrink: 0,
             }}
           >
