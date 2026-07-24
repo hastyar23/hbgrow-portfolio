@@ -200,6 +200,8 @@ export default function StatsBanner() {
                   display: 'block', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)',
                   transition: 'transform 0.4s ease',
                 }} 
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
                 onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
                 onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
                 alt="Ad Result" loading="lazy" />
@@ -311,9 +313,25 @@ export default function StatsBanner() {
             .mobile-only-arrows { display: none !important; }
 
             @media (max-width: 768px) {
-              .slider-card { flex-direction: column !important; }
-              .slider-data-col { padding: 2rem 1.5rem !important; gap: 1.5rem !important; }
-              .slider-data-col > div > div:last-child { font-size: 2rem !important; }
+              .slider-card {
+                flex-direction: column !important;
+              }
+              /* On mobile: image sits on TOP (natural column order), data below */
+              .slider-image-col {
+                order: -1;
+                flex: 0 0 auto !important;
+                max-height: 260px;
+                padding: 1rem !important;
+                padding-top: 2rem !important;
+              }
+              .slider-image-col img {
+                max-height: 220px !important;
+              }
+              .slider-data-col {
+                padding: 1.5rem 1.25rem 2.5rem !important;
+                gap: 1.25rem !important;
+              }
+              .slider-data-col > div > div:last-child { font-size: 1.75rem !important; }
               .slider-nav-arrows { display: none !important; } 
               .mobile-only-arrows { display: flex !important; }
             }

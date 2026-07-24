@@ -601,3 +601,74 @@ h3, h4, p, span, a, li, button {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* ─── Shimmer Skeleton ──────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Global RTL Text Safety ────────────────────────────────── */
+p, h1, h2, h3, h4, h5, span, li, button, a {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ─── Mobile-First Overrides (≤ 480px) ──────────────────────── */
+@media (max-width: 480px) {
+  /* Buttons: more comfortable on small screens */
+  .btn-primary {
+    padding: 0.9rem 1.35rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    min-height: 52px;
+    border-radius: 14px;
+    letter-spacing: 0.015em;
+  }
+
+  .btn-ghost {
+    padding: 0.8rem 1.25rem;
+    font-size: 0.85rem;
+    min-height: 48px;
+    border-radius: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Badges: don't let them overflow on tiny screens */
+  .badge {
+    font-size: 0.55rem;
+    padding: 0.35rem 0.85rem;
+    letter-spacing: 0.12em;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  /* Section padding tighter on mobile */
+  .section-wrap {
+    padding: 0 1rem;
+  }
+
+  /* Glass cards: tighter padding */
+  .glass-card {
+    padding: clamp(1rem, 4vw, 1.75rem);
+  }
+
+  /* Modal headers stack on very small screens */
+  .modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Stat values: slightly smaller on tiny screens */
+  .stat-val {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+  }
+}
+
+/* ─── Background attachment fix for mobile Safari ──────────── */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll; /* 'fixed' causes render issues on iOS Safari */
+  }
+}

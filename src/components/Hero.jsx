@@ -82,20 +82,21 @@ export default function Hero() {
           className="animate-fade-in-up delay-200"
           style={{
             fontFamily: "'Noto Naskh Arabic', serif",
-            fontSize: 'clamp(1.9rem, 6vw, 5rem)',
+            fontSize: 'clamp(1.75rem, 6vw, 5rem)',
             fontWeight: 700,
             lineHeight: 1.25,
             letterSpacing: '0.01em',
             color: '#ffffff',
             maxWidth: 820,
             margin: '0 auto 1.25rem',
+            wordBreak: 'break-word',
           }}
         >
           براندەکەت شایەنی{' '}
           <span className="text-gold">کڕیارە،</span>
           <br />
           <span style={{
-            fontSize: 'clamp(1.1rem, 3.5vw, 2.75rem)',
+            fontSize: 'clamp(1rem, 3.5vw, 2.75rem)',
             fontWeight: 400,
             color: 'rgba(203,213,225,0.72)',
           }}>
@@ -110,11 +111,12 @@ export default function Hero() {
             fontFamily: "'Noto Kufi Arabic', sans-serif",
             maxWidth: 540,
             margin: '0 auto 2.5rem',
-            fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+            fontSize: 'clamp(0.875rem, 2.2vw, 1rem)',
             fontWeight: 300,
             color: 'rgba(203,213,225,0.65)',
             lineHeight: 2.1,
-            letterSpacing: '0.03em',
+            letterSpacing: '0.01em',
+            wordBreak: 'break-word',
           }}
         >
           ئێمە تەنها "پۆست" ناکەین. ئێمە ستراتیجییەکی تەواوی گەشەکردن و فرۆشتن بۆ کلینیک، کۆمپانیا و براندە ئاست بەرزەکان دروست دەکەین.{' '}

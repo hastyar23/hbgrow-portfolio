@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X, Maximize2, Grid } from 'lucide-react';
 
 const designs = [
@@ -48,50 +48,93 @@ const THUMB_HEIGHT_DESKTOP = 250;
 
 function MarqueeThumbnail({ src, onClick, isMobile }) {
   const [hover, setHover] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
   const h = isMobile ? THUMB_HEIGHT_MOBILE : THUMB_HEIGHT_DESKTOP;
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { rootMargin: '200px' }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <div
+      ref={ref}
       style={{
         height: h, minWidth: 140, flexShrink: 0,
         position: 'relative', borderRadius: '0.75rem', overflow: 'hidden',
         cursor: 'pointer', border: '1px solid rgba(255,255,255,0.07)',
-        background: 'rgba(2,5,10,0.5)',
+        background: error ? 'rgba(197,164,89,0.04)' : 'rgba(2,5,10,0.5)',
         transition: 'all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         transform: hover ? 'scale(1.02)' : 'scale(1)',
         boxShadow: hover ? '0 16px 40px -8px rgba(0,0,0,0.7)' : 'none',
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={() => onClick(src)}
+      onClick={() => !error && onClick(src)}
     >
-      <img
-        src={src}
-        alt="Design work"
-        style={{
-          height: '100%', width: 'auto', objectFit: 'cover',
-          transform: hover ? 'scale(1.06)' : 'scale(1)',
-          transition: 'transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-          display: 'block',
-        }}
-        loading="lazy"
-      />
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'rgba(2,5,10,0.5)', backdropFilter: 'blur(2px)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        opacity: hover ? 1 : 0, transition: 'opacity 0.4s ease',
-      }}>
+      {/* Skeleton shimmer while not loaded */}
+      {!loaded && !error && (
         <div style={{
-          width: 44, height: 44, borderRadius: '50%',
-          background: 'rgba(197,164,89,0.15)', border: '1px solid rgba(197,164,89,0.45)',
-          backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transform: hover ? 'scale(1)' : 'scale(0.85)',
-          transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%)',
+          backgroundSize: '200% 100%',
+          animation: 'shimmer 1.6s ease infinite',
+        }} />
+      )}
+
+      {inView && (
+        <img
+          src={src}
+          alt="Design work"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+          style={{
+            height: '100%', width: 'auto', objectFit: 'cover',
+            transform: hover ? 'scale(1.06)' : 'scale(1)',
+            transition: 'transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease',
+            display: 'block',
+            opacity: loaded ? 1 : 0,
+          }}
+          onLoad={() => setLoaded(true)}
+          onError={() => { setLoaded(true); setError(true); }}
+        />
+      )}
+
+      {error && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: 'rgba(197,164,89,0.3)', fontSize: '1.5rem',
+        }}>🎨</div>
+      )}
+
+      {!error && loaded && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'rgba(2,5,10,0.5)', backdropFilter: 'blur(2px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          opacity: hover ? 1 : 0, transition: 'opacity 0.4s ease',
         }}>
-          <Maximize2 size={17} style={{ color: 'rgba(197,164,89,0.95)' }} />
+          <div style={{
+            width: 44, height: 44, borderRadius: '50%',
+            background: 'rgba(197,164,89,0.15)', border: '1px solid rgba(197,164,89,0.45)',
+            backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transform: hover ? 'scale(1)' : 'scale(0.85)',
+            transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          }}>
+            <Maximize2 size={17} style={{ color: 'rgba(197,164,89,0.95)' }} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -206,6 +249,8 @@ export default function DesignPortfolio() {
           <img
             src={activeImg}
             alt="Fullscreen design"
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
             style={{
               maxWidth: '100%', maxHeight: '92dvh',
               objectFit: 'contain', borderRadius: '0.75rem',
@@ -249,7 +294,13 @@ export default function DesignPortfolio() {
             <div className="masonry-grid">
               {designs.map((src, i) => (
                 <div key={i} className="masonry-item" onClick={() => setActiveImg(src)}>
-                  <img src={src} alt="Design work" loading="lazy" />
+                  <img
+                    src={src}
+                    alt="Design work"
+                    loading="lazy"
+                    crossOrigin="anonymous"
+                    referrerPolicy="no-referrer"
+                  />
                   <div className="masonry-overlay">
                     <div className="masonry-btn">
                       <Maximize2 size={18} style={{ color: 'rgba(197,164,89,0.95)' }} />
