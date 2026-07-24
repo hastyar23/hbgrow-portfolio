@@ -10,11 +10,11 @@ const stats = [
 ];
 
 const adResults = [
-  { img: 'https://i.imgur.com/W5OXMYWl.png', messages: '17,820', impressions: '10,204,568' },
-  { img: 'https://i.imgur.com/VvmJH1Kl.png', messages: '6,677', impressions: '2,139,824' },
-  { img: 'https://i.imgur.com/jk8QLtZl.png', messages: '2,826', impressions: '741,792' },
-  { img: 'https://i.imgur.com/NINVVAWl.png', messages: '2,593', impressions: '1,358,495' },
-  { img: 'https://i.imgur.com/8Y7jqz6l.png', messages: '1,853', impressions: '367,874' },
+  { img: '/images/optimized/W5OXMYW.avif', messages: '17,820', impressions: '10,204,568' },
+  { img: '/images/optimized/VvmJH1K.avif', messages: '6,677', impressions: '2,139,824' },
+  { img: '/images/optimized/jk8QLtZ.avif', messages: '2,826', impressions: '741,792' },
+  { img: '/images/optimized/NINVVAW.avif', messages: '2,593', impressions: '1,358,495' },
+  { img: '/images/optimized/8Y7jqz6.avif', messages: '1,853', impressions: '367,874' },
 ];
 
 export default function StatsBanner() {

@@ -2,51 +2,48 @@ import { useState, useEffect, useRef } from 'react';
 import { X, Maximize2, Grid } from 'lucide-react';
 
 const designs = [
-  "https://i.imgur.com/uy5HrR1.jpeg","https://i.imgur.com/ZktcQkK.jpeg","https://i.imgur.com/q6DnSPu.jpeg",
-  "https://i.imgur.com/31X3UhC.jpeg","https://i.imgur.com/9ZcXFxv.jpeg","https://i.imgur.com/Udutqjg.jpeg",
-  "https://i.imgur.com/x2zv7ZG.jpeg","https://i.imgur.com/RYvnrEl.jpeg","https://i.imgur.com/AejcHuv.jpeg",
-  "https://i.imgur.com/HDnhsAa.jpeg","https://i.imgur.com/d506zmK.jpeg","https://i.imgur.com/MiIhRs8.jpeg",
-  "https://i.imgur.com/EilfXvh.jpeg","https://i.imgur.com/7tB1zkc.jpeg","https://i.imgur.com/DFkhoY5.jpeg",
-  "https://i.imgur.com/15VaTNm.jpeg","https://i.imgur.com/1YkWFFr.jpeg","https://i.imgur.com/dOhJM0E.jpeg",
-  "https://i.imgur.com/ZXavnhR.jpeg","https://i.imgur.com/v8gNGA2.jpeg","https://i.imgur.com/C6uQfQq.jpeg",
-  "https://i.imgur.com/RsutZuI.jpeg","https://i.imgur.com/Rnk7g0Z.jpeg","https://i.imgur.com/OpRGJkN.jpeg",
-  "https://i.imgur.com/9XlKGpb.jpeg","https://i.imgur.com/wFmWriU.jpeg","https://i.imgur.com/Ncqp55p.jpeg",
-  "https://i.imgur.com/BWWxq41.jpeg","https://i.imgur.com/1wpms23.jpeg","https://i.imgur.com/es5Tgss.jpeg",
-  "https://i.imgur.com/8WI9Cct.jpeg","https://i.imgur.com/hJH9J4m.jpeg","https://i.imgur.com/0UXYdMW.jpeg",
-  "https://i.imgur.com/txwqP8H.jpeg","https://i.imgur.com/DKJWSmR.jpeg","https://i.imgur.com/wdi3oYk.jpeg",
-  "https://i.imgur.com/tgD2CzG.jpeg","https://i.imgur.com/5ZwUNcA.jpeg","https://i.imgur.com/UaVVdst.jpeg",
-  "https://i.imgur.com/ba4XnXL.jpeg","https://i.imgur.com/UbYHz0e.jpeg","https://i.imgur.com/tAqtfO1.jpeg",
-  "https://i.imgur.com/y50B95z.jpeg","https://i.imgur.com/ecRahyT.jpeg","https://i.imgur.com/MKHBOZJ.jpeg",
-  "https://i.imgur.com/4elfTeS.jpeg","https://i.imgur.com/cu7Ku3P.jpeg","https://i.imgur.com/xMfhqsY.gif",
-  "https://i.imgur.com/D0X0tV5.jpeg","https://i.imgur.com/DnLy2Xl.jpeg","https://i.imgur.com/6fwe56x.jpeg",
-  "https://i.imgur.com/QDN9xSp.jpeg","https://i.imgur.com/PqX0cHp.jpeg","https://i.imgur.com/9ULeE5i.jpeg",
-  "https://i.imgur.com/oE2S15s.jpeg","https://i.imgur.com/WX1LhYR.jpeg","https://i.imgur.com/snySCz2.jpeg",
-  "https://i.imgur.com/2OXjkJK.jpeg","https://i.imgur.com/r2DiU7e.jpeg","https://i.imgur.com/OgHYtSq.jpeg",
-  "https://i.imgur.com/wLUOB54.jpeg","https://i.imgur.com/vUaZK3m.jpeg","https://i.imgur.com/GEEa9yQ.jpeg",
-  "https://i.imgur.com/3KBnxCT.jpeg","https://i.imgur.com/raF9j2J.jpeg","https://i.imgur.com/SDe6VP5.jpeg",
-  "https://i.imgur.com/FgMI51L.jpeg","https://i.imgur.com/tAE8UMP.jpeg","https://i.imgur.com/uXRlh5R.jpeg",
-  "https://i.imgur.com/r4iqpzD.jpeg","https://i.imgur.com/3VQIE5X.jpeg","https://i.imgur.com/tgIz4fU.jpeg",
-  "https://i.imgur.com/l56uUMm.jpeg","https://i.imgur.com/GTEJ2zi.jpeg","https://i.imgur.com/EQ1I3Yh.jpeg",
-  "https://i.imgur.com/MrAUsyZ.jpeg","https://i.imgur.com/zkIrL81.jpeg","https://i.imgur.com/7QuphkU.jpeg",
-  "https://i.imgur.com/Ei3iyLy.jpeg","https://i.imgur.com/JqRmhWp.jpeg","https://i.imgur.com/gi0Yv00.jpeg",
-  "https://i.imgur.com/2OTcuhr.jpeg","https://i.imgur.com/kwyErgy.jpeg","https://i.imgur.com/14eAtxV.jpeg",
-  "https://i.imgur.com/R9qqDEX.jpeg","https://i.imgur.com/r8jbsmQ.jpeg","https://i.imgur.com/sMNlOlu.jpeg",
-  "https://i.imgur.com/g6MFewc.jpeg","https://i.imgur.com/6drsqLG.jpeg","https://i.imgur.com/E07MkJO.jpeg",
-  "https://i.imgur.com/TMzKTv6.jpeg","https://i.imgur.com/EwBtK12.jpeg","https://i.imgur.com/J8EyBlX.jpeg",
-  "https://i.imgur.com/WKPmPVN.jpeg","https://i.imgur.com/4WgrrdX.jpeg","https://i.imgur.com/Of1DaFs.jpeg",
-  "https://i.imgur.com/EVPNSDu.jpeg","https://i.imgur.com/zZ1pcVF.jpeg","https://i.imgur.com/Lgl9pV5.jpeg",
-  "https://i.imgur.com/pS7miGb.jpeg","https://i.imgur.com/XGB2E1A.jpeg","https://i.imgur.com/pNSj5te.jpeg",
-  "https://i.imgur.com/SfUSpI5.jpeg"
+  "/images/optimized/uy5HrR1.avif","/images/optimized/ZktcQkK.avif","/images/optimized/q6DnSPu.avif",
+  "/images/optimized/31X3UhC.avif","/images/optimized/9ZcXFxv.avif","/images/optimized/Udutqjg.avif",
+  "/images/optimized/x2zv7ZG.avif","/images/optimized/RYvnrEl.avif","/images/optimized/AejcHuv.avif",
+  "/images/optimized/HDnhsAa.avif","/images/optimized/d506zmK.avif","/images/optimized/MiIhRs8.avif",
+  "/images/optimized/EilfXvh.avif","/images/optimized/7tB1zkc.avif","/images/optimized/DFkhoY5.avif",
+  "/images/optimized/15VaTNm.avif","/images/optimized/1YkWFFr.avif","/images/optimized/dOhJM0E.avif",
+  "/images/optimized/ZXavnhR.avif","/images/optimized/v8gNGA2.avif","/images/optimized/C6uQfQq.avif",
+  "/images/optimized/RsutZuI.avif","/images/optimized/Rnk7g0Z.avif","/images/optimized/OpRGJkN.avif",
+  "/images/optimized/9XlKGpb.avif","/images/optimized/wFmWriU.avif","/images/optimized/Ncqp55p.avif",
+  "/images/optimized/BWWxq41.avif","/images/optimized/1wpms23.avif","/images/optimized/es5Tgss.avif",
+  "/images/optimized/8WI9Cct.avif","/images/optimized/hJH9J4m.avif","/images/optimized/0UXYdMW.avif",
+  "/images/optimized/txwqP8H.avif","/images/optimized/DKJWSmR.avif","/images/optimized/wdi3oYk.avif",
+  "/images/optimized/tgD2CzG.avif","/images/optimized/5ZwUNcA.avif","/images/optimized/UaVVdst.avif",
+  "/images/optimized/ba4XnXL.avif","/images/optimized/UbYHz0e.avif","/images/optimized/tAqtfO1.avif",
+  "/images/optimized/y50B95z.avif","/images/optimized/ecRahyT.avif","/images/optimized/MKHBOZJ.avif",
+  "/images/optimized/4elfTeS.avif","/images/optimized/cu7Ku3P.avif","/images/optimized/xMfhqsY.avif",
+  "/images/optimized/D0X0tV5.avif","/images/optimized/DnLy2Xl.avif","/images/optimized/6fwe56x.avif",
+  "/images/optimized/QDN9xSp.avif","/images/optimized/PqX0cHp.avif","/images/optimized/9ULeE5i.avif",
+  "/images/optimized/oE2S15s.avif","/images/optimized/WX1LhYR.avif","/images/optimized/snySCz2.avif",
+  "/images/optimized/2OXjkJK.avif","/images/optimized/r2DiU7e.avif","/images/optimized/OgHYtSq.avif",
+  "/images/optimized/wLUOB54.avif","/images/optimized/vUaZK3m.avif","/images/optimized/GEEa9yQ.avif",
+  "/images/optimized/3KBnxCT.avif","/images/optimized/raF9j2J.avif","/images/optimized/SDe6VP5.avif",
+  "/images/optimized/FgMI51L.avif","/images/optimized/tAE8UMP.avif","/images/optimized/uXRlh5R.avif",
+  "/images/optimized/r4iqpzD.avif","/images/optimized/3VQIE5X.avif","/images/optimized/tgIz4fU.avif",
+  "/images/optimized/l56uUMm.avif","/images/optimized/GTEJ2zi.avif","/images/optimized/EQ1I3Yh.avif",
+  "/images/optimized/MrAUsyZ.avif","/images/optimized/zkIrL81.avif","/images/optimized/7QuphkU.avif",
+  "/images/optimized/Ei3iyLy.avif","/images/optimized/JqRmhWp.avif","/images/optimized/gi0Yv00.avif",
+  "/images/optimized/2OTcuhr.avif","/images/optimized/kwyErgy.avif","/images/optimized/14eAtxV.avif",
+  "/images/optimized/R9qqDEX.avif","/images/optimized/r8jbsmQ.avif","/images/optimized/sMNlOlu.avif",
+  "/images/optimized/g6MFewc.avif","/images/optimized/6drsqLG.avif","/images/optimized/E07MkJO.avif",
+  "/images/optimized/TMzKTv6.avif","/images/optimized/EwBtK12.avif","/images/optimized/J8EyBlX.avif",
+  "/images/optimized/WKPmPVN.avif","/images/optimized/4WgrrdX.avif","/images/optimized/Of1DaFs.avif",
+  "/images/optimized/EVPNSDu.avif","/images/optimized/zZ1pcVF.avif","/images/optimized/Lgl9pV5.avif",
+  "/images/optimized/pS7miGb.avif","/images/optimized/XGB2E1A.avif","/images/optimized/pNSj5te.avif",
+  "/images/optimized/SfUSpI5.avif"
 ];
 
 const track1 = designs.filter((_, i) => i % 2 === 0);
 const track2 = designs.filter((_, i) => i % 2 !== 0);
 
-// Optimize Imgur links to load highly compressed thumbnails ('l' modifier = Large Thumbnail ~ 640px)
-const getThumbUrl = (url) => {
-  if (!url || typeof url !== 'string' || url.endsWith('.gif')) return url;
-  return url.replace(/(\.[a-zA-Z]+)$/, 'l$1');
-};
+// No need for Imgur thumbnail optimization anymore since we use local AVIF files
+const getThumbUrl = (url) => url;
 
 // Thumbnail heights: smaller on mobile
 const THUMB_HEIGHT_MOBILE = 200;

@@ -53,7 +53,7 @@ export default function Footer() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.25rem' }}>
               <img
-                src="https://i.imgur.com/U9X57gP.png"
+                src="/images/optimized/U9X57gP.avif"
                 alt="HBgrow Agency Logo"
                 style={{ height: 44, width: 44, objectFit: 'contain', borderRadius: '50%' }}
               />

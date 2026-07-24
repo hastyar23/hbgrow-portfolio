@@ -52,7 +52,7 @@ export default function Navbar() {
             style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}
           >
             <img
-              src="https://i.imgur.com/U9X57gP.png"
+              src="/images/optimized/U9X57gP.avif"
               alt="HBgrow Agency Logo"
               style={{ height: 40, width: 40, objectFit: 'contain', borderRadius: '50%' }}
             />
