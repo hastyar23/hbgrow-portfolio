@@ -94,14 +94,14 @@ export default function Hero() {
           }}
         >
           براندەکەت شایەنی{' '}
-          <span className="text-gold">کڕیارە،</span>
+          <span className="text-gold">کــــڕیارە،</span>
           <br />
           <span style={{
             fontSize: 'clamp(0.95rem, 3.2vw, 2.75rem)',
             fontWeight: 400,
             color: 'rgba(203,213,225,0.72)',
           }}>
-            نەک تەنها بینەر.
+            نەک تەنها بـــــــــــــــینەر
           </span>
         </h1>
 
