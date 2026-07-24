@@ -100,8 +100,6 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         <img
           src={getThumbUrl(src)}
           alt="Design work"
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
           decoding="async"
           style={{
             height: '100%', width: 'auto', objectFit: 'cover',
@@ -255,8 +253,6 @@ export default function DesignPortfolio() {
           <img
             src={activeImg}
             alt="Fullscreen design"
-            crossOrigin="anonymous"
-            referrerPolicy="no-referrer"
             style={{
               maxWidth: '100%', maxHeight: '92dvh',
               objectFit: 'contain', borderRadius: '0.75rem',
@@ -305,8 +301,6 @@ export default function DesignPortfolio() {
                     alt="Design work"
                     loading="lazy"
                     decoding="async"
-                    crossOrigin="anonymous"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="masonry-overlay">
                     <div className="masonry-btn">
