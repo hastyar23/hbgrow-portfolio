@@ -202,6 +202,7 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
 export default function Portfolio() {
   const [activeVideo, setActiveVideo]     = useState(null);
   const [showAllVideos, setShowAllVideos] = useState(false);
+  const [visibleCount, setVisibleCount]   = useState(12);
   const [isMobile, setIsMobile]           = useState(false);
   const marqueeViewportRef                = useRef(null); // the overflow:hidden wrapper
 
@@ -382,7 +383,7 @@ export default function Portfolio() {
                   کوالێتی هەندێک لە ڤیدیۆکانمان دابەزاندووە تا زووتر بکرێنەوە
                 </p>
               </div>
-              <button onClick={() => setShowAllVideos(false)} className="btn-ghost" style={{ padding: '0.625rem 1rem', flexShrink: 0 }}>
+              <button onClick={() => { setShowAllVideos(false); setVisibleCount(12); }} className="btn-ghost" style={{ padding: '0.625rem 1rem', flexShrink: 0 }}>
                 <X size={15} />
                 داخستن
               </button>
@@ -393,7 +394,7 @@ export default function Portfolio() {
               gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 160px), 1fr))',
               gap: '1.25rem',
             }}>
-              {videoIds.map((id, i) => (
+              {videoIds.slice(0, visibleCount).map((id, i) => (
                 <div
                   key={i}
                   style={{
@@ -423,6 +424,19 @@ export default function Portfolio() {
                 </div>
               ))}
             </div>
+
+            {visibleCount < videoIds.length && (
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+                <button
+                  onClick={() => setVisibleCount(prev => prev + 12)}
+                  className="btn-ghost"
+                  style={{ padding: '0.875rem 2rem', fontSize: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                >
+                  <Grid size={16} style={{ opacity: 0.75, flexShrink: 0, marginLeft: '0.5rem' }} />
+                  بینینی ڤیدیۆی زیاتر
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

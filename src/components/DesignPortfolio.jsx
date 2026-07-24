@@ -146,6 +146,7 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
 export default function DesignPortfolio() {
   const [activeImg, setActiveImg] = useState(null);
   const [showAllDesigns, setShowAllDesigns] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(12);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -288,13 +289,13 @@ export default function DesignPortfolio() {
                   کوالێتی هەندێک لە دیزاینەکانمان دابەزاندووە تا زووتر بکرێنەوە
                 </p>
               </div>
-              <button onClick={() => setShowAllDesigns(false)} className="btn-ghost" style={{ padding: '0.625rem 1rem', flexShrink: 0 }}>
+              <button onClick={() => { setShowAllDesigns(false); setVisibleCount(12); }} className="btn-ghost" style={{ padding: '0.625rem 1rem', flexShrink: 0 }}>
                 <X size={15} />
                 داخستن
               </button>
             </div>
             <div className="masonry-grid">
-              {designs.map((src, i) => (
+              {designs.slice(0, visibleCount).map((src, i) => (
                 <div key={i} className="masonry-item" onClick={() => setActiveImg(src)}>
                   <img
                     src={getThumbUrl(src)}
@@ -310,6 +311,19 @@ export default function DesignPortfolio() {
                 </div>
               ))}
             </div>
+
+            {visibleCount < designs.length && (
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+                <button
+                  onClick={() => setVisibleCount(prev => prev + 12)}
+                  className="btn-ghost"
+                  style={{ padding: '0.875rem 2rem', fontSize: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                >
+                  <Grid size={16} style={{ opacity: 0.75, flexShrink: 0, marginLeft: '0.5rem' }} />
+                  بینینی دیزاینی زیاتر
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}
