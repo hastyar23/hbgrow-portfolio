@@ -84,10 +84,9 @@ export default function Hero() {
           className="animate-fade-in-up delay-200"
           style={{
             fontFamily: "'Noto Naskh Arabic', serif",
-            fontSize: 'clamp(1.4rem, 5.5vw, 5rem)',
+            fontSize: 'clamp(1.8rem, 5.5vw, 5rem)',
             fontWeight: 700,
             lineHeight: 1.25,
-            letterSpacing: '0.01em',
             color: '#ffffff',
             maxWidth: 820,
             margin: '0 auto 1.25rem',
