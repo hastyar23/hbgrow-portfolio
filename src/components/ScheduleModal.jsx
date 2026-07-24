@@ -56,38 +56,45 @@ export default function ScheduleModal({ onClose }) {
 
     setIsSubmitting(true);
 
+    // 1. Generate the unique Event ID exactly when the button is clicked
+    const uniqueEventId = 'lead_' + new Date().getTime();
+
+    // 2. Package the data for your Google Script
     const payload = {
-      method,
-      job,
-      city,
-      email,
-      name,
-      phone,
+      name: name,
+      phone: phone,
+      email: email,
+      city: city,
+      job: job,
+      method: method,
       date: selectedDate ? selectedDate.toLocaleDateString('en-GB') : 'N/A',
       time: selectedTime || 'N/A',
-      submittedAt: new Date().toISOString()
+      event_id: uniqueEventId // The exact same ID for deduplication
     };
 
     try {
-      // 1. Send data to Google Sheets / Webhook
-      await fetch(WEBHOOK_URL, {
+      // 3. Fire the Browser Pixel (with the ID for deduplication)
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'Lead', {}, { eventID: uniqueEventId });
+      }
+
+      // 4. Send silently to your free Google Apps Script Webhook
+      await fetch('https://script.google.com/macros/s/AKfycbwkGPCyipG6YgdEjgqyfHQ4MavIOPlghjsOcje4kkHYxrPS43ocL0bFU5ZfLGB7Cj-ezg/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        mode: 'no-cors' // Use no-cors to prevent CORS issues if the webhook isn't configured for it
+        mode: 'no-cors', // Bypasses browser blocking for seamless background posting
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
       });
       
-      // 2. Fire Meta Pixel Lead Event
-      if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'Lead', payload);
-      }
-      
+      // 5. Trigger the WhatsApp redirect as normal or show success
       if (method === 'Message') {
         // Immediate Redirect to WhatsApp for Messages
         const msgText = encodeURIComponent(`پێویستم بە زانیاری زیاترە\nجۆری کارەکەم: ${job}\nشوێن: ${city}`);
-        window.location.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msgText}`;
+        window.location.href = `https://wa.me/9647700253469?text=${msgText}`;
       } else {
-        // Show Success Screen for Calls/Meetings
+        // Show Success Screen for Calls/Meetings (will redirect/notify them via WhatsApp separately per business flow)
         setIsSubmitting(false);
         setIsSuccess(true);
       }
