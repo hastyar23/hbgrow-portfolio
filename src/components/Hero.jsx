@@ -70,10 +70,10 @@ export default function Hero() {
         }}
       >
         {/* Badge */}
-        <div className="animate-fade-in-up delay-100" style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'center' }}>
+        <div className="animate-fade-in-up delay-100" style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'center', padding: '0 0.5rem' }}>
           <span className="badge">
             <span className="dot" />
-            متمانە پێکراوە لەلایەن زیاتر لە 100 کڕیار تەنها لە کوردستان و عێراق
+            متمانەپێکراوە لە +١٠٠ کڕیار لە کوردستان و عێراق
           </span>
         </div>
 
@@ -82,7 +82,7 @@ export default function Hero() {
           className="animate-fade-in-up delay-200"
           style={{
             fontFamily: "'Noto Naskh Arabic', serif",
-            fontSize: 'clamp(1.75rem, 6vw, 5rem)',
+            fontSize: 'clamp(1.4rem, 5.5vw, 5rem)',
             fontWeight: 700,
             lineHeight: 1.25,
             letterSpacing: '0.01em',
@@ -96,7 +96,7 @@ export default function Hero() {
           <span className="text-gold">کڕیارە،</span>
           <br />
           <span style={{
-            fontSize: 'clamp(1rem, 3.5vw, 2.75rem)',
+            fontSize: 'clamp(0.95rem, 3.2vw, 2.75rem)',
             fontWeight: 400,
             color: 'rgba(203,213,225,0.72)',
           }}>

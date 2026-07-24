@@ -266,7 +266,7 @@ body {
   display: flex;
   width: max-content;
   direction: ltr;
-  animation: marquee 32s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 .marquee-track:hover { animation-play-state: paused; }
 
@@ -353,7 +353,7 @@ body {
   display: flex;
   width: max-content;
   direction: ltr;
-  animation: video-marquee-scroll 120s linear infinite;
+  animation: video-marquee-scroll 200s linear infinite;
   gap: 1rem;
 }
 .video-marquee-track:hover {
@@ -430,10 +430,10 @@ body {
   gap: 1rem;
 }
 .design-marquee-track.forward {
-  animation: design-marquee-scroll 240s linear infinite;
+  animation: design-marquee-scroll 400s linear infinite;
 }
 .design-marquee-track.reverse {
-  animation: design-marquee-scroll-reverse 240s linear infinite;
+  animation: design-marquee-scroll-reverse 400s linear infinite;
 }
 .design-marquee-track:hover { animation-play-state: paused; }
 @keyframes design-marquee-scroll {

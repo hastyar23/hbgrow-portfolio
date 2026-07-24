@@ -363,103 +363,148 @@ export default function ScheduleModal({ onClose }) {
         .modal-overlay {
           position: fixed; inset: 0; z-index: 10000;
           background: rgba(2,5,10,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-          display: flex; justify-content: center; align-items: center; padding: 1rem;
+          display: flex; justify-content: center; align-items: flex-end;
+          padding: 0;
+        }
+        @media (min-width: 600px) {
+          .modal-overlay { align-items: center; padding: 1rem; }
         }
         .modal-content {
           background: #0B1120; border: 1px solid rgba(198,164,92,0.2);
-          border-radius: 24px; width: 100%; max-width: 700px;
-          max-height: 90vh; overflow-y: auto; position: relative;
-          box-shadow: 0 32px 80px -20px rgba(0,0,0,0.8);
+          border-radius: 24px 24px 0 0; width: 100%; max-width: 700px;
+          max-height: 92dvh; overflow-y: auto; position: relative;
+          box-shadow: 0 -16px 60px -10px rgba(0,0,0,0.8);
           display: flex; flex-direction: column;
         }
-        .success-content { padding: 4rem 2rem; justify-content: center; align-items: center; }
+        @media (min-width: 600px) {
+          .modal-content { border-radius: 24px; max-height: 90vh; box-shadow: 0 32px 80px -20px rgba(0,0,0,0.8); }
+        }
+        .success-content { padding: 3rem 1.5rem; justify-content: center; align-items: center; }
         .modal-close {
-          position: absolute; top: 1.5rem; left: 1.5rem;
+          position: absolute; top: 1rem; left: 1rem;
           background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-          color: #fff; border-radius: 50%; width: 40px; height: 40px;
+          color: #fff; border-radius: 50%; width: 38px; height: 38px;
           display: flex; justify-content: center; align-items: center;
-          cursor: pointer; transition: all 0.2s; z-index: 10;
+          cursor: pointer; transition: all 0.2s; z-index: 10; flex-shrink: 0;
         }
         .modal-close:hover { background: rgba(255,255,255,0.1); transform: scale(1.05); }
         .modal-progress {
           height: 4px; background: rgba(255,255,255,0.05); width: 100%;
-          border-radius: 24px 24px 0 0; overflow: hidden;
+          border-radius: 24px 24px 0 0; overflow: hidden; flex-shrink: 0;
         }
         .modal-progress-fill {
           height: 100%; background: #C5A459; transition: width 0.4s ease;
         }
-        .step-container { padding: 3rem 2.5rem; flex: 1; }
+        .step-container {
+          padding: 1.5rem 1.25rem 1rem;
+          flex: 1;
+        }
+        @media (min-width: 600px) {
+          .step-container { padding: 2.5rem 2.5rem 1.5rem; }
+        }
         .step-title {
-          font-family: 'Noto Naskh Arabic', serif; font-size: 2.2rem;
+          font-family: 'Noto Naskh Arabic', serif;
+          font-size: clamp(1.3rem, 5vw, 2.2rem);
           color: #fff; margin-bottom: 0.5rem; font-weight: 700;
+          padding-left: 2.5rem;
+          line-height: 1.3;
         }
         .step-subtitle {
-          color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;
+          color: rgba(255,255,255,0.6);
+          font-size: clamp(0.82rem, 3vw, 1.1rem);
+          line-height: 1.7; margin-bottom: 2rem;
         }
         .step-question {
-          color: #E8C96A; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600;
+          color: #E8C96A;
+          font-size: clamp(0.95rem, 3.5vw, 1.5rem);
+          margin-bottom: 1.25rem; font-weight: 600; line-height: 1.4;
         }
         .options-grid {
-          display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.75rem;
+        }
+        @media (min-width: 480px) {
+          .options-grid { gap: 1rem; }
         }
         .option-btn {
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 16px; padding: 2rem 1.5rem; color: #fff; cursor: pointer;
-          display: flex; flex-direction: column; align-items: center; gap: 1rem;
-          transition: all 0.3s ease;
+          border-radius: 14px; padding: 1.25rem 0.75rem; color: #fff; cursor: pointer;
+          display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+          transition: all 0.3s ease; font-size: clamp(0.78rem, 2.5vw, 0.95rem);
         }
+        @media (min-width: 480px) {
+          .option-btn { border-radius: 16px; padding: 2rem 1.5rem; font-size: 1rem; }
+        }
+        .option-btn svg { width: clamp(20px, 5vw, 28px); height: clamp(20px, 5vw, 28px); }
         .option-btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(198,164,92,0.3); }
         .option-btn.active {
           background: rgba(198,164,92,0.1); border-color: #C5A459;
           box-shadow: 0 0 20px rgba(198,164,92,0.15); color: #E8C96A;
         }
-        .input-group { margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
-        .input-group label { color: rgba(255,255,255,0.8); font-size: 1.1rem; }
+        .input-group { margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+        .input-group label { color: rgba(255,255,255,0.8); font-size: clamp(0.85rem, 3vw, 1.1rem); }
         .step-input {
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
-          padding: 1.25rem 1.5rem; border-radius: 12px; color: #fff; font-size: 1.1rem;
-          font-family: inherit; transition: all 0.3s;
+          padding: 0.9rem 1.1rem; border-radius: 12px; color: #fff;
+          font-size: clamp(0.9rem, 3vw, 1.1rem);
+          font-family: inherit; transition: all 0.3s; width: 100%;
         }
+        .step-input::placeholder { color: rgba(255,255,255,0.3); }
         .step-input:focus { outline: none; border-color: #C5A459; background: rgba(255,255,255,0.06); }
-        .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .input-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+        @media (min-width: 520px) {
+          .input-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+        }
         
         .dates-row {
-          display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 1rem;
-          scrollbar-width: none; /* Firefox */
+          display: flex; gap: 0.6rem; overflow-x: auto; padding-bottom: 0.75rem;
+          scrollbar-width: none;
         }
         .dates-row::-webkit-scrollbar { display: none; }
         .date-btn {
-          flex: 0 0 80px; height: 100px; border-radius: 16px;
+          flex: 0 0 64px; height: 88px; border-radius: 14px;
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
           color: rgba(255,255,255,0.7); cursor: pointer;
-          display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.25rem;
+          display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.15rem;
           transition: all 0.2s;
+        }
+        @media (min-width: 480px) {
+          .date-btn { flex: 0 0 80px; height: 100px; }
         }
         .date-btn:hover { background: rgba(255,255,255,0.06); }
         .date-btn.active { background: #C5A459; border-color: #C5A459; color: #111; }
-        .date-num { font-size: 1.8rem; font-weight: 800; font-family: monospace; }
-        .date-day, .date-month { font-size: 0.9rem; }
+        .date-num { font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 800; font-family: monospace; }
+        .date-day, .date-month { font-size: clamp(0.7rem, 2.5vw, 0.9rem); }
         
         .times-grid {
-          display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem;
+          display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem;
+        }
+        @media (min-width: 480px) {
+          .times-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
         }
         .time-btn {
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-          padding: 1rem; border-radius: 12px; color: #fff; cursor: pointer;
-          transition: all 0.2s; font-family: monospace; font-size: 1.05rem;
+          padding: 0.875rem 0.5rem; border-radius: 12px; color: #fff; cursor: pointer;
+          transition: all 0.2s; font-family: monospace; font-size: clamp(0.82rem, 2.5vw, 1.05rem);
+          text-align: center;
         }
         .time-btn:hover { border-color: rgba(198,164,92,0.4); }
         .time-btn.active { background: rgba(198,164,92,0.15); border-color: #C5A459; color: #E8C96A; }
 
         .modal-footer {
-          padding: 1.5rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.05);
-          display: flex; justify-content: space-between; align-items: center;
-          background: rgba(0,0,0,0.2);
+          padding: 1rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.05);
+          display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
+          background: rgba(0,0,0,0.2); flex-shrink: 0;
+        }
+        @media (min-width: 480px) {
+          .modal-footer { padding: 1.25rem 2rem; }
         }
         .nav-btn.prev { 
-          display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem;
+          display: flex; align-items: center; gap: 0.4rem;
+          font-size: clamp(0.85rem, 3vw, 1.1rem);
           cursor: pointer; background: transparent; border: none; transition: all 0.2s;
-          color: rgba(255,255,255,0.6); 
+          color: rgba(255,255,255,0.6); white-space: nowrap; flex-shrink: 0;
         }
         .nav-btn.prev:hover { color: #fff; }
         .nav-btn.prev:disabled { opacity: 0.5; cursor: not-allowed; }

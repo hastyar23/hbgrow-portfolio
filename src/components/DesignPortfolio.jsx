@@ -46,24 +46,26 @@ const track2 = designs.filter((_, i) => i % 2 !== 0);
 const THUMB_HEIGHT_MOBILE = 200;
 const THUMB_HEIGHT_DESKTOP = 250;
 
-function MarqueeThumbnail({ src, onClick, isMobile }) {
+function MarqueeThumbnail({ src, onClick, isMobile, index }) {
   const [hover, setHover] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
-  const [inView, setInView] = useState(false);
+  // First 8 images load immediately (above-fold / near-fold), rest lazy
+  const [inView, setInView] = useState(index < 8);
   const ref = useRef(null);
   const h = isMobile ? THUMB_HEIGHT_MOBILE : THUMB_HEIGHT_DESKTOP;
 
   useEffect(() => {
+    if (index < 8) return; // already eager
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
-      { rootMargin: '200px' }
+      { rootMargin: '600px' } // preload 600px before visible
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [index]);
 
   return (
     <div
@@ -192,7 +194,7 @@ export default function DesignPortfolio() {
         ))}
         <div className="design-marquee-track forward">
           {[...track1, ...track1].map((src, i) => (
-            <MarqueeThumbnail key={`t1-${i}`} src={src} onClick={setActiveImg} isMobile={isMobile} />
+            <MarqueeThumbnail key={`t1-${i}`} src={src} onClick={setActiveImg} isMobile={isMobile} index={i} />
           ))}
         </div>
       </div>
@@ -208,7 +210,7 @@ export default function DesignPortfolio() {
         ))}
         <div className="design-marquee-track reverse">
           {[...track2, ...track2].map((src, i) => (
-            <MarqueeThumbnail key={`t2-${i}`} src={src} onClick={setActiveImg} isMobile={isMobile} />
+            <MarqueeThumbnail key={`t2-${i}`} src={src} onClick={setActiveImg} isMobile={isMobile} index={i} />
           ))}
         </div>
       </div>
