@@ -124,26 +124,51 @@ export default function ScheduleModal({ onClose }) {
 
   if (isSuccess) {
     return (
-      <div className="modal-overlay">
-        <div className="modal-content success-content" dir="rtl">
-          <button className="modal-close" onClick={onClose}><X size={24} /></button>
-          <div style={{ textAlign: 'center', padding: '2rem 0' }}>
-            <CheckCircle2 size={80} color="#C5A459" style={{ margin: '0 auto 1.5rem auto' }} />
-            <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Noto Naskh Arabic', serif" }}>
-              سوپاس پەیوەندییەکەت تۆمارکرا!
-            </h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
-              هەوڵدەدەین لەو کاتەی کە دیاریت کردووە پەیوەندیت پێوە بکەین
-            </p>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem' }}>
-              پێش پەیوەندییەکە نامەیەکی ئاگادارکردنەوە بۆ بەڕێزت دەنێرین لە واتسئاپ
-            </p>
-            <button onClick={onClose} className="btn-primary" style={{ marginTop: '2.5rem' }}>
-              داخستن
-            </button>
+      <>
+        <div className="modal-overlay">
+          <div className="modal-content success-content" dir="rtl">
+            <button className="modal-close" onClick={onClose}><X size={24} /></button>
+            <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+              <CheckCircle2 size={80} color="#C5A459" style={{ margin: '0 auto 1.5rem auto' }} />
+              <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Noto Naskh Arabic', serif" }}>
+                سوپاس پەیوەندییەکەت تۆمارکرا!
+              </h2>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+                هەوڵدەدەین لەو کاتەی کە دیاریت کردووە پەیوەندیت پێوە بکەین
+              </p>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem' }}>
+                پێش پەیوەندییەکە نامەیەکی ئاگادارکردنەوە بۆ بەڕێزت دەنێرین لە واتسئاپ
+              </p>
+              <button onClick={onClose} className="btn-primary" style={{ marginTop: '2.5rem' }}>
+                داخستن
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+        <style dangerouslySetInnerHTML={{__html: `
+          .modal-overlay {
+            position: fixed; inset: 0; z-index: 10000;
+            background: rgba(2,5,10,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            display: flex; justify-content: center; align-items: center; padding: 1rem;
+          }
+          .modal-content {
+            background: #0B1120; border: 1px solid rgba(198,164,92,0.2);
+            border-radius: 24px; width: 100%; max-width: 700px;
+            max-height: 90vh; overflow-y: auto; position: relative;
+            box-shadow: 0 32px 80px -20px rgba(0,0,0,0.8);
+            display: flex; flex-direction: column;
+          }
+          .success-content { padding: 4rem 2rem; justify-content: center; align-items: center; }
+          .modal-close {
+            position: absolute; top: 1.5rem; left: 1.5rem;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; border-radius: 50%; width: 40px; height: 40px;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; transition: all 0.2s; z-index: 10;
+          }
+          .modal-close:hover { background: rgba(255,255,255,0.1); transform: scale(1.05); }
+        `}} />
+      </>
     );
   }
 
