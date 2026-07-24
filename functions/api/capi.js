@@ -3,7 +3,7 @@ export async function onRequestPost(context) {
 
   try {
     const body = await request.json();
-    const { email, phone, city, event_id } = body;
+    const { email, phone, city, event_id, fbp, fbc } = body;
 
     const PIXEL_ID = '26153004324379179';
     // For production on Cloudflare Pages, set META_CAPI_TOKEN in your Pages project Settings -> Environment variables
@@ -25,6 +25,8 @@ export async function onRequestPost(context) {
       client_user_agent: request.headers.get('user-agent') || '',
       client_ip_address: request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || request.headers.get('x-forwarded-for') || '0.0.0.0',
     };
+    if (fbp) userData.fbp = fbp;
+    if (fbc) userData.fbc = fbc;
 
     if (email) {
       const emHash = await hashData(email);

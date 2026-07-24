@@ -59,6 +59,16 @@ export default function ScheduleModal({ onClose }) {
     // 1. Generate the unique Event ID exactly when the button is clicked
     const uniqueEventId = 'lead_' + new Date().getTime();
 
+    // 1b. Get Meta Click and Browser IDs from cookies
+    const getCookie = (name) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return undefined;
+    };
+    const fbp = getCookie('_fbp');
+    const fbc = getCookie('_fbc');
+
     // 2. Package the data for your Google Script
     const payload = {
       name: name,
@@ -69,7 +79,9 @@ export default function ScheduleModal({ onClose }) {
       method: method,
       date: selectedDate ? selectedDate.toLocaleDateString('en-GB') : 'N/A',
       time: selectedTime || 'N/A',
-      event_id: uniqueEventId // The exact same ID for deduplication
+      event_id: uniqueEventId, // The exact same ID for deduplication
+      fbp: fbp,
+      fbc: fbc
     };
 
     try {
