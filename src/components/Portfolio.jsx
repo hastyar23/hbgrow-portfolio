@@ -49,44 +49,10 @@ const videoIds = Array.from(new Set([
 ───────────────────────────────────────────────────────────── */
 function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
   const cardRef   = useRef(null);
-  const [visible, setVisible] = useState(false);  // inside marquee viewport
-  const [showIframe, setShowIframe] = useState(false); // delay opacity to hide loading UI
   const [hover,   setHover]   = useState(false);
 
   const W = isMobile ? 180 : 225;
   const H = isMobile ? 320 : 400;
-
-  // IntersectionObserver watching WITHIN the marquee container
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const isIn = entry.isIntersecting;
-        setVisible(isIn);
-        if (!isIn) {
-          setShowIframe(false); // Reset when scrolled out
-        }
-      },
-      {
-        root: rootRef?.current ?? null,
-        rootMargin: '0px 200px 0px 200px', // preload before entering
-        threshold: 0,
-      }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [rootRef]);
-
-  // Wait 1.5s after mounting before fading in the video (hides YT title/avatar flash)
-  useEffect(() => {
-    let timer;
-    if (visible) {
-      timer = setTimeout(() => setShowIframe(true), 1500);
-    }
-    return () => clearTimeout(timer);
-  }, [visible]);
 
   return (
     <div
@@ -108,29 +74,32 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
       onMouseLeave={() => setHover(false)}
       onClick={() => onClick(id)}
     >
-      {/* Static thumbnail — always rendered as a fallback/placeholder */}
       <img
-        src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
-        alt=""
+        src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+        onError={(e) => {
+          if (e.target.src.includes('maxresdefault')) {
+            e.target.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+          }
+        }}
+        alt="Video Thumbnail"
         loading="lazy"
         decoding="async"
         style={{
           position: 'absolute', inset: 0,
           width: '100%', height: '100%',
           objectFit: 'cover',
-          opacity: showIframe ? 0 : 0.55,
+          opacity: 0.55,
           transition: 'opacity 0.6s ease',
           pointerEvents: 'none',
           zIndex: 2,
         }}
       />
 
-      {/* Play-icon overlay — only when not playing */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 3,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         background: 'rgba(2,5,10,0.18)',
-        opacity: showIframe ? 0 : (hover ? 1 : 0.7),
+        opacity: hover ? 1 : 0.7,
         transition: 'opacity 0.35s ease',
         pointerEvents: 'none',
       }}>
@@ -146,52 +115,6 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
           <Play size={14} style={{ fill: 'rgba(197,164,89,0.95)', color: 'rgba(197,164,89,0.95)', marginRight: -2 }} />
         </div>
       </div>
-
-      {/* Autoplay GIF-like iframe — conditionally mounted, extended vertically to hide YT branding in black bars without cropping video */}
-      {visible && (
-        <div style={{
-          position: 'absolute',
-          top: '-25%', left: '0',
-          width: '100%', height: '150%',
-          opacity: showIframe ? 1 : 0,
-          transition: 'opacity 0.6s ease',
-          pointerEvents: 'none',
-          zIndex: 1,
-        }}>
-          <iframe
-            title={id}
-            loading="lazy"
-            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&loop=1&playlist=${id}&disablekb=1&iv_load_policy=3`}
-            allow="autoplay; encrypted-media"
-            frameBorder="0"
-            style={{
-              width: '100%', height: '100%',
-              border: 'none',
-            }}
-          />
-        </div>
-      )}
-
-      {/* "Click to fullscreen" hint on hover while playing */}
-      {showIframe && hover && (
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'rgba(2,5,10,0.35)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backdropFilter: 'blur(2px)',
-          transition: 'opacity 0.3s',
-          zIndex: 4,
-        }}>
-          <div style={{
-            width: 40, height: 40, borderRadius: '50%',
-            background: 'rgba(197,164,89,0.2)',
-            border: '1px solid rgba(197,164,89,0.5)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <Play size={16} style={{ fill: '#C5A459', color: '#C5A459', marginRight: -2 }} />
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -408,7 +331,12 @@ export default function Portfolio() {
                   onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
                 >
                   <img
-                    src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+                    src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+                    onError={(e) => {
+                      if (e.target.src.includes('maxresdefault')) {
+                        e.target.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+                      }
+                    }}
                     alt="Video Thumbnail"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55 }}
                   />
