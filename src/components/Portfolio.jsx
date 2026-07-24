@@ -112,6 +112,8 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
       <img
         src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
         alt=""
+        loading="lazy"
+        decoding="async"
         style={{
           position: 'absolute', inset: 0,
           width: '100%', height: '100%',
@@ -158,7 +160,8 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
         }}>
           <iframe
             title={id}
-            src={`https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&loop=1&playlist=${id}&disablekb=1&iv_load_policy=3`}
+            loading="lazy"
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&loop=1&playlist=${id}&disablekb=1&iv_load_policy=3`}
             allow="autoplay; encrypted-media"
             frameBorder="0"
             style={{
