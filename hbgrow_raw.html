@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" style="scroll-padding-top: 100px;">
+  <head>
+    <!-- 1. Character Encoding & Viewport -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#0ea5e9">
+
+    <!-- 2. Primary Meta Tags (SEO) -->
+    <title>HBgrow Agency | Global Social Media & Growth Marketing</title>
+    <meta name="description" content="HBgrow Agency is a data-driven digital marketing firm based in Sulaymaniyah, Iraq, scaling brands globally through expert social media management, content creation, and paid advertising.">
+    <meta name="keywords" content="HBgrow, Digital Marketing Agency, Social Media Management, Iraq Marketing, Sulaymaniyah, Sorani Content, Global Growth, FB Ads, Instagram Growth">
+    <meta name="author" content="HBgrow Agency">
+
+    <!-- 3. Scripts & Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Initialize window.data to prevent "nav" errors if legacy scripts rely on it
+      window.data = window.data || {};
+      window.data.nav = window.data.nav || [];
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', '"Vazirmatn"', '"Cairo"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    
+    <!-- 4. Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- 5. Import Map -->
+
+
+    <!-- 6. SEO: Hreflang Tags (International) -->
+    <link rel="canonical" href="https://hbgrow.agency/">
+    <link rel="alternate" hreflang="en" href="https://hbgrow.agency/" />
+    <link rel="alternate" hreflang="x-default" href="https://hbgrow.agency/" />
+    <link rel="alternate" hreflang="ar-IQ" href="https://hbgrow.agency/ar" />
+    <link rel="alternate" hreflang="ckb-IQ" href="https://hbgrow.agency/ku" />
+
+    <!-- 7. SEO: Open Graph Tags -->
+    <meta property="og:site_name" content="HBgrow Agency">
+    <meta property="og:type" content="business.business">
+    <meta property="og:url" content="https://hbgrow.agency/">
+    <meta property="og:title" content="HBgrow Agency | Scaling Brands Globally">
+    <meta property="og:description" content="From Sulaymaniyah to the World. We combine human creativity with AI efficiency to grow your brand.">
+    <meta property="og:image" content="https://hbgrow.agency/assets/og-social.jpg">
+    <meta property="og:image:alt" content="HBgrow Agency Branding">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ar_IQ">
+    <meta property="og:locale:alternate" content="ku_IQ">
+
+    <!-- 8. SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HBgrow Agency | Digital Growth Partners">
+    <meta name="twitter:description" content="Expert social media management and content creation strategies. Based in Iraq, serving the globe.">
+    <meta name="twitter:image" content="https://hbgrow.agency/assets/og-social.jpg">
+
+    <!-- 9. SEO: JSON-LD Schema (Professional Service) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "HBgrow Agency",
+      "image": "https://i.imgur.com/U9X57gP.png",
+      "@id": "https://hbgrow.agency",
+      "url": "https://hbgrow.agency",
+      "telephone": "+9647500000000",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sulaymaniyah",
+        "addressRegion": "Kurdistan Region",
+        "addressCountry": "IQ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 35.5577,
+        "longitude": 45.4361
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "Worldwide" },
+        { "@type": "Country", "name": "Iraq" }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/hbgrowagency",
+        "https://www.instagram.com/hbgrow.agency/"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="/assets/index-Ck1c7yaG.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load' , () => {
+    navigator.serviceWorker.register('./_service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registered successfully with scope:', registration.scope);
+      })
+      .catch(error => {
+        console.error('Service Worker registration failed:', error);
+      });
+  });
+} else {
+  console.log('Service workers are not supported in this browser.');
+}
+</script><script src="/_websocket-interceptor.js" defer></script></head>
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-brand-500 selection:text-white">
+    <div id="root"></div>
+</body>
+</html>

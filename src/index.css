@@ -1,0 +1,603 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ─── Local Fonts — MUST be first ─────────────────────────── */
+@font-face {
+  font-family: 'Rabar';
+  src: url('/fonts/Rabar_038.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --deep:    #02050a;
+  --navy:    #050e1d;
+  --sapphire:#0d2342;
+  --gold:    #C5A459;
+  --gold-lt: #d4b66a;
+  --gold-dim: rgba(197,164,89,0.6);
+  --white:   #ffffff;
+  --slate:   #CBD5E1;
+  --muted:   rgba(203,213,225,0.7);
+  --border:  rgba(255,255,255,0.08);
+  --glass:   rgba(255,255,255,0.03);
+}
+
+/* ─── Base ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Noto Kufi Arabic', 'Rabar', sans-serif;
+  background-color: var(--deep);
+  background-image:
+    radial-gradient(ellipse 120% 70% at 50% -10%, rgba(13,35,66,0.95) 0%, rgba(5,14,29,0.8) 40%, transparent 75%),
+    radial-gradient(circle at 15% 60%, rgba(10,30,65,0.5) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(8,22,52,0.45) 0%, transparent 45%),
+    linear-gradient(180deg, #0d2342 0%, #050e1d 25%, #02050a 100%);
+  background-attachment: fixed;
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+::selection { background: rgba(197,164,89,0.25); color: var(--gold-lt); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--deep); }
+::-webkit-scrollbar-thumb { background: rgba(197,164,89,0.35); border-radius: 2px; }
+
+/* ─── Typography Scale ──────────────────────────────────────── */
+.display-xl {
+  font-family: 'Noto Naskh Arabic', 'Rabar', serif;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.display-lg {
+  font-family: 'Noto Naskh Arabic', 'Rabar', serif;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.display-md {
+  font-family: 'Noto Naskh Arabic', 'Rabar', serif;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ─── Gold Gradient Text ────────────────────────────────────── */
+.text-gold {
+  background: linear-gradient(135deg, #B8902A 0%, #E8C96A 50%, #C5A459 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Hairline ──────────────────────────────────────────────── */
+.hairline {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(197,164,89,0.1) 30%, rgba(197,164,89,0.2) 50%, rgba(197,164,89,0.1) 70%, transparent 100%);
+}
+
+/* ─── Gold Pill Badge ───────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(197,164,89,0.2);
+  background: rgba(197,164,89,0.05);
+  color: rgba(197,164,89,0.85);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  white-space: nowrap;
+}
+
+.badge .dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ─── Primary Button (Solid Gold Pill) ─────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: var(--gold);
+  color: #02050a;
+  font-family: 'Noto Kufi Arabic', 'Rabar', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  /* Allow wrapping on very small screens */
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
+  max-width: 100%;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.btn-primary:hover {
+  background: var(--gold-lt);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px -8px rgba(197,164,89,0.45);
+}
+
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:active { transform: translateY(0); }
+
+/* ─── Ghost Button (Glassmorphic Outline Pill) ──────────────── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Noto Kufi Arabic', 'Rabar', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  /* Allow wrapping on very small screens */
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
+  max-width: 100%;
+  backdrop-filter: blur(12px);
+  letter-spacing: 0.02em;
+}
+
+.btn-ghost:hover {
+  color: var(--white);
+  border-color: rgba(197,164,89,0.35);
+  background: rgba(197,164,89,0.06);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px -8px rgba(197,164,89,0.2);
+}
+
+/* ─── Glassmorphic Card ─────────────────────────────────────── */
+.glass-card {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5);
+  border-radius: 1rem;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(197,164,89,0.3);
+  box-shadow: 0 24px 64px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(197,164,89,0.12);
+}
+
+/* ─── Section Wrapper ───────────────────────────────────────── */
+.section-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-wrap { padding: 0 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .section-wrap { padding: 0 2.5rem; }
+}
+
+/* ─── Portfolio Hover ───────────────────────────────────────── */
+.port-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 0.75rem;
+}
+
+.port-item .port-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2,5,10,0.75);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(197,164,89,0.2);
+  border-radius: 0.75rem;
+}
+
+.port-item:hover .port-overlay { opacity: 1; }
+
+/* ─── Marquee ───────────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  direction: ltr;
+  animation: marquee 32s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Scroll Reveal ─────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+[data-reveal].visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── Cursor Glow (Desktop Only) ────────────────────────────── */
+@media (pointer: fine) {
+  .cursor-glow {
+    position: fixed;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(197,164,89,0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: left 0.1s ease, top 0.1s ease;
+  }
+}
+
+/* ─── Stat Number ───────────────────────────────────────────── */
+.stat-val {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #C5A459 0%, #E8C96A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Step Ghost Number ─────────────────────────────────────── */
+.step-num {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, rgba(197,164,89,0.12) 0%, rgba(197,164,89,0.02) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: absolute;
+  top: -0.05em;
+  right: -0.05em;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ─── Testimonial Stars ─────────────────────────────────────── */
+.stars { display: flex; gap: 3px; }
+.stars span { color: var(--gold); font-size: 0.85rem; }
+
+/* ─── Keyframes ─────────────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ─── Video Marquee ─────────────────────────────────────────── */
+.video-marquee-track {
+  display: flex;
+  width: max-content;
+  direction: ltr;
+  animation: video-marquee-scroll 120s linear infinite;
+  gap: 1rem;
+}
+.video-marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes video-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
+}
+
+/* ─── Custom Scrollbar for Modal ───────────────────────────── */
+.modal-scroll::-webkit-scrollbar { width: 4px; }
+.modal-scroll::-webkit-scrollbar-track { background: transparent; }
+.modal-scroll::-webkit-scrollbar-thumb { background: rgba(197,164,89,0.3); border-radius: 4px; }
+
+/* ─── Masonry Gallery ───────────────────────────────────────── */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
+@media (max-width: 1024px) { .masonry-grid { column-count: 2; } }
+@media (max-width: 480px)  { .masonry-grid { column-count: 1; } }
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  position: relative;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.masonry-item:hover {
+  border-color: rgba(197,164,89,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px -12px rgba(0,0,0,0.6);
+}
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.masonry-item:hover img { transform: scale(1.04); }
+.masonry-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2,5,10,0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.masonry-item:hover .masonry-overlay { opacity: 1; }
+.masonry-btn {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(197,164,89,0.15);
+  border: 1px solid rgba(197,164,89,0.4);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  transform: scale(0.85);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.masonry-item:hover .masonry-btn { transform: scale(1); }
+
+/* ─── Design Marquee ───────────────────────────────────────── */
+.design-marquee-track {
+  display: flex;
+  width: max-content;
+  direction: ltr;
+  gap: 1rem;
+}
+.design-marquee-track.forward {
+  animation: design-marquee-scroll 240s linear infinite;
+}
+.design-marquee-track.reverse {
+  animation: design-marquee-scroll-reverse 240s linear infinite;
+}
+.design-marquee-track:hover { animation-play-state: paused; }
+@keyframes design-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
+}
+@keyframes design-marquee-scroll-reverse {
+  from { transform: translateX(calc(-50% - 0.5rem)); }
+  to { transform: translateX(0); }
+}
+
+/* ─── Hero CTA Group ────────────────────────────────────────── */
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.875rem;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 4rem;
+}
+
+@media (min-width: 540px) {
+  .hero-ctas {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: none;
+  }
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-ghost {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+/* ─── Stats Card Inner Flex ─────────────────────────────────── */
+.stats-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 540px) {
+  .stats-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+}
+
+.stats-divider {
+  display: none;
+}
+
+@media (min-width: 540px) {
+  .stats-divider {
+    display: block;
+    width: 1px;
+    height: 36px;
+    flex-shrink: 0;
+    background: linear-gradient(to bottom, transparent, rgba(197,164,89,0.2), transparent);
+    margin: 0 1.5rem;
+  }
+}
+
+/* ─── Stat Item ─────────────────────────────────────────────── */
+.stat-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 540px) {
+  .stat-item {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* ─── Animations ────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(36px) scale(0.97);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+@keyframes bg-scale {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.06); }
+}
+
+/* ─── Fancy Heading Font ────────────────────────────────────── */
+h1, h2 {
+  font-family: 'Noto Naskh Arabic', 'Rabar', serif;
+}
+
+h3, h4, p, span, a, li, button {
+  font-family: 'Noto Kufi Arabic', 'Rabar', sans-serif;
+}
+
+/* ─── Responsive helpers ─────────────────────────────────────── */
+.mobile-full {
+  width: 100%;
+}
+
+@media (min-width: 540px) {
+  .mobile-full { width: auto; }
+}
+
+/* ─── Modal header responsive ───────────────────────────────── */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Process grid — single col on smallest screens ─────────── */
+@media (max-width: 400px) {
+  .step-num {
+    font-size: 3rem;
+  }
+}
+
+/* ─── Footer grid ───────────────────────────────────────────── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
