@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { DollarSign, Users, TrendingUp, MessageCircle, Eye, X, ChevronRight, ChevronLeft } from 'lucide-react';
+import { DollarSign, Users, TrendingUp, MessageCircle, Eye, X, ChevronRight, ChevronLeft, BarChart2 } from 'lucide-react';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -27,11 +27,15 @@ export default function StatsBanner() {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [timerKey, setTimerKey] = useState(0);
+  const [imgLoaded, setImgLoaded] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   const goToSlide = useCallback((index, dir = 'next') => {
     setDirection(dir);
     setCurrentIndex(index);
     setTimerKey(prev => prev + 1);
+    setImgLoaded(false);
+    setImgError(false);
   }, []);
 
   const nextSlide = useCallback(() => {
@@ -193,18 +197,56 @@ export default function StatsBanner() {
                 paddingTop: '2rem',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 background: 'rgba(2,5,10,0.3)',
-                cursor: 'pointer',
-              }} onClick={() => setActiveImage(adResults[currentIndex].img)}>
-                <img src={adResults[currentIndex].img} style={{ 
-                  width: '100%', height: 'auto', maxHeight: '350px', objectFit: 'contain', 
-                  display: 'block', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)',
-                  transition: 'transform 0.4s ease',
-                }} 
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
-                onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
-                onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                alt="Ad Result" loading="lazy" />
+                cursor: imgError ? 'default' : 'pointer',
+                minHeight: 220,
+                position: 'relative',
+              }} onClick={() => !imgError && setActiveImage(adResults[currentIndex].img)}>
+
+                {/* Skeleton shimmer while loading */}
+                {!imgLoaded && !imgError && (
+                  <div style={{
+                    position: 'absolute', inset: '1.5rem',
+                    borderRadius: 16,
+                    background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer 1.6s ease infinite',
+                  }} />
+                )}
+
+                {/* Fallback when Imgur blocks the image */}
+                {imgError && (
+                  <div style={{
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                    gap: '0.75rem', padding: '1.5rem', textAlign: 'center',
+                  }}>
+                    <BarChart2 size={36} color="rgba(197,164,89,0.5)" />
+                    <div style={{ color: 'rgba(197,164,89,0.7)', fontSize: '0.8rem', fontFamily: "'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
+                      کەمپەینی ژمارە {currentIndex + 1}
+                    </div>
+                    <div style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.65rem' }}>Meta Ads Dashboard</div>
+                  </div>
+                )}
+
+                {/* Actual Image */}
+                <img
+                  key={adResults[currentIndex].img}
+                  src={adResults[currentIndex].img}
+                  style={{
+                    width: '100%', height: 'auto', maxHeight: '350px', objectFit: 'contain', 
+                    display: imgError ? 'none' : 'block',
+                    opacity: imgLoaded ? 1 : 0,
+                    borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)',
+                    transition: 'transform 0.4s ease, opacity 0.4s ease',
+                  }}
+                  crossOrigin="anonymous"
+                  referrerPolicy="no-referrer"
+                  fetchpriority="high"
+                  onLoad={() => setImgLoaded(true)}
+                  onError={() => { setImgLoaded(true); setImgError(true); }}
+                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
+                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                  alt="Ad Result"
+                />
               </div>
 
               {/* Data Section */}
@@ -316,13 +358,14 @@ export default function StatsBanner() {
               .slider-card {
                 flex-direction: column !important;
               }
-              /* On mobile: image sits on TOP (natural column order), data below */
+              /* On mobile: image sits on TOP, data below */
               .slider-image-col {
                 order: -1;
                 flex: 0 0 auto !important;
-                max-height: 260px;
-                padding: 1rem !important;
-                padding-top: 2rem !important;
+                min-height: 180px !important;
+                max-height: 280px;
+                padding: 1rem 1.25rem !important;
+                padding-top: 1.5rem !important;
               }
               .slider-image-col img {
                 max-height: 220px !important;

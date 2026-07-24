@@ -43,6 +43,8 @@ export default function Hero() {
         <img
           src="/images/cinematic_hero.jpg"
           alt=""
+          fetchpriority="high"
+          decoding="async"
           style={{
             width: '100%', height: '100%',
             objectFit: 'cover', opacity: 0.22,

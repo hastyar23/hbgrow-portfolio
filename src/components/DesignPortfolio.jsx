@@ -42,6 +42,12 @@ const designs = [
 const track1 = designs.filter((_, i) => i % 2 === 0);
 const track2 = designs.filter((_, i) => i % 2 !== 0);
 
+// Optimize Imgur links to load highly compressed thumbnails ('l' modifier = Large Thumbnail ~ 640px)
+const getThumbUrl = (url) => {
+  if (!url || typeof url !== 'string' || url.endsWith('.gif')) return url;
+  return url.replace(/(\.[a-zA-Z]+)$/, 'l$1');
+};
+
 // Thumbnail heights: smaller on mobile
 const THUMB_HEIGHT_MOBILE = 200;
 const THUMB_HEIGHT_DESKTOP = 250;
@@ -95,10 +101,11 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
 
       {inView && (
         <img
-          src={src}
+          src={getThumbUrl(src)}
           alt="Design work"
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
+          decoding="async"
           style={{
             height: '100%', width: 'auto', objectFit: 'cover',
             transform: hover ? 'scale(1.06)' : 'scale(1)',
@@ -297,9 +304,10 @@ export default function DesignPortfolio() {
               {designs.map((src, i) => (
                 <div key={i} className="masonry-item" onClick={() => setActiveImg(src)}>
                   <img
-                    src={src}
+                    src={getThumbUrl(src)}
                     alt="Design work"
                     loading="lazy"
+                    decoding="async"
                     crossOrigin="anonymous"
                     referrerPolicy="no-referrer"
                   />
