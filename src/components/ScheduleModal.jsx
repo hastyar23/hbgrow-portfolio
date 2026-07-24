@@ -87,6 +87,15 @@ export default function ScheduleModal({ onClose }) {
         },
         body: JSON.stringify(payload)
       });
+
+      // 4b. Fire the Meta Conversions API (CAPI) event securely via our Vercel Serverless Function
+      fetch('/api/capi', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).catch(err => console.error("CAPI trigger failed:", err));
       
       // 5. Trigger the WhatsApp redirect as normal or show success
       if (method === 'Message') {
