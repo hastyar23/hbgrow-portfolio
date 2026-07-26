@@ -84,9 +84,9 @@ export default function Hero() {
           className="animate-fade-in-up delay-200"
           style={{
             fontFamily: "'Sarchia Bokan', serif",
-            fontSize: 'clamp(1.8rem, 5.5vw, 5rem)',
+            fontSize: 'clamp(2.2rem, 6.5vw, 5rem)',
             fontWeight: 700,
-            lineHeight: 1.25,
+            lineHeight: 1,
             color: '#ffffff',
             maxWidth: 820,
             margin: '0 auto 1.25rem',
@@ -95,9 +95,10 @@ export default function Hero() {
         >
           براندەکەت شایەنی{' '}
           <span className="text-gold">کــــڕیارە،</span>
-          <br />
           <span style={{
-            fontSize: 'clamp(0.95rem, 3.2vw, 2.75rem)',
+            display: 'block',
+            marginTop: '0.4rem',
+            fontSize: 'clamp(1.25rem, 4vw, 2.75rem)',
             fontWeight: 400,
             color: 'rgba(203,213,225,0.72)',
           }}>
