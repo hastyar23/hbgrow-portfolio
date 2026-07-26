@@ -3,7 +3,7 @@
 /* ─── Local Fonts — MUST be first ─────────────────────────── */
 @font-face {
   font-family: 'Sarchia Bokan';
-  src: url('https://pub-308a8f64471b4557b3566e6ca09f2b95.r2.dev/fonts/sarchia-bokan/28_Sarchia_Bokan.woff2') format('woff2');
+  src: url('/fonts/sarchia-bokan.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
