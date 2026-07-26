@@ -83,7 +83,7 @@ export default function Hero() {
         <h1
           className="animate-fade-in-up delay-200"
           style={{
-            fontFamily: "'Noto Naskh Arabic', serif",
+            fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.8rem, 5.5vw, 5rem)',
             fontWeight: 700,
             lineHeight: 1.25,
@@ -167,7 +167,7 @@ export default function Hero() {
                     style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
                   >
                     <div style={{
-                      fontFamily: "'Noto Naskh Arabic', serif",
+                      fontFamily: "'Sarchia Bokan', serif",
                       fontSize: 'clamp(1.5rem, 5vw, 2.4rem)',
                       fontWeight: 700, lineHeight: 1,
                       backgroundImage: 'linear-gradient(135deg, #C5A459 0%, #F1EAD4 50%, #E8C96A 100%)',

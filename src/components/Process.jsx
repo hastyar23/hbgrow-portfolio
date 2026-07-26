@@ -40,7 +40,7 @@ export default function Process() {
         <div data-reveal style={{ maxWidth: 560, marginBottom: 'clamp(2.5rem, 7vw, 5.5rem)' }}>
           <span className="badge" style={{ marginBottom: '1.5rem' }}>پرۆسەکەمان</span>
           <h2 style={{
-            fontFamily: "'Noto Naskh Arabic', serif",
+            fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
             fontWeight: 700, lineHeight: 1.25, color: '#ffffff',
             marginBottom: '1rem', marginTop: '0.75rem',

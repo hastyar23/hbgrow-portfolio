@@ -142,7 +142,7 @@ export default function ScheduleModal({ onClose }) {
             <button className="modal-close" onClick={onClose}><X size={24} /></button>
             <div style={{ textAlign: 'center', padding: '2rem 0' }}>
               <CheckCircle2 size={80} color="#C5A459" style={{ margin: '0 auto 1.5rem auto' }} />
-              <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Noto Naskh Arabic', serif" }}>
+              <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Sarchia Bokan', serif", }}>
                 سوپاس پەیوەندییەکەت تۆمارکرا!
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
@@ -415,7 +415,7 @@ export default function ScheduleModal({ onClose }) {
           .step-container { padding: 2.5rem 2.5rem 1.5rem; }
         }
         .step-title {
-          font-family: 'Noto Naskh Arabic', serif;
+          font-family: 'Sarchia Bokan', serif;
           font-size: clamp(1.3rem, 5vw, 2.2rem);
           color: #fff; margin-bottom: 0.5rem; font-weight: 700;
           padding-left: 2.5rem;

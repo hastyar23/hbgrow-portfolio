@@ -40,7 +40,7 @@ export default function ClosingCTA() {
         </span>
 
         <h2 style={{
-          fontFamily: "'Noto Naskh Arabic', serif",
+          fontFamily: "'Sarchia Bokan', serif",
           fontSize: 'clamp(1.75rem, 5.5vw, 4rem)',
           fontWeight: 700, lineHeight: 1.2,
           letterSpacing: '0.01em', color: '#ffffff',
@@ -109,7 +109,7 @@ export default function ClosingCTA() {
           <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(1.5rem, 4vw, 3.5rem)', flexWrap: 'wrap' }}>
             {['١٠٠+ براند', '$٢٠K+ ڕیکلام', '١٠٠٠+ بەرهەم'].map(item => (
               <span key={item} style={{
-                fontFamily: "'Noto Naskh Arabic', serif",
+                fontFamily: "'Sarchia Bokan', serif",
                 fontSize: 'clamp(0.875rem, 2vw, 1rem)', fontWeight: 600,
                 color: 'rgba(203,213,225,0.55)',
               }}>

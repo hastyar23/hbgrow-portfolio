@@ -11,7 +11,7 @@ export default {
         'gold-lt':'#d4b66a',
       },
       fontFamily: {
-        naskh: ['"Noto Naskh Arabic"', 'serif'],
+        naskh: ['"Sarchia Bokan"', 'serif'],
         kufi:  ['"Noto Kufi Arabic"', 'sans-serif'],
         rabar: ['Rabar', 'sans-serif'],
       },

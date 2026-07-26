@@ -45,7 +45,7 @@ export default function PainSolution() {
         <div data-reveal style={{ marginBottom: 'clamp(3.5rem, 8vw, 6rem)', textAlign: 'center' }}>
           <span className="badge" style={{ marginBottom: '1.75rem', display: 'inline-flex' }}>ئاڵنگارییەکان</span>
           <h2 style={{
-            fontFamily: "'Noto Naskh Arabic', serif",
+            fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.6rem, 3.5vw, 2.75rem)',
             fontWeight: 700,
             lineHeight: 1.25,
@@ -116,7 +116,7 @@ export default function PainSolution() {
           backdropFilter: 'blur(12px)',
         }}>
           <p style={{
-            fontFamily: "'Noto Naskh Arabic', serif",
+            fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.4rem, 3vw, 2.25rem)',
             fontWeight: 700, lineHeight: 1.35,
             color: '#ffffff', letterSpacing: '0.01em',

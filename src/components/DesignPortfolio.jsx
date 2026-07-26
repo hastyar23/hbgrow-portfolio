@@ -167,7 +167,7 @@ export default function DesignPortfolio() {
         <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 5rem)', textAlign: 'center' }}>
           <span className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>دیزاین</span>
           <h2 style={{
-            fontFamily: "'Noto Naskh Arabic', serif",
+            fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
             fontWeight: 700, lineHeight: 1.25, color: '#ffffff',
             maxWidth: 560, margin: '0 auto',
@@ -276,7 +276,7 @@ export default function DesignPortfolio() {
               <div>
                 <span className="badge" style={{ marginBottom: '0.75rem' }}>ئەرشیف</span>
                 <h2 style={{
-                  fontFamily: "'Noto Naskh Arabic', serif",
+                  fontFamily: "'Sarchia Bokan', serif",
                   fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#ffffff',
                 }}>
                   نموونەی بەشێک لە <span className="text-gold">دیزاینەکانمان</span>

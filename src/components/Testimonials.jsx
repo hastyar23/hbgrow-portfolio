@@ -207,7 +207,7 @@ export default function Testimonials() {
           }}>
             <div>
               <h2 style={{
-                fontFamily: "'Noto Naskh Arabic', serif",
+                fontFamily: "'Sarchia Bokan', serif",
                 fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
                 fontWeight: 700, lineHeight: 1.25, color: '#ffffff',
                 maxWidth: 520, marginTop: '0.75rem',
@@ -353,7 +353,7 @@ export default function Testimonials() {
 
               {/* Counter */}
               <div style={{
-                fontFamily: "'Noto Naskh Arabic', serif",
+                fontFamily: "'Sarchia Bokan', serif",
                 fontSize: '0.78rem', color: 'rgba(203,213,225,0.3)',
                 letterSpacing: '0.1em', fontWeight: 600,
               }}>

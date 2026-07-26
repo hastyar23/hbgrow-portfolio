@@ -131,7 +131,7 @@ export default function StatsBanner() {
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem' }}>
              <h3 style={{
-                fontFamily: "'Noto Naskh Arabic', serif",
+                fontFamily: "'Sarchia Bokan', serif",
                 fontSize: 'clamp(1.3rem, 3.5vw, 2rem)',
                 fontWeight: 700, color: '#ffffff', margin: 0
              }}>
@@ -387,7 +387,7 @@ export default function StatsBanner() {
         {/* CTA */}
         <div data-reveal style={{ textAlign: 'center' }}>
           <h3 style={{
-            fontFamily: "'Noto Naskh Arabic', serif",
+            fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.3rem, 3.5vw, 2.3rem)',
             fontWeight: 700, lineHeight: 1.3,
             color: '#ffffff', marginBottom: '1.75rem',

@@ -150,7 +150,7 @@ export default function Portfolio() {
           <span className="badge" style={{ marginBottom: '1.5rem' }}>پۆرتفۆلیۆ</span>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem' }}>
             <h2 style={{
-              fontFamily: "'Noto Naskh Arabic', serif",
+              fontFamily: "'Sarchia Bokan', serif",
               fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
               fontWeight: 700, lineHeight: 1.25, color: '#ffffff', maxWidth: 460,
             }}>
@@ -293,7 +293,7 @@ export default function Portfolio() {
               <div>
                 <span className="badge" style={{ marginBottom: '0.75rem' }}>ئەرشیف</span>
                 <h2 style={{
-                  fontFamily: "'Noto Naskh Arabic', serif",
+                  fontFamily: "'Sarchia Bokan', serif",
                   fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#ffffff',
                 }}>
                   بەشێک لە نموونەی <span className="text-gold">ڤیدیۆکانمان</span>
