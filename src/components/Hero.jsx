@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, Fragment } from 'react';
 import { Calendar, Play } from 'lucide-react';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
@@ -176,9 +176,9 @@ export default function Hero() {
             
             <div className="stats-inner" style={{ position: 'relative', zIndex: 1 }}>
               {stats.map(({ val, label }, index, arr) => (
-                <div key={label} style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                <Fragment key={label}>
                   <div
-                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
+                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1 }}
                   >
                     <div style={{
                       fontFamily: "'Sarchia Bokan', serif",
@@ -207,7 +207,7 @@ export default function Hero() {
                   {index !== arr.length - 1 && (
                     <div className="stats-divider" />
                   )}
-                </div>
+                </Fragment>
               ))}
             </div>
           </div>
