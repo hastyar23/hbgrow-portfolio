@@ -156,9 +156,9 @@ export default function Hero() {
             className="glass-card"
             style={{
               position: 'relative',
-              padding: 'clamp(1.5rem, 5vw, 2.5rem) clamp(1.25rem, 5vw, 3rem)',
+              padding: 'clamp(1.25rem, 4vw, 1.75rem) clamp(1rem, 4vw, 2rem)',
               animation: 'float-y 7s ease-in-out infinite',
-              maxWidth: 760,
+              maxWidth: 680,
               width: '100%',
               background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(2, 5, 10, 0.4) 100%)',
               border: '1px solid rgba(197, 164, 89, 0.15)',
@@ -182,7 +182,7 @@ export default function Hero() {
                   >
                     <div style={{
                       fontFamily: "'Sarchia Bokan', serif",
-                      fontSize: 'clamp(2rem, 6vw, 3.2rem)',
+                      fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
                       fontWeight: 700, lineHeight: 1,
                       backgroundImage: 'linear-gradient(135deg, #F1EAD4 0%, #C5A459 50%, #B8902A 100%)',
                       WebkitBackgroundClip: 'text',
@@ -194,9 +194,9 @@ export default function Hero() {
                     </div>
                     <div style={{
                       fontFamily: "'Noto Kufi Arabic', sans-serif",
-                      fontSize: 'clamp(0.8rem, 2vw, 0.95rem)',
+                      fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
                       color: 'rgba(235, 240, 248, 0.85)',
-                      marginTop: '0.75rem',
+                      marginTop: '0.5rem',
                       letterSpacing: '0.02em',
                       fontWeight: 500,
                     }}>
