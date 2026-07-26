@@ -155,35 +155,49 @@ export default function Hero() {
           <div
             className="glass-card"
             style={{
-              padding: 'clamp(1.25rem, 4vw, 2rem) clamp(1.25rem, 5vw, 2.5rem)',
+              position: 'relative',
+              padding: 'clamp(1.5rem, 5vw, 2.5rem) clamp(1.25rem, 5vw, 3rem)',
               animation: 'float-y 7s ease-in-out infinite',
-              maxWidth: 600,
+              maxWidth: 760,
               width: '100%',
+              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(2, 5, 10, 0.4) 100%)',
+              border: '1px solid rgba(197, 164, 89, 0.15)',
+              boxShadow: '0 24px 64px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
             }}
           >
-            <div className="stats-inner">
+            {/* Subtle inner glow */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'radial-gradient(ellipse at center top, rgba(197, 164, 89, 0.15) 0%, transparent 60%)',
+              borderRadius: 'inherit',
+              pointerEvents: 'none',
+            }} />
+            
+            <div className="stats-inner" style={{ position: 'relative', zIndex: 1 }}>
               {stats.map(({ val, label }, index, arr) => (
-                <div key={label} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                <div key={label} style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
                   <div
                     style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
                   >
                     <div style={{
                       fontFamily: "'Sarchia Bokan', serif",
-                      fontSize: 'clamp(1.5rem, 5vw, 2.4rem)',
+                      fontSize: 'clamp(2rem, 6vw, 3.2rem)',
                       fontWeight: 700, lineHeight: 1,
-                      backgroundImage: 'linear-gradient(135deg, #C5A459 0%, #F1EAD4 50%, #E8C96A 100%)',
+                      backgroundImage: 'linear-gradient(135deg, #F1EAD4 0%, #C5A459 50%, #B8902A 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
+                      filter: 'drop-shadow(0 4px 12px rgba(197,164,89,0.25))',
                     }}>
                       {val}
                     </div>
                     <div style={{
                       fontFamily: "'Noto Kufi Arabic', sans-serif",
-                      fontSize: '0.7rem',
-                      color: 'rgba(203,213,225,0.6)',
-                      marginTop: '0.5rem',
-                      letterSpacing: '0.06em',
+                      fontSize: 'clamp(0.8rem, 2vw, 0.95rem)',
+                      color: 'rgba(235, 240, 248, 0.85)',
+                      marginTop: '0.75rem',
+                      letterSpacing: '0.02em',
                       fontWeight: 500,
                     }}>
                       {label}

@@ -492,17 +492,20 @@ body {
 }
 
 .stats-divider {
-  display: none;
+  display: block;
+  height: 1px;
+  width: 80%;
+  margin: 0 auto;
+  flex-shrink: 0;
+  background: linear-gradient(to right, transparent, rgba(197, 164, 89, 0.25), transparent);
 }
 
 @media (min-width: 540px) {
   .stats-divider {
-    display: block;
     width: 1px;
-    height: 36px;
-    flex-shrink: 0;
-    background: linear-gradient(to bottom, transparent, rgba(197,164,89,0.2), transparent);
-    margin: 0 1.5rem;
+    height: 48px;
+    margin: 0 2rem;
+    background: linear-gradient(to bottom, transparent, rgba(197, 164, 89, 0.35), transparent);
   }
 }
 
