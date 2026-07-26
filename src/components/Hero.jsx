@@ -178,11 +178,11 @@ export default function Hero() {
               {stats.map(({ val, label }, index, arr) => (
                 <Fragment key={label}>
                   <div
-                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1 }}
+                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1, justifyContent: 'flex-start' }}
                   >
                     <div style={{
                       fontFamily: "'Sarchia Bokan', serif",
-                      fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
+                      fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
                       fontWeight: 700, lineHeight: 1,
                       backgroundImage: 'linear-gradient(135deg, #F1EAD4 0%, #C5A459 50%, #B8902A 100%)',
                       WebkitBackgroundClip: 'text',

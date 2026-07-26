@@ -485,7 +485,7 @@ body {
 @media (min-width: 540px) {
   .stats-inner {
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: 0;
   }
@@ -505,6 +505,7 @@ body {
     width: 1px;
     height: 48px;
     margin: 0 2rem;
+    align-self: center;
     background: linear-gradient(to bottom, transparent, rgba(197, 164, 89, 0.35), transparent);
   }
 }
