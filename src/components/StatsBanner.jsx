@@ -4,6 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
 
+const adResults = [
+  { img: '/images/optimized/W5OXMYW.avif', messages: '17,820', impressions: '10,204,568' },
+  { img: '/images/optimized/VvmJH1K.avif', messages: '6,677', impressions: '2,139,824' },
+  { img: '/images/optimized/jk8QLtZ.avif', messages: '2,826', impressions: '741,792' },
+  { img: '/images/optimized/NINVVAW.avif', messages: '2,593', impressions: '1,358,495' },
+  { img: '/images/optimized/8Y7jqz6.avif', messages: '1,853', impressions: '367,874' },
+];
+
 export default function StatsBanner() {
   const { openSchedule } = useSchedule();
   const [activeImage, setActiveImage] = useState(null);
@@ -233,7 +241,7 @@ export default function StatsBanner() {
                   }}
                   crossOrigin="anonymous"
                   referrerPolicy="no-referrer"
-                  fetchpriority="high"
+                  fetchPriority="high"
                   decoding="async"
                   onLoad={() => setImgLoaded(true)}
                   onError={() => { setImgLoaded(true); setImgError(true); }}

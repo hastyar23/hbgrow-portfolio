@@ -45,7 +45,7 @@ export default function Hero() {
         <img
           src="/images/cinematic_hero.jpg"
           alt=""
-          fetchpriority="high"
+          fetchPriority="high"
           decoding="async"
           style={{
             width: '100%', height: '100%',
