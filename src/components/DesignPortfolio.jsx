@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { X, Maximize2, Grid } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const designs = [
   "/images/optimized/uy5HrR1.avif","/images/optimized/ZktcQkK.avif","/images/optimized/q6DnSPu.avif",
@@ -148,6 +149,7 @@ export default function DesignPortfolio() {
   const [showAllDesigns, setShowAllDesigns] = useState(false);
   const [visibleCount, setVisibleCount] = useState(12);
   const [isMobile, setIsMobile] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 640);
@@ -165,15 +167,15 @@ export default function DesignPortfolio() {
     <section id="designs" style={{ padding: 'clamp(4rem, 10vw, 9rem) 0' }}>
       <div className="section-wrap">
         <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 5rem)', textAlign: 'center' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>دیزاین</span>
+          <span className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>{t('design_portfolio.badge')}</span>
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
             fontWeight: 700, lineHeight: 1.25, color: '#ffffff',
             maxWidth: 560, margin: '0 auto',
           }}>
-            دیزاینی ناوازە بۆ{' '}
-            <span className="text-gold">براندە پێشەنگەکان.</span>
+            {t('design_portfolio.title_p1')}{' '}
+            <span className="text-gold">{t('design_portfolio.title_highlight')}</span>
           </h2>
           <p style={{
             fontFamily: "'Noto Kufi Arabic', sans-serif",
@@ -181,7 +183,7 @@ export default function DesignPortfolio() {
             maxWidth: 400, lineHeight: 2, fontWeight: 300,
             margin: '1rem auto 0', letterSpacing: '0.03em',
           }}>
-            پێشانگایەک لەو دیزاینانەی کە یارمەتی براندەکانیان داوە ببنە جێگەی سەرنج.
+            {t('design_portfolio.subtitle')}
           </p>
         </div>
       </div>
@@ -223,7 +225,7 @@ export default function DesignPortfolio() {
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <button onClick={() => setShowAllDesigns(true)} className="btn-ghost">
             <Grid size={14} style={{ opacity: 0.75, flexShrink: 0 }} />
-            بینینی دیزاینی زیاتر
+            {t('design_portfolio.btn_more')}
           </button>
         </div>
       </div>
@@ -274,24 +276,24 @@ export default function DesignPortfolio() {
           <div className="section-wrap" style={{ padding: 'clamp(2rem, 6vw, 4rem) 1.25rem' }}>
             <div className="modal-header">
               <div>
-                <span className="badge" style={{ marginBottom: '0.75rem' }}>ئەرشیف</span>
+                <span className="badge" style={{ marginBottom: '0.75rem' }}>{t('design_portfolio.archive_badge')}</span>
                 <h2 style={{
                   fontFamily: "'Sarchia Bokan', serif",
                   fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#ffffff',
                 }}>
-                  نموونەی بەشێک لە <span className="text-gold">دیزاینەکانمان</span>
+                  {t('design_portfolio.archive_title_p1')}<span className="text-gold">{t('design_portfolio.archive_title_highlight')}</span>
                 </h2>
                 <p style={{
                   fontFamily: "'Noto Kufi Arabic', sans-serif",
                   fontSize: '0.875rem', color: 'rgba(203,213,225,0.7)',
                   marginTop: '0.5rem',
                 }}>
-                  کوالێتی هەندێک لە دیزاینەکانمان دابەزاندووە تا زووتر بکرێنەوە
+                  {t('design_portfolio.archive_subtitle')}
                 </p>
               </div>
               <button onClick={() => { setShowAllDesigns(false); setVisibleCount(12); }} className="btn-ghost" style={{ padding: '0.625rem 1rem', flexShrink: 0 }}>
                 <X size={15} />
-                داخستن
+                {t('design_portfolio.btn_close')}
               </button>
             </div>
             <div className="masonry-grid">
@@ -320,7 +322,7 @@ export default function DesignPortfolio() {
                   style={{ padding: '0.875rem 2rem', fontSize: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
                 >
                   <Grid size={16} style={{ opacity: 0.75, flexShrink: 0, marginLeft: '0.5rem' }} />
-                  بینینی دیزاینی زیاتر
+                  {t('design_portfolio.btn_load_more')}
                 </button>
               </div>
             )}

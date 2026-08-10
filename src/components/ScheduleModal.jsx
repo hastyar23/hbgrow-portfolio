@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Phone, Video, MessageCircle, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const WEBHOOK_URL = "https://hook.us1.make.com/YOUR_WEBHOOK_URL_HERE"; // IMPORTANT: Replace with your actual Make/Zapier/Google Webhook URL
 const WHATSAPP_NUMBER = "9647700253469";
@@ -8,6 +9,7 @@ export default function ScheduleModal({ onClose }) {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const { t } = useTranslation();
 
   // Form Data
   const [method, setMethod] = useState('');
@@ -138,21 +140,21 @@ export default function ScheduleModal({ onClose }) {
     return (
       <>
         <div className="modal-overlay">
-          <div className="modal-content success-content" dir="rtl">
+          <div className="modal-content success-content">
             <button className="modal-close" onClick={onClose}><X size={24} /></button>
             <div style={{ textAlign: 'center', padding: '2rem 0' }}>
               <CheckCircle2 size={80} color="#C5A459" style={{ margin: '0 auto 1.5rem auto' }} />
               <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Sarchia Bokan', serif", }}>
-                سوپاس پەیوەندییەکەت تۆمارکرا!
+                {t('schedule.success_title')}
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
-                هەوڵدەدەین لەو کاتەی کە دیاریت کردووە پەیوەندیت پێوە بکەین
+                {t('schedule.success_subtitle1')}
               </p>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem' }}>
-                پێش پەیوەندییەکە نامەیەکی ئاگادارکردنەوە بۆ بەڕێزت دەنێرین لە واتسئاپ
+                {t('schedule.success_subtitle2')}
               </p>
               <button onClick={onClose} className="btn-primary" style={{ marginTop: '2.5rem' }}>
-                داخستن
+                {t('schedule.btn_close')}
               </button>
             </div>
           </div>
@@ -186,7 +188,7 @@ export default function ScheduleModal({ onClose }) {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content" dir="rtl">
+      <div className="modal-content">
         <button className="modal-close" onClick={onClose}><X size={24} /></button>
         
         {/* Progress Bar */}
@@ -197,31 +199,31 @@ export default function ScheduleModal({ onClose }) {
         {/* STEP 1: Method */}
         {step === 1 && (
           <div className="step-container animate-fade-in">
-            <h2 className="step-title">سڵاو سوپاس بۆ هەڵبژاردنی HBgrow</h2>
-            <p className="step-subtitle">تەنها زانیارییەکان وەک خۆی پڕبکەرەوە و لە ڕێی واتسئاپەوە گفتوگۆت لەگەڵ دەکەین لە کەمترین ماوەدا</p>
+            <h2 className="step-title">{t('schedule.step1_title')}</h2>
+            <p className="step-subtitle">{t('schedule.step1_subtitle')}</p>
             
-            <h3 className="step-question">حەزت بە کام شێوازی گفتوگۆیە بەڕێزت؟</h3>
+            <h3 className="step-question">{t('schedule.step1_question')}</h3>
             <div className="options-grid">
               <button 
                 className={`option-btn ${method === 'Phone' ? 'active' : ''}`}
                 onClick={() => setMethod('Phone')}
               >
                 <Phone size={28} />
-                <span>پەیوەندی تەلەفۆنی</span>
+                <span>{t('schedule.method_phone')}</span>
               </button>
               <button 
                 className={`option-btn ${method === 'Meeting' ? 'active' : ''}`}
                 onClick={() => setMethod('Meeting')}
               >
                 <Video size={28} />
-                <span>میتینگی ئۆنڵاین</span>
+                <span>{t('schedule.method_meeting')}</span>
               </button>
               <button 
                 className={`option-btn ${method === 'Message' ? 'active' : ''}`}
                 onClick={() => setMethod('Message')}
               >
                 <MessageCircle size={28} />
-                <span>نامە</span>
+                <span>{t('schedule.method_message')}</span>
               </button>
             </div>
           </div>
@@ -230,37 +232,37 @@ export default function ScheduleModal({ onClose }) {
         {/* STEP 2: Basic Info */}
         {step === 2 && (
           <div className="step-container animate-fade-in">
-            <h3 className="step-question">زانیاری زیاتر دەربارەی کارەکەت</h3>
+            <h3 className="step-question">{t('schedule.step2_title')}</h3>
             
             <div className="input-group">
-              <label>جۆری کاری بەڕێزت چییە؟</label>
+              <label>{t('schedule.job_label')}</label>
               <input 
                 type="text" 
                 value={job} 
                 onChange={e => setJob(e.target.value)} 
-                placeholder="نموونە: بازرگانی جلوبەرگ، عەقارات..."
+                placeholder={t('schedule.job_placeholder')}
                 className="step-input"
               />
             </div>
 
             <div className="input-group">
-              <label>لە کام شارن بەڕێزتان؟</label>
+              <label>{t('schedule.city_label')}</label>
               <input 
                 type="text" 
                 value={city} 
                 onChange={e => setCity(e.target.value)} 
-                placeholder="نموونە: سلێمانی"
+                placeholder={t('schedule.city_placeholder')}
                 className="step-input"
               />
             </div>
 
             <div className="input-group">
-              <label>ئیمەیڵ</label>
+              <label>{t('schedule.email_label')}</label>
               <input 
                 type="email" 
                 value={email} 
                 onChange={e => setEmail(e.target.value)} 
-                placeholder="ئیمەیڵەکەت لێرە بنووسە"
+                placeholder={t('schedule.email_placeholder')}
                 className="step-input"
                 dir="ltr"
                 style={{ textAlign: 'right' }}
@@ -272,27 +274,27 @@ export default function ScheduleModal({ onClose }) {
         {/* STEP 3: Final Info & Calendar */}
         {step === 3 && (
           <div className="step-container animate-fade-in">
-            <h3 className="step-question">زانیاری کەسی</h3>
+            <h3 className="step-question">{t('schedule.step3_title')}</h3>
             
             <div className="input-grid">
               <div className="input-group">
-                <label>ناوی بەڕێزتان</label>
+                <label>{t('schedule.name_label')}</label>
                 <input 
                   type="text" 
                   value={name} 
                   onChange={e => setName(e.target.value)} 
-                  placeholder="ناوت لێرە بنووسە"
+                  placeholder={t('schedule.name_placeholder')}
                   className="step-input"
                 />
               </div>
 
               <div className="input-group">
-                <label>ژمارەی واتسئاپی بەڕێزتان</label>
+                <label>{t('schedule.phone_label')}</label>
                 <input 
                   type="tel" 
                   value={phone} 
                   onChange={e => setPhone(e.target.value)} 
-                  placeholder="0750 123 4567"
+                  placeholder={t('schedule.phone_placeholder')}
                   className="step-input"
                   dir="ltr"
                   style={{ textAlign: 'right' }}
@@ -302,7 +304,7 @@ export default function ScheduleModal({ onClose }) {
 
             {(method === 'Phone' || method === 'Meeting') && (
               <div className="calendar-section" style={{ marginTop: '2.5rem' }}>
-                <h3 className="step-question" style={{ fontSize: '1.4rem' }}>چ کاتێک گونجاوە بۆ پەیوەندیکردن بۆ بەڕێزتان؟</h3>
+                <h3 className="step-question" style={{ fontSize: '1.4rem' }}>{t('schedule.time_question')}</h3>
                 
                 <div className="dates-row">
                   {availableDates.map((d, i) => {
@@ -344,7 +346,7 @@ export default function ScheduleModal({ onClose }) {
         <div className="modal-footer">
           {step > 1 ? (
             <button className="nav-btn prev" onClick={handlePrev}>
-              <ArrowRight size={20} /> گەڕانەوە
+              <ArrowRight size={20} /> {t('schedule.btn_prev')}
             </button>
           ) : <div />}
 
@@ -355,7 +357,7 @@ export default function ScheduleModal({ onClose }) {
               disabled={(step === 1 && !method) || (step === 2 && (!job || !city || !email))}
               style={{ border: 'none', cursor: ((step === 1 && !method) || (step === 2 && (!job || !city || !email))) ? 'not-allowed' : 'pointer', opacity: ((step === 1 && !method) || (step === 2 && (!job || !city || !email))) ? 0.5 : 1 }}
             >
-              دواتر <ArrowLeft size={20} style={{ marginLeft: 0, marginRight: '0.5rem' }} />
+              {t('schedule.btn_next')} <ArrowLeft size={20} style={{ marginLeft: 0, marginRight: '0.5rem' }} />
             </button>
           ) : (
             <button 
@@ -364,7 +366,7 @@ export default function ScheduleModal({ onClose }) {
               disabled={isSubmitting || !name || !phone || (method !== 'Message' && (!selectedDate || !selectedTime))}
               style={{ border: 'none', cursor: (isSubmitting || !name || !phone || (method !== 'Message' && (!selectedDate || !selectedTime))) ? 'not-allowed' : 'pointer', opacity: (isSubmitting || !name || !phone || (method !== 'Message' && (!selectedDate || !selectedTime))) ? 0.5 : 1 }}
             >
-              {isSubmitting ? 'خەریکە...' : 'ناردن'}
+              {isSubmitting ? t('schedule.btn_submitting') : t('schedule.btn_submit')}
             </button>
           )}
         </div>

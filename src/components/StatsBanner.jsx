@@ -1,25 +1,19 @@
 import { useState, useEffect, useCallback } from 'react';
 import { DollarSign, Users, TrendingUp, MessageCircle, Eye, X, ChevronRight, ChevronLeft, BarChart2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
-
-const stats = [
-  { icon: <DollarSign size={18} />, val: '$20,000+', label: 'زیاتر لە $٢٠,٠٠٠ خەرجدەکرێت ساڵانە لە کەمپەینەکانماندا بۆ کڕیارەکانمان.' },
-  { icon: <Users size={18} />,      val: '35M+ Views', label: 'گەیشتن بە زۆرترین خەڵک و بەدەستهێنانی کڕیاری ڕاستەقینە بە کەمترین تێچوو.' },
-  { icon: <TrendingUp size={18} />, val: 'ROI ئاست بەرز', label: 'ستراتیژی سپۆنسەری دروست بۆ گەڕاندنەوەی بەرزترین قازانج.' },
-];
-
-const adResults = [
-  { img: '/images/optimized/W5OXMYW.avif', messages: '17,820', impressions: '10,204,568' },
-  { img: '/images/optimized/VvmJH1K.avif', messages: '6,677', impressions: '2,139,824' },
-  { img: '/images/optimized/jk8QLtZ.avif', messages: '2,826', impressions: '741,792' },
-  { img: '/images/optimized/NINVVAW.avif', messages: '2,593', impressions: '1,358,495' },
-  { img: '/images/optimized/8Y7jqz6.avif', messages: '1,853', impressions: '367,874' },
-];
 
 export default function StatsBanner() {
   const { openSchedule } = useSchedule();
   const [activeImage, setActiveImage] = useState(null);
+  const { t } = useTranslation();
+
+  const stats = [
+    { icon: <DollarSign size={18} />, val: t('stats.items.0.val'), label: t('stats.items.0.label') },
+    { icon: <Users size={18} />,      val: t('stats.items.1.val'), label: t('stats.items.1.label') },
+    { icon: <TrendingUp size={18} />, val: t('stats.items.2.val'), label: t('stats.items.2.label') },
+  ];
 
   // Slider state
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -78,7 +72,7 @@ export default function StatsBanner() {
           textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
           marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 700,
         }}>
-          داتای بەشێک لە سپۆنسەرەکانمان
+          {t('stats.top_subtitle')}
         </p>
 
         {/* Stats Grid — single col on mobile */}
@@ -135,7 +129,7 @@ export default function StatsBanner() {
                 fontSize: 'clamp(1.3rem, 3.5vw, 2rem)',
                 fontWeight: 700, color: '#ffffff', margin: 0
              }}>
-               ئەنجامی بەشێک لە کەمپەینەکانمان لەسەر <span className="text-gold">مێتا</span>
+               {t('stats.slider_title_p1')}<span className="text-gold">{t('stats.slider_title_highlight')}</span>
              </h3>
              {/* Desktop Navigation Arrows */}
              <div className="slider-nav-arrows" style={{ display: 'flex', gap: '0.75rem', direction: 'ltr' }}>
@@ -159,7 +153,6 @@ export default function StatsBanner() {
             <div 
               key={`${currentIndex}-${timerKey}`} 
               className={`slider-card animate-${direction}`}
-              dir="rtl"
               style={{
                 background: 'linear-gradient(145deg, rgba(10, 25, 47, 0.7) 0%, rgba(10, 25, 47, 0.3) 100%)',
                 backdropFilter: 'blur(12px)',
@@ -221,7 +214,7 @@ export default function StatsBanner() {
                   }}>
                     <BarChart2 size={36} color="rgba(197,164,89,0.5)" />
                     <div style={{ color: 'rgba(197,164,89,0.7)', fontSize: '0.8rem', fontFamily: "'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
-                      کەمپەینی ژمارە {currentIndex + 1}
+                      {t('stats.campaign_num')}{currentIndex + 1}
                     </div>
                     <div style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.65rem' }}>Meta Ads Dashboard</div>
                   </div>
@@ -260,7 +253,7 @@ export default function StatsBanner() {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(241,245,249,0.7)', marginBottom: '0.5rem' }}>
                     <MessageCircle size={22} color="#C5A459" />
-                    <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>ڕێژەی نامە</span>
+                    <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{t('stats.msg_rate')}</span>
                   </div>
                   <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px' }}>
                     {adResults[currentIndex].messages}
@@ -272,7 +265,7 @@ export default function StatsBanner() {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(241,245,249,0.7)', marginBottom: '0.5rem' }}>
                     <Eye size={22} color="#C5A459" />
-                    <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>ڕێژەی بینین</span>
+                    <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{t('stats.view_rate')}</span>
                   </div>
                   <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px' }}>
                     {adResults[currentIndex].impressions}
@@ -392,8 +385,8 @@ export default function StatsBanner() {
             fontWeight: 700, lineHeight: 1.3,
             color: '#ffffff', marginBottom: '1.75rem',
           }}>
-            دەتەوێت براندەکەت{' '}
-            <span className="text-gold">لێرە بێت؟</span>
+            {t('stats.cta_title_p1')}
+            <span className="text-gold">{t('stats.cta_title_highlight')}</span>
           </h3>
           <button
             onClick={openSchedule}
@@ -401,7 +394,7 @@ export default function StatsBanner() {
             style={{ border: 'none', cursor: 'pointer' }}
           >
             <WhatsAppIcon size={18} style={{ flexShrink: 0 }} />
-            با دەستپێبکەین
+            {t('stats.cta_btn')}
           </button>
         </div>
       </div>

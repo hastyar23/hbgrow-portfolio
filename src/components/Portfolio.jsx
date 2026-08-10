@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Play, X, Grid } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const clients = [
   "https://framerusercontent.com/images/9TyuBjK9AfPnTYHmIjnMwMJroik.webp",
@@ -128,6 +129,7 @@ export default function Portfolio() {
   const [visibleCount, setVisibleCount]   = useState(12);
   const [isMobile, setIsMobile]           = useState(false);
   const marqueeViewportRef                = useRef(null); // the overflow:hidden wrapper
+  const { t } = useTranslation();
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 640);
@@ -147,22 +149,22 @@ export default function Portfolio() {
 
         {/* ── Header ── */}
         <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 5rem)' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem' }}>پۆرتفۆلیۆ</span>
+          <span className="badge" style={{ marginBottom: '1.5rem' }}>{t('portfolio.badge')}</span>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem' }}>
             <h2 style={{
               fontFamily: "'Sarchia Bokan', serif",
               fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
               fontWeight: 700, lineHeight: 1.25, color: '#ffffff', maxWidth: 460,
             }}>
-              ئێمە قسە ناکەین،{' '}
-              <span className="text-gold">خۆت تەماشای کواڵێتی کارەمانمان بکە</span>
+              {t('portfolio.title_p1')}{' '}
+              <span className="text-gold">{t('portfolio.title_highlight')}</span>
             </h2>
             <p style={{
               fontFamily: "'Noto Kufi Arabic', sans-serif",
               fontSize: '0.875rem', color: 'rgba(203,213,225,0.6)',
               maxWidth: 320, lineHeight: 2, fontWeight: 300,
             }}>
-              بەشێک لەو براند و کارانەی کە متمانەیان بە تیمەکەمان کردووە.
+              {t('portfolio.subtitle')}
             </p>
           </div>
         </div>
@@ -235,7 +237,7 @@ export default function Portfolio() {
         <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '0.5rem' }}>
           <button onClick={() => setShowAllVideos(true)} className="btn-ghost">
             <Grid size={14} style={{ opacity: 0.75, flexShrink: 0 }} />
-            بینینی ڤیدیۆی زیاتر
+            {t('portfolio.btn_more')}
           </button>
         </div>
       </div>
@@ -291,24 +293,24 @@ export default function Portfolio() {
           <div className="section-wrap" style={{ padding: 'clamp(2rem, 6vw, 4rem) 1.25rem' }}>
             <div className="modal-header">
               <div>
-                <span className="badge" style={{ marginBottom: '0.75rem' }}>ئەرشیف</span>
+                <span className="badge" style={{ marginBottom: '0.75rem' }}>{t('portfolio.archive_badge')}</span>
                 <h2 style={{
                   fontFamily: "'Sarchia Bokan', serif",
                   fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#ffffff',
                 }}>
-                  بەشێک لە نموونەی <span className="text-gold">ڤیدیۆکانمان</span>
+                  {t('portfolio.archive_title_p1')}<span className="text-gold">{t('portfolio.archive_title_highlight')}</span>
                 </h2>
                 <p style={{
                   fontFamily: "'Noto Kufi Arabic', sans-serif",
                   fontSize: '0.875rem', color: 'rgba(203,213,225,0.7)',
                   marginTop: '0.5rem',
                 }}>
-                  کوالێتی هەندێک لە ڤیدیۆکانمان دابەزاندووە تا زووتر بکرێنەوە
+                  {t('portfolio.archive_subtitle')}
                 </p>
               </div>
               <button onClick={() => { setShowAllVideos(false); setVisibleCount(12); }} className="btn-ghost" style={{ padding: '0.625rem 1rem', flexShrink: 0 }}>
                 <X size={15} />
-                داخستن
+                {t('portfolio.btn_close')}
               </button>
             </div>
 
@@ -361,7 +363,7 @@ export default function Portfolio() {
                   style={{ padding: '0.875rem 2rem', fontSize: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
                 >
                   <Grid size={16} style={{ opacity: 0.75, flexShrink: 0, marginLeft: '0.5rem' }} />
-                  بینینی ڤیدیۆی زیاتر
+                  {t('portfolio.btn_load_more')}
                 </button>
               </div>
             )}

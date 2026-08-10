@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -25,18 +26,19 @@ const socialLinks = [
   { href: 'https://www.facebook.com/hbgrowagency', icon: <FacebookIcon />, label: 'Facebook' },
 ];
 
-const navLinks = [
-  { label: 'دەربارەمان', href: '#about' },
-  { label: 'کارەکانمان', href: '#portfolio' },
-  { label: 'پرۆسەکەمان', href: '#process' },
-  { label: 'بەڵگەنامەکان', href: '#testimonials' },
-  { label: 'پەیوەندی', href: '#contact' },
+const navLinksKeys = [
+  { labelKey: 'footer.nav_about', href: '#about' },
+  { labelKey: 'footer.nav_portfolio', href: '#portfolio' },
+  { labelKey: 'footer.nav_process', href: '#process' },
+  { labelKey: 'footer.nav_testimonials', href: '#testimonials' },
+  { labelKey: 'footer.nav_contact', href: '#contact' },
 ];
 
 
 
 export default function Footer() {
   const { openSchedule } = useSchedule();
+  const { t } = useTranslation();
 
   return (
     <footer style={{
@@ -63,7 +65,7 @@ export default function Footer() {
               fontSize: '0.82rem', color: 'rgba(203,213,225,0.5)',
               lineHeight: 2, fontWeight: 300, maxWidth: 260,
             }}>
-              ئەیجێنسی گلۆباڵی سۆشیاڵ میدیا و مارکێتینگی گەشە. براندەکەت شایەنی کڕیارە.
+              {t('footer.brand_desc')}
             </p>
             <div style={{ display: 'flex', gap: '0.625rem', marginTop: '1.5rem' }}>
               {socialLinks.map(({ href, icon, label }) => (
@@ -105,10 +107,10 @@ export default function Footer() {
               textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
               fontWeight: 700, marginBottom: '1.25rem',
             }}>
-              بەستەرەکان
+              {t('footer.links_title')}
             </p>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-              {navLinks.map(({ label, href }) => (
+              {navLinksKeys.map(({ labelKey, href }) => (
                 <li key={href}>
                   <a
                     href={href}
@@ -121,7 +123,7 @@ export default function Footer() {
                     onMouseEnter={e => e.target.style.color = '#C5A459'}
                     onMouseLeave={e => e.target.style.color = 'rgba(203,213,225,0.55)'}
                   >
-                    {label}
+                    {t(labelKey)}
                   </a>
                 </li>
               ))}
@@ -136,7 +138,7 @@ export default function Footer() {
               textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
               fontWeight: 700, marginBottom: '1.25rem',
             }}>
-              پەیوەندی
+              {t('footer.contact_title')}
             </p>
             <div style={{ marginTop: '0.5rem' }}>
               <button 
@@ -158,7 +160,7 @@ export default function Footer() {
                 onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
               >
                 <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
-                کاتێک دیاریبکە بۆ گفتوگۆکردن
+                {t('footer.btn_schedule')}
               </button>
             </div>
           </div>
@@ -178,14 +180,14 @@ export default function Footer() {
             fontSize: '0.75rem', color: 'rgba(203,213,225,0.3)',
             fontWeight: 300,
           }}>
-            © {new Date().getFullYear()} HBgrow Agency. هەموو مافەکان پارێزراون.
+            © {new Date().getFullYear()} {t('footer.copyright')}
           </p>
           <p style={{
             fontFamily: "'Noto Kufi Arabic', sans-serif",
             fontSize: '0.72rem', color: 'rgba(203,213,225,0.1)',
             fontWeight: 300,
           }}>
-            دروستکراوە بە ئارەزووی زۆر لەلایەن تیمی HBgrow
+            {t('footer.made_by')}
           </p>
         </div>
       </div>

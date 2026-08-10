@@ -1,0 +1,262 @@
+{
+  "hero": {
+    "badge": "Trusted by 100+ clients across Kurdistan & Iraq",
+    "title_p1": "Your brand deserves",
+    "title_highlight": "customers,",
+    "title_p2": "not just viewers",
+    "subtitle_1": "We don't just \"post\". We build a complete growth and sales strategy for premium clinics, companies, and brands.",
+    "subtitle_2": "Focus on your business, and leave the growth to us.",
+    "cta_book": "Book a call with us",
+    "cta_work": "View our work",
+    "stats": {
+      "brands": "Trusted Brands",
+      "leads": "Leads Generated",
+      "creative": "Design & Video Outputs"
+    }
+  },
+  "nav": {
+    "about": "About Us",
+    "portfolio": "Our Work",
+    "process": "Our Process",
+    "testimonials": "Testimonials",
+    "cta": "Book a Call",
+    "close_menu": "Close Menu",
+    "open_menu": "Open Menu"
+  },
+  "process": {
+    "badge": "Our Process",
+    "title_p1": "Our workflow:",
+    "title_highlight": "How it works?",
+    "subtitle": "An effortless workflow. You don't have time, so we made everything easy.",
+    "steps": {
+      "0": {
+        "num": "1",
+        "title": "Identifying Problems",
+        "duration": "15–20 Mins",
+        "desc": "First, we have a 15-20 minute call to understand your goals and style."
+      },
+      "1": {
+        "num": "2",
+        "title": "Plan & Strategy",
+        "duration": "5–7 Days",
+        "desc": "Within 5-7 days, your plan and strategy will be tailored to align with your goals."
+      },
+      "2": {
+        "num": "3",
+        "title": "Sit Back & Watch",
+        "duration": "Execution",
+        "desc": "Your posts are created according to a set schedule; all you have to do is approve."
+      },
+      "3": {
+        "num": "4",
+        "title": "Happiness & Growth",
+        "duration": "After a few months",
+        "desc": "After a few months, you'll be happy to see your results and increased brand awareness."
+      }
+    }
+  },
+  "portfolio": {
+    "badge": "Portfolio",
+    "title_p1": "We don't just talk,",
+    "title_highlight": "see the quality of our work yourself",
+    "subtitle": "Some of the brands and projects that trusted our team.",
+    "btn_more": "View More Videos",
+    "archive_badge": "Archive",
+    "archive_title_p1": "Some of our sample ",
+    "archive_title_highlight": "videos",
+    "archive_subtitle": "We reduced the quality of some videos for faster loading",
+    "btn_close": "Close",
+    "btn_load_more": "Load More"
+  },
+  "design_portfolio": {
+    "badge": "Design",
+    "title_p1": "Exceptional designs for ",
+    "title_highlight": "leading brands.",
+    "subtitle": "A showcase of designs that have helped brands stand out.",
+    "btn_more": "View More Designs",
+    "archive_badge": "Archive",
+    "archive_title_p1": "Some samples of our ",
+    "archive_title_highlight": "designs",
+    "archive_subtitle": "We reduced the quality of some designs for faster loading",
+    "btn_close": "Close",
+    "btn_load_more": "Load More Designs"
+  },
+  "stats": {
+    "top_subtitle": "Data from some of our campaigns",
+    "items": {
+      "0": {
+        "val": "$20,000+",
+        "label": "Over $20,000 spent annually on our clients' campaigns."
+      },
+      "1": {
+        "val": "35M+ Views",
+        "label": "Reach the maximum number of people and get real customers at the lowest cost."
+      },
+      "2": {
+        "val": "High ROI",
+        "label": "The right sponsorship strategy for the highest return on investment."
+      }
+    },
+    "slider_title_p1": "Results of some of our campaigns on ",
+    "slider_title_highlight": "Meta",
+    "campaign_num": "Campaign No. ",
+    "msg_rate": "Message Rate",
+    "view_rate": "View Rate",
+    "cta_title_p1": "Want your brand ",
+    "cta_title_highlight": "to be here?",
+    "cta_btn": "Let's Get Started"
+  },
+  "schedule": {
+    "success_title": "Thank you, your request is submitted!",
+    "success_subtitle1": "We will try to contact you at the time you specified",
+    "success_subtitle2": "We will send you a reminder message on WhatsApp before the call",
+    "btn_close": "Close",
+    "step1_title": "Hello, thank you for choosing HBgrow",
+    "step1_subtitle": "Just fill out the details and we will chat with you via WhatsApp shortly",
+    "step1_question": "How would you prefer to communicate?",
+    "method_phone": "Phone Call",
+    "method_meeting": "Online Meeting",
+    "method_message": "Message",
+    "step2_title": "More info about your business",
+    "job_label": "What is your business type?",
+    "job_placeholder": "e.g., Clothing store, Real Estate...",
+    "city_label": "Which city are you in?",
+    "city_placeholder": "e.g., London",
+    "email_label": "Email",
+    "email_placeholder": "Enter your email here",
+    "step3_title": "Personal Information",
+    "name_label": "Your Name",
+    "name_placeholder": "Enter your name here",
+    "phone_label": "Your WhatsApp Number",
+    "phone_placeholder": "+44 123 4567 890",
+    "time_question": "When is a good time to call you?",
+    "btn_prev": "Back",
+    "btn_next": "Next",
+    "btn_submitting": "Submitting...",
+    "btn_submit": "Submit"
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title_p1": "Those who decided before you, ",
+    "title_highlight": "are now at the top.",
+    "subtitle": "Our results are not just numbers, they are real business growth.",
+    "list": [
+      {
+        "name": "Awer",
+        "initials": "AH",
+        "rating": 5,
+        "role": "Customer",
+        "text": "The best agency I have ever worked with! I can warranty this team 100 hundred percent without any doubt! If there are other agencies that fill a part of your business, this agency is different — they can run your business completely, do everything as you please and as its necessary. Keep up the fine works guys.",
+        "source": "Facebook"
+      },
+      {
+        "name": "Sakar",
+        "initials": "SA",
+        "rating": 5,
+        "role": "Customer",
+        "text": "Great job, everything is excellent. We are very satisfied with your staff and your work, wish you the best ❤️❤️",
+        "source": "Facebook"
+      },
+      {
+        "name": "Muhammad",
+        "initials": "MI",
+        "rating": 5,
+        "role": "Customer",
+        "text": "Bravo, your services are truly amazing, thank you so much 😍😍😍",
+        "source": "Facebook"
+      },
+      {
+        "name": "Yousif",
+        "initials": "YM",
+        "rating": 5,
+        "role": "Customer",
+        "text": "Thanks to HBgrow agency — honestly, however much I praise your work, it's not enough. Most importantly, I learned a lot from you about managing my work. The best group for managing an online business 💪",
+        "source": "Facebook"
+      },
+      {
+        "name": "Hardi",
+        "initials": "HA",
+        "rating": 5,
+        "role": "Customer",
+        "text": "Great job hbgrow agency, an experienced staff and their work is very beautiful",
+        "source": "Facebook"
+      },
+      {
+        "name": "Bakhtiar",
+        "initials": "BS",
+        "rating": 5,
+        "role": "Customer",
+        "text": "I wish you success, I started my first project with you and we have truly benefited a lot ❣️",
+        "source": "Facebook"
+      },
+      {
+        "name": "Customer",
+        "initials": "★",
+        "rating": 5,
+        "role": "Private Message",
+        "text": "Thank you so much. Since my factory is new, it was first God's grace, but you were also a great help to me in gaining people's trust",
+        "source": "Message"
+      },
+      {
+        "name": "Customer",
+        "initials": "★",
+        "rating": 5,
+        "role": "Private Message",
+        "text": "Best well arranged agency ever.",
+        "source": "Message"
+      },
+      {
+        "name": "Customer",
+        "initials": "★",
+        "rating": 5,
+        "role": "Private Message",
+        "text": "Thank you very much, God bless you, everything was perfect. Good luck.",
+        "source": "Message"
+      },
+      {
+        "name": "Mohammed Nawzad",
+        "initials": "MN",
+        "rating": 5,
+        "role": "Customer",
+        "text": "The design and everything else is perfect, great job, it's seriously amazing",
+        "source": "Message"
+      },
+      {
+        "name": "Customer",
+        "initials": "★",
+        "rating": 5,
+        "role": "Private Message",
+        "text": "Greetings to your staff, thank you so much for what you provided us within a month, your work is truly beautiful and well-organized. You did your work with great honesty, hoping you will continue even better and more successfully in the future.",
+        "source": "Message"
+      }
+    ]
+  },
+  "closing_cta": {
+    "badge": "Time to Decide",
+    "title_p1": "Get your time back for",
+    "title_highlight": "your business.",
+    "subtitle_p1": "Your competitors are not waiting. Let's set your strategy today.",
+    "subtitle_highlight": "A 15-minute call can change the direction of your business.",
+    "btn_schedule": "Schedule a Call",
+    "disclaimer": "The call is free and there are no obligations.",
+    "trusted_by": "Trusted By",
+    "stats": [
+      "100+ Brands",
+      "$20K+ Ad Spend",
+      "1000+ Products"
+    ]
+  },
+  "footer": {
+    "brand_desc": "Global Social Media & Growth Marketing Agency. Your brand deserves customers.",
+    "links_title": "Links",
+    "contact_title": "Contact",
+    "btn_schedule": "Schedule a Call",
+    "copyright": "HBgrow Agency. All rights reserved.",
+    "made_by": "Made with love by the HBgrow team",
+    "nav_about": "About Us",
+    "nav_portfolio": "Our Work",
+    "nav_process": "Our Process",
+    "nav_testimonials": "Testimonials",
+    "nav_contact": "Contact"
+  }
+}

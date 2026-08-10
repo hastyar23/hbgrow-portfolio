@@ -1,100 +1,16 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-
-const testimonials = [
-  {
-    name: 'Awer',
-    role: 'کڕیار',
-    rating: 5,
-    text: 'The best agency I have ever worked with! I can warranty this team 100 hundred percent without any doubt! If there are other agencies that fill a part of your business, this agency is different — they can run your business completely, do everything as you please and as its necessary. Keep up the fine works guys.',
-    initials: 'AH',
-    source: 'Facebook',
-  },
-  {
-    name: 'Sakar',
-    role: 'کڕیار',
-    rating: 5,
-    text: 'دەستان خۆشبێت هەموو شتێکتان نایابە زۆر لێیان ڕازین لە ستاف و ئیشەکانیشتان لەشتان ساغ بێت ❤️❤️',
-    initials: 'SA',
-    source: 'Facebook',
-  },
-  {
-    name: 'Muhammad',
-    role: 'کڕیار',
-    rating: 5,
-    text: 'Bzhyn barasty xzmat guzaryakantan nawazaya zor supastan akam 😍😍😍',
-    initials: 'MI',
-    source: 'Facebook',
-  },
-  {
-    name: 'Yousif',
-    role: 'کڕیار',
-    rating: 5,
-    text: 'Supas bo HBgrow agency — baraste ta wasfe karakantan bkam kama. La hamwe greng tr w bashtr zanyare zor zorm war grtwa la ewa wa bo barrewa brdne esshakan tegashtnm. La karakam zor zor supas tan akam, bashtren group bo ba rewa brdne business online 💪',
-    initials: 'YM',
-    source: 'Facebook',
-  },
-  {
-    name: 'Hardi',
-    role: 'کڕیار',
-    rating: 5,
-    text: 'Dasttan xoshh bo hbgrow agency bajdy staffay ba azmuny karakanyan zor jwaaa',
-    initials: 'HA',
-    source: 'Facebook',
-  },
-  {
-    name: 'Bakhtiar',
-    role: 'کڕیار',
-    rating: 5,
-    text: 'هیوای سەرکەوتنتان بۆ دەخوازم یەکەم کارم لای ئێوە دەستپێکرد بەڕاستی ئیسفادەی زۆر باشمان لێکردووە ❣️',
-    initials: 'BS',
-    source: 'Facebook',
-  },
-  {
-    name: 'کڕیار',
-    role: 'پەیامی تایبەت',
-    rating: 5,
-    text: 'زۆر سوپاستان ئەکەم بەڕاستی من لە چاو ئەو کارگەیەم تازەیە سەرەتا فەزڵی خوایە بەڵام ئێوەش یارمەتی دەڕێکی زۆر باشم بوون بۆ پەیداکردنی متمانەی خەڵک',
-    initials: '★',
-    source: 'Message',
-  },
-  {
-    name: 'کڕیار',
-    role: 'پەیامی تایبەت',
-    rating: 5,
-    text: 'Best well arranged agency ever.',
-    initials: '★',
-    source: 'Message',
-  },
-  {
-    name: 'کڕیار',
-    role: 'پەیامی تایبەت',
-    rating: 5,
-    text: 'Zor swpastan akam lashtansagh bet hamw shtek mazbwt bw. Sarkawtwbn.',
-    initials: '★',
-    source: 'Message',
-  },
-  {
-    name: 'Mohammed Nawzad',
-    role: 'کڕیار',
-    rating: 5,
-    text: 'دیزاین و هەموو شتێکیشتان پێرفێکته دەستان خۆش بی بەجدی نایابه',
-    initials: 'MN',
-    source: 'Message',
-  },
-  {
-    name: 'کڕیار',
-    role: 'پەیامی تایبەت',
-    rating: 5,
-    text: 'سڵاو لە ستافەکەتان، زۆر سوپاس بۆ ئەوەی لە ماوەی مانگێکدا پێشکەشتانکردین، بەڕاستی کارەکانتان زۆر جوان و ڕێکوپێکە، زۆر بە ئامانەتەوە کارەکانتان ئەنجامدا، بەهیوای ئەوەی لە داهاتوودا بە شێوەیەکی باشترو سەرکەوتوانەتر بەردەوام بن.',
-    initials: '★',
-    source: 'Message',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const AUTOPLAY_MS = 5000;
 
 export default function Testimonials() {
+  const { t } = useTranslation();
+  
+  // Get testimonials from translations
+  const testimonials = useMemo(() => {
+    return t('testimonials.list', { returnObjects: true }) || [];
+  }, [t]);
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState('next'); // 'next' | 'prev'
   const [animating, setAnimating] = useState(false);
@@ -135,13 +51,13 @@ export default function Testimonials() {
   // Touch/swipe support
   const onTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
   const onTouchEnd = (e) => {
-    if (touchStartX.current === null) return;
+    if (touchStartX.current === null || total === 0) return;
     const diff = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); resetTimer(); }
     touchStartX.current = null;
   };
 
-  const t = testimonials[current];
+  const currentTestimonial = total > 0 ? testimonials[current] : null;
 
   return (
     <section id="testimonials" style={{ padding: 'clamp(4rem, 10vw, 9rem) 0' }}>
@@ -197,7 +113,7 @@ export default function Testimonials() {
 
         {/* ── Header ── */}
         <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 4.5rem)' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem' }}>بەڵگەنامەکان</span>
+          <span className="badge" style={{ marginBottom: '1.5rem' }}>{t('testimonials.badge')}</span>
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -212,15 +128,15 @@ export default function Testimonials() {
                 fontWeight: 700, lineHeight: 1.25, color: '#ffffff',
                 maxWidth: 520, marginTop: '0.75rem',
               }}>
-                ئەوانەی پێش تۆ بڕیارییانداوە،{' '}
-                <span className="text-gold">ئێستا لە لوتکەدان.</span>
+                {t('testimonials.title_p1')}
+                <span className="text-gold">{t('testimonials.title_highlight')}</span>
               </h2>
               <p style={{
                 fontFamily: "'Noto Kufi Arabic', sans-serif",
                 fontSize: '0.875rem', color: 'rgba(203,213,225,0.5)',
                 marginTop: '1rem', fontWeight: 300, lineHeight: 1.9,
               }}>
-                ئەنجامەکانمان تەنها ژمارە نین، گەشەکردنی ڕاستەقینەی بزنسەکانن.
+                {t('testimonials.subtitle')}
               </p>
             </div>
 
@@ -264,10 +180,10 @@ export default function Testimonials() {
           `}</style>
 
           {/* Card */}
+          {currentTestimonial && (
           <div
             key={current}
             className={animating ? '' : (direction === 'next' ? 'ts-card-enter-next' : 'ts-card-enter-prev')}
-            dir="rtl"
             style={{
               background: 'rgba(255,255,255,0.03)',
               backdropFilter: 'blur(24px)',
@@ -293,17 +209,17 @@ export default function Testimonials() {
               <span style={{
                 fontSize: '0.58rem', letterSpacing: '0.18em',
                 textTransform: 'uppercase', fontWeight: 700,
-                color: t.source === 'Facebook' ? 'rgba(130,170,255,0.65)' : 'rgba(100,220,130,0.65)',
+                color: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوك') ? 'rgba(130,170,255,0.65)' : 'rgba(100,220,130,0.65)',
                 fontFamily: "'Noto Kufi Arabic', sans-serif",
                 paddingTop: '0.25rem',
               }}>
-                {t.source === 'Facebook' ? '● Facebook' : '● Message'}
+                ● {currentTestimonial.source}
               </span>
             </div>
 
             {/* Stars */}
             <div style={{ display: 'flex', gap: 4 }}>
-              {Array.from({ length: t.rating }).map((_, j) => (
+              {Array.from({ length: currentTestimonial.rating || 5 }).map((_, j) => (
                 <span key={j} style={{ color: '#C5A459', fontSize: '1.1rem' }}>★</span>
               ))}
             </div>
@@ -317,7 +233,7 @@ export default function Testimonials() {
               fontWeight: 300,
               letterSpacing: '0.02em',
             }}>
-              "{t.text}"
+              "{currentTestimonial.text}"
             </p>
 
             {/* Author row */}
@@ -336,18 +252,18 @@ export default function Testimonials() {
                   fontWeight: 900, fontSize: '0.9rem', color: '#02050a',
                   boxShadow: '0 0 20px rgba(197,164,89,0.3)',
                 }}>
-                  {t.initials}
+                  {currentTestimonial.initials}
                 </div>
                 <div>
                   <p style={{
                     fontFamily: "'Noto Kufi Arabic', sans-serif",
                     fontSize: '1rem', fontWeight: 700, color: '#ffffff', lineHeight: 1.2,
-                  }}>{t.name}</p>
+                  }}>{currentTestimonial.name}</p>
                   <p style={{
                     fontFamily: "'Noto Kufi Arabic', sans-serif",
                     fontSize: '0.78rem', color: 'rgba(203,213,225,0.45)',
                     marginTop: '0.2rem', fontWeight: 300,
-                  }}>{t.role}</p>
+                  }}>{currentTestimonial.role}</p>
                 </div>
               </div>
 
@@ -361,6 +277,7 @@ export default function Testimonials() {
               </div>
             </div>
           </div>
+          )}
         </div>
 
         {/* ── Dots + Mobile Nav ── */}

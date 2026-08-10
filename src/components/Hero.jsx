@@ -1,4 +1,5 @@
 import { useEffect, useRef, Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Calendar, Play } from 'lucide-react';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
@@ -6,6 +7,7 @@ import WhatsAppIcon from './WhatsAppIcon';
 export default function Hero() {
   const { openSchedule } = useSchedule();
   const glowRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const move = (e) => {
@@ -18,9 +20,9 @@ export default function Hero() {
   }, []);
 
   const stats = [
-    { val: '100+',   label: 'براندی متمانەپێکراو' },
-    { val: '60,000+',  label: 'بەرهەمهێنانی نامە بۆ کڕیارانمان' },
-    { val: '1,000+', label: 'بەرهەمی دیزاین و ڤیدیۆ' },
+    { val: '100+',   label: t('hero.stats.brands') },
+    { val: '60,000+',  label: t('hero.stats.leads') },
+    { val: '1,000+', label: t('hero.stats.creative') },
   ];
 
   return (
@@ -75,7 +77,7 @@ export default function Hero() {
         <div className="animate-fade-in-up delay-100" style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'center', padding: '0 0.5rem' }}>
           <span className="badge">
             <span className="dot" />
-            متمانەپێکراوە لەلایەن +١٠٠ کڕیار لە کوردستان و عێراق
+            {t('hero.badge')}
           </span>
         </div>
 
@@ -83,26 +85,26 @@ export default function Hero() {
         <h1
           className="animate-fade-in-up delay-200"
           style={{
-            fontFamily: "'Sarchia Bokan', serif",
-            fontSize: 'clamp(2.2rem, 6.5vw, 5rem)',
+            fontFamily: "'Outfit', 'Sarchia Bokan', serif",
+            fontSize: 'clamp(2.75rem, 8vw, 5rem)',
             fontWeight: 700,
-            lineHeight: 1,
+            lineHeight: 1.05,
             color: '#ffffff',
             maxWidth: 820,
             margin: '0 auto 1.25rem',
             wordBreak: 'break-word',
           }}
         >
-          براندەکەت شایەنی{' '}
-          <span className="text-gold">کــــڕیارە،</span>
+          {t('hero.title_p1')}{' '}
+          <span className="text-gold">{t('hero.title_highlight')}</span>
           <span style={{
             display: 'block',
-            marginTop: '0.4rem',
-            fontSize: 'clamp(1.25rem, 4vw, 2.75rem)',
+            marginTop: '0.1rem',
+            fontSize: 'clamp(1.5rem, 5vw, 2.75rem)',
             fontWeight: 400,
             color: 'rgba(203,213,225,0.72)',
           }}>
-            نەک تەنها بـــــــــــــــینەر
+            {t('hero.title_p2')}
           </span>
         </h1>
 
@@ -110,7 +112,7 @@ export default function Hero() {
         <p
           className="animate-fade-in-up delay-300"
           style={{
-            fontFamily: "'Noto Kufi Arabic', sans-serif",
+            fontFamily: "'Inter', 'Noto Kufi Arabic', sans-serif",
             maxWidth: 540,
             margin: '0 auto 2.5rem',
             fontSize: 'clamp(0.875rem, 2.2vw, 1rem)',
@@ -121,9 +123,9 @@ export default function Hero() {
             wordBreak: 'break-word',
           }}
         >
-          ئێمە تەنها "پۆست" ناکەین. ئێمە ستراتیجییەکی تەواوی گەشەکردن و فرۆشتن بۆ کلینیک، کۆمپانیا و براندە ئاست بەرزەکان دروست دەکەین.{' '}
+          {t('hero.subtitle_1')}{' '}
           <span style={{ color: 'rgba(197,164,89,0.9)', fontWeight: 500 }}>
-            کاتی خۆت بۆ بزنسەکەت تەرخان بکە، گەشەکردنەکە جێبهێڵە بۆ ئێمە.
+            {t('hero.subtitle_2')}
           </span>
         </p>
 
@@ -136,11 +138,11 @@ export default function Hero() {
             style={{ boxShadow: '0 0 32px -8px rgba(197,164,89,0.45)', border: 'none', cursor: 'pointer' }}
           >
             <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
-            کاتێک دیاریبکە بۆ گفتوگۆکردن لەگەڵمان
+            {t('hero.cta_book')}
           </button>
           <a href="#portfolio" className="btn-ghost" id="hero-cta-work">
             <Play size={13} style={{ fill: 'currentColor', flexShrink: 0 }} />
-            نموونەی کارەکانمان ببینە
+            {t('hero.cta_work')}
           </a>
         </div>
 
@@ -178,10 +180,10 @@ export default function Hero() {
               {stats.map(({ val, label }, index, arr) => (
                 <Fragment key={label}>
                   <div
-                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1, justifyContent: 'flex-start' }}
+                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1, justifyContent: 'center' }}
                   >
                     <div style={{
-                      fontFamily: "'Sarchia Bokan', serif",
+                      fontFamily: "'Outfit', 'Sarchia Bokan', serif",
                       fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
                       fontWeight: 700, lineHeight: 1,
                       backgroundImage: 'linear-gradient(135deg, #F1EAD4 0%, #C5A459 50%, #B8902A 100%)',
@@ -193,7 +195,7 @@ export default function Hero() {
                       {val}
                     </div>
                     <div style={{
-                      fontFamily: "'Noto Kufi Arabic', sans-serif",
+                      fontFamily: "'Inter', 'Noto Kufi Arabic', sans-serif",
                       fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
                       color: 'rgba(235, 240, 248, 0.85)',
                       marginTop: '0.5rem',

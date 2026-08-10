@@ -1,52 +1,55 @@
 import { Phone, BarChart2, Eye, Smile } from 'lucide-react';
-
-const steps = [
-  {
-    num: '١',
-    icon: <Phone size={16} />,
-    title: 'دیاریکردنی کێشەکان',
-    duration: '١٥–٢٠ خولەک',
-    desc: 'سەرەتا پەیوەندییەکی ١٥ بۆ ٢٠ خولەکت لەگەڵدا دەکەین تا تێبگەین لە ئامانجەکەت و ستایلەکەت.',
-  },
-  {
-    num: '٢',
-    icon: <BarChart2 size={16} />,
-    title: 'پلان و ستراتیجی',
-    duration: '٥–٧ ڕۆژ',
-    desc: 'لە ماوەی ٥ بۆ ٧ ڕۆژ پلان و ستراتیجییەکەت بۆ ڕێکدەخرێت تا لەگەڵ ئامانجەکەت یەک بگرێتەوە.',
-  },
-  {
-    num: '٣',
-    icon: <Eye size={16} />,
-    title: 'پاڵدانەوە و تەماشاکردن',
-    duration: 'جێبەجێکردن',
-    desc: 'پۆستەکانت بەپێی خشتەی دیاریکراو بۆ دروستدەکرێت، ئەوەی لەسەر تۆیە تەنها پەسەندکردنە.',
-  },
-  {
-    num: '٤',
-    icon: <Smile size={16} />,
-    title: 'دڵخۆشی و گەشەکردن',
-    duration: 'دوای چەند مانگێک',
-    desc: 'دوای چەند مانگێک دڵخۆشدەبیت بە بینینی ئەنجامەکانت و ناساندنی زیاتری کارەکەت.',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function Process() {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      num: t('process.steps.0.num'),
+      icon: <Phone size={16} />,
+      title: t('process.steps.0.title'),
+      duration: t('process.steps.0.duration'),
+      desc: t('process.steps.0.desc'),
+    },
+    {
+      num: t('process.steps.1.num'),
+      icon: <BarChart2 size={16} />,
+      title: t('process.steps.1.title'),
+      duration: t('process.steps.1.duration'),
+      desc: t('process.steps.1.desc'),
+    },
+    {
+      num: t('process.steps.2.num'),
+      icon: <Eye size={16} />,
+      title: t('process.steps.2.title'),
+      duration: t('process.steps.2.duration'),
+      desc: t('process.steps.2.desc'),
+    },
+    {
+      num: t('process.steps.3.num'),
+      icon: <Smile size={16} />,
+      title: t('process.steps.3.title'),
+      duration: t('process.steps.3.duration'),
+      desc: t('process.steps.3.desc'),
+    },
+  ];
+
   return (
     <section id="process" style={{ padding: 'clamp(4rem, 10vw, 9rem) 0' }}>
       <div className="section-wrap">
 
         {/* Header */}
         <div data-reveal style={{ maxWidth: 560, marginBottom: 'clamp(2.5rem, 7vw, 5.5rem)' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem' }}>پرۆسەکەمان</span>
+          <span className="badge" style={{ marginBottom: '1.5rem' }}>{t('process.badge')}</span>
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
             fontWeight: 700, lineHeight: 1.25, color: '#ffffff',
             marginBottom: '1rem', marginTop: '0.75rem',
           }}>
-            پرۆسەی کارکردنمان:{' '}
-            <span className="text-gold">چۆن چۆنییە؟</span>
+            {t('process.title_p1')}{' '}
+            <span className="text-gold">{t('process.title_highlight')}</span>
           </h2>
           <p style={{
             fontFamily: "'Noto Kufi Arabic', sans-serif",
@@ -54,7 +57,7 @@ export default function Process() {
             color: 'rgba(203,213,225,0.6)', lineHeight: 2,
             fontWeight: 300, letterSpacing: '0.03em',
           }}>
-            سیستەمێکی کارکردنی بێ ئەرک. تۆ کاتت نییە، بۆیەیە ئێمە هەموو شتێکمان ئاسان کردووە.
+            {t('process.subtitle')}
           </p>
         </div>
 

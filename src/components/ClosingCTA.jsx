@@ -1,9 +1,12 @@
 import { Calendar, ArrowLeft } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
 
 export default function ClosingCTA() {
   const { openSchedule } = useSchedule();
+  const { t } = useTranslation();
+  const stats = t('closing_cta.stats', { returnObjects: true }) || [];
 
   return (
     <section
@@ -36,7 +39,7 @@ export default function ClosingCTA() {
 
         <span className="badge" style={{ marginBottom: 'clamp(1.5rem, 4vw, 3rem)' }}>
           <span className="dot" />
-          کاتی بڕیاردانە
+          {t('closing_cta.badge')}
         </span>
 
         <h2 style={{
@@ -46,8 +49,8 @@ export default function ClosingCTA() {
           letterSpacing: '0.01em', color: '#ffffff',
           marginBottom: '1.5rem',
         }}>
-          کاتی خۆت بۆ<br />
-          <span className="text-gold">بزنسەکەت بگەڕێنەوە.</span>
+          {t('closing_cta.title_p1')}<br />
+          <span className="text-gold">{t('closing_cta.title_highlight')}</span>
         </h2>
 
         <p style={{
@@ -58,9 +61,9 @@ export default function ClosingCTA() {
           color: 'rgba(203,213,225,0.65)', lineHeight: 2,
           letterSpacing: '0.03em',
         }}>
-          ڕکابەرەکانت چاوەڕێ ناکەن. با ئەمڕۆ ستراتیژییەکەی تۆ دابنێین.{' '}
+          {t('closing_cta.subtitle_p1')}{' '}
           <span style={{ color: 'rgba(203,213,225,0.85)' }}>
-            پەیوەندییەکی ١٥ خولەکی دەتوانێت ئاراستەی بزنسەکەت بگۆڕێت.
+            {t('closing_cta.subtitle_highlight')}
           </span>
         </p>
 
@@ -81,7 +84,7 @@ export default function ClosingCTA() {
             }}
           >
             <WhatsAppIcon size={18} style={{ flexShrink: 0 }} />
-            کاتێک دیاریبکە بۆ گفتوگۆکردن
+            {t('closing_cta.btn_schedule')}
             <ArrowLeft size={13} style={{ flexShrink: 0 }} />
           </button>
         </div>
@@ -93,7 +96,7 @@ export default function ClosingCTA() {
           color: 'rgba(203,213,225,0.3)',
           letterSpacing: '0.06em',
         }}>
-          پەیوەندییەکە بێ بەرامبەرە و هیچ پابەندبوونێکی تێدا نییە.
+          {t('closing_cta.disclaimer')}
         </p>
 
         {/* Social proof */}
@@ -104,11 +107,11 @@ export default function ClosingCTA() {
             textTransform: 'uppercase', color: 'rgba(203,213,225,0.3)',
             marginBottom: '1.25rem', fontWeight: 700,
           }}>
-            متمانەپێکراو لە
+            {t('closing_cta.trusted_by')}
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(1.5rem, 4vw, 3.5rem)', flexWrap: 'wrap' }}>
-            {['١٠٠+ براند', '$٢٠K+ ڕیکلام', '١٠٠٠+ بەرهەم'].map(item => (
-              <span key={item} style={{
+            {stats.map((item, idx) => (
+              <span key={idx} style={{
                 fontFamily: "'Sarchia Bokan', serif",
                 fontSize: 'clamp(0.875rem, 2vw, 1rem)', fontWeight: 600,
                 color: 'rgba(203,213,225,0.55)',

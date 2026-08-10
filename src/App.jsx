@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PainSolution from './components/PainSolution';
@@ -11,8 +12,14 @@ import ClosingCTA from './components/ClosingCTA';
 import Footer from './components/Footer';
 
 export default function App() {
-  // Scroll reveal
+  const { i18n } = useTranslation();
+
+  // Scroll reveal and dynamic language attributes
   useEffect(() => {
+    // Set language and direction on root HTML tag
+    document.documentElement.lang = i18n.language;
+    document.documentElement.dir = i18n.dir();
+
     const els = document.querySelectorAll('[data-reveal]');
     const io = new IntersectionObserver(
       (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
@@ -20,7 +27,7 @@ export default function App() {
     );
     els.forEach(el => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [i18n.language, i18n.dir()]);
 
   return (
     <div>

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -19,10 +21,16 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { label: 'دەربارەمان', href: '#about' },
-    { label: 'کارەکانمان', href: '#portfolio' },
-    { label: 'پرۆسەکەمان', href: '#process' },
-    { label: 'بەڵگەنامەکان', href: '#testimonials' },
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.portfolio'), href: '#portfolio' },
+    { label: t('nav.process'), href: '#process' },
+    { label: t('nav.testimonials'), href: '#testimonials' },
+  ];
+
+  const langs = [
+    { code: 'ku', label: 'KU' },
+    { code: 'ar', label: 'AR' },
+    { code: 'en', label: 'EN' }
   ];
 
   return (
@@ -83,6 +91,29 @@ export default function Navbar() {
             ))}
           </ul>
 
+          {/* Desktop Language Switcher */}
+          <div className="hidden md:flex items-center" style={{ gap: '0.5rem', background: 'rgba(255,255,255,0.03)', padding: '0.25rem 0.5rem', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
+            <Globe size={14} color="rgba(203,213,225,0.6)" />
+            {langs.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => i18n.changeLanguage(lang.code)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: i18n.language.startsWith(lang.code) ? '#C5A459' : 'rgba(203,213,225,0.5)',
+                  fontSize: '0.75rem',
+                  fontWeight: i18n.language.startsWith(lang.code) ? 700 : 500,
+                  cursor: 'pointer',
+                  padding: '0.25rem',
+                  transition: 'all 0.2s'
+                }}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
+
           {/* Desktop CTA */}
           <div className="hidden md:block">
             <a
@@ -90,7 +121,7 @@ export default function Navbar() {
               className="btn-primary"
               style={{ padding: '0.7rem 1.4rem', fontSize: '0.8rem' }}
             >
-              کاتێک دیاریبکە
+              {t('nav.cta')}
             </a>
           </div>
 
@@ -98,7 +129,7 @@ export default function Navbar() {
           <button
             className="md:hidden flex items-center justify-center"
             onClick={() => setOpen(!open)}
-            aria-label={open ? 'داخستنی مینیو' : 'کردنەوەی مینیو'}
+            aria-label={open ? t('nav.close_menu') : t('nav.open_menu')}
             style={{
               background: 'rgba(255,255,255,0.05)',
               border: '1px solid rgba(255,255,255,0.1)',
@@ -151,13 +182,36 @@ export default function Navbar() {
                 </a>
               ))}
             </div>
+
+            {/* Mobile Language Switcher */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginTop: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+              {langs.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => { i18n.changeLanguage(lang.code); setOpen(false); }}
+                  style={{
+                    background: i18n.language.startsWith(lang.code) ? 'rgba(197, 164, 89, 0.15)' : 'rgba(255,255,255,0.03)',
+                    border: i18n.language.startsWith(lang.code) ? '1px solid rgba(197, 164, 89, 0.3)' : '1px solid rgba(255,255,255,0.05)',
+                    color: i18n.language.startsWith(lang.code) ? '#C5A459' : 'rgba(203,213,225,0.7)',
+                    padding: '0.5rem 1.25rem',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.85rem',
+                    fontWeight: i18n.language.startsWith(lang.code) ? 600 : 400,
+                    cursor: 'pointer',
+                  }}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
+
             <a
               href="#contact"
               className="btn-primary"
               onClick={() => setOpen(false)}
               style={{ marginTop: '1.25rem', display: 'flex', justifyContent: 'center', width: '100%' }}
             >
-              کاتێک دیاریبکە
+              {t('nav.cta')}
             </a>
           </div>
         </div>
