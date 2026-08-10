@@ -6,8 +6,13 @@ import ku from './locales/ku.json';
 import ar from './locales/ar.json';
 import en from './locales/en.json';
 
-// Regions in Iraq that are predominantly Kurdish
-const KURDISH_REGIONS = ['Erbil', 'Sulaymaniyah', 'Duhok', 'Halabja'];
+// Regions in Iraq that are predominantly Kurdish (covering various spellings from GeoIP)
+const KURDISH_REGIONS = [
+  'erbil', 'arbil', 'hawler', 
+  'sulaymaniyah', 'as sulaymaniyah', 'slemani', 'sulaymaniya', 'as sulaymaniyyah',
+  'duhok', 'dahuk', 'dihok', 
+  'halabja', 'helebce'
+];
 const ARABIC_COUNTRIES = ['IQ', 'SA', 'AE', 'QA', 'BH', 'KW', 'OM', 'EG', 'JO', 'LB', 'SY', 'YE', 'LY', 'SD', 'MA', 'DZ', 'TN'];
 
 const customGeoDetector = {
@@ -31,7 +36,15 @@ const customGeoDetector = {
         let detectedLang = 'en'; // Fallback
 
         if (data.country === 'IQ') {
-          if (KURDISH_REGIONS.includes(data.region) || KURDISH_REGIONS.includes(data.city)) {
+          const region = (data.region || '').toLowerCase();
+          const city = (data.city || '').toLowerCase();
+          const rCode = (data.regionCode || '').toUpperCase();
+          
+          if (
+            KURDISH_REGIONS.includes(region) || 
+            KURDISH_REGIONS.includes(city) ||
+            rCode === 'AR' || rCode === 'SU' || rCode === 'DA' || rCode === 'HA'
+          ) {
             detectedLang = 'ku';
           } else {
             detectedLang = 'ar'; // Baghdad, Basra, etc.
