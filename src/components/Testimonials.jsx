@@ -9,7 +9,8 @@ export default function Testimonials() {
   
   // Get testimonials from translations
   const testimonials = useMemo(() => {
-    return t('testimonials.list', { returnObjects: true }) || [];
+    const raw = t('testimonials.list', { returnObjects: true });
+    return Array.isArray(raw) ? raw : [];
   }, [t]);
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState('next'); // 'next' | 'prev'

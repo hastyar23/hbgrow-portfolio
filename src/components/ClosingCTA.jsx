@@ -6,7 +6,8 @@ import WhatsAppIcon from './WhatsAppIcon';
 export default function ClosingCTA() {
   const { openSchedule } = useSchedule();
   const { t } = useTranslation();
-  const stats = t('closing_cta.stats', { returnObjects: true }) || [];
+  const rawStats = t('closing_cta.stats', { returnObjects: true });
+  const stats = Array.isArray(rawStats) ? rawStats : [];
 
   return (
     <section
