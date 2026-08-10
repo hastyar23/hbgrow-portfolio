@@ -20,6 +20,13 @@ export default function App() {
     document.documentElement.lang = i18n.language;
     document.documentElement.dir = i18n.dir();
 
+    // Update document title dynamically
+    if (i18n.language.startsWith('ku') || i18n.language.startsWith('ar')) {
+      document.title = "HBgrow Agency | ئەیجێنسی گەشەی سۆشیاڵ میدیا";
+    } else {
+      document.title = "HBgrow Agency | Global Social Media & Growth Marketing";
+    }
+
     const els = document.querySelectorAll('[data-reveal]');
     const io = new IntersectionObserver(
       (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),

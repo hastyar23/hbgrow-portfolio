@@ -258,5 +258,44 @@
     "nav_process": "Our Process",
     "nav_testimonials": "Testimonials",
     "nav_contact": "Contact"
+  },
+  "pain_solution": {
+    "badge": "Challenges",
+    "title_p1": "Is your business facing",
+    "title_highlight": "these challenges?",
+    "title_p2": "",
+    "pains": [
+      {
+        "title": "No real customers?",
+        "desc": "You don't know how to find real customers on social media and turn them into loyal ones."
+      },
+      {
+        "title": "No time to manage?",
+        "desc": "As a business owner, you have no time to professionally manage your pages and ads."
+      },
+      {
+        "title": "Burning money on ads?",
+        "desc": "Your ads waste a lot of money without generating significant sales. You feel competitors are ahead."
+      }
+    ],
+    "shift_p1": "With",
+    "shift_highlight": "HBgrow",
+    "shift_p2": "these problems will disappear.",
+    "solutions": [
+      {
+        "title": "Get your time back",
+        "desc": "We do all the work. Your only job is to approve our content and welcome your customers."
+      },
+      {
+        "title": "Save on expenses",
+        "desc": "No more wasting money on random ads. Your campaigns are managed with proper strategy."
+      },
+      {
+        "title": "A professional brand",
+        "desc": "A dedicated team will be assigned to you, turning your brand into a magnet for new customers."
+      }
+    ],
+    "cta_btn": "Schedule a Call",
+    "cta_desc": "The call is free and there are no obligations."
   }
 }
