@@ -97,7 +97,10 @@ export default function Navbar() {
             {langs.map((lang) => (
               <button
                 key={lang.code}
-                onClick={() => i18n.changeLanguage(lang.code)}
+                onClick={() => {
+                  localStorage.setItem('userSetLang', 'true');
+                  i18n.changeLanguage(lang.code);
+                }}
                 style={{
                   background: 'none',
                   border: 'none',

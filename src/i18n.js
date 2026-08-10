@@ -18,20 +18,16 @@ const ARABIC_COUNTRIES = ['IQ', 'SA', 'AE', 'QA', 'BH', 'KW', 'OM', 'EG', 'JO', 
 const customGeoDetector = {
   name: 'geoDetector',
   lookup(options) {
-    // Only detect if it's the first visit (no local storage set)
-    const storedLang = localStorage.getItem('i18nextLng');
-    if (storedLang) return storedLang;
+    // If user has explicitly chosen a language, don't run geo detector at all
+    if (localStorage.getItem('userSetLang')) return localStorage.getItem('i18nextLng');
 
-    // We can't do async lookup directly in i18next sync lookup phase easily without suspending,
-    // so we return undefined here and trigger an async check to change language if needed.
-    
     fetch('/api/country')
       .then(res => res.json())
       .then(data => {
         if (!data || !data.country) return;
         
-        // Don't override if user already clicked a language button while we were fetching
-        if (localStorage.getItem('i18nextLng')) return;
+        // Don't override if user clicked a language button while we were fetching
+        if (localStorage.getItem('userSetLang')) return;
 
         let detectedLang = 'en'; // Fallback
 
@@ -80,7 +76,7 @@ i18n
     },
     fallbackLng: 'ku', // Default fallback
     detection: {
-      order: ['localStorage', 'geoDetector', 'navigator'],
+      order: ['localStorage', 'geoDetector'],
       caches: ['localStorage'],
     },
     interpolation: {
