@@ -58,10 +58,10 @@ export default function Hero() {
           position: 'absolute', inset: 0,
           background: 'linear-gradient(to bottom, rgba(2,5,10,0.15) 0%, rgba(5,14,29,0.4) 40%, rgba(2,5,10,0.98) 100%)',
         }} />
-        {/* Top gold glow */}
+        {/* Top gold & sapphire stage lighting */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 70% 45% at 50% -8%, rgba(197,164,89,0.10) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(212,175,55,0.22) 0%, rgba(30,80,185,0.18) 45%, transparent 75%)',
         }} />
         {/* Dot grid texture */}
         <div className="grid-bg" />
@@ -69,22 +69,28 @@ export default function Hero() {
         <div className="noise-overlay" />
         {/* Ambient gold orb — left */}
         <div className="glow-orb glow-orb-gold" style={{
-          width: 500, height: 500,
-          top: '5%', left: '-8%',
-          opacity: 0.65,
+          width: 550, height: 550,
+          top: '2%', left: '-5%',
+          opacity: 0.85,
         }} />
         {/* Ambient blue orb — right */}
         <div className="glow-orb glow-orb-blue" style={{
-          width: 600, height: 600,
-          top: '-10%', right: '-10%',
-          opacity: 0.7,
+          width: 650, height: 650,
+          top: '-8%', right: '-8%',
+          opacity: 0.85,
+        }} />
+        {/* Ambient cyan orb — center right */}
+        <div className="glow-orb glow-orb-cyan" style={{
+          width: 450, height: 450,
+          top: '30%', right: '15%',
+          opacity: 0.6,
         }} />
         {/* Bottom gold orb */}
         <div className="glow-orb glow-orb-gold" style={{
-          width: 400, height: 400,
+          width: 500, height: 500,
           bottom: '-15%', left: '50%',
           transform: 'translateX(-50%)',
-          opacity: 0.35,
+          opacity: 0.55,
           animationDelay: '-2s',
         }} />
       </div>
