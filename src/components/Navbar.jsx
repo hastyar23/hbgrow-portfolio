@@ -13,12 +13,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close menu on resize to desktop
   useEffect(() => {
     const onResize = () => { if (window.innerWidth >= 768) setOpen(false); };
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
 
   const links = [
     { label: t('nav.about'), href: '#about' },
@@ -35,22 +40,13 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        style={{
-          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-          transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-          background: scrolled ? 'rgba(2,5,10,0.92)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
-        }}
-      >
+      {/* ── Floating Pill Navbar ── */}
+      <header className={`navbar-pill${scrolled ? ' scrolled' : ''}`}>
         <nav
-          className="section-wrap"
           style={{
             display: 'flex', alignItems: 'center',
             justifyContent: 'space-between',
-            paddingTop: '1rem', paddingBottom: '1rem',
+            padding: '0.65rem 1.1rem',
             gap: '1rem',
           }}
         >
@@ -62,28 +58,27 @@ export default function Navbar() {
             <img
               src="/images/optimized/U9X57gP.avif"
               alt="HBgrow Agency Logo"
-              style={{ height: 40, width: 40, objectFit: 'contain', borderRadius: '50%' }}
+              style={{
+                height: 34, width: 34, objectFit: 'contain', borderRadius: '50%',
+                border: '1px solid rgba(197,164,89,0.25)',
+                boxShadow: '0 0 12px rgba(197,164,89,0.12)',
+              }}
             />
           </a>
 
           {/* Desktop Links */}
           <ul
             className="hidden md:flex"
-            style={{ gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}
+            style={{ gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }}
           >
             {links.map(({ label, href }) => (
               <li key={href}>
                 <a
                   href={href}
+                  className="nav-link"
                   style={{
-                    fontSize: '0.8rem', fontWeight: 500,
-                    color: 'rgba(203,213,225,0.72)',
-                    textDecoration: 'none', letterSpacing: '0.04em',
-                    transition: 'color 0.3s',
                     fontFamily: "'Noto Kufi Arabic', sans-serif",
                   }}
-                  onMouseEnter={e => e.target.style.color = '#C5A459'}
-                  onMouseLeave={e => e.target.style.color = 'rgba(203,213,225,0.72)'}
                 >
                   {label}
                 </a>
@@ -91,38 +86,47 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop Language Switcher */}
-          <div className="hidden md:flex items-center" style={{ gap: '0.5rem', background: 'rgba(255,255,255,0.03)', padding: '0.25rem 0.5rem', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
-            <Globe size={14} color="rgba(203,213,225,0.6)" />
-            {langs.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => {
-                  localStorage.setItem('userSetLang', 'true');
-                  i18n.changeLanguage(lang.code);
-                }}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: i18n.language.startsWith(lang.code) ? '#C5A459' : 'rgba(203,213,225,0.5)',
-                  fontSize: '0.75rem',
-                  fontWeight: i18n.language.startsWith(lang.code) ? 700 : 500,
-                  cursor: 'pointer',
-                  padding: '0.25rem',
-                  transition: 'all 0.2s'
-                }}
-              >
-                {lang.label}
-              </button>
-            ))}
-          </div>
+          {/* Desktop Right: Language + CTA */}
+          <div className="hidden md:flex items-center" style={{ gap: '0.75rem' }}>
+            {/* Language Switcher */}
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '0.35rem',
+              background: 'rgba(255,255,255,0.04)',
+              padding: '0.3rem 0.6rem',
+              borderRadius: '100px',
+              border: '1px solid rgba(255,255,255,0.07)',
+            }}>
+              <Globe size={12} color="rgba(203,213,225,0.45)" />
+              {langs.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => {
+                    localStorage.setItem('userSetLang', 'true');
+                    i18n.changeLanguage(lang.code);
+                  }}
+                  style={{
+                    background: i18n.language.startsWith(lang.code) ? 'rgba(197,164,89,0.15)' : 'none',
+                    border: i18n.language.startsWith(lang.code) ? '1px solid rgba(197,164,89,0.3)' : '1px solid transparent',
+                    color: i18n.language.startsWith(lang.code) ? '#C5A459' : 'rgba(203,213,225,0.5)',
+                    fontSize: '0.68rem',
+                    fontWeight: i18n.language.startsWith(lang.code) ? 700 : 500,
+                    cursor: 'pointer',
+                    padding: '0.2rem 0.5rem',
+                    borderRadius: '100px',
+                    transition: 'all 0.25s ease',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  {lang.label}
+                </button>
+              ))}
+            </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
+            {/* CTA Button */}
             <a
               href="#contact"
               className="btn-primary"
-              style={{ padding: '0.7rem 1.4rem', fontSize: '0.8rem' }}
+              style={{ padding: '0.6rem 1.25rem', fontSize: '0.78rem' }}
             >
               {t('nav.cta')}
             </a>
@@ -134,91 +138,95 @@ export default function Navbar() {
             onClick={() => setOpen(!open)}
             aria-label={open ? t('nav.close_menu') : t('nav.open_menu')}
             style={{
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: 'rgba(255,255,255,0.9)',
+              background: open ? 'rgba(197,164,89,0.1)' : 'rgba(255,255,255,0.05)',
+              border: `1px solid ${open ? 'rgba(197,164,89,0.3)' : 'rgba(255,255,255,0.09)'}`,
+              color: open ? '#C5A459' : 'rgba(255,255,255,0.85)',
               cursor: 'pointer',
-              padding: '0.5rem',
-              borderRadius: '0.5rem',
+              padding: '0.45rem',
+              borderRadius: '0.625rem',
               backdropFilter: 'blur(12px)',
-              transition: 'all 0.3s',
+              transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
               flexShrink: 0,
             }}
           >
-            {open ? <X size={20} /> : <Menu size={20} />}
+            {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </nav>
+      </header>
 
-        {/* Mobile Menu */}
+      {/* ── Mobile Menu Overlay ── */}
+      {open && (
         <div
           style={{
-            overflow: 'hidden',
-            maxHeight: open ? '500px' : 0,
-            transition: 'max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-            background: 'rgba(2,5,10,0.97)',
-            backdropFilter: 'blur(32px)',
-            WebkitBackdropFilter: 'blur(32px)',
-            borderTop: open ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+            position: 'fixed', inset: 0, zIndex: 190,
+            background: 'rgba(2,5,10,0.98)',
+            backdropFilter: 'blur(40px)',
+            WebkitBackdropFilter: 'blur(40px)',
+            display: 'flex', flexDirection: 'column',
+            padding: '5.5rem 1.5rem 2.5rem',
+            animation: 'fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards',
           }}
         >
-          <div style={{ padding: '1.25rem 1.25rem 1.5rem' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-              {links.map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  onClick={() => setOpen(false)}
-                  style={{
-                    fontSize: '1rem', fontWeight: 500,
-                    color: 'rgba(203,213,225,0.85)',
-                    textDecoration: 'none',
-                    padding: '0.875rem 0',
-                    borderBottom: '1px solid rgba(255,255,255,0.04)',
-                    fontFamily: "'Noto Kufi Arabic', sans-serif",
-                    display: 'block',
-                    transition: 'color 0.25s',
-                  }}
-                  onMouseEnter={e => e.target.style.color = '#C5A459'}
-                  onMouseLeave={e => e.target.style.color = 'rgba(203,213,225,0.85)'}
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
-
-            {/* Mobile Language Switcher */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginTop: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-              {langs.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => { i18n.changeLanguage(lang.code); setOpen(false); }}
-                  style={{
-                    background: i18n.language.startsWith(lang.code) ? 'rgba(197, 164, 89, 0.15)' : 'rgba(255,255,255,0.03)',
-                    border: i18n.language.startsWith(lang.code) ? '1px solid rgba(197, 164, 89, 0.3)' : '1px solid rgba(255,255,255,0.05)',
-                    color: i18n.language.startsWith(lang.code) ? '#C5A459' : 'rgba(203,213,225,0.7)',
-                    padding: '0.5rem 1.25rem',
-                    borderRadius: '0.5rem',
-                    fontSize: '0.85rem',
-                    fontWeight: i18n.language.startsWith(lang.code) ? 600 : 400,
-                    cursor: 'pointer',
-                  }}
-                >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
-
-            <a
-              href="#contact"
-              className="btn-primary"
-              onClick={() => setOpen(false)}
-              style={{ marginTop: '1.25rem', display: 'flex', justifyContent: 'center', width: '100%' }}
-            >
-              {t('nav.cta')}
-            </a>
+          {/* Mobile Links */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0, flex: 1 }}>
+            {links.map(({ label, href }, i) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setOpen(false)}
+                style={{
+                  fontSize: '1.5rem', fontWeight: 600,
+                  color: 'rgba(255,255,255,0.85)',
+                  textDecoration: 'none',
+                  padding: '1rem 0',
+                  borderBottom: '1px solid rgba(255,255,255,0.05)',
+                  fontFamily: "'Noto Kufi Arabic', sans-serif",
+                  display: 'block',
+                  transition: 'color 0.25s, padding-right 0.3s',
+                  animationDelay: `${i * 60}ms`,
+                }}
+                onMouseEnter={e => { e.target.style.color = '#C5A459'; e.target.style.paddingRight = '0.5rem'; }}
+                onMouseLeave={e => { e.target.style.color = 'rgba(255,255,255,0.85)'; e.target.style.paddingRight = '0'; }}
+              >
+                {label}
+              </a>
+            ))}
           </div>
+
+          {/* Mobile Language Switcher */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+            {langs.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => { i18n.changeLanguage(lang.code); setOpen(false); }}
+                style={{
+                  background: i18n.language.startsWith(lang.code) ? 'rgba(197,164,89,0.15)' : 'rgba(255,255,255,0.04)',
+                  border: i18n.language.startsWith(lang.code) ? '1px solid rgba(197,164,89,0.35)' : '1px solid rgba(255,255,255,0.07)',
+                  color: i18n.language.startsWith(lang.code) ? '#C5A459' : 'rgba(203,213,225,0.65)',
+                  padding: '0.6rem 1.5rem',
+                  borderRadius: '100px',
+                  fontSize: '0.9rem',
+                  fontWeight: i18n.language.startsWith(lang.code) ? 700 : 400,
+                  cursor: 'pointer',
+                  letterSpacing: '0.08em',
+                  transition: 'all 0.25s ease',
+                }}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
+
+          <a
+            href="#contact"
+            className="btn-primary"
+            onClick={() => setOpen(false)}
+            style={{ marginTop: '1.25rem', display: 'flex', justifyContent: 'center', width: '100%', fontSize: '1rem', padding: '1rem 2rem' }}
+          >
+            {t('nav.cta')}
+          </a>
         </div>
-      </header>
+      )}
     </>
   );
 }

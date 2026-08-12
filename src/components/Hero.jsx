@@ -49,17 +49,43 @@ export default function Hero() {
           decoding="async"
           style={{
             width: '100%', height: '100%',
-            objectFit: 'cover', opacity: 0.22,
+            objectFit: 'cover', opacity: 0.18,
             animation: 'bg-scale 30s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
           }}
         />
+        {/* Dark gradient overlay */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(2,5,10,0.2) 0%, rgba(5,14,29,0.35) 40%, rgba(2,5,10,0.97) 100%)',
+          background: 'linear-gradient(to bottom, rgba(2,5,10,0.15) 0%, rgba(5,14,29,0.4) 40%, rgba(2,5,10,0.98) 100%)',
         }} />
+        {/* Top gold glow */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(197,164,89,0.08) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse 70% 45% at 50% -8%, rgba(197,164,89,0.10) 0%, transparent 60%)',
+        }} />
+        {/* Dot grid texture */}
+        <div className="grid-bg" />
+        {/* Noise texture */}
+        <div className="noise-overlay" />
+        {/* Ambient gold orb — left */}
+        <div className="glow-orb glow-orb-gold" style={{
+          width: 500, height: 500,
+          top: '5%', left: '-8%',
+          opacity: 0.65,
+        }} />
+        {/* Ambient blue orb — right */}
+        <div className="glow-orb glow-orb-blue" style={{
+          width: 600, height: 600,
+          top: '-10%', right: '-10%',
+          opacity: 0.7,
+        }} />
+        {/* Bottom gold orb */}
+        <div className="glow-orb glow-orb-gold" style={{
+          width: 400, height: 400,
+          bottom: '-15%', left: '50%',
+          transform: 'translateX(-50%)',
+          opacity: 0.35,
+          animationDelay: '-2s',
         }} />
       </div>
 
@@ -155,16 +181,13 @@ export default function Hero() {
         {/* Stats Card — glassmorphic, responsive via CSS classes */}
         <div className="animate-fade-in-up delay-600" style={{ display: 'flex', justifyContent: 'center' }}>
           <div
-            className="glass-card"
+            className="glass-stat-card"
             style={{
               position: 'relative',
-              padding: 'clamp(1.25rem, 4vw, 1.75rem) clamp(1rem, 4vw, 2rem)',
+              padding: 'clamp(1.25rem, 4vw, 1.85rem) clamp(1rem, 4vw, 2.25rem)',
               animation: 'float-y 7s ease-in-out infinite',
-              maxWidth: 680,
+              maxWidth: 700,
               width: '100%',
-              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(2, 5, 10, 0.4) 100%)',
-              border: '1px solid rgba(197, 164, 89, 0.15)',
-              boxShadow: '0 24px 64px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
             }}
           >
             {/* Subtle inner glow */}

@@ -50,9 +50,10 @@ export default function PainSolution() {
               data-reveal
               className="glass-card"
               style={{
-                padding: '2.5rem',
-                transitionDelay: `${i * 100}ms`,
-                borderTop: '1px solid rgba(220,60,60,0.12)',
+                padding: '2.25rem',
+                transitionDelay: `${i * 80}ms`,
+                borderTop: '1px solid rgba(220,60,60,0.10)',
+                boxShadow: '0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)',
               }}
             >
               <div style={{
@@ -88,10 +89,14 @@ export default function PainSolution() {
           padding: '3rem 2.5rem',
           marginBottom: 'clamp(3rem, 8vw, 5rem)',
           textAlign: 'center',
-          background: 'rgba(197,164,89,0.04)',
-          border: '1px solid rgba(197,164,89,0.12)',
-          borderRadius: '1rem',
-          backdropFilter: 'blur(12px)',
+          background: 'linear-gradient(135deg, rgba(197,164,89,0.07) 0%, rgba(197,164,89,0.02) 100%)',
+          border: '1px solid rgba(197,164,89,0.18)',
+          borderRadius: '1.5rem',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          boxShadow: '0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(197,164,89,0.15), 0 0 32px rgba(197,164,89,0.06)',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
           <p style={{
             fontFamily: "'Sarchia Bokan', serif",
@@ -116,11 +121,10 @@ export default function PainSolution() {
             <div
               key={i}
               data-reveal
-              className="glass-card"
+              className="glass-card-gold"
               style={{
-                padding: '2.5rem',
-                transitionDelay: `${i * 100}ms`,
-                borderTop: '1px solid rgba(197,164,89,0.15)',
+                padding: '2.25rem',
+                transitionDelay: `${i * 80}ms`,
               }}
             >
               <div style={{
