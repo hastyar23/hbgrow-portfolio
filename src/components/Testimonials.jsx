@@ -208,7 +208,7 @@ export default function Testimonials() {
                 flexShrink: 0,
               }} />
               <span style={{
-                fontSize: '0.58rem', letterSpacing: '0.18em',
+                fontSize: '0.58rem',
                 textTransform: 'uppercase', fontWeight: 700,
                 color: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوك') ? 'rgba(130,170,255,0.65)' : 'rgba(100,220,130,0.65)',
                 fontFamily: "'Noto Kufi Arabic', sans-serif",
@@ -232,7 +232,6 @@ export default function Testimonials() {
               color: 'rgba(255,255,255,0.88)',
               lineHeight: 2.1,
               fontWeight: 300,
-              letterSpacing: '0.02em',
             }}>
               "{currentTestimonial.text}"
             </p>
@@ -271,8 +270,7 @@ export default function Testimonials() {
               {/* Counter */}
               <div style={{
                 fontFamily: "'Sarchia Bokan', serif",
-                fontSize: '0.78rem', color: 'rgba(203,213,225,0.3)',
-                letterSpacing: '0.1em', fontWeight: 600,
+                fontSize: '0.78rem', color: 'rgba(203,213,225,0.3)', fontWeight: 600,
               }}>
                 {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
               </div>

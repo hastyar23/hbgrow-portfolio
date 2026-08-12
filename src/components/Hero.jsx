@@ -145,7 +145,6 @@ export default function Hero() {
             fontWeight: 300,
             color: 'rgba(203,213,225,0.65)',
             lineHeight: 2.1,
-            letterSpacing: '0.01em',
             wordBreak: 'break-word',
           }}
         >
@@ -222,7 +221,6 @@ export default function Hero() {
                       fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
                       color: 'rgba(235, 240, 248, 0.85)',
                       marginTop: '0.5rem',
-                      letterSpacing: '0.02em',
                       fontWeight: 500,
                     }}>
                       {label}

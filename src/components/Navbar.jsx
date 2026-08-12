@@ -114,7 +114,6 @@ export default function Navbar() {
                     padding: '0.2rem 0.5rem',
                     borderRadius: '100px',
                     transition: 'all 0.25s ease',
-                    letterSpacing: '0.05em',
                   }}
                 >
                   {lang.label}
@@ -208,7 +207,6 @@ export default function Navbar() {
                   fontSize: '0.9rem',
                   fontWeight: i18n.language.startsWith(lang.code) ? 700 : 400,
                   cursor: 'pointer',
-                  letterSpacing: '0.08em',
                   transition: 'all 0.25s ease',
                 }}
               >

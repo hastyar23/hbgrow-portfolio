@@ -46,8 +46,7 @@ export default function ClosingCTA() {
         <h2 style={{
           fontFamily: "'Sarchia Bokan', serif",
           fontSize: 'clamp(1.75rem, 5.5vw, 4rem)',
-          fontWeight: 700, lineHeight: 1.2,
-          letterSpacing: '0.01em', color: '#ffffff',
+          fontWeight: 700, lineHeight: 1.2, color: '#ffffff',
           marginBottom: '1.5rem',
         }}>
           {t('closing_cta.title_p1')}<br />
@@ -60,7 +59,6 @@ export default function ClosingCTA() {
           fontSize: 'clamp(0.875rem, 2vw, 1rem)',
           fontWeight: 300,
           color: 'rgba(203,213,225,0.65)', lineHeight: 2,
-          letterSpacing: '0.03em',
         }}>
           {t('closing_cta.subtitle_p1')}{' '}
           <span style={{ color: 'rgba(203,213,225,0.85)' }}>
@@ -95,7 +93,6 @@ export default function ClosingCTA() {
           fontFamily: "'Noto Kufi Arabic', sans-serif",
           fontSize: '0.75rem',
           color: 'rgba(203,213,225,0.3)',
-          letterSpacing: '0.06em',
         }}>
           {t('closing_cta.disclaimer')}
         </p>
@@ -104,7 +101,7 @@ export default function ClosingCTA() {
         <div style={{ marginTop: 'clamp(3rem, 7vw, 6rem)', paddingTop: 'clamp(2rem, 5vw, 3.5rem)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
           <p style={{
             fontFamily: "'Noto Kufi Arabic', sans-serif",
-            fontSize: '0.58rem', letterSpacing: '0.22em',
+            fontSize: '0.58rem',
             textTransform: 'uppercase', color: 'rgba(203,213,225,0.3)',
             marginBottom: '1.25rem', fontWeight: 700,
           }}>

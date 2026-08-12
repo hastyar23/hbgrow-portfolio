@@ -228,7 +228,7 @@ export default function DesignPortfolio() {
             fontFamily: "'Noto Kufi Arabic', sans-serif",
             fontSize: '0.875rem', color: 'rgba(203,213,225,0.6)',
             maxWidth: 400, lineHeight: 2, fontWeight: 300,
-            margin: '1rem auto 0', letterSpacing: '0.03em',
+            margin: '1rem auto 0',
           }}>
             {t('design_portfolio.subtitle')}
           </p>

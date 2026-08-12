@@ -76,7 +76,7 @@ export default function StatsBanner() {
 
         <p data-reveal style={{
           fontFamily: "'Noto Kufi Arabic', sans-serif",
-          fontSize: '0.58rem', letterSpacing: '0.2em',
+          fontSize: '0.58rem',
           textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
           marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 700,
         }}>
@@ -263,7 +263,7 @@ export default function StatsBanner() {
                     <MessageCircle size={22} color="#C5A459" />
                     <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{t('stats.msg_rate')}</span>
                   </div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px' }}>
+                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', }}>
                     {adResults[currentIndex].messages}
                   </div>
                 </div>
@@ -275,7 +275,7 @@ export default function StatsBanner() {
                     <Eye size={22} color="#C5A459" />
                     <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{t('stats.view_rate')}</span>
                   </div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', letterSpacing: '1px' }}>
+                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', }}>
                     {adResults[currentIndex].impressions}
                   </div>
                 </div>
@@ -283,8 +283,7 @@ export default function StatsBanner() {
                 {/* Counter */}
                 <div style={{
                   position: 'absolute', bottom: '1.5rem', left: '2rem',
-                  fontFamily: 'monospace', fontSize: '1rem', color: 'rgba(255,255,255,0.3)',
-                  letterSpacing: '2px', fontWeight: 600, direction: 'ltr'
+                  fontFamily: 'monospace', fontSize: '1rem', color: 'rgba(255,255,255,0.3)', fontWeight: 600, direction: 'ltr'
                 }}>
                   {String(currentIndex + 1).padStart(2, '0')} / {String(adResults.length).padStart(2, '0')}
                 </div>

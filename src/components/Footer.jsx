@@ -103,7 +103,7 @@ export default function Footer() {
           <div>
             <p style={{
               fontFamily: "'Noto Kufi Arabic', sans-serif",
-              fontSize: '0.65rem', letterSpacing: '0.2em',
+              fontSize: '0.65rem',
               textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
               fontWeight: 700, marginBottom: '1.25rem',
             }}>
@@ -134,7 +134,7 @@ export default function Footer() {
           <div>
             <p style={{
               fontFamily: "'Noto Kufi Arabic', sans-serif",
-              fontSize: '0.65rem', letterSpacing: '0.2em',
+              fontSize: '0.65rem',
               textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
               fontWeight: 700, marginBottom: '1.25rem',
             }}>
