@@ -212,13 +212,6 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
           </svg>
         </div>
-        {/* Likes count */}
-        <p style={{
-          color: 'rgba(255,255,255,0.80)', fontSize: '0.6rem', fontWeight: 700,
-          fontFamily: "'Inter', sans-serif", margin: 0, lineHeight: 1,
-        }}>
-          <span style={{ color: 'var(--gold)' }}>2,{(index * 37 + 418) % 900 + 100}</span> likes
-        </p>
       </div>
     </div>
   );

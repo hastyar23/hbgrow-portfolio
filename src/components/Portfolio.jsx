@@ -144,73 +144,51 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
         </svg>
       </div>
 
-      {/* ── RIGHT SIDE: Action buttons (like IG Reels) ── */}
+      {/* ── RIGHT SIDE: Action buttons — icons only ── */}
       <div style={{
-        position: 'absolute', right: '0.6rem', bottom: '4.5rem',
-        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.1rem',
+        position: 'absolute', right: '0.6rem', bottom: '3.5rem',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem',
         zIndex: 5,
       }}>
         {/* Heart */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.2rem' }}>
-          <div style={{
-            width: 34, height: 34, borderRadius: '50%',
-            background: 'rgba(255,255,255,0.12)',
-            backdropFilter: 'blur(8px)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            border: '1px solid rgba(255,255,255,0.15)',
-            transition: 'background 0.25s',
-          }}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <span style={{ color: 'white', fontSize: '0.6rem', fontWeight: 600 }}>3.2K</span>
+        <div style={{
+          width: 34, height: 34, borderRadius: '50%',
+          background: 'rgba(255,255,255,0.12)',
+          backdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          border: '1px solid rgba(255,255,255,0.15)',
+        }}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         {/* Comment */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.2rem' }}>
-          <div style={{
-            width: 34, height: 34, borderRadius: '50%',
-            background: 'rgba(255,255,255,0.12)',
-            backdropFilter: 'blur(8px)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            border: '1px solid rgba(255,255,255,0.15)',
-          }}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <span style={{ color: 'white', fontSize: '0.6rem', fontWeight: 600 }}>148</span>
+        <div style={{
+          width: 34, height: 34, borderRadius: '50%',
+          background: 'rgba(255,255,255,0.12)',
+          backdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          border: '1px solid rgba(255,255,255,0.15)',
+        }}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         {/* Share */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.2rem' }}>
-          <div style={{
-            width: 34, height: 34, borderRadius: '50%',
-            background: 'rgba(255,255,255,0.12)',
-            backdropFilter: 'blur(8px)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            border: '1px solid rgba(255,255,255,0.15)',
-          }}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </div>
-          <span style={{ color: 'white', fontSize: '0.6rem', fontWeight: 600 }}>87</span>
-        </div>
-        {/* Audio disc */}
         <div style={{
-          width: 30, height: 30, borderRadius: '50%',
-          background: 'linear-gradient(135deg, #C5A459 0%, #d4b66a 100%)',
-          border: '2px solid rgba(255,255,255,0.5)',
+          width: 34, height: 34, borderRadius: '50%',
+          background: 'rgba(255,255,255,0.12)',
+          backdropFilter: 'blur(8px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          animation: 'spin 4s linear infinite',
-          boxShadow: '0 0 10px rgba(197,164,89,0.5)',
+          border: '1px solid rgba(255,255,255,0.15)',
         }}>
-          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#0a0a0a' }} />
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </div>
       </div>
 
-      {/* ── BOTTOM: Profile + caption ── */}
+      {/* ── BOTTOM: Profile row only ── */}
       <div style={{
         position: 'absolute', bottom: 0, left: 0, right: 0,
-        padding: '0 0.75rem 0.75rem',
+        padding: '0 0.75rem 0.7rem',
         zIndex: 5,
       }}>
-        {/* Profile row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <img
             src="/images/optimized/U9X57gP.avif"
             alt="HBgrow"
@@ -225,21 +203,6 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
             padding: '0.08rem 0.45rem', marginLeft: '0.1rem',
           }}>
             Follow
-          </span>
-        </div>
-        {/* Caption */}
-        <p style={{
-          color: 'rgba(255,255,255,0.82)', fontSize: '0.62rem', fontWeight: 400,
-          lineHeight: 1.5, margin: 0, fontFamily: "'Inter', sans-serif",
-          overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
-        }}>
-          🔥 نتایجی ڕاستەقینە بۆ براندی تۆ ✨
-        </p>
-        {/* Audio bar */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.45rem' }}>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M9 18V5l12-2v13M9 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12-2c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg>
-          <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.58rem', fontFamily: "'Inter', sans-serif" }}>
-            Original Audio • HBgrow
           </span>
         </div>
       </div>
