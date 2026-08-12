@@ -94,10 +94,12 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
       onMouseLeave={() => setHover(false)}
       onClick={() => !error && onClick(src)}
     >
-      {/* ── IMAGE: full natural size ── */}
+      {/* ── IMAGE: fixed height, full-width cover ── */}
       <div style={{
         width: '100%',
+        height: isMobile ? 230 : 280,
         position: 'relative',
+        overflow: 'hidden',
         background: error ? 'rgba(197,164,89,0.04)' : 'rgba(2,5,10,0.5)',
       }}>
         {/* Skeleton shimmer */}
@@ -116,11 +118,13 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
             decoding="async"
             style={{
               width: '100%',
-              height: 'auto',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center top',
               display: 'block',
               opacity: loaded ? 1 : 0,
               transition: 'opacity 0.4s ease, transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-              transform: hover ? 'scale(1.04)' : 'scale(1)',
+              transform: hover ? 'scale(1.05)' : 'scale(1)',
             }}
             onLoad={() => setLoaded(true)}
             onError={() => { setLoaded(true); setError(true); }}
@@ -128,7 +132,7 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         )}
         {error && (
           <div style={{
-            height: 200,
+            position: 'absolute', inset: 0,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: 'rgba(197,164,89,0.3)', fontSize: '1.5rem',
           }}>🎨</div>
