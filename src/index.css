@@ -880,6 +880,11 @@ p, a, li, button, input, textarea {
   100% { transform: scale(1.06); }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 @keyframes gold-pulse-ring {
   0%, 100% { box-shadow: 0 0 0 0 rgba(197,164,89,0.25); }
   50% { box-shadow: 0 0 0 8px rgba(197,164,89,0); }

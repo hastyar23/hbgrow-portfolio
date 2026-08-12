@@ -75,74 +75,155 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
     <div
       ref={ref}
       style={{
-        height: h, minWidth: 140, flexShrink: 0,
-        position: 'relative', borderRadius: '0.75rem', overflow: 'hidden',
-        cursor: 'pointer', border: '1px solid rgba(255,255,255,0.07)',
-        background: error ? 'rgba(197,164,89,0.04)' : 'rgba(2,5,10,0.5)',
+        /* Instagram Post Card */
+        width: isMobile ? 190 : 235,
+        flexShrink: 0,
+        position: 'relative',
+        borderRadius: '0.9rem',
+        overflow: 'hidden',
+        cursor: 'pointer',
+        background: '#0e0e0e',
+        border: `1px solid ${hover ? 'rgba(197,164,89,0.30)' : 'rgba(255,255,255,0.08)'}`,
         transition: 'all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-        transform: hover ? 'scale(1.02)' : 'scale(1)',
-        boxShadow: hover ? '0 16px 40px -8px rgba(0,0,0,0.7)' : 'none',
+        transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
+        boxShadow: hover
+          ? '0 20px 52px -8px rgba(0,0,0,0.80), 0 0 0 1px rgba(197,164,89,0.18)'
+          : '0 6px 28px rgba(0,0,0,0.55)',
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={() => !error && onClick(src)}
     >
-      {/* Skeleton shimmer while not loaded */}
-      {!loaded && !error && (
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%)',
-          backgroundSize: '200% 100%',
-          animation: 'shimmer 1.6s ease infinite',
-        }} />
-      )}
-
-      {inView && (
-        <img
-          src={getThumbUrl(src)}
-          alt="Design work"
-          decoding="async"
-          style={{
-            height: '100%', width: 'auto', objectFit: 'cover',
-            transform: hover ? 'scale(1.06)' : 'scale(1)',
-            transition: 'transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease',
-            display: 'block',
-            opacity: loaded ? 1 : 0,
-          }}
-          onLoad={() => setLoaded(true)}
-          onError={() => { setLoaded(true); setError(true); }}
-        />
-      )}
-
-      {error && (
-        <div style={{
-          position: 'absolute', inset: 0,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          color: 'rgba(197,164,89,0.3)', fontSize: '1.5rem',
-        }}>🎨</div>
-      )}
-
-      {!error && loaded && (
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'rgba(2,5,10,0.5)', backdropFilter: 'blur(2px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          opacity: hover ? 1 : 0, transition: 'opacity 0.4s ease',
-        }}>
-          <div style={{
-            width: 44, height: 44, borderRadius: '50%',
-            background: 'rgba(197,164,89,0.15)', border: '1px solid rgba(197,164,89,0.45)',
-            backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transform: hover ? 'scale(1)' : 'scale(0.85)',
-            transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-          }}>
-            <Maximize2 size={17} style={{ color: 'rgba(197,164,89,0.95)' }} />
-          </div>
+      {/* ── TOP: Instagram post header ── */}
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '0.55rem 0.65rem',
+        borderBottom: '1px solid rgba(255,255,255,0.05)',
+        background: 'rgba(255,255,255,0.025)',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+          <img
+            src="/images/optimized/U9X57gP.avif"
+            alt="HBgrow"
+            loading="lazy"
+            style={{
+              width: 24, height: 24, borderRadius: '50%', objectFit: 'cover',
+              border: '1.5px solid transparent',
+              background: 'linear-gradient(#0e0e0e,#0e0e0e) padding-box, linear-gradient(135deg,#C5A459,#d4b66a,#B8902A) border-box',
+              flexShrink: 0,
+            }}
+          />
+          <span style={{
+            color: 'rgba(255,255,255,0.90)', fontSize: '0.65rem', fontWeight: 700,
+            fontFamily: "'Inter', sans-serif", letterSpacing: '0.01em',
+          }}>hbgrow</span>
         </div>
-      )}
+        {/* Three dots */}
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2.5" strokeLinecap="round">
+          <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+        </svg>
+      </div>
+
+      {/* ── IMAGE: Square post ── */}
+      <div style={{
+        width: '100%',
+        aspectRatio: '1 / 1',
+        position: 'relative',
+        overflow: 'hidden',
+        background: error ? 'rgba(197,164,89,0.04)' : 'rgba(2,5,10,0.5)',
+      }}>
+        {/* Skeleton */}
+        {!loaded && !error && (
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%)',
+            backgroundSize: '200% 100%',
+            animation: 'shimmer 1.6s ease infinite',
+          }} />
+        )}
+        {inView && (
+          <img
+            src={getThumbUrl(src)}
+            alt="Design work"
+            decoding="async"
+            style={{
+              width: '100%', height: '100%', objectFit: 'cover',
+              transform: hover ? 'scale(1.06)' : 'scale(1)',
+              transition: 'transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease',
+              display: 'block',
+              opacity: loaded ? 1 : 0,
+            }}
+            onLoad={() => setLoaded(true)}
+            onError={() => { setLoaded(true); setError(true); }}
+          />
+        )}
+        {error && (
+          <div style={{
+            position: 'absolute', inset: 0,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: 'rgba(197,164,89,0.3)', fontSize: '1.5rem',
+          }}>🎨</div>
+        )}
+        {/* Hover zoom icon */}
+        {!error && loaded && (
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'rgba(2,5,10,0.45)', backdropFilter: 'blur(2px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            opacity: hover ? 1 : 0, transition: 'opacity 0.35s ease',
+          }}>
+            <div style={{
+              width: 40, height: 40, borderRadius: '50%',
+              background: 'rgba(197,164,89,0.15)', border: '1px solid rgba(197,164,89,0.5)',
+              backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              transform: hover ? 'scale(1)' : 'scale(0.8)',
+              transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            }}>
+              <Maximize2 size={15} style={{ color: 'rgba(197,164,89,0.95)' }} />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* ── BOTTOM: Instagram action bar ── */}
+      <div style={{
+        padding: '0.55rem 0.65rem 0.5rem',
+        background: 'rgba(255,255,255,0.02)',
+        borderTop: '1px solid rgba(255,255,255,0.05)',
+      }}>
+        {/* Action icons row */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            {/* Heart */}
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2" style={{ cursor: 'pointer', transition: 'stroke 0.25s' }}>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            {/* Comment */}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            {/* Share */}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+              <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </div>
+          {/* Bookmark */}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        {/* Likes count */}
+        <p style={{
+          color: 'rgba(255,255,255,0.80)', fontSize: '0.6rem', fontWeight: 700,
+          fontFamily: "'Inter', sans-serif", margin: 0, lineHeight: 1,
+        }}>
+          <span style={{ color: 'var(--gold)' }}>2,{(index * 37 + 418) % 900 + 100}</span> likes
+        </p>
+      </div>
     </div>
   );
 }
+
 
 export default function DesignPortfolio() {
   const [activeImg, setActiveImg] = useState(null);
