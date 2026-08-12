@@ -75,7 +75,7 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
     <div
       ref={ref}
       style={{
-        /* Instagram Post Card */
+        /* Instagram Post Card — no fixed height, grows with image */
         width: isMobile ? 190 : 235,
         flexShrink: 0,
         position: 'relative',
@@ -94,48 +94,16 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
       onMouseLeave={() => setHover(false)}
       onClick={() => !error && onClick(src)}
     >
-      {/* ── TOP: Instagram post header ── */}
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0.55rem 0.65rem',
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
-        background: 'rgba(255,255,255,0.025)',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-          <img
-            src="/images/optimized/U9X57gP.avif"
-            alt="HBgrow"
-            loading="lazy"
-            style={{
-              width: 24, height: 24, borderRadius: '50%', objectFit: 'cover',
-              border: '1.5px solid transparent',
-              background: 'linear-gradient(#0e0e0e,#0e0e0e) padding-box, linear-gradient(135deg,#C5A459,#d4b66a,#B8902A) border-box',
-              flexShrink: 0,
-            }}
-          />
-          <span style={{
-            color: 'rgba(255,255,255,0.90)', fontSize: '0.65rem', fontWeight: 700,
-            fontFamily: "'Inter', sans-serif", letterSpacing: '0.01em',
-          }}>hbgrow</span>
-        </div>
-        {/* Three dots */}
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2.5" strokeLinecap="round">
-          <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
-        </svg>
-      </div>
-
-      {/* ── IMAGE: Square post ── */}
+      {/* ── IMAGE: full natural size ── */}
       <div style={{
         width: '100%',
-        aspectRatio: '1 / 1',
         position: 'relative',
-        overflow: 'hidden',
         background: error ? 'rgba(197,164,89,0.04)' : 'rgba(2,5,10,0.5)',
       }}>
-        {/* Skeleton */}
+        {/* Skeleton shimmer */}
         {!loaded && !error && (
           <div style={{
-            position: 'absolute', inset: 0,
+            position: 'absolute', inset: 0, minHeight: 200,
             background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%)',
             backgroundSize: '200% 100%',
             animation: 'shimmer 1.6s ease infinite',
@@ -147,11 +115,12 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
             alt="Design work"
             decoding="async"
             style={{
-              width: '100%', height: '100%', objectFit: 'cover',
-              transform: hover ? 'scale(1.06)' : 'scale(1)',
-              transition: 'transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease',
+              width: '100%',
+              height: 'auto',
               display: 'block',
               opacity: loaded ? 1 : 0,
+              transition: 'opacity 0.4s ease, transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              transform: hover ? 'scale(1.04)' : 'scale(1)',
             }}
             onLoad={() => setLoaded(true)}
             onError={() => { setLoaded(true); setError(true); }}
@@ -159,16 +128,16 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         )}
         {error && (
           <div style={{
-            position: 'absolute', inset: 0,
+            height: 200,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: 'rgba(197,164,89,0.3)', fontSize: '1.5rem',
           }}>🎨</div>
         )}
-        {/* Hover zoom icon */}
+        {/* Hover zoom overlay */}
         {!error && loaded && (
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'rgba(2,5,10,0.45)', backdropFilter: 'blur(2px)',
+            background: 'rgba(2,5,10,0.40)', backdropFilter: 'blur(2px)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             opacity: hover ? 1 : 0, transition: 'opacity 0.35s ease',
           }}>
@@ -187,15 +156,14 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
 
       {/* ── BOTTOM: Instagram action bar ── */}
       <div style={{
-        padding: '0.55rem 0.65rem 0.5rem',
+        padding: '0.5rem 0.65rem 0.5rem',
         background: 'rgba(255,255,255,0.02)',
         borderTop: '1px solid rgba(255,255,255,0.05)',
       }}>
-        {/* Action icons row */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             {/* Heart */}
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2" style={{ cursor: 'pointer', transition: 'stroke 0.25s' }}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
             {/* Comment */}
@@ -216,6 +184,7 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
     </div>
   );
 }
+
 
 
 export default function DesignPortfolio() {
