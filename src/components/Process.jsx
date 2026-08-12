@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 const STEP_COLORS = [
   { border: 'rgba(197,164,89,0.30)', glow: 'rgba(197,164,89,0.14)', icon: 'rgba(197,164,89,0.85)', bg: 'rgba(197,164,89,0.12)' },
   { border: 'rgba(100,160,255,0.28)', glow: 'rgba(80,140,255,0.10)', icon: 'rgba(120,170,255,0.85)', bg: 'rgba(80,140,255,0.10)' },
-  { border: 'rgba(160,120,255,0.28)', glow: 'rgba(140,100,255,0.10)', icon: 'rgba(170,140,255,0.85)', bg: 'rgba(140,100,255,0.10)' },
+  { border: 'rgba(56,189,248,0.28)', glow: 'rgba(14,116,144,0.12)', icon: 'rgba(125,211,252,0.85)', bg: 'rgba(56,189,248,0.12)' },
   { border: 'rgba(100,220,140,0.28)', glow: 'rgba(80,200,120,0.10)', icon: 'rgba(100,230,150,0.85)', bg: 'rgba(80,200,120,0.10)' },
 ];
 

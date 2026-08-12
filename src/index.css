@@ -89,7 +89,7 @@ body {
     radial-gradient(ellipse 65% 45% at 50% -5%, rgba(212, 175, 55, 0.24) 0%, transparent 65%),
     /* Luminous Side Aurora Lights */
     radial-gradient(circle at 10% 35%, rgba(30, 80, 185, 0.40) 0%, transparent 50%),
-    radial-gradient(circle at 90% 60%, rgba(139, 92, 246, 0.30) 0%, transparent 50%),
+    radial-gradient(circle at 90% 60%, rgba(37, 99, 235, 0.35) 0%, transparent 50%),
     radial-gradient(circle at 20% 85%, rgba(56, 189, 248, 0.25) 0%, transparent 45%),
     /* Warm Bottom Spotlight */
     radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.16) 0%, transparent 60%),
@@ -629,8 +629,8 @@ p, a, li, button, input, textarea {
   animation-duration: 9s;
 }
 
-.glow-orb-purple {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(76, 29, 149, 0.1) 55%, transparent 75%);
+.glow-orb-sapphire {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.40) 0%, rgba(29, 78, 216, 0.12) 55%, transparent 75%);
   animation-delay: -6s;
   animation-duration: 11s;
 }
