@@ -17,8 +17,10 @@ export default function App() {
   // Scroll reveal and dynamic language attributes
   useEffect(() => {
     // Set language and direction on root HTML tag
-    document.documentElement.lang = i18n.language;
-    document.documentElement.dir = i18n.dir();
+    const lang = i18n.language || 'ku';
+    const isRTL = lang.startsWith('ku') || lang.startsWith('ar') || lang.startsWith('ckb');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
 
     // Update document title dynamically
     if (i18n.language.startsWith('ku') || i18n.language.startsWith('ar')) {
