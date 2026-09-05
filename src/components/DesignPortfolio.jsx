@@ -43,6 +43,10 @@ const designs = [
 const track1 = designs.filter((_, i) => i % 2 === 0);
 const track2 = designs.filter((_, i) => i % 2 !== 0);
 
+// Limit marquees to top 15 designs to prevent iOS Safari memory crashes
+const marqueeTrack1 = track1.slice(0, 15);
+const marqueeTrack2 = track2.slice(0, 15);
+
 // No need for Imgur thumbnail optimization anymore since we use local AVIF files
 const getThumbUrl = (url) => url;
 
@@ -245,14 +249,14 @@ export default function DesignPortfolio() {
           }} />
         ))}
         <div className="design-marquee-track forward">
-          {[...track1, ...track1].map((src, i) => (
+          {[...marqueeTrack1, ...marqueeTrack1].map((src, i) => (
             <MarqueeThumbnail key={`t1-${i}`} src={src} onClick={setActiveImg} isMobile={isMobile} index={i} />
           ))}
         </div>
       </div>
 
       {/* Track 2 */}
-      <div style={{ overflow: 'hidden', position: 'relative', marginBottom: 'clamp(2rem, 5vw, 4rem)', direction: 'ltr', padding: '0.25rem 0' }}>
+      <div style={{ overflow: 'hidden', position: 'relative', marginBottom: '2.5rem', direction: 'ltr', padding: '0.25rem 0' }}>
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
@@ -261,7 +265,7 @@ export default function DesignPortfolio() {
           }} />
         ))}
         <div className="design-marquee-track reverse">
-          {[...track2, ...track2].map((src, i) => (
+          {[...marqueeTrack2, ...marqueeTrack2].map((src, i) => (
             <MarqueeThumbnail key={`t2-${i}`} src={src} onClick={setActiveImg} isMobile={isMobile} index={i} />
           ))}
         </div>

@@ -22,7 +22,7 @@ const clients = [
   "https://framerusercontent.com/images/XK8YFQ35wTwFjSS83mjfQw6Wl4.webp",
   "https://framerusercontent.com/images/NqnEXteqELv7bYRfVxHX1ommvOk.webp",
   "https://framerusercontent.com/images/5uATtZAQKVHvzw2eRYDeMMZuc.webp"
-];
+]
 
 const videoIds = Array.from(new Set([
   'p0aFJdaP7pM', 'vsodX5maE0Y', 'GnJOvjbR-QI', 'vCpcE-WclXw',
@@ -40,6 +40,9 @@ const videoIds = Array.from(new Set([
   'bk_PmsQOpxM', 'hDyWPH3jYvo', 'I8qNjzBC9F0', 'sVO04oQd_fA',
   'y8Q8_M2ZeKg', '3I4zTTLzEfI', 'y2b799_DacQ'
 ]));
+
+// Limit marquee to top 15 videos to prevent iOS Safari memory crashes
+const marqueeVideoIds = videoIds.slice(0, 15);
 
 /* ─────────────────────────────────────────────────────────────
    VideoThumbnail
@@ -333,7 +336,7 @@ export default function Portfolio() {
         ))}
 
         <div className="video-marquee-track">
-          {[...videoIds, ...videoIds].map((id, i) => (
+          {[...marqueeVideoIds, ...marqueeVideoIds].map((id, i) => (
             <VideoThumbnail
               key={`${id}-${i}`}
               id={id}
