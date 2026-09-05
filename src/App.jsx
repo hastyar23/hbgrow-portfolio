@@ -39,9 +39,9 @@ export default function App() {
   }, [i18n.language, i18n.dir()]);
 
   return (
-    <div>
+    <div style={{ position: 'relative', width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
       <Navbar />
-      <main>
+      <main style={{ position: 'relative', width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
         <Hero />
         <PainSolution />
         <Portfolio />

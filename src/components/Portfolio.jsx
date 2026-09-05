@@ -286,7 +286,7 @@ export default function Portfolio() {
         </div>
 
         {/* ── Client Logo Marquee ── */}
-        <div style={{ overflow: 'hidden', position: 'relative', marginBottom: 'clamp(2rem, 5vw, 4rem)', padding: '1rem 0', direction: 'ltr' }}>
+        <div style={{ overflow: 'hidden', position: 'relative', width: '100%', marginBottom: 'clamp(2rem, 5vw, 4rem)', padding: '1rem 0', direction: 'ltr' }}>
           {['left', 'right'].map(side => (
             <div key={side} style={{
               position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '10%', zIndex: 2,
@@ -323,7 +323,7 @@ export default function Portfolio() {
       <div
         ref={marqueeViewportRef}
         style={{
-          overflow: 'hidden', position: 'relative',
+          overflow: 'hidden', position: 'relative', width: '100%',
           marginBottom: '1.5rem', direction: 'ltr', padding: '0.5rem 0',
         }}
       >

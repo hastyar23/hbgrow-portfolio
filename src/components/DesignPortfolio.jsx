@@ -240,7 +240,7 @@ export default function DesignPortfolio() {
       </div>
 
       {/* Track 1 */}
-      <div style={{ overflow: 'hidden', position: 'relative', marginBottom: '1rem', direction: 'ltr', padding: '0.25rem 0' }}>
+      <div style={{ overflow: 'hidden', position: 'relative', width: '100%', marginBottom: '1rem', direction: 'ltr', padding: '0.25rem 0' }}>
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
@@ -256,7 +256,7 @@ export default function DesignPortfolio() {
       </div>
 
       {/* Track 2 */}
-      <div style={{ overflow: 'hidden', position: 'relative', marginBottom: '2.5rem', direction: 'ltr', padding: '0.25rem 0' }}>
+      <div style={{ overflow: 'hidden', position: 'relative', width: '100%', marginBottom: '2.5rem', direction: 'ltr', padding: '0.25rem 0' }}>
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
