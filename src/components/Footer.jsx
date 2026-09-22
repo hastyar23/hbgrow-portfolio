@@ -85,9 +85,9 @@ export default function Footer() {
                     backdropFilter: 'blur(8px)',
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.color = '#C5A459';
-                    e.currentTarget.style.borderColor = 'rgba(197,164,89,0.3)';
-                    e.currentTarget.style.background = 'rgba(197,164,89,0.06)';
+                    e.currentTarget.style.color = '#DFBA6B';
+                    e.currentTarget.style.borderColor = 'rgba(223,186,107,0.35)';
+                    e.currentTarget.style.background = 'rgba(223,186,107,0.08)';
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.color = 'rgba(203,213,225,0.55)';
@@ -120,7 +120,7 @@ export default function Footer() {
                       textDecoration: 'none', fontWeight: 400,
                       transition: 'color 0.25s',
                     }}
-                    onMouseEnter={e => e.target.style.color = '#C5A459'}
+                    onMouseEnter={e => e.target.style.color = '#DFBA6B'}
                     onMouseLeave={e => e.target.style.color = 'rgba(203,213,225,0.55)'}
                   >
                     {t(labelKey)}
@@ -152,7 +152,7 @@ export default function Footer() {
                   width: '100%',
                   maxWidth: '280px',
                   justifyContent: 'center',
-                  boxShadow: '0 0 24px -6px rgba(197,164,89,0.5)',
+                  boxShadow: '0 0 24px -6px rgba(223,186,107,0.5)',
                   borderRadius: '12px',
                   transition: 'transform 0.2s'
                 }}

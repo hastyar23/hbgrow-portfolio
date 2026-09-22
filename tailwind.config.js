@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        deep:    '#02050a',
-        navy:    '#050e1d',
-        sapphire:'#0d2342',
-        gold:    '#C5A459',
-        'gold-lt':'#d4b66a',
+        deep:    '#030508',
+        navy:    '#060B18',
+        sapphire:'#0A1428',
+        gold:    '#DFBA6B',
+        'gold-lt':'#F5E5C9',
       },
       fontFamily: {
         naskh: ['"Sarchia Bokan"', 'serif'],

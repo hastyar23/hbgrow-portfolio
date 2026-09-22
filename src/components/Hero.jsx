@@ -56,12 +56,12 @@ export default function Hero() {
         {/* Dark gradient overlay */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(4,7,17,0.3) 0%, rgba(4,7,17,0.6) 50%, rgba(2,3,7,0.98) 100%)',
+          background: 'linear-gradient(to bottom, rgba(3,5,10,0.3) 0%, rgba(3,5,10,0.6) 50%, rgba(1,2,4,0.98) 100%)',
         }} />
         {/* Sleek stage spotlight */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(197,164,89,0.12) 0%, rgba(13,26,51,0.25) 50%, transparent 75%)',
+          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(223,186,107,0.14) 0%, rgba(10,20,40,0.25) 50%, transparent 75%)',
         }} />
         {/* Dot grid texture */}
         <div className="grid-bg" />
@@ -149,7 +149,7 @@ export default function Hero() {
           }}
         >
           {t('hero.subtitle_1')}{' '}
-          <span style={{ color: 'rgba(197,164,89,0.9)', fontWeight: 500 }}>
+          <span style={{ color: 'rgba(223,186,107,0.95)', fontWeight: 500 }}>
             {t('hero.subtitle_2')}
           </span>
         </p>
@@ -160,7 +160,7 @@ export default function Hero() {
             onClick={openSchedule}
             className="btn-primary"
             id="hero-cta-book"
-            style={{ boxShadow: '0 0 32px -8px rgba(197,164,89,0.45)', border: 'none', cursor: 'pointer' }}
+            style={{ boxShadow: '0 0 32px -8px rgba(223,186,107,0.45)', border: 'none', cursor: 'pointer' }}
           >
             <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
             {t('hero.cta_book')}
@@ -193,7 +193,7 @@ export default function Hero() {
             <div style={{
               position: 'absolute',
               inset: 0,
-              background: 'radial-gradient(ellipse at center top, rgba(197, 164, 89, 0.15) 0%, transparent 60%)',
+              background: 'radial-gradient(ellipse at center top, rgba(223, 186, 107, 0.15) 0%, transparent 60%)',
               borderRadius: 'inherit',
               pointerEvents: 'none',
             }} />
@@ -208,11 +208,11 @@ export default function Hero() {
                       fontFamily: "'Outfit', 'Sarchia Bokan', serif",
                       fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
                       fontWeight: 700, lineHeight: 1,
-                      backgroundImage: 'linear-gradient(135deg, #F1EAD4 0%, #C5A459 50%, #B8902A 100%)',
+                      backgroundImage: 'linear-gradient(135deg, #FFF9EB 0%, #F5E5C9 28%, #DFBA6B 60%, #C29B38 85%, #A87E26 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
-                      filter: 'drop-shadow(0 4px 12px rgba(197,164,89,0.25))',
+                      filter: 'drop-shadow(0 4px 14px rgba(223,186,107,0.3))',
                     }}>
                       {val}
                     </div>
@@ -245,7 +245,7 @@ export default function Hero() {
       }}>
         <div style={{
           width: 1, height: 40,
-          background: 'linear-gradient(to bottom, rgba(197,164,89,0.6), transparent)',
+          background: 'linear-gradient(to bottom, rgba(223,186,107,0.65), transparent)',
           animation: 'float-y 2.5s ease-in-out infinite',
         }} />
       </div>

@@ -87,11 +87,11 @@ export default function Testimonials() {
           flex-shrink: 0;
         }
         .ts-nav-btn:hover {
-          border-color: rgba(197,164,89,0.4);
-          background: rgba(197,164,89,0.1);
-          color: #C5A459;
+          border-color: rgba(223,186,107,0.45);
+          background: rgba(223,186,107,0.12);
+          color: #DFBA6B;
           transform: scale(1.08);
-          box-shadow: 0 0 20px rgba(197,164,89,0.15);
+          box-shadow: 0 0 20px rgba(223,186,107,0.18);
         }
         .ts-nav-btn:active { transform: scale(0.95); }
 
@@ -104,8 +104,8 @@ export default function Testimonials() {
         }
         .ts-dot.active {
           width: 24px; border-radius: 3px;
-          background: #C5A459;
-          box-shadow: 0 0 10px rgba(197,164,89,0.4);
+          background: #DFBA6B;
+          box-shadow: 0 0 10px rgba(223,186,107,0.45);
         }
         .ts-dot:hover:not(.active) { background: rgba(255,255,255,0.45); }
       `}</style>
@@ -168,7 +168,7 @@ export default function Testimonials() {
               key={current}
               style={{
                 height: '100%',
-                background: 'linear-gradient(90deg, #C5A459, #E8C96A)',
+                background: 'linear-gradient(90deg, #DFBA6B, #F5E5C9)',
                 animation: `progress-fill ${AUTOPLAY_MS}ms linear forwards`,
               }}
             />
@@ -190,8 +190,8 @@ export default function Testimonials() {
               backdropFilter: 'blur(24px)',
               WebkitBackdropFilter: 'blur(24px)',
               border: '1px solid rgba(255,255,255,0.08)',
-              borderTop: '2px solid rgba(197,164,89,0.3)',
-              boxShadow: '0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(197,164,89,0.05)',
+              borderTop: '2px solid rgba(223,186,107,0.35)',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(223,186,107,0.08)',
               borderRadius: '1.25rem',
               padding: 'clamp(2rem, 5vw, 3.5rem)',
               display: 'grid',
@@ -203,7 +203,7 @@ export default function Testimonials() {
             {/* Top row: quote icon + source */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <Quote size={36} style={{
-                color: 'rgba(197,164,89,0.12)',
+                color: 'rgba(223,186,107,0.15)',
                 transform: 'scaleX(-1)',
                 flexShrink: 0,
               }} />
@@ -221,7 +221,7 @@ export default function Testimonials() {
             {/* Stars */}
             <div style={{ display: 'flex', gap: 4 }}>
               {Array.from({ length: currentTestimonial.rating || 5 }).map((_, j) => (
-                <span key={j} style={{ color: '#C5A459', fontSize: '1.1rem' }}>★</span>
+                <span key={j} style={{ color: '#DFBA6B', fontSize: '1.1rem', filter: 'drop-shadow(0 0 6px rgba(223,186,107,0.4))' }}>★</span>
               ))}
             </div>
 
@@ -246,11 +246,11 @@ export default function Testimonials() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{
                   width: 46, height: 46, borderRadius: '50%', flexShrink: 0,
-                  background: 'linear-gradient(135deg, #C5A459, #E8C96A)',
+                  background: 'linear-gradient(135deg, #DFBA6B, #F5E5C9)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: "'Noto Kufi Arabic', sans-serif",
-                  fontWeight: 900, fontSize: '0.9rem', color: '#02050a',
-                  boxShadow: '0 0 20px rgba(197,164,89,0.3)',
+                  fontWeight: 900, fontSize: '0.9rem', color: '#030508',
+                  boxShadow: '0 0 20px rgba(223,186,107,0.3)',
                 }}>
                   {currentTestimonial.initials}
                 </div>

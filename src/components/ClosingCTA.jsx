@@ -23,14 +23,14 @@ export default function ClosingCTA() {
         position: 'absolute', top: '50%', left: '50%',
         width: 'min(800px, 100vw)', height: 'min(800px, 100vw)',
         borderRadius: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(197,164,89,0.05) 0%, transparent 60%)',
+        background: 'radial-gradient(circle, rgba(223,186,107,0.06) 0%, transparent 60%)',
         pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
         width: 'min(600px, 80vw)', height: 'min(600px, 80vw)',
         borderRadius: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(13,35,66,0.55) 0%, transparent 65%)',
+        background: 'radial-gradient(circle, rgba(10,24,52,0.45) 0%, transparent 65%)',
         pointerEvents: 'none',
       }} />
 
@@ -76,7 +76,7 @@ export default function ClosingCTA() {
             className="btn-primary"
             id="closing-cta"
             style={{
-              boxShadow: '0 0 48px -8px rgba(197,164,89,0.4)',
+              boxShadow: '0 0 48px -8px rgba(223,186,107,0.45)',
               fontSize: 'clamp(0.85rem, 2vw, 1rem)',
               padding: 'clamp(0.875rem, 2vw, 1.125rem) clamp(1.5rem, 4vw, 3rem)',
               maxWidth: 420, width: '100%', justifyContent: 'center', border: 'none', cursor: 'pointer'

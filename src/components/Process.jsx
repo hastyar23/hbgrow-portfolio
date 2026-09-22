@@ -2,7 +2,7 @@ import { Phone, BarChart2, Eye, Smile } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const STEP_COLORS = [
-  { border: 'rgba(197,164,89,0.30)', glow: 'rgba(197,164,89,0.14)', icon: 'rgba(197,164,89,0.85)', bg: 'rgba(197,164,89,0.12)' },
+  { border: 'rgba(223,186,107,0.35)', glow: 'rgba(223,186,107,0.14)', icon: 'rgba(223,186,107,0.95)', bg: 'rgba(223,186,107,0.12)' },
   { border: 'rgba(100,160,255,0.28)', glow: 'rgba(80,140,255,0.10)', icon: 'rgba(120,170,255,0.85)', bg: 'rgba(80,140,255,0.10)' },
   { border: 'rgba(56,189,248,0.28)', glow: 'rgba(14,116,144,0.12)', icon: 'rgba(125,211,252,0.85)', bg: 'rgba(56,189,248,0.12)' },
   { border: 'rgba(100,220,140,0.28)', glow: 'rgba(80,200,120,0.10)', icon: 'rgba(100,230,150,0.85)', bg: 'rgba(80,200,120,0.10)' },
@@ -25,7 +25,7 @@ export default function Process() {
       <div style={{
         position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)',
         width: 800, height: 400, borderRadius: '50%',
-        background: 'radial-gradient(ellipse, rgba(197,164,89,0.05) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(223,186,107,0.06) 0%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
