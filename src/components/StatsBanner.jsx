@@ -12,205 +12,6 @@ const adResults = [
   { img: '/images/optimized/8Y7jqz6.avif', messages: '1,853', impressions: '367,874' },
 ];
 
-/* ─────────────────────────────────────────────────────────────
-   2026 Interactive Growth & ROI Simulator
-───────────────────────────────────────────────────────────── */
-function GrowthEstimator({ openSchedule, t }) {
-  const [budget, setBudget] = useState(1500);
-
-  const impressions = (budget * 680).toLocaleString();
-  const leads = Math.round(budget * 0.95).toLocaleString();
-  const roas = budget >= 3000 ? '5.2x – 7.8x' : '3.8x – 5.5x';
-
-  return (
-    <div
-      className="bento-gold-card"
-      style={{
-        padding: 'clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem)',
-        borderRadius: '2rem',
-        maxWidth: '1000px',
-        margin: '0 auto',
-      }}
-    >
-      {/* Header */}
-      <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-        <span className="badge" style={{ marginBottom: '1.25rem' }}>
-          <span className="dot" />
-          {t('stats.calculator.badge') || '2026 Growth Simulator'}
-        </span>
-        <h3 style={{
-          fontFamily: "'Sarchia Bokan', serif",
-          fontSize: 'clamp(1.5rem, 3.8vw, 2.5rem)',
-          fontWeight: 700, color: '#ffffff', lineHeight: 1.25,
-          maxWidth: 600, margin: '0 auto 0.85rem',
-        }}>
-          {t('stats.calculator.title_p1') || "Estimate your brand's "}
-          <span className="text-gold">{t('stats.calculator.title_highlight') || "exponential growth"}</span>
-        </h3>
-        <p style={{
-          fontFamily: "'Noto Kufi Arabic', sans-serif",
-          fontSize: '0.88rem', color: 'rgba(203,213,225,0.65)',
-          maxWidth: 520, margin: '0 auto', lineHeight: 1.9, fontWeight: 300,
-        }}>
-          {t('stats.calculator.subtitle') || "Select your target monthly advertising budget to project your reach, inbound leads, and return multiple."}
-        </p>
-      </div>
-
-      {/* Slider Control Box */}
-      <div style={{
-        background: 'rgba(2, 4, 8, 0.65)',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
-        borderRadius: '1.5rem',
-        padding: 'clamp(1.5rem, 4vw, 2.25rem)',
-        marginBottom: '2.5rem',
-        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.5)',
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
-          <label style={{
-            fontFamily: "'Noto Kufi Arabic', sans-serif",
-            fontSize: '0.95rem', fontWeight: 600, color: 'rgba(203,213,225,0.85)'
-          }}>
-            {t('stats.calculator.budget_label') || "Target Monthly Ad Budget"}
-          </label>
-          <div style={{
-            fontFamily: "'Outfit', 'Sarchia Bokan', serif",
-            fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
-            fontWeight: 800,
-            color: '#F2E5BC',
-            background: 'linear-gradient(135deg, rgba(197,164,89,0.2) 0%, rgba(197,164,89,0.05) 100%)',
-            border: '1px solid rgba(197,164,89,0.4)',
-            padding: '0.25rem 1.25rem',
-            borderRadius: '100px',
-            boxShadow: '0 0 20px rgba(197,164,89,0.15)',
-          }}>
-            ${budget.toLocaleString()}
-          </div>
-        </div>
-
-        <input
-          type="range"
-          min="300"
-          max="10000"
-          step="100"
-          value={budget}
-          onChange={(e) => setBudget(Number(e.target.value))}
-          className="growth-slider"
-          aria-label="Monthly Ad Budget Slider"
-        />
-
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.75rem', fontSize: '0.72rem', color: 'rgba(203,213,225,0.4)', fontFamily: 'monospace' }}>
-          <span>$300/mo (Starter)</span>
-          <span>$3,000/mo (Scale)</span>
-          <span>$10,000+/mo (Market Leader)</span>
-        </div>
-      </div>
-
-      {/* Projection Metric Bento Cards */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
-        gap: '1.25rem',
-        marginBottom: '2.5rem',
-      }}>
-        {/* Card 1: Impressions */}
-        <div style={{
-          background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(255,255,255,0.08)',
-          borderRadius: '1.25rem',
-          padding: '1.75rem 1.5rem',
-          textAlign: 'center',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
-        }}>
-          <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'rgba(203,213,225,0.55)', marginBottom: '0.5rem', fontWeight: 600, fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
-            {t('stats.calculator.est_reach') || "Projected Impressions"}
-          </div>
-          <div style={{
-            fontFamily: "'Outfit', 'Sarchia Bokan', serif",
-            fontSize: 'clamp(1.75rem, 4vw, 2.35rem)',
-            fontWeight: 800,
-            color: '#ffffff',
-            lineHeight: 1.1,
-          }}>
-            ~{impressions}
-          </div>
-        </div>
-
-        {/* Card 2: Leads */}
-        <div style={{
-          background: 'linear-gradient(145deg, rgba(197,164,89,0.18) 0%, rgba(13,26,51,0.3) 100%)',
-          border: '1px solid rgba(197,164,89,0.4)',
-          borderRadius: '1.25rem',
-          padding: '1.75rem 1.5rem',
-          textAlign: 'center',
-          boxShadow: '0 12px 36px rgba(197,164,89,0.12), inset 0 1px 0 rgba(255,255,255,0.2)',
-        }}>
-          <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: '#F2E5BC', marginBottom: '0.5rem', fontWeight: 700, fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
-            {t('stats.calculator.est_leads') || "Estimated Inbound Leads"}
-          </div>
-          <div style={{
-            fontFamily: "'Outfit', 'Sarchia Bokan', serif",
-            fontSize: 'clamp(1.75rem, 4vw, 2.35rem)',
-            fontWeight: 800,
-            color: '#F2E5BC',
-            lineHeight: 1.1,
-            textShadow: '0 0 20px rgba(197,164,89,0.4)',
-          }}>
-            {leads}+ Leads
-          </div>
-        </div>
-
-        {/* Card 3: ROAS */}
-        <div style={{
-          background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(255,255,255,0.08)',
-          borderRadius: '1.25rem',
-          padding: '1.75rem 1.5rem',
-          textAlign: 'center',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
-        }}>
-          <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'rgba(203,213,225,0.55)', marginBottom: '0.5rem', fontWeight: 600, fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
-            {t('stats.calculator.est_roas') || "Target ROAS Potential"}
-          </div>
-          <div style={{
-            fontFamily: "'Outfit', 'Sarchia Bokan', serif",
-            fontSize: 'clamp(1.75rem, 4vw, 2.35rem)',
-            fontWeight: 800,
-            color: '#34D399',
-            lineHeight: 1.1,
-            textShadow: '0 0 20px rgba(16,185,129,0.3)',
-          }}>
-            {roas}
-          </div>
-        </div>
-      </div>
-
-      {/* Action Footer inside Calculator */}
-      <div style={{ textAlign: 'center' }}>
-        <button
-          onClick={openSchedule}
-          className="btn-primary"
-          style={{
-            padding: '1rem 2.5rem',
-            fontSize: '0.95rem',
-            boxShadow: '0 0 40px rgba(197,164,89,0.45)',
-          }}
-        >
-          <WhatsAppIcon size={18} />
-          {t('stats.calculator.cta_calc') || "Unlock This Growth Plan"}
-        </button>
-        <p style={{
-          fontSize: '0.72rem',
-          color: 'rgba(203,213,225,0.4)',
-          marginTop: '1rem',
-          fontFamily: "'Noto Kufi Arabic', sans-serif",
-        }}>
-          {t('stats.calculator.disclaimer') || "Estimates based on audited performance metrics across 100+ active partner campaigns."}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export default function StatsBanner() {
   const { openSchedule } = useSchedule();
   const [activeImage, setActiveImage] = useState(null);
@@ -581,11 +382,6 @@ export default function StatsBanner() {
           `}} />
         </div>
 
-        {/* ── 2026 Interactive ROI & Growth Estimator Widget ── */}
-        <div data-reveal style={{ marginBottom: 'clamp(3.5rem, 8vw, 6rem)' }}>
-          <GrowthEstimator openSchedule={openSchedule} t={t} />
-        </div>
-
         <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 3.5rem)', opacity: 0.5 }} />
 
         {/* CTA */}
@@ -597,12 +393,12 @@ export default function StatsBanner() {
             color: '#ffffff', marginBottom: '1.75rem',
           }}>
             {t('stats.cta_title_p1')}
-            <span className="text-gold" style={{ textShadow: '0 0 25px rgba(197,164,89,0.35)' }}>{t('stats.cta_title_highlight')}</span>
+            <span className="text-gold">{t('stats.cta_title_highlight')}</span>
           </h3>
           <button
             onClick={openSchedule}
             className="btn-primary"
-            style={{ border: 'none', cursor: 'pointer', padding: '1rem 2.5rem', fontSize: '0.95rem' }}
+            style={{ border: 'none', cursor: 'pointer' }}
           >
             <WhatsAppIcon size={18} style={{ flexShrink: 0 }} />
             {t('stats.cta_btn')}

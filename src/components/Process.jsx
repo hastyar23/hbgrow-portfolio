@@ -57,7 +57,6 @@ export default function Process() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
           gap: '1.25rem',
-          position: 'relative',
         }}>
           {steps.map(({ num, icon, title, duration, desc }, i) => {
             const c = STEP_COLORS[i];
@@ -65,18 +64,18 @@ export default function Process() {
               <div
                 key={i}
                 data-reveal
-                className="bento-gold-card"
+                className="glass-card"
                 style={{
                   padding: 'clamp(1.75rem, 4vw, 2.5rem) clamp(1.25rem, 3vw, 2rem)',
                   position: 'relative',
                   overflow: 'hidden',
                   transitionDelay: `${i * 80}ms`,
-                  borderTop: `2px solid ${c.border}`,
+                  borderTop: `1px solid ${c.border}`,
                 }}
               >
                 {/* Per-card top colour glow */}
                 <div style={{
-                  position: 'absolute', top: 0, left: 0, right: 0, height: '60%',
+                  position: 'absolute', top: 0, left: 0, right: 0, height: '55%',
                   background: `radial-gradient(ellipse 90% 55% at 50% -15%, ${c.glow} 0%, transparent 70%)`,
                   pointerEvents: 'none',
                 }} />
@@ -84,39 +83,36 @@ export default function Process() {
                 {/* Ghost large number */}
                 <span className="step-num">{num}</span>
 
-                {/* Top Row: Icon + Phase Tag */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', position: 'relative', zIndex: 1 }}>
-                  <div style={{
-                    width: 46, height: 46, borderRadius: '1rem',
-                    background: `linear-gradient(135deg, ${c.bg} 0%, rgba(255,255,255,0.04) 100%)`,
-                    border: `1px solid ${c.border}`,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: c.icon,
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: `0 4px 20px ${c.glow}, inset 0 1px 0 rgba(255,255,255,0.15)`,
-                  }}>
-                    {icon}
-                  </div>
+                {/* Icon badge */}
+                <div style={{
+                  width: 44, height: 44, borderRadius: '0.875rem',
+                  background: `linear-gradient(135deg, ${c.bg} 0%, rgba(255,255,255,0.04) 100%)`,
+                  border: `1px solid ${c.border}`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: c.icon,
+                  marginBottom: '1.5rem',
+                  backdropFilter: 'blur(8px)',
+                  boxShadow: `0 4px 20px ${c.glow}, inset 0 1px 0 rgba(255,255,255,0.10)`,
+                  position: 'relative', zIndex: 1,
+                }}>
+                  {icon}
+                </div>
 
-                  {/* Duration label */}
-                  <div style={{
-                    fontFamily: "'Noto Kufi Arabic', sans-serif",
-                    fontSize: '0.68rem', textTransform: 'uppercase',
-                    color: '#F2E5BC',
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    padding: '0.2rem 0.65rem',
-                    borderRadius: '100px',
-                    fontWeight: 700,
-                  }}>
-                    {duration}
-                  </div>
+                {/* Duration label */}
+                <div style={{
+                  fontFamily: "'Noto Kufi Arabic', sans-serif",
+                  fontSize: '0.65rem', textTransform: 'uppercase',
+                  color: c.icon.replace('0.85', '0.55'),
+                  marginBottom: '0.75rem', fontWeight: 700,
+                  position: 'relative', zIndex: 1,
+                }}>
+                  {duration}
                 </div>
 
                 {/* Title */}
                 <h3 style={{
                   fontFamily: "'Noto Kufi Arabic', sans-serif",
-                  fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', fontWeight: 700,
+                  fontSize: 'clamp(0.95rem, 2.5vw, 1.05rem)', fontWeight: 700,
                   color: '#ffffff', marginBottom: '0.875rem', lineHeight: 1.4,
                   position: 'relative', zIndex: 1,
                 }}>
@@ -126,8 +122,8 @@ export default function Process() {
                 {/* Desc */}
                 <p style={{
                   fontFamily: "'Noto Kufi Arabic', sans-serif",
-                  fontSize: '0.88rem', color: 'rgba(203,213,225,0.7)',
-                  lineHeight: 1.95, fontWeight: 300,
+                  fontSize: '0.875rem', color: 'rgba(203,213,225,0.6)',
+                  lineHeight: 2, fontWeight: 300,
                   position: 'relative', zIndex: 1,
                 }}>
                   {desc}

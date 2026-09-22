@@ -86,33 +86,17 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop Right: Status + Language + CTA */}
-          <div className="hidden md:flex items-center" style={{ gap: '0.85rem' }}>
-            {/* Live Availability Badge */}
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '0.45rem',
-              background: 'rgba(16, 185, 129, 0.08)',
-              border: '1px solid rgba(16, 185, 129, 0.25)',
-              padding: '0.32rem 0.75rem',
-              borderRadius: '100px',
-              fontSize: '0.68rem',
-              color: '#34D399',
-              fontWeight: 600,
-              letterSpacing: '0.02em',
-            }}>
-              <span className="radar-emerald" />
-              <span>{t('nav.status_pill') || 'Available for Q4'}</span>
-            </div>
-
+          {/* Desktop Right: Language + CTA */}
+          <div className="hidden md:flex items-center" style={{ gap: '0.75rem' }}>
             {/* Language Switcher */}
             <div style={{
-              display: 'flex', alignItems: 'center', gap: '0.25rem',
+              display: 'flex', alignItems: 'center', gap: '0.35rem',
               background: 'rgba(255,255,255,0.04)',
-              padding: '0.25rem 0.45rem',
+              padding: '0.3rem 0.6rem',
               borderRadius: '100px',
-              border: '1px solid rgba(255,255,255,0.08)',
+              border: '1px solid rgba(255,255,255,0.07)',
             }}>
-              <Globe size={11} color="rgba(203,213,225,0.45)" style={{ marginLeft: 2, marginRight: 2 }} />
+              <Globe size={12} color="rgba(203,213,225,0.45)" />
               {langs.map((lang) => (
                 <button
                   key={lang.code}
@@ -121,9 +105,9 @@ export default function Navbar() {
                     i18n.changeLanguage(lang.code);
                   }}
                   style={{
-                    background: i18n.language.startsWith(lang.code) ? 'rgba(197,164,89,0.2)' : 'none',
-                    border: i18n.language.startsWith(lang.code) ? '1px solid rgba(197,164,89,0.4)' : '1px solid transparent',
-                    color: i18n.language.startsWith(lang.code) ? '#F2E5BC' : 'rgba(203,213,225,0.55)',
+                    background: i18n.language.startsWith(lang.code) ? 'rgba(197,164,89,0.15)' : 'none',
+                    border: i18n.language.startsWith(lang.code) ? '1px solid rgba(197,164,89,0.3)' : '1px solid transparent',
+                    color: i18n.language.startsWith(lang.code) ? '#C5A459' : 'rgba(203,213,225,0.5)',
                     fontSize: '0.68rem',
                     fontWeight: i18n.language.startsWith(lang.code) ? 700 : 500,
                     cursor: 'pointer',
@@ -141,7 +125,7 @@ export default function Navbar() {
             <a
               href="#contact"
               className="btn-primary"
-              style={{ padding: '0.55rem 1.25rem', fontSize: '0.78rem' }}
+              style={{ padding: '0.6rem 1.25rem', fontSize: '0.78rem' }}
             >
               {t('nav.cta')}
             </a>

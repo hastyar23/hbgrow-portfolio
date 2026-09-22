@@ -79,20 +79,20 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
     <div
       ref={ref}
       style={{
-        /* 2026 Obsidian Glass Instagram Post Card */
-        width: isMobile ? 195 : 245,
+        /* Instagram Post Card — no fixed height, grows with image */
+        width: isMobile ? 190 : 235,
         flexShrink: 0,
         position: 'relative',
-        borderRadius: '1.25rem',
+        borderRadius: '0.9rem',
         overflow: 'hidden',
         cursor: 'pointer',
-        background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(13,26,51,0.2) 50%, rgba(2,4,8,0.95) 100%)',
-        border: `1px solid ${hover ? 'rgba(197,164,89,0.45)' : 'rgba(255,255,255,0.09)'}`,
-        transition: 'all 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
-        transform: hover ? 'scale(1.03) translateY(-4px)' : 'scale(1)',
+        background: '#0e0e0e',
+        border: `1px solid ${hover ? 'rgba(197,164,89,0.30)' : 'rgba(255,255,255,0.08)'}`,
+        transition: 'all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
         boxShadow: hover
-          ? '0 24px 60px -8px rgba(0,0,0,0.85), 0 0 35px rgba(197,164,89,0.2), inset 0 1px 0 rgba(255,255,255,0.25)'
-          : '0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08)',
+          ? '0 20px 52px -8px rgba(0,0,0,0.80), 0 0 0 1px rgba(197,164,89,0.18)'
+          : '0 6px 28px rgba(0,0,0,0.55)',
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -101,16 +101,16 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
       {/* ── IMAGE: fixed height, full-width cover ── */}
       <div style={{
         width: '100%',
-        height: isMobile ? 240 : 290,
+        height: isMobile ? 230 : 280,
         position: 'relative',
         overflow: 'hidden',
-        background: error ? 'rgba(197,164,89,0.04)' : 'rgba(2,5,10,0.6)',
+        background: error ? 'rgba(197,164,89,0.04)' : 'rgba(2,5,10,0.5)',
       }}>
         {/* Skeleton shimmer */}
         {!loaded && !error && (
           <div style={{
             position: 'absolute', inset: 0, minHeight: 200,
-            background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%)',
+            background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%)',
             backgroundSize: '200% 100%',
             animation: 'shimmer 1.6s ease infinite',
           }} />
@@ -127,8 +127,8 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
               objectPosition: 'center top',
               display: 'block',
               opacity: loaded ? 1 : 0,
-              transition: 'opacity 0.4s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
-              transform: hover ? 'scale(1.06)' : 'scale(1)',
+              transition: 'opacity 0.4s ease, transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              transform: hover ? 'scale(1.05)' : 'scale(1)',
             }}
             onLoad={() => setLoaded(true)}
             onError={() => { setLoaded(true); setError(true); }}
@@ -145,20 +145,18 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         {!error && loaded && (
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'rgba(2,5,10,0.45)', backdropFilter: 'blur(3px)',
+            background: 'rgba(2,5,10,0.40)', backdropFilter: 'blur(2px)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             opacity: hover ? 1 : 0, transition: 'opacity 0.35s ease',
           }}>
             <div style={{
-              width: 44, height: 44, borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(197,164,89,0.3) 0%, rgba(0,0,0,0.7) 100%)',
-              border: '1.5px solid rgba(223,202,140,0.8)',
-              backdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              width: 40, height: 40, borderRadius: '50%',
+              background: 'rgba(197,164,89,0.15)', border: '1px solid rgba(197,164,89,0.5)',
+              backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
               transform: hover ? 'scale(1)' : 'scale(0.8)',
-              transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              boxShadow: '0 0 20px rgba(197,164,89,0.4)',
+              transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
             }}>
-              <Maximize2 size={16} style={{ color: '#F2E5BC' }} />
+              <Maximize2 size={15} style={{ color: 'rgba(197,164,89,0.95)' }} />
             </div>
           </div>
         )}
@@ -166,27 +164,27 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
 
       {/* ── BOTTOM: Instagram action bar ── */}
       <div style={{
-        padding: '0.6rem 0.85rem 0.6rem',
-        background: 'rgba(255,255,255,0.03)',
-        borderTop: '1px solid rgba(255,255,255,0.07)',
+        padding: '0.5rem 0.65rem 0.5rem',
+        background: 'rgba(255,255,255,0.02)',
+        borderTop: '1px solid rgba(255,255,255,0.05)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             {/* Heart */}
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(242,229,188,0.85)" strokeWidth="2.2">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
             {/* Comment */}
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
             {/* Share */}
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
               <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
             </svg>
           </div>
           {/* Bookmark */}
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(197,164,89,0.7)" strokeWidth="2.2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
           </svg>
         </div>
