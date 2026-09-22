@@ -55,180 +55,187 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
   const cardRef   = useRef(null);
   const [hover,   setHover]   = useState(false);
 
-  const W = isMobile ? 185 : 230;
-  const H = isMobile ? 328 : 410;
-
-  // Reel SVG icon (Instagram Reels clapperboard)
-  const ReelIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21 3H3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H4V5h16v14z"/>
-      <path d="M10 8l6 4-6 4V8z"/>
-    </svg>
-  );
+  const W = isMobile ? 190 : 240;
+  const H = isMobile ? 340 : 425;
 
   return (
     <div
       ref={cardRef}
+      className="phone-chassis"
       style={{
         width: W, height: H,
-        position: 'relative',
-        borderRadius: '0.875rem',
-        overflow: 'hidden',
-        cursor: 'pointer',
         flexShrink: 0,
-        transition: 'transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.38s ease',
-        transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
-        boxShadow: hover
-          ? '0 24px 56px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(197,164,89,0.25)'
-          : '0 8px 32px rgba(0,0,0,0.6)',
-        background: '#0a0a0a',
+        cursor: 'pointer',
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={() => onClick(id)}
     >
-      {/* ── Thumbnail image ── */}
-      <img
-        src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-        onError={(e) => {
-          if (e.target.src.includes('maxresdefault')) {
-            e.target.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-          }
-        }}
-        alt="Video Reel"
-        loading="lazy"
-        decoding="async"
-        style={{
-          position: 'absolute', inset: 0,
-          width: '100%', height: '100%',
-          objectFit: 'cover',
-          opacity: 0.85,
-          pointerEvents: 'none',
-          zIndex: 1,
-          transition: 'opacity 0.4s ease, transform 0.6s ease',
-          transform: hover ? 'scale(1.04)' : 'scale(1)',
-        }}
-      />
+      <div className="phone-screen" style={{ width: '100%', height: '100%', position: 'relative' }}>
+        {/* Dynamic Island Notch */}
+        <div className="phone-notch" />
 
-      {/* Bottom gradient scrim */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0, height: '65%',
-        background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 55%, transparent 100%)',
-        zIndex: 2, pointerEvents: 'none',
-      }} />
+        {/* ── Thumbnail image ── */}
+        <img
+          src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+          onError={(e) => {
+            if (e.target.src.includes('maxresdefault')) {
+              e.target.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+            }
+          }}
+          alt="Video Reel"
+          loading="lazy"
+          decoding="async"
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover',
+            opacity: 0.88,
+            pointerEvents: 'none',
+            zIndex: 1,
+            transition: 'opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+            transform: hover ? 'scale(1.06)' : 'scale(1)',
+          }}
+        />
 
-      {/* Top gradient scrim */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0, height: '28%',
-        background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)',
-        zIndex: 2, pointerEvents: 'none',
-      }} />
-
-      {/* ── TOP BAR: Reels logo + camera icon ── */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0,
-        padding: '0.65rem 0.75rem 0',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        zIndex: 5,
-      }}>
-        {/* Instagram Reels wordmark */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/>
-          </svg>
-          <span style={{ color: 'white', fontSize: '0.72rem', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>
-            Reels
-          </span>
-        </div>
-        {/* Camera icon */}
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-          <circle cx="12" cy="13" r="3"/>
-        </svg>
-      </div>
-
-      {/* ── RIGHT SIDE: Action buttons — icons only ── */}
-      <div style={{
-        position: 'absolute', right: '0.6rem', bottom: '3.5rem',
-        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem',
-        zIndex: 5,
-      }}>
-        {/* Heart */}
+        {/* Bottom gradient scrim */}
         <div style={{
-          width: 34, height: 34, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.12)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          border: '1px solid rgba(255,255,255,0.15)',
-        }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        {/* Comment */}
-        <div style={{
-          width: 34, height: 34, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.12)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          border: '1px solid rgba(255,255,255,0.15)',
-        }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        {/* Share */}
-        <div style={{
-          width: 34, height: 34, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.12)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          border: '1px solid rgba(255,255,255,0.15)',
-        }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </div>
-      </div>
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '65%',
+          background: 'linear-gradient(to top, rgba(2,5,10,0.95) 0%, rgba(2,5,10,0.5) 60%, transparent 100%)',
+          zIndex: 2, pointerEvents: 'none',
+        }} />
 
-      {/* ── BOTTOM: Profile row only ── */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0,
-        padding: '0 0.75rem 0.7rem',
-        zIndex: 5,
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <img
-            src="/images/optimized/U9X57gP.avif"
-            alt="HBgrow"
-            style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(197,164,89,0.8)', objectFit: 'cover', flexShrink: 0 }}
-          />
-          <span style={{ color: 'white', fontSize: '0.72rem', fontWeight: 700, fontFamily: "'Inter', sans-serif", }}>
-            hbgrow
-          </span>
-          <span style={{
-            color: 'rgba(255,255,255,0.85)', fontSize: '0.65rem', fontWeight: 600,
-            border: '1px solid rgba(255,255,255,0.5)', borderRadius: '4px',
-            padding: '0.08rem 0.45rem', marginLeft: '0.1rem',
+        {/* Top gradient scrim */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: '30%',
+          background: 'linear-gradient(to bottom, rgba(2,5,10,0.65) 0%, transparent 100%)',
+          zIndex: 2, pointerEvents: 'none',
+        }} />
+
+        {/* ── TOP BAR: Reels badge + Equalizer ── */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0,
+          padding: '1.6rem 0.85rem 0',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          zIndex: 5,
+        }}>
+          {/* Instagram Reels wordmark */}
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: '0.4rem',
+            background: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(10px)',
+            padding: '0.2rem 0.5rem',
+            borderRadius: '100px',
+            border: '1px solid rgba(255,255,255,0.1)',
           }}>
-            Follow
-          </span>
-        </div>
-      </div>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" fill="white"/>
+            </svg>
+            <span style={{ color: 'white', fontSize: '0.65rem', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>
+              Reels
+            </span>
+          </div>
 
-      {/* ── Center play button (on hover) ── */}
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 4,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        opacity: hover ? 1 : 0,
-        transition: 'opacity 0.3s ease',
-        pointerEvents: 'none',
-      }}>
+          {/* Dynamic Audio Equalizer (Animates on hover) */}
+          {hover && (
+            <div className="audio-equalizer" style={{
+              background: 'rgba(0,0,0,0.4)',
+              backdropFilter: 'blur(8px)',
+              padding: '0.25rem 0.4rem',
+              borderRadius: '6px',
+            }}>
+              <span className="audio-bar" />
+              <span className="audio-bar" />
+              <span className="audio-bar" />
+              <span className="audio-bar" />
+            </div>
+          )}
+        </div>
+
+        {/* ── RIGHT SIDE: Action buttons ── */}
         <div style={{
-          width: 52, height: 52, borderRadius: '50%',
-          background: 'rgba(197,164,89,0.20)',
-          border: '2px solid rgba(197,164,89,0.65)',
-          backdropFilter: 'blur(12px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transform: hover ? 'scale(1.05)' : 'scale(0.9)',
-          transition: 'transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94)',
-          boxShadow: '0 0 24px rgba(197,164,89,0.35)',
+          position: 'absolute', right: '0.6rem', bottom: '3.6rem',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem',
+          zIndex: 5,
         }}>
-          <Play size={20} style={{ fill: '#C5A459', color: '#C5A459', marginLeft: 2 }} />
+          {/* Heart */}
+          <div style={{
+            width: 32, height: 32, borderRadius: '50%',
+            background: 'rgba(255,255,255,0.12)',
+            backdropFilter: 'blur(8px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            border: '1px solid rgba(255,255,255,0.15)',
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          {/* Comment */}
+          <div style={{
+            width: 32, height: 32, borderRadius: '50%',
+            background: 'rgba(255,255,255,0.12)',
+            backdropFilter: 'blur(8px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            border: '1px solid rgba(255,255,255,0.15)',
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          {/* Share */}
+          <div style={{
+            width: 32, height: 32, borderRadius: '50%',
+            background: 'rgba(255,255,255,0.12)',
+            backdropFilter: 'blur(8px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            border: '1px solid rgba(255,255,255,0.15)',
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
+        </div>
+
+        {/* ── BOTTOM: Profile row only ── */}
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0,
+          padding: '0 0.75rem 0.8rem',
+          zIndex: 5,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+            <img
+              src="/images/optimized/U9X57gP.avif"
+              alt="HBgrow"
+              style={{ width: 24, height: 24, borderRadius: '50%', border: '1.5px solid rgba(197,164,89,0.9)', objectFit: 'cover', flexShrink: 0 }}
+            />
+            <span style={{ color: 'white', fontSize: '0.72rem', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>
+              hbgrow
+            </span>
+            <span style={{
+              color: '#F2E5BC', fontSize: '0.6rem', fontWeight: 700,
+              background: 'rgba(197,164,89,0.2)',
+              border: '1px solid rgba(197,164,89,0.4)', borderRadius: '100px',
+              padding: '0.1rem 0.45rem',
+            }}>
+              Follow
+            </span>
+          </div>
+        </div>
+
+        {/* ── Center play button (on hover) ── */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 4,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          opacity: hover ? 1 : 0,
+          transition: 'opacity 0.3s ease',
+          pointerEvents: 'none',
+        }}>
+          <div style={{
+            width: 56, height: 56, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(197,164,89,0.3) 0%, rgba(0,0,0,0.6) 100%)',
+            border: '2px solid rgba(223,202,140,0.85)',
+            backdropFilter: 'blur(16px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            transform: hover ? 'scale(1.05)' : 'scale(0.85)',
+            transition: 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+            boxShadow: '0 0 32px rgba(197,164,89,0.45)',
+          }}>
+            <Play size={22} style={{ fill: '#F2E5BC', color: '#F2E5BC', marginLeft: 3 }} />
+          </div>
         </div>
       </div>
     </div>

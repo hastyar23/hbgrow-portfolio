@@ -20,6 +20,7 @@
     "process": "Our Process",
     "testimonials": "Testimonials",
     "cta": "Book a Call",
+    "status_pill": "Accepting New Clients • Q4",
     "close_menu": "Close Menu",
     "open_menu": "Open Menu"
   },
@@ -104,7 +105,19 @@
     "view_rate": "View Rate",
     "cta_title_p1": "Want your brand ",
     "cta_title_highlight": "to be here?",
-    "cta_btn": "Let's Get Started"
+    "cta_btn": "Let's Get Started",
+    "calculator": {
+      "badge": "2026 Growth Simulator",
+      "title_p1": "Estimate your brand's ",
+      "title_highlight": "exponential growth",
+      "subtitle": "Select your target monthly budget to view projected reach, inbound qualified leads, and expected revenue return.",
+      "budget_label": "Monthly Ad Spend",
+      "est_reach": "Projected Impressions",
+      "est_leads": "Estimated Inbound Leads",
+      "est_roas": "Target ROAS Potential",
+      "cta_calc": "Unlock This Growth Plan",
+      "disclaimer": "Estimates based on audited performance metrics across 100+ active partner campaigns."
+    }
   },
   "schedule": {
     "success_title": "Thank you, your request is submitted!",
@@ -247,12 +260,14 @@
     ]
   },
   "footer": {
-    "brand_desc": "Global Social Media & Growth Marketing Agency. Your brand deserves customers.",
-    "links_title": "Links",
-    "contact_title": "Contact",
+    "brand_desc": "Global Social Media & Growth Marketing Agency. Scaling premier brands beyond boundaries.",
+    "links_title": "Navigation",
+    "contact_title": "HQ & Contact",
+    "clocks_title": "Agency Hubs",
+    "status": "All Systems Operational",
     "btn_schedule": "Schedule a Call",
     "copyright": "HBgrow Agency. All rights reserved.",
-    "made_by": "Made with love by the HBgrow team",
+    "made_by": "Crafted with 2026 precision by HBgrow",
     "nav_about": "About Us",
     "nav_portfolio": "Our Work",
     "nav_process": "Our Process",

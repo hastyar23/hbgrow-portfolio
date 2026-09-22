@@ -1014,8 +1014,195 @@ p, a, li, button, input, textarea {
 }
 
 @keyframes gold-pulse-ring {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 164, 89, 0.3); }
-  50% { box-shadow: 0 0 0 10px rgba(197, 164, 89, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 164, 89, 0.35); }
+  50% { box-shadow: 0 0 0 12px rgba(197, 164, 89, 0); }
+}
+
+@keyframes laser-sheen {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+@keyframes equalizer-bounce {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+@keyframes radar-pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ─── 2026 Liquid Obsidian & Bento Matrix Classes ───────────── */
+.radar-emerald {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 12px #10B981;
+  animation: radar-pulse 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+.radar-gold {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+  animation: radar-pulse 2.2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+/* ─── Phone Mockup Chassis for 2026 Reels ────────────────────── */
+.phone-chassis {
+  position: relative;
+  border-radius: 1.75rem;
+  padding: 6px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.03) 40%, rgba(197,164,89,0.22) 100%);
+  box-shadow:
+    0 24px 60px -12px rgba(0,0,0,0.85),
+    inset 0 1px 1px rgba(255,255,255,0.35),
+    inset 0 -1px 2px rgba(0,0,0,0.5);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.phone-chassis:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 32px 80px -10px rgba(0,0,0,0.92),
+    0 0 40px rgba(197,164,89,0.2),
+    inset 0 1px 1px rgba(255,255,255,0.45);
+}
+
+.phone-screen {
+  border-radius: 1.45rem;
+  overflow: hidden;
+  position: relative;
+  background: #020408;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 14px;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 10;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* ─── Equalizer Waveform Indicator ──────────────────────────── */
+.audio-equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+.audio-bar {
+  width: 3px;
+  background: var(--gold-bright);
+  border-radius: 2px;
+  animation: equalizer-bounce 1s ease-in-out infinite alternate;
+}
+.audio-bar:nth-child(1) { animation-delay: 0.1s; }
+.audio-bar:nth-child(2) { animation-delay: 0.3s; }
+.audio-bar:nth-child(3) { animation-delay: 0.2s; }
+.audio-bar:nth-child(4) { animation-delay: 0.4s; }
+
+/* ─── Custom Range Slider for 2026 Growth Simulator ─────────── */
+.growth-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(197,164,89,0.4) 0%, rgba(255,255,255,0.08) 100%);
+  outline: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.growth-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FFF6D6 0%, #DFCA8C 45%, #9A7B2C 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 20px rgba(197,164,89,0.7), 0 4px 10px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
+}
+
+.growth-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 28px rgba(197,164,89,0.9), 0 6px 14px rgba(0,0,0,0.6);
+}
+
+.growth-slider::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FFF6D6 0%, #DFCA8C 45%, #9A7B2C 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 20px rgba(197,164,89,0.7), 0 4px 10px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+/* ─── 2026 Bento Matrix Cards ───────────────────────────────── */
+.bento-crimson-card {
+  background: linear-gradient(145deg, rgba(220, 38, 38, 0.08) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(2, 4, 8, 0.85) 100%);
+  backdrop-filter: blur(36px) saturate(180%);
+  -webkit-backdrop-filter: blur(36px) saturate(180%);
+  border: 1px solid rgba(239, 68, 68, 0.20);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+}
+
+.bento-crimson-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 28px 64px -10px rgba(220, 38, 38, 0.15), 0 0 30px rgba(220, 38, 38, 0.1);
+}
+
+.bento-gold-card {
+  background: linear-gradient(145deg, rgba(197, 164, 89, 0.12) 0%, rgba(13, 26, 51, 0.35) 50%, rgba(2, 4, 8, 0.9) 100%);
+  backdrop-filter: blur(36px) saturate(180%);
+  -webkit-backdrop-filter: blur(36px) saturate(180%);
+  border: 1px solid rgba(197, 164, 89, 0.28);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 32px rgba(197, 164, 89, 0.08), inset 0 1px 0 rgba(255,255,255,0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+}
+
+.bento-gold-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(223, 202, 140, 0.5);
+  box-shadow: 0 28px 64px -10px rgba(197, 164, 89, 0.25), 0 0 45px rgba(197, 164, 89, 0.15);
+}
+
+/* ─── World Clock Hud ────────────────────────────────────────── */
+.world-clock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.4rem 0.85rem;
+  border-radius: 100px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: rgba(203,213,225,0.85);
 }
 
 /* ─── Animate Classes ───────────────────────────────────────── */

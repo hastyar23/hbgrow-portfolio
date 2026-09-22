@@ -186,50 +186,54 @@ export default function Testimonials() {
             key={current}
             className={animating ? '' : (direction === 'next' ? 'ts-card-enter-next' : 'ts-card-enter-prev')}
             style={{
-              background: 'rgba(255,255,255,0.03)',
-              backdropFilter: 'blur(24px)',
-              WebkitBackdropFilter: 'blur(24px)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderTop: '2px solid rgba(197,164,89,0.3)',
-              boxShadow: '0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(197,164,89,0.05)',
-              borderRadius: '1.25rem',
+              background: 'linear-gradient(145deg, rgba(197,164,89,0.08) 0%, rgba(13,26,51,0.3) 50%, rgba(2,4,8,0.92) 100%)',
+              backdropFilter: 'blur(36px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(36px) saturate(180%)',
+              border: '1px solid rgba(197,164,89,0.25)',
+              boxShadow: '0 28px 70px rgba(0,0,0,0.7), 0 0 35px rgba(197,164,89,0.08), inset 0 1px 0 rgba(255,255,255,0.18)',
+              borderRadius: '1.75rem',
               padding: 'clamp(2rem, 5vw, 3.5rem)',
               display: 'grid',
               gridTemplateColumns: '1fr',
               gap: '1.75rem',
-              minHeight: 280,
+              minHeight: 290,
+              position: 'relative',
             }}
           >
             {/* Top row: quote icon + source */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <Quote size={36} style={{
-                color: 'rgba(197,164,89,0.12)',
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Quote size={38} style={{
+                color: 'rgba(197,164,89,0.25)',
                 transform: 'scaleX(-1)',
                 flexShrink: 0,
               }} />
               <span style={{
-                fontSize: '0.58rem',
+                fontSize: '0.65rem',
                 textTransform: 'uppercase', fontWeight: 700,
-                color: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوك') ? 'rgba(130,170,255,0.65)' : 'rgba(100,220,130,0.65)',
+                color: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوك') ? '#60A5FA' : '#34D399',
+                background: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوك') ? 'rgba(96,165,250,0.1)' : 'rgba(52,211,153,0.1)',
+                border: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوك') ? '1px solid rgba(96,165,250,0.25)' : '1px solid rgba(52,211,153,0.25)',
+                padding: '0.25rem 0.75rem',
+                borderRadius: '100px',
                 fontFamily: "'Noto Kufi Arabic', sans-serif",
-                paddingTop: '0.25rem',
+                letterSpacing: '0.04em',
               }}>
-                ● {currentTestimonial.source}
+                ● Verified {currentTestimonial.source} Review
               </span>
             </div>
 
             {/* Stars */}
-            <div style={{ display: 'flex', gap: 4 }}>
+            <div style={{ display: 'flex', gap: 6 }}>
               {Array.from({ length: currentTestimonial.rating || 5 }).map((_, j) => (
-                <span key={j} style={{ color: '#C5A459', fontSize: '1.1rem' }}>★</span>
+                <span key={j} style={{ color: '#F2E5BC', fontSize: '1.2rem', filter: 'drop-shadow(0 0 6px rgba(197,164,89,0.6))' }}>★</span>
               ))}
             </div>
 
             {/* Quote text */}
             <p style={{
               fontFamily: "'Noto Kufi Arabic', sans-serif",
-              fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
-              color: 'rgba(255,255,255,0.88)',
+              fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+              color: 'rgba(255,255,255,0.92)',
               lineHeight: 2.1,
               fontWeight: 300,
             }}>
@@ -240,37 +244,41 @@ export default function Testimonials() {
             <div style={{
               display: 'flex', alignItems: 'center',
               justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem',
-              paddingTop: '1.25rem',
-              borderTop: '1px solid rgba(255,255,255,0.06)',
+              paddingTop: '1.5rem',
+              borderTop: '1px solid rgba(255,255,255,0.08)',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{
-                  width: 46, height: 46, borderRadius: '50%', flexShrink: 0,
-                  background: 'linear-gradient(135deg, #C5A459, #E8C96A)',
+                  width: 48, height: 48, borderRadius: '50%', flexShrink: 0,
+                  background: 'radial-gradient(circle at 35% 35%, #FFF8E6 0%, #DFCA8C 50%, #9A7B2C 100%)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: "'Noto Kufi Arabic', sans-serif",
-                  fontWeight: 900, fontSize: '0.9rem', color: '#02050a',
-                  boxShadow: '0 0 20px rgba(197,164,89,0.3)',
+                  fontWeight: 900, fontSize: '0.95rem', color: '#02050a',
+                  boxShadow: '0 0 24px rgba(197,164,89,0.4)',
+                  border: '2px solid rgba(255,255,255,0.4)',
                 }}>
                   {currentTestimonial.initials}
                 </div>
                 <div>
                   <p style={{
                     fontFamily: "'Noto Kufi Arabic', sans-serif",
-                    fontSize: '1rem', fontWeight: 700, color: '#ffffff', lineHeight: 1.2,
+                    fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', lineHeight: 1.2,
                   }}>{currentTestimonial.name}</p>
                   <p style={{
                     fontFamily: "'Noto Kufi Arabic', sans-serif",
-                    fontSize: '0.78rem', color: 'rgba(203,213,225,0.45)',
-                    marginTop: '0.2rem', fontWeight: 300,
+                    fontSize: '0.78rem', color: 'rgba(203,213,225,0.55)',
+                    marginTop: '0.25rem', fontWeight: 300,
                   }}>{currentTestimonial.role}</p>
                 </div>
               </div>
 
               {/* Counter */}
               <div style={{
-                fontFamily: "'Sarchia Bokan', serif",
-                fontSize: '0.78rem', color: 'rgba(203,213,225,0.3)', fontWeight: 600,
+                fontFamily: "'Outfit', 'Sarchia Bokan', serif",
+                fontSize: '0.85rem', color: '#F2E5BC', fontWeight: 700,
+                background: 'rgba(255,255,255,0.04)',
+                padding: '0.3rem 0.8rem', borderRadius: '100px',
+                border: '1px solid rgba(255,255,255,0.08)',
               }}>
                 {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
               </div>
