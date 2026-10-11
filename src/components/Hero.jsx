@@ -61,15 +61,15 @@ export default function Hero() {
         {/* Sleek stage spotlight */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(223,186,107,0.14) 0%, rgba(10,20,40,0.25) 50%, transparent 75%)',
+          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(0, 153, 255, 0.22) 0%, rgba(10, 24, 52, 0.35) 50%, transparent 75%)',
         }} />
         {/* Dot grid texture */}
         <div className="grid-bg" />
         {/* Noise texture */}
         <div className="noise-overlay" />
-        {/* Ambient gold orb — left */}
-        <div className="glow-orb glow-orb-gold" style={{
-          width: 500, height: 500,
+        {/* Ambient blue orb — left */}
+        <div className="glow-orb glow-orb-cyan" style={{
+          width: 550, height: 550,
           top: '2%', left: '-5%',
           opacity: 0.45,
         }} />
@@ -77,14 +77,14 @@ export default function Hero() {
         <div className="glow-orb glow-orb-blue" style={{
           width: 600, height: 600,
           top: '-8%', right: '-8%',
-          opacity: 0.45,
+          opacity: 0.50,
         }} />
-        {/* Bottom gold orb */}
-        <div className="glow-orb glow-orb-gold" style={{
-          width: 450, height: 450,
+        {/* Bottom blue orb */}
+        <div className="glow-orb glow-orb-sapphire" style={{
+          width: 500, height: 500,
           bottom: '-15%', left: '50%',
           transform: 'translateX(-50%)',
-          opacity: 0.25,
+          opacity: 0.35,
           animationDelay: '-2s',
         }} />
       </div>
@@ -149,7 +149,7 @@ export default function Hero() {
           }}
         >
           {t('hero.subtitle_1')}{' '}
-          <span style={{ color: 'rgba(223,186,107,0.95)', fontWeight: 500 }}>
+          <span style={{ color: '#BAE6FD', fontWeight: 600 }}>
             {t('hero.subtitle_2')}
           </span>
         </p>
@@ -160,7 +160,7 @@ export default function Hero() {
             onClick={openSchedule}
             className="btn-primary"
             id="hero-cta-book"
-            style={{ boxShadow: '0 0 32px -8px rgba(223,186,107,0.45)', border: 'none', cursor: 'pointer' }}
+            style={{ boxShadow: '0 0 36px -4px rgba(0, 153, 255, 0.50)', border: 'none', cursor: 'pointer' }}
           >
             <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
             {t('hero.cta_book')}
@@ -174,7 +174,7 @@ export default function Hero() {
         {/* Hairline */}
         <div
           className="hairline animate-fade-in-up delay-500"
-          style={{ maxWidth: 440, margin: '0 auto 2.5rem', opacity: 0.4 }}
+          style={{ maxWidth: 440, margin: '0 auto 2.5rem', opacity: 0.5 }}
         />
 
         {/* Stats Card — glassmorphic, responsive via CSS classes */}
@@ -193,7 +193,7 @@ export default function Hero() {
             <div style={{
               position: 'absolute',
               inset: 0,
-              background: 'radial-gradient(ellipse at center top, rgba(223, 186, 107, 0.15) 0%, transparent 60%)',
+              background: 'radial-gradient(ellipse at center top, rgba(0, 153, 255, 0.20) 0%, transparent 60%)',
               borderRadius: 'inherit',
               pointerEvents: 'none',
             }} />
@@ -208,11 +208,11 @@ export default function Hero() {
                       fontFamily: "'Outfit', 'Sarchia Bokan', serif",
                       fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
                       fontWeight: 700, lineHeight: 1,
-                      backgroundImage: 'linear-gradient(135deg, #FFF9EB 0%, #F5E5C9 28%, #DFBA6B 60%, #C29B38 85%, #A87E26 100%)',
+                      backgroundImage: 'linear-gradient(135deg, #FFFFFF 0%, #BAE6FD 20%, #38BDF8 50%, #0099FF 80%, #0068AD 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
-                      filter: 'drop-shadow(0 4px 14px rgba(223,186,107,0.3))',
+                      filter: 'drop-shadow(0 4px 14px rgba(0, 153, 255, 0.35))',
                     }}>
                       {val}
                     </div>
@@ -245,7 +245,7 @@ export default function Hero() {
       }}>
         <div style={{
           width: 1, height: 40,
-          background: 'linear-gradient(to bottom, rgba(223,186,107,0.65), transparent)',
+          background: 'linear-gradient(to bottom, rgba(0, 153, 255, 0.85), transparent)',
           animation: 'float-y 2.5s ease-in-out infinite',
         }} />
       </div>

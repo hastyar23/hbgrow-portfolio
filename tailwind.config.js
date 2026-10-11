@@ -4,13 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        deep:    '#030508',
-        navy:    '#060B18',
-        sapphire:'#0A1428',
-        gold:    '#DFBA6B',
-        'gold-lt':'#F5E5C9',
+        deep:       '#020408',
+        navy:       '#050A18',
+        sapphire:   '#08162E',
+        'blue-500': '#0099FF',
+        'blue-300': '#7ACAFF',
+        'blue-700': '#0068AD',
+        'blue-glow':'rgba(0, 153, 255, 0.35)',
+        gold:       '#0099FF', // backwards compatibility alias to brand blue
+        'gold-lt':  '#BAE6FD',
       },
       fontFamily: {
+        sans:  ['Inter', 'Noto Kufi Arabic', 'sans-serif'],
+        display: ['Outfit', '"Sarchia Bokan"', 'sans-serif'],
         naskh: ['"Sarchia Bokan"', 'serif'],
         kufi:  ['"Noto Kufi Arabic"', 'sans-serif'],
         rabar: ['Rabar', 'sans-serif'],

@@ -95,7 +95,7 @@ export default function StatsBanner() {
         >
           {stats.map(({ icon, val, label }, i) => (
             <div key={i} className="glass-card" style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-              <div style={{ color: 'rgba(223,186,107,0.75)' }}>{icon}</div>
+              <div style={{ color: '#38BDF8' }}>{icon}</div>
               <div className="stat-val">{val}</div>
               <p style={{
                 fontFamily: "'Noto Kufi Arabic', sans-serif",
@@ -162,11 +162,11 @@ export default function StatsBanner() {
               key={`${currentIndex}-${timerKey}`} 
               className={`slider-card animate-${direction}`}
               style={{
-                background: 'linear-gradient(145deg, rgba(8, 14, 28, 0.7) 0%, rgba(5, 10, 22, 0.4) 100%)',
+                background: 'linear-gradient(145deg, rgba(8, 16, 36, 0.7) 0%, rgba(5, 12, 28, 0.4) 100%)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(223,186,107,0.25)',
-                boxShadow: '0 20px 50px -15px rgba(0, 0, 0, 0.65)',
+                border: '1px solid rgba(0, 153, 255, 0.30)',
+                boxShadow: '0 20px 50px -15px rgba(0, 0, 0, 0.65), 0 0 30px rgba(0, 153, 255, 0.12)',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 display: 'flex', 
@@ -179,13 +179,13 @@ export default function StatsBanner() {
                 key={`progress-${timerKey}`}
                 style={{
                   position: 'absolute', top: 0, left: 0, right: 0, height: '4px',
-                  background: 'rgba(223,186,107,0.12)',
+                  background: 'rgba(0, 153, 255, 0.15)',
                   zIndex: 10,
                 }}
               >
                 <div style={{
                   height: '100%', width: '100%',
-                  background: 'linear-gradient(90deg, rgba(223,186,107,0.85), rgba(245,229,201,1))',
+                  background: 'linear-gradient(90deg, #0099FF, #7ACAFF)',
                   transformOrigin: 'right',
                   animation: 'progress-fill 5s linear forwards',
                 }} />
@@ -220,8 +220,8 @@ export default function StatsBanner() {
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                     gap: '0.75rem', padding: '1.5rem', textAlign: 'center',
                   }}>
-                    <BarChart2 size={36} color="rgba(223,186,107,0.7)" />
-                    <div style={{ color: 'rgba(223,186,107,0.85)', fontSize: '0.8rem', fontFamily: "'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
+                    <BarChart2 size={36} color="#0099FF" />
+                    <div style={{ color: '#BAE6FD', fontSize: '0.8rem', fontFamily: "'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
                       {t('stats.campaign_num')}{currentIndex + 1}
                     </div>
                     <div style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.65rem' }}>Meta Ads Dashboard</div>
@@ -260,7 +260,7 @@ export default function StatsBanner() {
               }}>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(241,245,249,0.7)', marginBottom: '0.5rem' }}>
-                    <MessageCircle size={22} color="#DFBA6B" />
+                    <MessageCircle size={22} color="#0099FF" />
                     <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{t('stats.msg_rate')}</span>
                   </div>
                   <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', }}>
@@ -272,7 +272,7 @@ export default function StatsBanner() {
                 
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(241,245,249,0.7)', marginBottom: '0.5rem' }}>
-                    <Eye size={22} color="#DFBA6B" />
+                    <Eye size={22} color="#0099FF" />
                     <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{t('stats.view_rate')}</span>
                   </div>
                   <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', }}>
@@ -305,7 +305,8 @@ export default function StatsBanner() {
                       height: '8px',
                       width: currentIndex === idx ? '24px' : '8px',
                       borderRadius: '4px',
-                      background: currentIndex === idx ? '#DFBA6B' : 'rgba(255,255,255,0.2)',
+                      background: currentIndex === idx ? '#0099FF' : 'rgba(255,255,255,0.2)',
+                      boxShadow: currentIndex === idx ? '0 0 12px rgba(0, 153, 255, 0.6)' : 'none',
                       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                       padding: 0, border: 'none', cursor: 'pointer'
                     }}
@@ -348,9 +349,9 @@ export default function StatsBanner() {
               transition: all 0.3s ease;
             }
             .slider-btn:hover {
-              background: rgba(223,186,107,0.2);
-              border-color: rgba(223,186,107,0.5);
-              color: #DFBA6B;
+              background: rgba(0, 153, 255, 0.22);
+              border-color: rgba(0, 153, 255, 0.55);
+              color: #7ACAFF;
             }
             
             .mobile-only-arrows { display: none !important; }

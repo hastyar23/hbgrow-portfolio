@@ -79,7 +79,7 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
         transition: 'transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.38s ease',
         transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
         boxShadow: hover
-          ? '0 24px 56px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(223,186,107,0.30)'
+          ? '0 24px 56px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(0, 153, 255, 0.40)'
           : '0 8px 32px rgba(0,0,0,0.6)',
         background: '#0a0a0a',
       }}
@@ -195,7 +195,7 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
           <img
             src="/images/optimized/U9X57gP.avif"
             alt="HBgrow"
-            style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(223,186,107,0.85)', objectFit: 'cover', flexShrink: 0 }}
+            style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(0, 153, 255, 0.85)', objectFit: 'cover', flexShrink: 0 }}
           />
           <span style={{ color: 'white', fontSize: '0.72rem', fontWeight: 700, fontFamily: "'Inter', sans-serif", }}>
             hbgrow
@@ -220,15 +220,15 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
       }}>
         <div style={{
           width: 52, height: 52, borderRadius: '50%',
-          background: 'rgba(223,186,107,0.22)',
-          border: '2px solid rgba(223,186,107,0.70)',
+          background: 'rgba(0, 153, 255, 0.22)',
+          border: '2px solid rgba(0, 153, 255, 0.70)',
           backdropFilter: 'blur(12px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           transform: hover ? 'scale(1.05)' : 'scale(0.9)',
           transition: 'transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94)',
-          boxShadow: '0 0 24px rgba(223,186,107,0.40)',
+          boxShadow: '0 0 24px rgba(0, 153, 255, 0.45)',
         }}>
-          <Play size={20} style={{ fill: '#DFBA6B', color: '#DFBA6B', marginLeft: 2 }} />
+          <Play size={20} style={{ fill: '#0099FF', color: '#0099FF', marginLeft: 2 }} />
         </div>
       </div>
     </div>
@@ -445,7 +445,7 @@ export default function Portfolio() {
                     background: '#020810', transition: 'all 0.35s ease',
                   }}
                   onClick={() => { setShowAllVideos(false); setActiveVideo(id); }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.borderColor = 'rgba(223,186,107,0.30)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.borderColor = 'rgba(0, 153, 255, 0.45)'; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
                 >
                   <img
@@ -461,10 +461,10 @@ export default function Portfolio() {
                   <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{
                       width: 40, height: 40, borderRadius: '50%',
-                      background: 'rgba(223,186,107,0.18)', border: '1px solid rgba(223,186,107,0.45)',
+                      background: 'rgba(0, 153, 255, 0.22)', border: '1px solid rgba(0, 153, 255, 0.55)',
                       backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      <Play size={16} style={{ fill: 'rgba(223,186,107,0.95)', color: 'rgba(223,186,107,0.95)', marginRight: -2 }} />
+                      <Play size={16} style={{ fill: '#0099FF', color: '#0099FF', marginRight: -2 }} />
                     </div>
                   </div>
                 </div>
