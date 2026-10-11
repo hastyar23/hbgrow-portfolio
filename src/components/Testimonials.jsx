@@ -87,11 +87,11 @@ export default function Testimonials() {
           flex-shrink: 0;
         }
         .ts-nav-btn:hover {
-          border-color: rgba(254, 240, 138, 0.60);
-          background: rgba(254, 215, 3, 0.18);
-          color: #FFFDF0;
+          border-color: rgba(246, 228, 180, 0.55);
+          background: rgba(223, 178, 72, 0.16);
+          color: #FFF6DD;
           transform: scale(1.08);
-          box-shadow: 0 0 20px rgba(254, 215, 3, 0.35);
+          box-shadow: 0 0 20px rgba(223, 178, 72, 0.25);
         }
         .ts-nav-btn:active { transform: scale(0.95); }
 
@@ -104,8 +104,8 @@ export default function Testimonials() {
         }
         .ts-dot.active {
           width: 24px; border-radius: 3px;
-          background: #FED703;
-          box-shadow: 0 0 12px rgba(254, 215, 3, 0.85);
+          background: #DFB248;
+          box-shadow: 0 0 12px rgba(223, 178, 72, 0.75);
         }
         .ts-dot:hover:not(.active) { background: rgba(255,255,255,0.45); }
       `}</style>
@@ -168,8 +168,8 @@ export default function Testimonials() {
               key={current}
               style={{
                 height: '100%',
-                background: 'linear-gradient(90deg, #D97706, #FED703, #FEF08A)',
-                boxShadow: '0 0 10px rgba(254, 215, 3, 0.6)',
+                background: 'linear-gradient(90deg, #A87A1E, #DFB248, #F6E4B4)',
+                boxShadow: '0 0 10px rgba(223, 178, 72, 0.5)',
                 animation: `progress-fill ${AUTOPLAY_MS}ms linear forwards`,
               }}
             />
@@ -191,8 +191,8 @@ export default function Testimonials() {
               backdropFilter: 'blur(24px)',
               WebkitBackdropFilter: 'blur(24px)',
               border: '1px solid rgba(255,255,255,0.08)',
-              borderTop: '2px solid rgba(254, 240, 138, 0.55)',
-              boxShadow: '0 24px 64px rgba(0,0,0,0.7), 0 0 32px rgba(254, 215, 3, 0.12)',
+              borderTop: '2px solid rgba(246, 228, 180, 0.45)',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.7), 0 0 32px rgba(223, 178, 72, 0.10)',
               borderRadius: '1.25rem',
               padding: 'clamp(2rem, 5vw, 3.5rem)',
               display: 'grid',
@@ -204,7 +204,7 @@ export default function Testimonials() {
             {/* Top row: quote icon + source */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <Quote size={36} style={{
-                color: 'rgba(254, 215, 3, 0.25)',
+                color: 'rgba(223, 178, 72, 0.22)',
                 transform: 'scaleX(-1)',
                 flexShrink: 0,
               }} />
@@ -222,7 +222,7 @@ export default function Testimonials() {
             {/* Stars */}
             <div style={{ display: 'flex', gap: 4 }}>
               {Array.from({ length: currentTestimonial.rating || 5 }).map((_, j) => (
-                <span key={j} style={{ color: '#FED703', fontSize: '1.1rem', filter: 'drop-shadow(0 0 6px rgba(254, 215, 3, 0.6))' }}>★</span>
+                <span key={j} style={{ color: '#DFB248', fontSize: '1.1rem', filter: 'drop-shadow(0 0 6px rgba(223, 178, 72, 0.5))' }}>★</span>
               ))}
             </div>
 
@@ -247,11 +247,11 @@ export default function Testimonials() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{
                   width: 46, height: 46, borderRadius: '50%', flexShrink: 0,
-                  background: 'linear-gradient(135deg, #FFF08A 0%, #FED703 60%, #D97706 100%)',
+                  background: 'linear-gradient(135deg, #FFF6DD 0%, #DFB248 60%, #A87A1E 100%)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: "'Noto Kufi Arabic', sans-serif",
-                  fontWeight: 900, fontSize: '0.9rem', color: '#020817',
-                  boxShadow: '0 0 20px rgba(254, 215, 3, 0.35)',
+                  fontWeight: 900, fontSize: '0.9rem', color: '#060912',
+                  boxShadow: '0 0 20px rgba(223, 178, 72, 0.25)',
                 }}>
                   {currentTestimonial.initials}
                 </div>

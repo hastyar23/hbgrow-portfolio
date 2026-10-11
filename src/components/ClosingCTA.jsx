@@ -23,7 +23,7 @@ export default function ClosingCTA() {
         position: 'absolute', top: '50%', left: '50%',
         width: 'min(800px, 100vw)', height: 'min(800px, 100vw)',
         borderRadius: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(254, 215, 3, 0.15) 0%, transparent 60%)',
+        background: 'radial-gradient(circle, rgba(223, 178, 72, 0.10) 0%, transparent 60%)',
         pointerEvents: 'none',
       }} />
       <div style={{
@@ -61,7 +61,7 @@ export default function ClosingCTA() {
           color: 'rgba(203,213,225,0.65)', lineHeight: 2,
         }}>
           {t('closing_cta.subtitle_p1')}{' '}
-          <span style={{ color: '#FEF08A', fontWeight: 600 }}>
+          <span style={{ color: '#F6E4B4', fontWeight: 600 }}>
             {t('closing_cta.subtitle_highlight')}
           </span>
         </p>
@@ -76,7 +76,7 @@ export default function ClosingCTA() {
             className="btn-primary"
             id="closing-cta"
             style={{
-              boxShadow: '0 0 52px -4px rgba(254, 215, 3, 0.45)',
+              boxShadow: '0 0 52px -4px rgba(223, 178, 72, 0.35)',
               fontSize: 'clamp(0.85rem, 2vw, 1rem)',
               padding: 'clamp(0.875rem, 2vw, 1.125rem) clamp(1.5rem, 4vw, 3rem)',
               maxWidth: 420, width: '100%', justifyContent: 'center', border: 'none', cursor: 'pointer'

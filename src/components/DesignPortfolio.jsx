@@ -87,11 +87,11 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         overflow: 'hidden',
         cursor: 'pointer',
         background: '#0e0e0e',
-        border: `1px solid ${hover ? 'rgba(254, 215, 3, 0.50)' : 'rgba(255,255,255,0.08)'}`,
+        border: `1px solid ${hover ? 'rgba(223, 178, 72, 0.45)' : 'rgba(255,255,255,0.08)'}`,
         transition: 'all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
         boxShadow: hover
-          ? '0 20px 52px -8px rgba(0,0,0,0.80), 0 0 0 1px rgba(254, 215, 3, 0.35)'
+          ? '0 20px 52px -8px rgba(0,0,0,0.80), 0 0 0 1px rgba(223, 178, 72, 0.30)'
           : '0 6px 28px rgba(0,0,0,0.55)',
       }}
       onMouseEnter={() => setHover(true)}
@@ -104,7 +104,7 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         height: isMobile ? 230 : 280,
         position: 'relative',
         overflow: 'hidden',
-        background: error ? 'rgba(254, 215, 3, 0.05)' : 'rgba(2,6,16,0.5)',
+        background: error ? 'rgba(223, 178, 72, 0.05)' : 'rgba(2,6,16,0.5)',
       }}>
         {/* Skeleton shimmer */}
         {!loaded && !error && (
@@ -138,7 +138,7 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
           <div style={{
             position: 'absolute', inset: 0,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'rgba(254, 215, 3, 0.5)', fontSize: '1.5rem',
+            color: 'rgba(223, 178, 72, 0.5)', fontSize: '1.5rem',
           }}>🎨</div>
         )}
         {/* Hover zoom overlay */}
@@ -151,12 +151,12 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
           }}>
             <div style={{
               width: 40, height: 40, borderRadius: '50%',
-              background: 'rgba(254, 215, 3, 0.25)', border: '1px solid rgba(254, 240, 138, 0.70)',
+              background: 'rgba(223, 178, 72, 0.20)', border: '1px solid rgba(246, 228, 180, 0.65)',
               backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
               transform: hover ? 'scale(1)' : 'scale(0.8)',
               transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
             }}>
-              <Maximize2 size={15} style={{ color: '#FFFDF0' }} />
+              <Maximize2 size={15} style={{ color: '#FFF6DD' }} />
             </div>
           </div>
         )}
@@ -358,7 +358,7 @@ export default function DesignPortfolio() {
                   />
                   <div className="masonry-overlay">
                     <div className="masonry-btn">
-                      <Maximize2 size={18} style={{ color: '#FFFDF0' }} />
+                      <Maximize2 size={18} style={{ color: '#FFF6DD' }} />
                     </div>
                   </div>
                 </div>

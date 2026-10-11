@@ -143,7 +143,7 @@ export default function ScheduleModal({ onClose }) {
           <div className="modal-content success-content">
             <button className="modal-close" onClick={onClose}><X size={24} /></button>
             <div style={{ textAlign: 'center', padding: '2rem 0' }}>
-              <CheckCircle2 size={80} color="#FED703" style={{ margin: '0 auto 1.5rem auto', filter: 'drop-shadow(0 0 18px rgba(254, 215, 3, 0.5))' }} />
+              <CheckCircle2 size={80} color="#DFB248" style={{ margin: '0 auto 1.5rem auto', filter: 'drop-shadow(0 0 18px rgba(223, 178, 72, 0.4))' }} />
               <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Sarchia Bokan', serif", }}>
                 {t('schedule.success_title')}
               </h2>
@@ -166,10 +166,10 @@ export default function ScheduleModal({ onClose }) {
             display: flex; justify-content: center; align-items: center; padding: 1rem;
           }
           .modal-content {
-            background: #020612; border: 1px solid rgba(254, 215, 3, 0.35);
+            background: #020612; border: 1px solid rgba(223, 178, 72, 0.30);
             border-radius: 24px; width: 100%; max-width: 700px;
             max-height: 90vh; overflow-y: auto; position: relative;
-            box-shadow: 0 32px 80px -20px rgba(0,0,0,0.9), 0 0 45px rgba(254, 215, 3, 0.20);
+            box-shadow: 0 32px 80px -20px rgba(0,0,0,0.9), 0 0 45px rgba(223, 178, 72, 0.15);
             display: flex; flex-direction: column;
           }
           .success-content { padding: 4rem 2rem; justify-content: center; align-items: center; }
@@ -384,14 +384,14 @@ export default function ScheduleModal({ onClose }) {
           .modal-overlay { align-items: center; padding: 1rem; }
         }
         .modal-content {
-          background: #020612; border: 1px solid rgba(254, 215, 3, 0.30);
+          background: #020612; border: 1px solid rgba(223, 178, 72, 0.25);
           border-radius: 24px 24px 0 0; width: 100%; max-width: 700px;
           max-height: 92dvh; overflow-y: auto; position: relative;
-          box-shadow: 0 -16px 60px -10px rgba(0,0,0,0.92), 0 0 35px rgba(254, 215, 3, 0.16);
+          box-shadow: 0 -16px 60px -10px rgba(0,0,0,0.92), 0 0 35px rgba(223, 178, 72, 0.12);
           display: flex; flex-direction: column;
         }
         @media (min-width: 600px) {
-          .modal-content { border-radius: 24px; max-height: 90vh; box-shadow: 0 32px 80px -20px rgba(0,0,0,0.92), 0 0 50px rgba(254, 215, 3, 0.20); }
+          .modal-content { border-radius: 24px; max-height: 90vh; box-shadow: 0 32px 80px -20px rgba(0,0,0,0.92), 0 0 50px rgba(223, 178, 72, 0.15); }
         }
         .success-content { padding: 3rem 1.5rem; justify-content: center; align-items: center; }
         .modal-close {
@@ -407,7 +407,7 @@ export default function ScheduleModal({ onClose }) {
           border-radius: 24px 24px 0 0; overflow: hidden; flex-shrink: 0;
         }
         .modal-progress-fill {
-          height: 100%; background: linear-gradient(90deg, #D97706, #FED703, #FEF08A); box-shadow: 0 0 10px rgba(254, 215, 3, 0.6); transition: width 0.4s ease;
+          height: 100%; background: linear-gradient(90deg, #A87A1E, #DFB248, #F6E4B4); box-shadow: 0 0 10px rgba(223, 178, 72, 0.5); transition: width 0.4s ease;
         }
         .step-container {
           padding: 1.5rem 1.25rem 1rem;
@@ -429,7 +429,7 @@ export default function ScheduleModal({ onClose }) {
           line-height: 1.7; margin-bottom: 2rem;
         }
         .step-question {
-          color: #FEF08A;
+          color: #F6E4B4;
           font-size: clamp(0.95rem, 3.5vw, 1.5rem);
           margin-bottom: 1.25rem; font-weight: 600; line-height: 1.4;
         }
@@ -451,10 +451,10 @@ export default function ScheduleModal({ onClose }) {
           .option-btn { border-radius: 16px; padding: 2rem 1.5rem; font-size: 1rem; }
         }
         .option-btn svg { width: clamp(20px, 5vw, 28px); height: clamp(20px, 5vw, 28px); }
-        .option-btn:hover { background: rgba(254, 215, 3, 0.10); border-color: rgba(254, 240, 138, 0.50); }
+        .option-btn:hover { background: rgba(223, 178, 72, 0.08); border-color: rgba(246, 228, 180, 0.45); }
         .option-btn.active {
-          background: rgba(254, 215, 3, 0.18); border-color: #FED703;
-          box-shadow: 0 0 24px rgba(254, 215, 3, 0.30); color: #FFFDF0;
+          background: rgba(223, 178, 72, 0.16); border-color: #DFB248;
+          box-shadow: 0 0 24px rgba(223, 178, 72, 0.25); color: #FFF6DD;
         }
         .input-group { margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
         .input-group label { color: rgba(255,255,255,0.8); font-size: clamp(0.85rem, 3vw, 1.1rem); }
@@ -465,7 +465,7 @@ export default function ScheduleModal({ onClose }) {
           font-family: inherit; transition: all 0.3s; width: 100%;
         }
         .step-input::placeholder { color: rgba(255,255,255,0.3); }
-        .step-input:focus { outline: none; border-color: #FED703; background: rgba(254, 215, 3, 0.06); box-shadow: 0 0 16px rgba(254, 215, 3, 0.25); }
+        .step-input:focus { outline: none; border-color: #DFB248; background: rgba(223, 178, 72, 0.05); box-shadow: 0 0 16px rgba(223, 178, 72, 0.20); }
         .input-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
         @media (min-width: 520px) {
           .input-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -486,8 +486,8 @@ export default function ScheduleModal({ onClose }) {
         @media (min-width: 480px) {
           .date-btn { flex: 0 0 80px; height: 100px; }
         }
-        .date-btn:hover { background: rgba(254, 215, 3, 0.10); border-color: rgba(254, 240, 138, 0.40); }
-        .date-btn.active { background: linear-gradient(135deg, #FFF08A 0%, #FED703 60%, #D97706 100%); border-color: #FFFDF0; color: #020817; font-weight: 800; box-shadow: 0 0 20px rgba(254, 215, 3, 0.50); }
+        .date-btn:hover { background: rgba(223, 178, 72, 0.08); border-color: rgba(246, 228, 180, 0.35); }
+        .date-btn.active { background: linear-gradient(135deg, #FFF6DD 0%, #DFB248 60%, #A87A1E 100%); border-color: #FFF6DD; color: #060912; font-weight: 800; box-shadow: 0 0 20px rgba(223, 178, 72, 0.40); }
         .date-num { font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 800; font-family: monospace; }
         .date-day, .date-month { font-size: clamp(0.7rem, 2.5vw, 0.9rem); }
         
@@ -503,8 +503,8 @@ export default function ScheduleModal({ onClose }) {
           transition: all 0.2s; font-family: monospace; font-size: clamp(0.82rem, 2.5vw, 1.05rem);
           text-align: center;
         }
-        .time-btn:hover { border-color: rgba(254, 240, 138, 0.50); background: rgba(254, 215, 3, 0.10); }
-        .time-btn.active { background: rgba(254, 215, 3, 0.20); border-color: #FED703; color: #FFFDF0; box-shadow: 0 0 18px rgba(254, 215, 3, 0.30); }
+        .time-btn:hover { border-color: rgba(246, 228, 180, 0.45); background: rgba(223, 178, 72, 0.08); }
+        .time-btn.active { background: rgba(223, 178, 72, 0.16); border-color: #DFB248; color: #FFF6DD; box-shadow: 0 0 18px rgba(223, 178, 72, 0.25); }
 
         .modal-footer {
           padding: 1rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.05);

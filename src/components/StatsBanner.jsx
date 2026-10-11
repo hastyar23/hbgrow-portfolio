@@ -95,7 +95,7 @@ export default function StatsBanner() {
         >
           {stats.map(({ icon, val, label }, i) => (
             <div key={i} className="glass-card" style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-              <div style={{ color: '#FED703' }}>{icon}</div>
+              <div style={{ color: '#DFB248' }}>{icon}</div>
               <div className="stat-val">{val}</div>
               <p style={{
                 fontFamily: "'Noto Kufi Arabic', sans-serif",
@@ -166,8 +166,8 @@ export default function StatsBanner() {
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderTop: '1px solid rgba(254, 240, 138, 0.45)',
-                boxShadow: '0 20px 50px -15px rgba(0, 0, 0, 0.85), 0 0 32px rgba(254, 215, 3, 0.12)',
+                borderTop: '1px solid rgba(246, 228, 180, 0.40)',
+                boxShadow: '0 20px 50px -15px rgba(0, 0, 0, 0.85), 0 0 32px rgba(223, 178, 72, 0.10)',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 display: 'flex', 
@@ -180,14 +180,14 @@ export default function StatsBanner() {
                 key={`progress-${timerKey}`}
                 style={{
                   position: 'absolute', top: 0, left: 0, right: 0, height: '4px',
-                  background: 'rgba(254, 215, 3, 0.15)',
+                  background: 'rgba(223, 178, 72, 0.12)',
                   zIndex: 10,
                 }}
               >
                 <div style={{
                   height: '100%', width: '100%',
-                  background: 'linear-gradient(90deg, #D97706, #FED703, #FEF08A)',
-                  boxShadow: '0 0 10px rgba(254, 215, 3, 0.6)',
+                  background: 'linear-gradient(90deg, #A87A1E, #DFB248, #F6E4B4)',
+                  boxShadow: '0 0 10px rgba(223, 178, 72, 0.5)',
                   transformOrigin: 'right',
                   animation: 'progress-fill 5s linear forwards',
                 }} />
@@ -222,8 +222,8 @@ export default function StatsBanner() {
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                     gap: '0.75rem', padding: '1.5rem', textAlign: 'center',
                   }}>
-                    <BarChart2 size={36} color="#FED703" />
-                    <div style={{ color: '#FEF08A', fontSize: '0.8rem', fontFamily: "'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
+                    <BarChart2 size={36} color="#DFB248" />
+                    <div style={{ color: '#F6E4B4', fontSize: '0.8rem', fontFamily: "'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
                       {t('stats.campaign_num')}{currentIndex + 1}
                     </div>
                     <div style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.65rem' }}>Meta Ads Dashboard</div>
@@ -262,7 +262,7 @@ export default function StatsBanner() {
               }}>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(241,245,249,0.7)', marginBottom: '0.5rem' }}>
-                    <MessageCircle size={22} color="#FED703" />
+                    <MessageCircle size={22} color="#DFB248" />
                     <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{t('stats.msg_rate')}</span>
                   </div>
                   <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', }}>
@@ -274,7 +274,7 @@ export default function StatsBanner() {
                 
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(241,245,249,0.7)', marginBottom: '0.5rem' }}>
-                    <Eye size={22} color="#FED703" />
+                    <Eye size={22} color="#DFB248" />
                     <span style={{ fontSize: '1.1rem', fontWeight: 500 }}>{t('stats.view_rate')}</span>
                   </div>
                   <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', }}>
@@ -307,8 +307,8 @@ export default function StatsBanner() {
                       height: '8px',
                       width: currentIndex === idx ? '24px' : '8px',
                       borderRadius: '4px',
-                      background: currentIndex === idx ? '#FED703' : 'rgba(255,255,255,0.2)',
-                      boxShadow: currentIndex === idx ? '0 0 14px rgba(254, 215, 3, 0.75)' : 'none',
+                      background: currentIndex === idx ? '#DFB248' : 'rgba(255,255,255,0.2)',
+                      boxShadow: currentIndex === idx ? '0 0 14px rgba(223, 178, 72, 0.65)' : 'none',
                       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                       padding: 0, border: 'none', cursor: 'pointer'
                     }}

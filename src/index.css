@@ -29,14 +29,14 @@
   --sapphire:     #042246;
   --logo-navy:    #031B39;
 
-  /* High-End Luxury Brand Gold & Imperial Yellow Palette (Exact Logo Tone #FED703) */
-  --gold:         #FED703;
-  --gold-vivid:   #FED703;
-  --gold-lt:      #FEF08A;
-  --gold-bright:  #FFFDF0;
-  --gold-dark:    #D97706;
-  --gold-dim:     rgba(254, 215, 3, 0.40);
-  --gold-glow:    rgba(254, 215, 3, 0.35);
+  /* High-End Luxury Brand Gold & Champagne Silk Palette (18K Royal Gold #DFB248) */
+  --gold:         #DFB248;
+  --gold-vivid:   #DFB248;
+  --gold-lt:      #F6E4B4;
+  --gold-bright:  #FFF6DD;
+  --gold-dark:    #A87A1E;
+  --gold-dim:     rgba(223, 178, 72, 0.35);
+  --gold-glow:    rgba(223, 178, 72, 0.22);
 
   /* Brand Blue Base */
   --blue:         #2563EB;
@@ -61,16 +61,16 @@
   /* Precision Hairline Borders */
   --border-dim:   rgba(255, 255, 255, 0.07);
   --border-med:   rgba(255, 255, 255, 0.12);
-  --border-gold:  rgba(254, 215, 3, 0.30);
-  --border-gold-bright: rgba(254, 240, 138, 0.55);
+  --border-gold:  rgba(223, 178, 72, 0.28);
+  --border-gold-bright: rgba(246, 228, 180, 0.45);
   --border-blue:  rgba(37, 99, 235, 0.30);
   --border-blue-bright: rgba(147, 197, 253, 0.55);
 
   /* Shadows */
   --shadow-card:  0 16px 48px rgba(0, 0, 0, 0.80);
-  --shadow-gold:  0 0 40px rgba(254, 215, 3, 0.25);
+  --shadow-gold:  0 0 32px rgba(223, 178, 72, 0.18);
   --shadow-blue:  0 0 40px rgba(13, 110, 253, 0.25);
-  --shadow-hover: 0 28px 72px -12px rgba(0, 0, 0, 0.92), 0 0 0 1px rgba(254, 215, 3, 0.40);
+  --shadow-hover: 0 28px 72px -12px rgba(0, 0, 0, 0.92), 0 0 0 1px rgba(223, 178, 72, 0.35);
 
   /* Legacy compat */
   --glass:        var(--glass-4);
@@ -91,7 +91,7 @@ body {
   background-color: var(--deep);
   background-image:
     /* High-End Warm Gold Zenith Glow */
-    radial-gradient(ellipse 75% 35% at 50% 0%, rgba(254, 215, 3, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 75% 35% at 50% 0%, rgba(223, 178, 72, 0.06) 0%, transparent 60%),
     /* Precision Stage Spotlight echoing Logo Navy #042246 */
     radial-gradient(ellipse 90% 50% at 50% -5%, rgba(4, 34, 70, 0.70) 0%, rgba(3, 27, 57, 0.45) 45%, transparent 75%),
     /* Ambient Sapphire Glows */
@@ -111,11 +111,11 @@ body {
   width: 100%;
 }
 
-::selection { background: rgba(254, 215, 3, 0.35); color: #ffffff; }
+::selection { background: rgba(223, 178, 72, 0.28); color: #ffffff; }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--deep); }
-::-webkit-scrollbar-thumb { background: rgba(254, 215, 3, 0.45); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: rgba(223, 178, 72, 0.35); border-radius: 4px; }
 
 /* ─── Explicit RTL Support & Alignment Refinements ──────────── */
 html[dir="rtl"] {
@@ -179,14 +179,14 @@ p, a, li, button, input, textarea {
   line-height: 1.22;
 }
 
-/* ─── Visuvate Liquid Platinum & Luxury Imperial Gold Gradient Text ─── */
+/* ─── Visuvate Liquid Platinum & Luxury 18K Royal Gold Gradient Text ─── */
 .text-gold,
 .text-blue-luxe {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFFDF0 15%, #FEF08A 35%, #FED703 65%, #F59E0B 85%, #D97706 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF6DD 18%, #F6E4B4 38%, #DFB248 68%, #C2912A 86%, #946914 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 14px rgba(254, 215, 3, 0.35));
+  filter: drop-shadow(0 2px 14px rgba(223, 178, 72, 0.22));
 }
 
 /* ─── Hairline Divider ──────────────────────────────────────── */
@@ -195,9 +195,9 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(254, 215, 3, 0.12) 20%,
-    rgba(254, 240, 138, 0.45) 50%,
-    rgba(254, 215, 3, 0.12) 80%,
+    rgba(223, 178, 72, 0.10) 20%,
+    rgba(246, 228, 180, 0.40) 50%,
+    rgba(223, 178, 72, 0.10) 80%,
     transparent 100%
   );
 }
@@ -209,9 +209,9 @@ p, a, li, button, input, textarea {
   gap: 0.5rem;
   padding: 0.42rem 1.15rem;
   border-radius: 100px;
-  border: 1px solid rgba(254, 215, 3, 0.35);
-  background: linear-gradient(135deg, rgba(254, 215, 3, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
-  color: #FEF08A;
+  border: 1px solid rgba(223, 178, 72, 0.28);
+  background: linear-gradient(135deg, rgba(223, 178, 72, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  color: #F6E4B4;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -220,7 +220,7 @@ p, a, li, button, input, textarea {
   -webkit-backdrop-filter: blur(16px);
   font-family: 'Inter', 'Noto Kufi Arabic', sans-serif;
   white-space: nowrap;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 24px rgba(254, 215, 3, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 20px rgba(223, 178, 72, 0.10);
 }
 
 .badge .dot {
@@ -229,24 +229,24 @@ p, a, li, button, input, textarea {
   background: var(--gold-vivid);
   flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
-  box-shadow: 0 0 12px rgba(254, 215, 3, 0.95);
+  box-shadow: 0 0 10px rgba(223, 178, 72, 0.85);
 }
 
-/* ─── High-End Brand Imperial Gold Luxury Button ────────────── */
+/* ─── High-End Brand 18K Royal Gold Luxury Button ───────────── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
   padding: 0.9rem 2.2rem;
-  background: linear-gradient(135deg, #FFF08A 0%, #FED703 35%, #F59E0B 75%, #D97706 100%);
+  background: linear-gradient(135deg, #FFF6DD 0%, #E8C15A 26%, #DFB248 58%, #B88924 85%, #946914 100%);
   background-size: 200% 100%;
-  color: #020817;
+  color: #060912;
   font-family: 'Inter', 'Noto Kufi Arabic', 'Rabar', sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
-  border: 1px solid rgba(254, 215, 3, 0.60);
-  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(223, 178, 72, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.90);
   border-radius: 100px;
   cursor: pointer;
   text-decoration: none;
@@ -258,10 +258,10 @@ p, a, li, button, input, textarea {
   line-height: 1.4;
   max-width: 100%;
   box-shadow:
-    0 4px 22px rgba(254, 215, 3, 0.45),
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.85),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.25);
+    0 4px 20px -2px rgba(223, 178, 72, 0.32),
+    0 12px 30px -4px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.80),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.30);
 }
 
 .btn-primary::after {
@@ -277,16 +277,16 @@ p, a, li, button, input, textarea {
 .btn-primary:hover {
   background-position: 100% 0;
   transform: translateY(-2px);
-  color: #01040a;
+  color: #020409;
   box-shadow:
-    0 12px 38px rgba(254, 215, 3, 0.65),
-    0 0 0 1px rgba(254, 240, 138, 0.60),
+    0 8px 32px rgba(223, 178, 72, 0.45),
+    0 0 0 1px rgba(246, 228, 180, 0.50),
     inset 0 1px 1px rgba(255, 255, 255, 0.95);
 }
 
 .btn-primary:active {
   transform: scale(0.98);
-  box-shadow: 0 4px 16px rgba(254, 215, 3, 0.35);
+  box-shadow: 0 4px 16px rgba(223, 178, 72, 0.25);
 }
 
 /* ─── Luxury Ghost Button ───────────────────────────────────── */
@@ -318,10 +318,10 @@ p, a, li, button, input, textarea {
 
 .btn-ghost:hover {
   color: var(--white);
-  border-color: rgba(254, 215, 3, 0.50);
-  background: rgba(254, 215, 3, 0.10);
+  border-color: rgba(223, 178, 72, 0.40);
+  background: rgba(223, 178, 72, 0.08);
   transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(254, 215, 3, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  box-shadow: 0 10px 28px rgba(223, 178, 72, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.20);
 }
 
 .btn-ghost:active { transform: scale(0.98); }
@@ -356,7 +356,7 @@ p, a, li, button, input, textarea {
   background: linear-gradient(90deg,
     transparent 10%,
     rgba(255, 255, 255, 0.18) 35%,
-    rgba(254, 215, 3, 0.40) 50%,
+    rgba(223, 178, 72, 0.35) 50%,
     rgba(255, 255, 255, 0.18) 65%,
     transparent 90%);
   border-radius: inherit;
@@ -376,11 +376,11 @@ p, a, li, button, input, textarea {
 
 .glass-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(254, 215, 3, 0.40);
+  border-color: rgba(223, 178, 72, 0.35);
   box-shadow:
     0 24px 60px -8px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(254, 215, 3, 0.25),
-    0 0 32px rgba(254, 215, 3, 0.18),
+    0 0 0 1px rgba(223, 178, 72, 0.20),
+    0 0 32px rgba(223, 178, 72, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.16);
   background:
     linear-gradient(145deg,
@@ -399,7 +399,7 @@ p, a, li, button, input, textarea {
   backdrop-filter: blur(36px) saturate(180%);
   -webkit-backdrop-filter: blur(36px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-top: 1px solid rgba(254, 240, 138, 0.45);
+  border-top: 1px solid rgba(246, 228, 180, 0.40);
   border-radius: 1.25rem;
   padding: 1.5rem 2rem;
   box-shadow:
@@ -420,7 +420,7 @@ p, a, li, button, input, textarea {
   background: linear-gradient(90deg,
     transparent 10%,
     rgba(255, 255, 255, 0.20) 35%,
-    rgba(254, 240, 138, 0.65) 50%,
+    rgba(246, 228, 180, 0.55) 50%,
     rgba(255, 255, 255, 0.20) 65%,
     transparent 90%);
 }
@@ -431,17 +431,17 @@ p, a, li, button, input, textarea {
   inset: 0;
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%,
-      rgba(254, 215, 3, 0.12) 0%, transparent 60%);
+      rgba(223, 178, 72, 0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .glass-stat-card:hover {
-  border-color: rgba(254, 215, 3, 0.45);
+  border-color: rgba(223, 178, 72, 0.35);
   transform: translateY(-5px);
   box-shadow:
     0 28px 72px rgba(0, 0, 0, 0.88),
-    0 0 0 1px rgba(254, 215, 3, 0.30),
-    0 0 40px rgba(254, 215, 3, 0.22),
+    0 0 0 1px rgba(223, 178, 72, 0.25),
+    0 0 40px rgba(223, 178, 72, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
@@ -472,7 +472,7 @@ p, a, li, button, input, textarea {
   background: linear-gradient(90deg,
     transparent 10%,
     rgba(255, 255, 255, 0.20) 35%,
-    rgba(254, 215, 3, 0.40) 50%,
+    rgba(223, 178, 72, 0.35) 50%,
     rgba(255, 255, 255, 0.20) 65%,
     transparent 90%);
 }
@@ -488,12 +488,12 @@ p, a, li, button, input, textarea {
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top: 1px solid rgba(254, 240, 138, 0.45);
+  border-top: 1px solid rgba(246, 228, 180, 0.40);
   border-radius: 1.25rem;
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.80),
-    0 0 0 1px rgba(254, 215, 3, 0.15),
-    0 0 28px rgba(254, 215, 3, 0.12),
+    0 0 0 1px rgba(223, 178, 72, 0.12),
+    0 0 28px rgba(223, 178, 72, 0.10),
     inset 0 1px 0 rgba(255, 255, 255, 0.18),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
@@ -510,9 +510,9 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 10%,
-    rgba(254, 215, 3, 0.45) 35%,
-    rgba(254, 240, 138, 0.85) 50%,
-    rgba(254, 215, 3, 0.45) 65%,
+    rgba(223, 178, 72, 0.35) 35%,
+    rgba(246, 228, 180, 0.70) 50%,
+    rgba(223, 178, 72, 0.35) 65%,
     transparent 90%);
 }
 
@@ -522,19 +522,19 @@ p, a, li, button, input, textarea {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse 75% 50% at 50% -10%,
-    rgba(254, 215, 3, 0.14) 0%, transparent 65%);
+    rgba(223, 178, 72, 0.10) 0%, transparent 65%);
   pointer-events: none;
 }
 
 .glass-card-gold:hover,
 .glass-card-blue:hover {
   transform: translateY(-5px);
-  border-color: rgba(254, 215, 3, 0.55);
-  border-top-color: rgba(254, 240, 138, 0.90);
+  border-color: rgba(223, 178, 72, 0.40);
+  border-top-color: rgba(246, 228, 180, 0.70);
   box-shadow:
     0 28px 72px rgba(0, 0, 0, 0.88),
-    0 0 0 1px rgba(254, 215, 3, 0.40),
-    0 0 45px rgba(254, 215, 3, 0.28),
+    0 0 0 1px rgba(223, 178, 72, 0.25),
+    0 0 45px rgba(223, 178, 72, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
   background:
     linear-gradient(145deg,
@@ -556,23 +556,23 @@ p, a, li, button, input, textarea {
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-top: 1px solid rgba(254, 240, 138, 0.35);
+  border-top: 1px solid rgba(246, 228, 180, 0.35);
   border-radius: 100px;
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.75),
     inset 0 1px 0 rgba(255, 255, 255, 0.15),
     inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-    0 0 28px rgba(254, 215, 3, 0.10);
+    0 0 24px rgba(223, 178, 72, 0.08);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   animation: slideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .navbar-pill.scrolled {
   background: rgba(2, 6, 16, 0.94);
-  border-color: rgba(254, 215, 3, 0.35);
+  border-color: rgba(223, 178, 72, 0.25);
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.88),
-    0 0 32px rgba(254, 215, 3, 0.18),
+    0 0 28px rgba(223, 178, 72, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
@@ -593,18 +593,10 @@ p, a, li, button, input, textarea {
   bottom: -2px;
   left: 0; right: 0;
   height: 1px;
-  background: #FED703;
+  background: #DFB248;
   transform: scaleX(0);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
-}
-
-.nav-link:hover {
-  color: rgba(255, 255, 255, 0.98);
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
 }
 
 .nav-link:hover {
@@ -636,17 +628,17 @@ p, a, li, button, input, textarea {
 }
 
 .glow-orb-gold {
-  background: radial-gradient(circle, rgba(254, 215, 3, 0.20) 0%, rgba(217, 119, 6, 0.05) 60%, transparent 80%);
+  background: radial-gradient(circle, rgba(223, 178, 72, 0.14) 0%, rgba(168, 122, 30, 0.04) 60%, transparent 80%);
 }
 
 .glow-orb-blue {
-  background: radial-gradient(circle, rgba(254, 215, 3, 0.16) 0%, rgba(4, 34, 70, 0.35) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(223, 178, 72, 0.10) 0%, rgba(4, 34, 70, 0.35) 50%, transparent 75%);
   animation-delay: -4s;
   animation-duration: 11s;
 }
 
 .glow-orb-cyan {
-  background: radial-gradient(circle, rgba(254, 215, 3, 0.22) 0%, rgba(217, 119, 6, 0.08) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(223, 178, 72, 0.14) 0%, rgba(168, 122, 30, 0.05) 50%, transparent 75%);
   animation-delay: -2s;
   animation-duration: 10s;
 }
@@ -689,7 +681,7 @@ p, a, li, button, input, textarea {
     width: 420px;
     height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(254, 215, 3, 0.10) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(223, 178, 72, 0.08) 0%, transparent 70%);
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
@@ -720,7 +712,7 @@ p, a, li, button, input, textarea {
   font-size: clamp(1.6rem, 3.8vw, 2.75rem);
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFF8D6 20%, #FEF08A 45%, #FED703 75%, #F59E0B 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF6DD 20%, #F6E4B4 45%, #DFB248 75%, #A87A1E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -732,7 +724,7 @@ p, a, li, button, input, textarea {
   font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(180deg, rgba(254, 215, 3, 0.16) 0%, rgba(254, 215, 3, 0.01) 100%);
+  background: linear-gradient(180deg, rgba(223, 178, 72, 0.12) 0%, rgba(223, 178, 72, 0.01) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -745,7 +737,7 @@ p, a, li, button, input, textarea {
 
 /* ─── Testimonial Stars ─────────────────────────────────────── */
 .stars { display: flex; gap: 3px; }
-.stars span { color: #FED703; font-size: 0.85rem; filter: drop-shadow(0 0 8px rgba(254, 215, 3, 0.7)); }
+.stars span { color: #DFB248; font-size: 0.85rem; filter: drop-shadow(0 0 8px rgba(223, 178, 72, 0.5)); }
 
 /* ─── Portfolio Hover ───────────────────────────────────────── */
 .port-item {
@@ -767,7 +759,7 @@ p, a, li, button, input, textarea {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid rgba(254, 215, 3, 0.40);
+  border: 1px solid rgba(223, 178, 72, 0.35);
   border-radius: 1rem;
 }
 
@@ -795,7 +787,7 @@ p, a, li, button, input, textarea {
 /* ─── Custom Modal Scrollbar ────────────────────────────────── */
 .modal-scroll::-webkit-scrollbar { width: 4px; }
 .modal-scroll::-webkit-scrollbar-track { background: transparent; }
-.modal-scroll::-webkit-scrollbar-thumb { background: rgba(254, 215, 3, 0.45); border-radius: 4px; }
+.modal-scroll::-webkit-scrollbar-thumb { background: rgba(223, 178, 72, 0.35); border-radius: 4px; }
 
 /* ─── Masonry Gallery ───────────────────────────────────────── */
 .masonry-grid {
@@ -817,9 +809,9 @@ p, a, li, button, input, textarea {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .masonry-item:hover {
-  border-color: rgba(254, 215, 3, 0.50);
+  border-color: rgba(223, 178, 72, 0.40);
   transform: translateY(-4px);
-  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.75), 0 0 32px rgba(254, 215, 3, 0.22);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.75), 0 0 28px rgba(223, 178, 72, 0.16);
 }
 .masonry-item img {
   width: 100%;
@@ -841,8 +833,8 @@ p, a, li, button, input, textarea {
 .masonry-item:hover .masonry-overlay { opacity: 1; }
 .masonry-btn {
   width: 48px; height: 48px; border-radius: 50%;
-  background: rgba(254, 215, 3, 0.22);
-  border: 1px solid rgba(254, 240, 138, 0.65);
+  background: rgba(223, 178, 72, 0.20);
+  border: 1px solid rgba(246, 228, 180, 0.60);
   backdrop-filter: blur(12px);
   display: flex; align-items: center; justify-content: center;
   transform: scale(0.8);
@@ -913,7 +905,7 @@ p, a, li, button, input, textarea {
   width: 80%;
   margin: 0 auto;
   flex-shrink: 0;
-  background: linear-gradient(to right, transparent, rgba(254, 215, 3, 0.35), transparent);
+  background: linear-gradient(to right, transparent, rgba(223, 178, 72, 0.25), transparent);
 }
 
 @media (min-width: 540px) {
@@ -922,7 +914,7 @@ p, a, li, button, input, textarea {
     height: 48px;
     margin: 0 2rem;
     align-self: center;
-    background: linear-gradient(to bottom, transparent, rgba(254, 215, 3, 0.40), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(223, 178, 72, 0.30), transparent);
   }
 }
 
@@ -964,8 +956,8 @@ p, a, li, button, input, textarea {
   width: 36px; height: 36px;
   border-radius: 0.625rem;
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, rgba(254, 215, 3, 0.25) 0%, rgba(217, 119, 6, 0.10) 100%);
-  border: 1px solid rgba(254, 215, 3, 0.45);
+  background: linear-gradient(135deg, rgba(223, 178, 72, 0.20) 0%, rgba(168, 122, 30, 0.08) 100%);
+  border: 1px solid rgba(223, 178, 72, 0.35);
   color: var(--gold-lt);
   flex-shrink: 0;
 }
@@ -1060,13 +1052,13 @@ p, a, li, button, input, textarea {
 }
 
 @keyframes blue-pulse-ring {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(254, 215, 3, 0.65); }
-  50% { box-shadow: 0 0 0 10px rgba(254, 215, 3, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(223, 178, 72, 0.55); }
+  50% { box-shadow: 0 0 0 10px rgba(223, 178, 72, 0); }
 }
 
 @keyframes gold-pulse-ring {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(254, 215, 3, 0.65); }
-  50% { box-shadow: 0 0 0 10px rgba(254, 215, 3, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(223, 178, 72, 0.55); }
+  50% { box-shadow: 0 0 0 10px rgba(223, 178, 72, 0); }
 }
 
 /* ─── Animate Classes ───────────────────────────────────────── */

@@ -26,7 +26,7 @@ export default function PainSolution() {
       <div style={{
         position: 'absolute', bottom: '15%', right: '5%',
         width: 500, height: 500, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(254, 215, 3, 0.12) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(223, 178, 72, 0.08) 0%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
@@ -118,23 +118,23 @@ export default function PainSolution() {
           padding: '3rem 2.5rem',
           marginBottom: 'clamp(3rem, 8vw, 5rem)',
           textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(254, 215, 3, 0.10) 0%, rgba(4, 34, 70, 0.40) 50%, rgba(2, 10, 22, 0.7) 100%)',
-          border: '1px solid rgba(254, 215, 3, 0.35)',
+          background: 'linear-gradient(135deg, rgba(223, 178, 72, 0.08) 0%, rgba(4, 34, 70, 0.40) 50%, rgba(2, 10, 22, 0.7) 100%)',
+          border: '1px solid rgba(223, 178, 72, 0.30)',
           borderRadius: '1.75rem',
           backdropFilter: 'blur(32px)',
           WebkitBackdropFilter: 'blur(32px)',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255, 255, 255, 0.20), 0 0 48px rgba(254, 215, 3, 0.16)',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255, 255, 255, 0.20), 0 0 40px rgba(223, 178, 72, 0.12)',
           position: 'relative', overflow: 'hidden',
         }}>
           {/* Banner shine line */}
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, height: 1,
-            background: 'linear-gradient(90deg, transparent 10%, rgba(254, 215, 3, 0.5) 35%, rgba(254, 240, 138, 0.95) 50%, rgba(254, 215, 3, 0.5) 65%, transparent 90%)',
+            background: 'linear-gradient(90deg, transparent 10%, rgba(223, 178, 72, 0.35) 35%, rgba(246, 228, 180, 0.75) 50%, rgba(223, 178, 72, 0.35) 65%, transparent 90%)',
           }} />
           {/* Banner inner glow */}
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse 70% 60% at 50% -10%, rgba(254, 215, 3, 0.15) 0%, transparent 65%)',
+            background: 'radial-gradient(ellipse 70% 60% at 50% -10%, rgba(223, 178, 72, 0.10) 0%, transparent 65%)',
             pointerEvents: 'none',
           }} />
           <p style={{
@@ -169,19 +169,19 @@ export default function PainSolution() {
               {/* Icon badge */}
               <div style={{
                 width: 40, height: 40, borderRadius: '0.75rem',
-                background: 'linear-gradient(135deg, rgba(254, 215, 3, 0.22) 0%, rgba(217, 119, 6, 0.08) 100%)',
-                border: '1px solid rgba(254, 215, 3, 0.45)',
+                background: 'linear-gradient(135deg, rgba(223, 178, 72, 0.18) 0%, rgba(168, 122, 30, 0.06) 100%)',
+                border: '1px solid rgba(223, 178, 72, 0.35)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 marginBottom: '1.5rem', flexShrink: 0,
                 backdropFilter: 'blur(8px)',
-                boxShadow: '0 4px 16px rgba(254, 215, 3, 0.25), inset 0 1px 0 rgba(255,255,255,0.20)',
+                boxShadow: '0 4px 16px rgba(223, 178, 72, 0.20), inset 0 1px 0 rgba(255,255,255,0.20)',
               }}>
-                <CheckCircle2 size={16} style={{ color: '#FED703' }} />
+                <CheckCircle2 size={16} style={{ color: '#DFB248' }} />
               </div>
 
               <div style={{
                 fontSize: '0.65rem', fontWeight: 700,
-                color: '#FEF08A', marginBottom: '0.75rem',
+                color: '#F6E4B4', marginBottom: '0.75rem',
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
                 textTransform: 'uppercase', fontFamily: "'Noto Kufi Arabic', sans-serif",
               }}>

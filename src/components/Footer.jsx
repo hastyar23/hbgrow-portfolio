@@ -61,8 +61,8 @@ export default function Footer() {
                   height: 44, width: 44,
                   objectFit: 'contain',
                   borderRadius: '50%',
-                  border: '1px solid rgba(254, 215, 3, 0.6)',
-                  boxShadow: '0 0 16px rgba(254, 215, 3, 0.25)'
+                  border: '1px solid rgba(223, 178, 72, 0.45)',
+                  boxShadow: '0 0 16px rgba(223, 178, 72, 0.20)'
                 }}
               />
               <span style={{
@@ -72,7 +72,7 @@ export default function Footer() {
                 color: '#ffffff',
                 letterSpacing: '-0.02em',
               }}>
-                HB<span style={{ color: '#FED703' }}>grow</span>
+                HB<span style={{ color: '#DFB248' }}>grow</span>
               </span>
             </div>
             <p style={{
@@ -100,10 +100,10 @@ export default function Footer() {
                     backdropFilter: 'blur(8px)',
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.color = '#FED703';
-                    e.currentTarget.style.borderColor = 'rgba(254, 240, 138, 0.50)';
-                    e.currentTarget.style.background = 'rgba(254, 215, 3, 0.15)';
-                    e.currentTarget.style.boxShadow = '0 0 14px rgba(254, 215, 3, 0.3)';
+                    e.currentTarget.style.color = '#DFB248';
+                    e.currentTarget.style.borderColor = 'rgba(246, 228, 180, 0.45)';
+                    e.currentTarget.style.background = 'rgba(223, 178, 72, 0.12)';
+                    e.currentTarget.style.boxShadow = '0 0 14px rgba(223, 178, 72, 0.20)';
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.color = 'rgba(203,213,225,0.55)';
@@ -137,7 +137,7 @@ export default function Footer() {
                       textDecoration: 'none', fontWeight: 400,
                       transition: 'color 0.25s',
                     }}
-                    onMouseEnter={e => e.target.style.color = '#FED703'}
+                    onMouseEnter={e => e.target.style.color = '#DFB248'}
                     onMouseLeave={e => e.target.style.color = 'rgba(203,213,225,0.55)'}
                   >
                     {t(labelKey)}
@@ -169,7 +169,7 @@ export default function Footer() {
                   width: '100%',
                   maxWidth: '280px',
                   justifyContent: 'center',
-                  boxShadow: '0 0 28px -4px rgba(254, 215, 3, 0.45)',
+                  boxShadow: '0 0 28px -4px rgba(223, 178, 72, 0.35)',
                   borderRadius: '12px',
                   transition: 'transform 0.2s'
                 }}

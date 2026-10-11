@@ -61,7 +61,7 @@ export default function Hero() {
         {/* Sleek stage spotlight */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(254, 215, 3, 0.12) 0%, rgba(4, 34, 70, 0.50) 50%, transparent 75%)',
+          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(223, 178, 72, 0.08) 0%, rgba(4, 34, 70, 0.50) 50%, transparent 75%)',
         }} />
         {/* Dot grid texture */}
         <div className="grid-bg" />
@@ -149,7 +149,7 @@ export default function Hero() {
           }}
         >
           {t('hero.subtitle_1')}{' '}
-          <span style={{ color: '#FEF08A', fontWeight: 600 }}>
+          <span style={{ color: '#F6E4B4', fontWeight: 600 }}>
             {t('hero.subtitle_2')}
           </span>
         </p>
@@ -160,7 +160,7 @@ export default function Hero() {
             onClick={openSchedule}
             className="btn-primary"
             id="hero-cta-book"
-            style={{ boxShadow: '0 0 38px -4px rgba(254, 215, 3, 0.55)', border: 'none', cursor: 'pointer' }}
+            style={{ boxShadow: '0 0 38px -4px rgba(223, 178, 72, 0.40)', border: 'none', cursor: 'pointer' }}
           >
             <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
             {t('hero.cta_book')}
@@ -193,7 +193,7 @@ export default function Hero() {
             <div style={{
               position: 'absolute',
               inset: 0,
-              background: 'radial-gradient(ellipse at center top, rgba(254, 215, 3, 0.14) 0%, transparent 60%)',
+              background: 'radial-gradient(ellipse at center top, rgba(223, 178, 72, 0.10) 0%, transparent 60%)',
               borderRadius: 'inherit',
               pointerEvents: 'none',
             }} />
@@ -208,11 +208,11 @@ export default function Hero() {
                       fontFamily: "'Outfit', 'Sarchia Bokan', serif",
                       fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
                       fontWeight: 700, lineHeight: 1,
-                      backgroundImage: 'linear-gradient(135deg, #FFFFFF 0%, #FFF8D6 20%, #FEF08A 45%, #FED703 75%, #F59E0B 100%)',
+                      backgroundImage: 'linear-gradient(135deg, #FFFFFF 0%, #FFF6DD 20%, #F6E4B4 45%, #DFB248 75%, #A87A1E 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
-                      filter: 'drop-shadow(0 4px 14px rgba(254, 215, 3, 0.35))',
+                      filter: 'drop-shadow(0 4px 14px rgba(223, 178, 72, 0.22))',
                     }}>
                       {val}
                     </div>
@@ -245,7 +245,7 @@ export default function Hero() {
       }}>
         <div style={{
           width: 1, height: 40,
-          background: 'linear-gradient(to bottom, rgba(254, 215, 3, 0.90), transparent)',
+          background: 'linear-gradient(to bottom, rgba(223, 178, 72, 0.85), transparent)',
           animation: 'float-y 2.5s ease-in-out infinite',
         }} />
       </div>

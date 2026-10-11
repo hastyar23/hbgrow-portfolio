@@ -2,10 +2,10 @@ import { Phone, BarChart2, Eye, Smile } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const STEP_COLORS = [
-  { border: 'rgba(254, 215, 3, 0.50)', glow: 'rgba(254, 215, 3, 0.20)', icon: '#FED703', bg: 'rgba(254, 215, 3, 0.15)' },
-  { border: 'rgba(250, 204, 21, 0.50)', glow: 'rgba(245, 184, 0, 0.18)', icon: '#FDE047', bg: 'rgba(250, 204, 21, 0.14)' },
-  { border: 'rgba(254, 240, 138, 0.50)', glow: 'rgba(254, 215, 3, 0.16)', icon: '#FEF08A', bg: 'rgba(254, 240, 138, 0.12)' },
-  { border: 'rgba(255, 253, 240, 0.55)', glow: 'rgba(254, 240, 138, 0.18)', icon: '#FFFDF0', bg: 'rgba(255, 253, 240, 0.14)' },
+  { border: 'rgba(223, 178, 72, 0.45)', glow: 'rgba(223, 178, 72, 0.18)', icon: '#DFB248', bg: 'rgba(223, 178, 72, 0.12)' },
+  { border: 'rgba(232, 195, 106, 0.45)', glow: 'rgba(223, 178, 72, 0.16)', icon: '#E8C36A', bg: 'rgba(232, 195, 106, 0.12)' },
+  { border: 'rgba(246, 228, 180, 0.50)', glow: 'rgba(246, 228, 180, 0.16)', icon: '#F6E4B4', bg: 'rgba(246, 228, 180, 0.12)' },
+  { border: 'rgba(255, 246, 221, 0.55)', glow: 'rgba(255, 246, 221, 0.18)', icon: '#FFF6DD', bg: 'rgba(255, 246, 221, 0.12)' },
 ];
 
 export default function Process() {
@@ -25,7 +25,7 @@ export default function Process() {
       <div style={{
         position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)',
         width: 800, height: 400, borderRadius: '50%',
-        background: 'radial-gradient(ellipse, rgba(254, 215, 3, 0.12) 0%, rgba(4, 34, 70, 0.25) 45%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(223, 178, 72, 0.08) 0%, rgba(4, 34, 70, 0.25) 45%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 

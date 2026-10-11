@@ -195,7 +195,7 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
           <img
             src="/images/optimized/U9X57gP.avif"
             alt="HBgrow"
-            style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(254, 215, 3, 0.85)', objectFit: 'cover', flexShrink: 0 }}
+            style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(223, 178, 72, 0.85)', objectFit: 'cover', flexShrink: 0 }}
           />
           <span style={{ color: 'white', fontSize: '0.72rem', fontWeight: 700, fontFamily: "'Inter', sans-serif", }}>
             hbgrow
@@ -220,15 +220,15 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
       }}>
         <div style={{
           width: 52, height: 52, borderRadius: '50%',
-          background: 'rgba(254, 215, 3, 0.22)',
-          border: '2px solid rgba(254, 240, 138, 0.80)',
+          background: 'rgba(223, 178, 72, 0.20)',
+          border: '2px solid rgba(246, 228, 180, 0.75)',
           backdropFilter: 'blur(12px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           transform: hover ? 'scale(1.05)' : 'scale(0.9)',
           transition: 'transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94)',
-          boxShadow: '0 0 28px rgba(254, 215, 3, 0.45)',
+          boxShadow: '0 0 24px rgba(223, 178, 72, 0.35)',
         }}>
-          <Play size={20} style={{ fill: '#FED703', color: '#FED703', marginLeft: 2 }} />
+          <Play size={20} style={{ fill: '#DFB248', color: '#DFB248', marginLeft: 2 }} />
         </div>
       </div>
     </div>
@@ -461,10 +461,10 @@ export default function Portfolio() {
                   <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{
                       width: 40, height: 40, borderRadius: '50%',
-                      background: 'rgba(254, 215, 3, 0.25)', border: '1px solid rgba(254, 240, 138, 0.70)',
+                      background: 'rgba(223, 178, 72, 0.20)', border: '1px solid rgba(246, 228, 180, 0.65)',
                       backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      <Play size={16} style={{ fill: '#FED703', color: '#FED703', marginRight: -2 }} />
+                      <Play size={16} style={{ fill: '#DFB248', color: '#DFB248', marginRight: -2 }} />
                     </div>
                   </div>
                 </div>
