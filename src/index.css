@@ -127,8 +127,32 @@ html[dir="rtl"] {
   text-align: right;
 }
 
-html[dir="rtl"] body {
+html[dir="rtl"] body,
+[dir="rtl"] {
   font-family: 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Sarchia Bokan', 'Rabar', 'Inter', sans-serif;
+}
+
+/* Prevent any letter-spacing from breaking Arabic/Kurdish cursive ligatures */
+html[dir="rtl"] *,
+[dir="rtl"],
+[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: 'IBM Plex Sans Arabic', sans-serif !important;
+  letter-spacing: 0 !important;
 }
 
 html[dir="rtl"] .step-num {

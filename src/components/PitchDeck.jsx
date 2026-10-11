@@ -21,6 +21,7 @@ import {
   ExternalLink,
   Lock,
   Sparkles,
+  Shield,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -65,7 +66,10 @@ function SpotlightCard({ children, className = '', ...props }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative overflow-hidden rounded-[28px] border border-white/[0.04] bg-white/[0.02] backdrop-blur-3xl shadow-none transition-all duration-300 ${className}`}
+      className={`relative overflow-hidden rounded-[28px] border border-white/[0.08] bg-[#111116] bg-opacity-95 backdrop-blur-md shadow-none transition-all duration-300 ${className}`}
+      style={{
+        boxShadow: isHovered ? '0 16px 40px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08)' : '0 8px 24px -8px rgba(0, 0, 0, 0.5)',
+      }}
       {...props}
     >
       {/* 2026 Stealth Mouse Spotlight */}
@@ -73,7 +77,7 @@ function SpotlightCard({ children, className = '', ...props }) {
         className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(550px circle at ${coords.x}px ${coords.y}px, rgba(255, 255, 255, 0.05), transparent 45%)`,
+          background: `radial-gradient(550px circle at ${coords.x}px ${coords.y}px, rgba(212, 175, 55, 0.06), transparent 45%)`,
         }}
       />
       {/* Hairline Edge Glow Accent */}
@@ -98,12 +102,19 @@ function WireframeCTA({ href, onClick, children, className = '', isPrimary = fal
       <span className="relative z-10 flex items-center justify-center gap-2">
         {children}
       </span>
-      {/* Muted Champagne Gold Fill Slide */}
-      <span className="absolute inset-0 z-0 translate-y-full bg-[#D4AF37] transition-transform duration-[400ms] ease-out group-hover:translate-y-0" />
+      {/* Subtle Champagne Gold Slide Gradient */}
+      <span
+        className="absolute inset-0 z-0 translate-y-full transition-transform duration-[400ms] ease-out group-hover:translate-y-0"
+        style={{ background: 'linear-gradient(135deg, #E5E4E2 0%, #D4AF37 100%)' }}
+      />
     </>
   );
 
-  const baseClasses = `group relative overflow-hidden inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3.5 text-xs font-semibold tracking-wide text-white transition-colors duration-[400ms] ease-out hover:border-[#D4AF37] hover:text-[#050505] shadow-none cursor-pointer ${className}`;
+  const baseClasses = `group relative overflow-hidden inline-flex items-center justify-center rounded-full border border-white/[0.08] px-6 py-3.5 text-xs font-semibold tracking-wide transition-all duration-[400ms] ease-out shadow-none cursor-pointer ${
+    isPrimary
+      ? 'bg-gradient-to-r from-[#E5E4E2] to-[#D4AF37] !text-[#0A0A0C] !border-transparent shadow-[0_0_24px_rgba(212,175,55,0.25)] hover:shadow-[0_0_32px_rgba(212,175,55,0.4)]'
+      : 'bg-[#111116] text-white hover:border-[#D4AF37] hover:!text-[#0A0A0C]'
+  } ${className}`;
 
   if (href) {
     return (
@@ -123,7 +134,7 @@ function WireframeCTA({ href, onClick, children, className = '', isPrimary = fal
 // ─── Photorealistic macOS Dark-Mode Browser Window ────────────────────────────
 function MacOSWindow({ title = 'Meta Ads Manager', url = 'business.facebook.com/adsmanager', children, className = '' }) {
   return (
-    <div className={`overflow-hidden rounded-[24px] border border-white/[0.06] bg-[#09090b]/90 backdrop-blur-3xl shadow-none ${className}`}>
+    <div className={`overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#111116]/95 backdrop-blur-md shadow-none ${className}`}>
       {/* Window Title Bar */}
       <div className="flex items-center justify-between border-b border-white/[0.04] px-4 py-2.5 bg-white/[0.01]">
         <div className="flex items-center gap-1.5">
@@ -131,8 +142,8 @@ function MacOSWindow({ title = 'Meta Ads Manager', url = 'business.facebook.com/
           <div className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]/80" />
           <div className="h-2.5 w-2.5 rounded-full bg-[#27C93F]/80" />
         </div>
-        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/[0.03] border border-white/[0.04] text-[10px] text-zinc-500 font-mono">
-          <Lock size={10} className="text-zinc-600" />
+        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-[10px] text-zinc-400 font-mono">
+          <Lock size={10} className="text-zinc-500" />
           <span>{url}</span>
         </div>
         <div className="w-8" />
@@ -148,13 +159,13 @@ function StealthFIBLogo({ className = 'h-5 w-auto' }) {
   return (
     <div className="flex items-center gap-2 text-zinc-400 hover:text-zinc-200 transition-colors">
       <svg viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-label="First Iraqi Bank">
-        <rect width="44" height="44" rx="10" fill="#09090b" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+        <rect width="44" height="44" rx="10" fill="#111116" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
         <path d="M22 8L34 15V29L22 36L10 29V15L22 8Z" stroke="#D4AF37" strokeWidth="1.8" strokeLinejoin="round" />
         <path d="M22 14L29 18V26L22 30L15 26V18L22 14Z" fill="rgba(212,175,55,0.1)" stroke="#FFFFFF" strokeWidth="1.2" />
         <text x="54" y="24" fill="#FFFFFF" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="700" fontSize="16" letterSpacing="0.05em">
           FIB
         </text>
-        <text x="54" y="35" fill="#8A8F98" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="500" fontSize="8" letterSpacing="0.16em">
+        <text x="54" y="35" fill="#A1A1AA" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="500" fontSize="8" letterSpacing="0.16em">
           FIRST IRAQI BANK
         </text>
       </svg>
@@ -166,13 +177,13 @@ function StealthFastPayLogo({ className = 'h-5 w-auto' }) {
   return (
     <div className="flex items-center gap-2 text-zinc-400 hover:text-zinc-200 transition-colors">
       <svg viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-label="FastPay">
-        <rect width="44" height="44" rx="10" fill="#09090b" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+        <rect width="44" height="44" rx="10" fill="#111116" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
         <path d="M22 8L34 22L22 36L10 22L22 8Z" fill="#D4AF37" fillOpacity="0.85" />
-        <path d="M20 15L27 22L20 29" stroke="#050505" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M20 15L27 22L20 29" stroke="#0A0A0C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         <text x="54" y="24" fill="#FFFFFF" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="700" fontSize="16">
           FastPay
         </text>
-        <text x="54" y="35" fill="#8A8F98" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="500" fontSize="8" letterSpacing="0.14em">
+        <text x="54" y="35" fill="#A1A1AA" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="500" fontSize="8" letterSpacing="0.14em">
           IRAQ MOBILE WALLET
         </text>
       </svg>
@@ -184,14 +195,14 @@ function StealthQiCardLogo({ className = 'h-5 w-auto' }) {
   return (
     <div className="flex items-center gap-2 text-zinc-400 hover:text-zinc-200 transition-colors">
       <svg viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-label="Qi Card">
-        <rect width="44" height="44" rx="10" fill="#09090b" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+        <rect width="44" height="44" rx="10" fill="#111116" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
         <circle cx="22" cy="22" r="12" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
         <path d="M17 17C15 19 15 25 17 27C19 29 25 29 27 27C29 25 29 19 27 17C25 15 19 15 17 17Z" stroke="#FFFFFF" strokeWidth="1.8" fill="none" />
         <circle cx="22" cy="22" r="3" fill="#D4AF37" />
         <text x="54" y="24" fill="#FFFFFF" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="700" fontSize="16">
           Qi Card
         </text>
-        <text x="54" y="35" fill="#8A8F98" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="500" fontSize="8" letterSpacing="0.12em">
+        <text x="54" y="35" fill="#A1A1AA" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="500" fontSize="8">
           کی کارت العراق
         </text>
       </svg>
@@ -203,13 +214,13 @@ function StealthAsiaPayLogo({ className = 'h-5 w-auto' }) {
   return (
     <div className="flex items-center gap-2 text-zinc-400 hover:text-zinc-200 transition-colors">
       <svg viewBox="0 0 160 44" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-label="AsiaPay">
-        <rect width="44" height="44" rx="10" fill="#09090b" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+        <rect width="44" height="44" rx="10" fill="#111116" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
         <circle cx="22" cy="22" r="11" fill="none" stroke="#D4AF37" strokeWidth="1.5" />
         <circle cx="22" cy="22" r="5" fill="#FFFFFF" />
         <text x="54" y="24" fill="#FFFFFF" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="700" fontSize="16">
           AsiaPay
         </text>
-        <text x="54" y="35" fill="#8A8F98" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="500" fontSize="8" letterSpacing="0.12em">
+        <text x="54" y="35" fill="#A1A1AA" fontFamily="'IBM Plex Sans Arabic', sans-serif" fontWeight="500" fontSize="8">
           ئاسیا پەی • ASIACELL
         </text>
       </svg>
@@ -356,22 +367,22 @@ export default function PitchDeck({ onScheduleClick }) {
       <FilmGrainOverlay />
 
       {/* ─── Top Executive Stealth HUD Bar ───────────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-5 sm:px-8 md:px-12 py-3.5 backdrop-blur-2xl bg-[#050505]/80 border-b border-white/[0.04]">
+      <header className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-5 sm:px-8 md:px-12 py-3.5 backdrop-blur-2xl bg-[#050505]/85 border-b border-white/[0.08]">
         {/* Monogram */}
         <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-7 h-7 rounded-lg border border-white/[0.08] bg-white/[0.02]">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg border border-white/[0.08] bg-[#111116]">
             <span className="font-bold text-xs tracking-wider text-white">HB</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="font-semibold tracking-tight text-sm text-white">HBgrow</span>
-            <span className="text-[10px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-400 border border-white/[0.04]">
+            <span className="text-[10px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-white/[0.03] text-zinc-400 border border-white/[0.08]">
               Pitch
             </span>
           </div>
         </div>
 
         {/* Center Slide Indicator */}
-        <div className="hidden md:flex items-center gap-2.5 px-3.5 py-1 rounded-full bg-white/[0.02] border border-white/[0.04] text-xs">
+        <div className="hidden md:flex items-center gap-2.5 px-3.5 py-1 rounded-full bg-[#111116]/80 border border-white/[0.08] text-xs">
           <span className="text-white font-mono font-semibold">{slideTitles[activeSlide]?.num}</span>
           <span className="text-zinc-600">/</span>
           <span className="text-zinc-500 font-mono">0{totalSlides}</span>
@@ -386,7 +397,7 @@ export default function PitchDeck({ onScheduleClick }) {
           <button
             onClick={toggleLanguage}
             aria-label="Toggle Language"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.06] transition-colors text-xs font-medium text-zinc-300 cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/[0.08] bg-[#111116] hover:bg-white/[0.06] transition-colors text-xs font-medium text-zinc-300 cursor-pointer"
           >
             <Globe size={12} className="text-zinc-400" />
             <span>{isKurdish ? 'EN' : 'کوردی'}</span>
@@ -395,7 +406,7 @@ export default function PitchDeck({ onScheduleClick }) {
           <button
             onClick={toggleFullscreen}
             aria-label="Toggle Fullscreen"
-            className="hidden sm:flex items-center justify-center w-7 h-7 rounded-full border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.06] transition-colors text-zinc-400 cursor-pointer"
+            className="hidden sm:flex items-center justify-center w-7 h-7 rounded-full border border-white/[0.08] bg-[#111116] hover:bg-white/[0.06] transition-colors text-zinc-400 cursor-pointer"
           >
             {isFullscreen ? <Minimize2 size={12} /> : <Maximize2 size={12} />}
           </button>
@@ -425,13 +436,13 @@ export default function PitchDeck({ onScheduleClick }) {
               <span
                 className={`absolute ${
                   isRTL ? 'left-6' : 'right-6'
-                } px-2.5 py-1 rounded-md bg-[#09090b] border border-white/[0.06] text-[10px] font-medium text-zinc-400 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`}
+                } px-2.5 py-1 rounded-md bg-[#111116] border border-white/[0.08] text-[10px] font-medium text-zinc-400 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`}
               >
                 {slide.num} — {isKurdish ? slide.ku : slide.en}
               </span>
               <div
                 className={`transition-all duration-300 rounded-full ${
-                  isActive ? 'w-1.5 h-6 bg-white' : 'w-1 h-1 bg-white/20 group-hover:bg-white/40'
+                  isActive ? 'w-1.5 h-6 bg-gradient-to-b from-[#E5E4E2] to-[#D4AF37]' : 'w-1 h-1 bg-white/20 group-hover:bg-white/40'
                 }`}
               />
             </button>
@@ -440,7 +451,7 @@ export default function PitchDeck({ onScheduleClick }) {
       </nav>
 
       {/* ─── Bottom Floating Stepper ────────────────────────────────────────── */}
-      <footer className="fixed bottom-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#09090b]/90 backdrop-blur-2xl border border-white/[0.06]">
+      <footer className="fixed bottom-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#111116]/90 backdrop-blur-2xl border border-white/[0.08]">
         <button
           onClick={prevSlide}
           disabled={activeSlide === 0}
@@ -456,7 +467,7 @@ export default function PitchDeck({ onScheduleClick }) {
               key={idx}
               onClick={() => scrollToSlide(idx)}
               className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${
-                activeSlide === idx ? 'w-5 bg-white' : 'w-1 bg-white/20 hover:bg-white/40'
+                activeSlide === idx ? 'w-5 bg-gradient-to-r from-[#E5E4E2] to-[#D4AF37]' : 'w-1 bg-white/20 hover:bg-white/40'
               }`}
               aria-label={`Jump to slide ${idx + 1}`}
             />
@@ -494,10 +505,10 @@ export default function PitchDeck({ onScheduleClick }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: EASE_PRO }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/[0.08] bg-white/[0.02] mb-8"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/[0.12] bg-[#111116] mb-8"
             >
               <div className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
-              <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400">
+              <span className="text-xs font-medium text-zinc-200">
                 {isKurdish ? 'سیستەمی گەشەی HBgrow' : 'HBGROW GROWTH SYSTEM'}
               </span>
             </motion.div>
@@ -508,18 +519,20 @@ export default function PitchDeck({ onScheduleClick }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.1, ease: EASE_PRO }}
-              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-white leading-[1.25] max-w-4xl mb-6"
+              className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.25] max-w-4xl mb-6 ${
+                isKurdish ? 'tracking-normal' : 'tracking-tighter'
+              }`}
             >
               {isKurdish ? (
                 <>
                   ئێمە کار لەسەر هێنانی ڤیو لایکی زۆر ناکەین،{' '}
-                  <span className="text-[#D4AF37]">ئێمە کار لەسەر هێنانی کڕیاری زیاتر دەکەین</span>{' '}
+                  <span className="text-gold">ئێمە کار لەسەر هێنانی کڕیاری زیاتر دەکەین</span>{' '}
                   بۆ بزنسەکەت لە ڕێی سۆشیال میدیاکەتەوە
                 </>
               ) : (
                 <>
                   We don&apos;t focus on chasing empty views and likes.{' '}
-                  <span className="text-[#D4AF37]">We engineer systems that bring real paying customers</span>{' '}
+                  <span className="text-gold">We engineer systems that bring real paying customers</span>{' '}
                   to your business through social media.
                 </>
               )}
@@ -531,7 +544,7 @@ export default function PitchDeck({ onScheduleClick }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.2, ease: EASE_PRO }}
-              className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-3xl leading-relaxed mb-10 font-normal"
+              className="text-sm sm:text-base md:text-lg text-zinc-300 max-w-3xl leading-relaxed mb-10 font-normal"
             >
               {isKurdish
                 ? 'لەڕێی بەرهەمهێنانی ستراتیجی تایبەت و دیزاین و ڤیدیۆی تایبەت، وادەکەین پەیجی بزنسەکەت هەم ڕێک و پێک و پرۆفێشناڵ وەک براندێکی پێشکەوتوو دەربکەوێت، هەم بەکاریاندەهێنینەوە بۆ ڕاکێشانی کڕیاری زیاتر بۆ بزنسەکەت لە ڕێی سپۆنسەرکردنی تایبەتەوە.'
@@ -548,21 +561,21 @@ export default function PitchDeck({ onScheduleClick }) {
             >
               <SpotlightCard className="p-4 text-center">
                 <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">100%</div>
-                <div className="text-[11px] text-zinc-400 mt-1 font-medium">
+                <div className="text-xs text-zinc-300 mt-1 font-medium">
                   {isKurdish ? 'ئامانج: هێنانی کڕیار' : 'Conversion Intent'}
                 </div>
               </SpotlightCard>
 
               <SpotlightCard className="p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#D4AF37] tracking-tight">4:5</div>
-                <div className="text-[11px] text-zinc-400 mt-1 font-medium">
+                <div className="text-2xl sm:text-3xl font-extrabold text-gold tracking-tight">4:5</div>
+                <div className="text-xs text-zinc-300 mt-1 font-medium">
                   {isKurdish ? 'ڤیدیۆی ڕیڵزی مۆبایل' : 'Vertical Reels'}
                 </div>
               </SpotlightCard>
 
               <SpotlightCard className="p-4 text-center">
                 <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">$0.06</div>
-                <div className="text-[11px] text-zinc-400 mt-1 font-medium">
+                <div className="text-xs text-zinc-300 mt-1 font-medium">
                   {isKurdish ? 'کەمترین تێچووی نامە' : 'Cost Per Lead'}
                 </div>
               </SpotlightCard>
@@ -596,10 +609,10 @@ export default function PitchDeck({ onScheduleClick }) {
               transition={{ duration: 1.2, ease: EASE_PRO }}
               className="text-center mb-6"
             >
-              <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-full border border-white/[0.04] bg-white/[0.02] mb-3">
+              <div className="inline-block text-xs font-medium text-zinc-200 px-3.5 py-1.5 rounded-full border border-white/[0.12] bg-[#111116] mb-3">
                 {isKurdish ? 'ڕێگای کۆن بەرامبەر سیستەمی فرۆشتنی HBgrow' : 'OLD PARADIGM VS HBGROW GROWTH SYSTEM'}
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
+              <h2 className={`text-xl sm:text-3xl md:text-4xl font-extrabold text-white max-w-3xl mx-auto leading-snug ${isKurdish ? 'tracking-normal' : 'tracking-tighter'}`}>
                 {isKurdish
                   ? 'زۆربەی بزنسەکان پارە لە سۆشیال میدیا دەسووتێنن، نەک لەبەر ئەوەی بەرهەمەکەیان خراپە... بەڵکو چونکە بە سیستەمی کۆن و هەڵە کار دەکەن.'
                   : 'Most businesses burn cash on social media—not because their product is flawed, but because they run on outdated architectures.'}
@@ -611,12 +624,12 @@ export default function PitchDeck({ onScheduleClick }) {
               {/* Left Bento: کارتی چەپ: ڕێگای کۆن و باو (ئەیجێنسی\فریلانسی ئاسایی و پۆستکردنی بێ پلان) */}
               <SpotlightCard className="md:col-span-5 p-6 flex flex-col justify-between border-red-500/10">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-red-400/90 px-2.5 py-1 rounded-md bg-red-500/[0.06] border border-red-500/15">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-red-400 px-2.5 py-1 rounded-md bg-red-500/[0.08] border border-red-500/20">
                       {isKurdish ? 'کارتی چەپ: ڕێگای کۆن و باو' : 'THE OUTDATED WAY (FAILING)'}
                     </span>
                   </div>
-                  <div className="text-[11px] text-zinc-500 mb-4 font-mono">
+                  <div className="text-xs text-zinc-300 mb-4 font-normal">
                     {isKurdish ? 'ئەیجێنسی / فریلانسی ئاسایی و پۆستکردنی بێ پلان' : 'Generic agencies & unstrategic posting'}
                   </div>
 
@@ -629,7 +642,7 @@ export default function PitchDeck({ onScheduleClick }) {
                         <strong className="text-zinc-200 block font-semibold mb-0.5">
                           {isKurdish ? 'دیزاینی وێنەی بێ گیان:' : 'Lifeless Static Designs:'}
                         </strong>
-                        <span className="text-zinc-400 leading-relaxed block">
+                        <span className="text-zinc-300 leading-relaxed block">
                           {isKurdish
                             ? 'وێنەیەک کە بە چەند چرکەیەک دیزاین کراوە و لەناو هەزاران پۆستی تردا کەس سەیری ناکات.'
                             : 'Standard static images designed in seconds and scrolled past without registering attention.'}
@@ -645,7 +658,7 @@ export default function PitchDeck({ onScheduleClick }) {
                         <strong className="text-zinc-200 block font-semibold mb-0.5">
                           {isKurdish ? 'سپۆنسەری بێ ئامانج:' : 'Aimless Boosting:'}
                         </strong>
-                        <span className="text-zinc-400 leading-relaxed block">
+                        <span className="text-zinc-300 leading-relaxed block">
                           {isKurdish
                             ? 'تەنها داگرتنی دوگمەی Boost Post و بەفیڕۆدانی بودجە بەبێ هیچ تارگێتێکی دروست.'
                             : 'Blindly clicking Boost Post and burning ad budget with zero targeting data.'}
@@ -661,7 +674,7 @@ export default function PitchDeck({ onScheduleClick }) {
                         <strong className="text-zinc-200 block font-semibold mb-0.5">
                           {isKurdish ? 'دڵخۆشبوون بە لایک:' : 'Celebrating Vanity Likes:'}
                         </strong>
-                        <span className="text-zinc-400 leading-relaxed block">
+                        <span className="text-zinc-300 leading-relaxed block">
                           {isKurdish
                             ? 'گرنگیدان بە ژمارەی ڤیو و لایک، لە کاتێکدا کڕیار پێویستە نامە بنێرێت یان سەردانت بکات.'
                             : 'Focusing on vanity views and likes, while actual paying customers should message or visit.'}
@@ -677,7 +690,7 @@ export default function PitchDeck({ onScheduleClick }) {
                         <strong className="text-zinc-200 block font-semibold mb-0.5">
                           {isKurdish ? 'نەبوونی ڕێڕەوی فرۆشتن:' : 'Zero Sales Funnel:'}
                         </strong>
-                        <span className="text-zinc-400 leading-relaxed block">
+                        <span className="text-zinc-300 leading-relaxed block">
                           {isKurdish
                             ? 'هیچ پلانێک نییە بۆ ئەوەی ئەو کەسەی پۆستەکە دەبینێت چۆن ببێتە کڕیار.'
                             : 'No clear mechanism to transition a casual viewer into a commercial paying buyer.'}
@@ -687,17 +700,17 @@ export default function PitchDeck({ onScheduleClick }) {
                   </ul>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-zinc-500">
+                <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-xs text-zinc-400">
                   <span>{isKurdish ? 'دەرئەنجام:' : 'Commercial Outcome:'}</span>
-                  <span className="text-red-400 font-mono font-medium">{isKurdish ? 'ماندووبوون بێ قازانج' : 'Negative ROI'}</span>
+                  <span className="text-red-400 font-semibold">{isKurdish ? 'ماندووبوون بێ قازانج' : 'Negative ROI'}</span>
                 </div>
               </SpotlightCard>
 
               {/* Right Bento: کارتی ڕاست: سیستەمی گەشەی HBgrow */}
               <SpotlightCard className="md:col-span-7 p-6 flex flex-col justify-between border-white/[0.08]">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#D4AF37] px-2.5 py-1 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/20">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-[#D4AF37] px-2.5 py-1 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/20">
                       {isKurdish ? 'کارتی ڕاست: سیستەمی گەشەی HBgrow' : 'THE HBGROW GROWTH SYSTEM'}
                     </span>
                     <Sparkles size={12} className="text-[#D4AF37]" />
@@ -709,7 +722,7 @@ export default function PitchDeck({ onScheduleClick }) {
                         <Check size={12} className="text-[#D4AF37]" />
                         <span>{isKurdish ? 'ڤیدیۆی کوالێتی بەرز:' : 'High-Retention Video:'}</span>
                       </div>
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                      <p className="text-zinc-300 text-xs leading-relaxed">
                         {isKurdish
                           ? 'سیناریۆی سەرنجڕاکێش و دەنگ (Voiceover) کە لە ۳ چرکەی یەکەمدا سەرنجی کڕیار ڕادەکێشێت.'
                           : 'Compelling scripts and professional Kurdish voiceover capturing customer attention in the first 3s.'}
@@ -721,7 +734,7 @@ export default function PitchDeck({ onScheduleClick }) {
                         <Check size={12} className="text-[#D4AF37]" />
                         <span>{isKurdish ? 'کەمپەینی داتامەبەست لە Meta:' : 'Data-Driven Meta Ads:'}</span>
                       </div>
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                      <p className="text-zinc-300 text-xs leading-relaxed">
                         {isKurdish
                           ? 'بەکارهێنانی سیستەمی پێشکەوتووی سپۆنسەر بۆ گەیشتن بەو کەسانەی بەڕاستی توانای کڕینیان هەیە.'
                           : 'Deploying advanced Meta ad systems targeting prospects with verified purchasing capacity.'}
@@ -733,7 +746,7 @@ export default function PitchDeck({ onScheduleClick }) {
                         <Check size={12} className="text-[#D4AF37]" />
                         <span>{isKurdish ? 'فەنەڵی گۆڕینی بینەر بۆ کڕیار:' : 'Direct WhatsApp Funnel:'}</span>
                       </div>
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                      <p className="text-zinc-300 text-xs leading-relaxed">
                         {isKurdish
                           ? 'ئاراستەکردنی بینەر ڕاستەوخۆ بۆ ناو واتسئەپ و نامەکان بە پەیامی ڕوون و ئامادەکراو.'
                           : 'Guiding audience directly to WhatsApp with clear prefilled inquiry triggers.'}
@@ -745,7 +758,7 @@ export default function PitchDeck({ onScheduleClick }) {
                         <Check size={12} className="text-[#D4AF37]" />
                         <span>{isKurdish ? 'ئامانجی ڕوون:' : 'Clear Commercial Goal:'}</span>
                       </div>
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                      <p className="text-zinc-300 text-xs leading-relaxed">
                         {isKurdish
                           ? 'گرنگیدان بە زیادکردنی فرۆشتن و ناوبانگی براندەکەت لە بازاڕدا، نەک تەنها ژمارەی سەر شاشە.'
                           : 'Focusing on scaling real sales and enterprise market authority, not vanity screen digits.'}
@@ -754,7 +767,7 @@ export default function PitchDeck({ onScheduleClick }) {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] text-zinc-500">
+                <div className="mt-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-xs text-zinc-400">
                   <span>{isKurdish ? 'دەرئەنجام:' : 'Commercial Outcome:'}</span>
                   <span className="text-[#D4AF37] font-semibold">{isKurdish ? 'کڕیاری بەردەوام و فرۆشی سەلمێنراو' : 'Predictable Revenue'}</span>
                 </div>
@@ -789,16 +802,16 @@ export default function PitchDeck({ onScheduleClick }) {
               transition={{ duration: 1.2, ease: EASE_PRO }}
               className="text-center mb-6"
             >
-              <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-full border border-white/[0.04] bg-white/[0.02] mb-3">
+              <div className="inline-block text-xs font-medium text-zinc-200 px-3.5 py-1.5 rounded-full border border-white/[0.12] bg-[#111116] mb-3">
                 {isKurdish ? 'بەشی سێیەم: بەڵگە و ئەنجامەکان (The Proof & Case Studies)' : 'THE PROOF & CASE STUDIES'}
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
+              <h2 className={`text-xl sm:text-3xl md:text-4xl font-extrabold text-white max-w-3xl mx-auto leading-snug ${isKurdish ? 'tracking-normal' : 'tracking-tighter'}`}>
                 {isKurdish
                   ? 'ئێمە بەڵێنی بێ بنەما نادەین، بە ژمارە و داتا ئەنجامەکانت پیشان دەدەین.'
                   : 'We make zero unsubstantiated claims. We demonstrate your results with audited data.'}
               </h2>
               {/* ٢. دەقی یارمەتیدەر (Sub-headline) */}
-              <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto mt-2">
+              <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto mt-2 leading-relaxed font-normal">
                 {isKurdish
                   ? 'بینینی سەرکەوتنی کڕیارەکانمان باشترین بەڵگەیە بۆ ئەو گەشەیەی کە دەتوانین بۆ بزنسەکەی تۆیشی بکەین. ئێمە کار بۆ بەدەستهێنانی متمانە و زیادکردنی قازانج دەکەین.'
                   : 'Witnessing our client success is the strongest evidence of the growth we deliver for your business. We engineer trust and real bottom-line profitability.'}
@@ -812,32 +825,32 @@ export default function PitchDeck({ onScheduleClick }) {
                 <MacOSWindow title="Meta Ads Manager — ٦,٦٧٧ نامەی کڕیار">
                   <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.04]">
                     <div>
-                      <div className="text-[10px] uppercase font-mono tracking-widest text-zinc-500">
+                      <div className="text-xs font-semibold text-zinc-200">
                         {isKurdish ? 'کارتی یەکەم: مەکینەی هێنانی نامە و کڕیار' : 'CLIENT ACQUISITION ENGINE'}
                       </div>
-                      <div className="text-2xl sm:text-3xl font-extrabold tracking-tighter text-white mt-0.5">
+                      <div className="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">
                         {isKurdish ? 'دروستکردنی ٦٠,٠٠٠+ دەرفەتی فرۆشتن' : '60,000+ Sales Opportunities'}
                       </div>
                     </div>
                     <div className="text-end">
-                      <div className="text-[10px] uppercase font-mono tracking-widest text-zinc-500">
+                      <div className="text-xs font-medium text-zinc-400">
                         {isKurdish ? 'نامەی ڕاستەقینە' : 'Inbound Leads'}
                       </div>
-                      <div className="text-xl sm:text-2xl font-bold tracking-tight text-[#D4AF37] mt-0.5">
+                      <div className="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
                         6,677
                       </div>
                     </div>
                   </div>
 
                   {/* Verbatim Body Copy from PDF Page 3 */}
-                  <p className="text-xs text-zinc-300 leading-relaxed pt-1 pb-3">
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1 pb-3">
                     {isKurdish
                       ? 'ئێمە تەنیا پۆست ناکەین. ستراتیجییەکەمان تا ئێستا زیاتر لە ٦٠,٠٠٠ نامەی کڕیاری ڕاستەقینەیان بۆ براندەکان هێناوە. لە یەکێک لە کەمپەینەکانماندا بۆ کڕیارێک، بە کەمترین تێچوو ٦,٦٧٧ نامەی نوێی کڕیارمان ڕاکێشایە ناو ئەکاونتەکەیەوە. ئێمە قەرەباڵغی دروست ناکەین، ئێمە کڕیار دەهێنین.'
                       : 'We don’t just post. Our strategy has brought over 60,000 real customer inquiries to brands. In a single campaign, we drove 6,677 new buyer messages at minimal cost. We don’t create noise; we deliver buyers.'}
                   </p>
 
                   <div className="w-full h-1 rounded-full bg-white/[0.04] overflow-hidden">
-                    <div className="h-full bg-[#D4AF37] rounded-full w-[90%]" />
+                    <div className="h-full bg-gradient-to-r from-[#E5E4E2] to-[#D4AF37] rounded-full w-[90%]" />
                   </div>
                 </MacOSWindow>
               </div>
@@ -847,37 +860,37 @@ export default function PitchDeck({ onScheduleClick }) {
                 {/* کارتی دووەم: کۆنترۆڵکردنی سەرنجی بازاڕ (Page 3) */}
                 <SpotlightCard className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-1">
+                    <div className="text-xs font-semibold text-zinc-200 mb-1">
                       {isKurdish ? 'کارتی دووەم: کۆنترۆڵکردنی سەرنجی بازاڕ' : 'MARKET ATTENTION DOMINANCE'}
                     </div>
-                    <div className="text-2xl font-extrabold tracking-tighter text-white">
+                    <div className="text-2xl font-extrabold text-white">
                       {isKurdish ? '٣٥ ملیۆن+ بینەری ئامانجدار' : '35M+ Targeted Impressions'}
                     </div>
-                    <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                    <p className="text-xs text-zinc-300 mt-2 leading-relaxed">
                       {isKurdish
                         ? 'بە ستراتیژی ڤیدیۆییەکانمان و دیزاینە تایبەتەکانمان، زیاتر لە ٣٥ ملیۆن بینەری ئامانجدارمان بۆ کڕیارەکانمان کۆکردۆتەوە. زیاتر لە ١,٠٠٠ بەرهەمی دیزاین و ڤیدیۆمان بەرهەمهێناوە کە بینەر ناچار دەکات بوەستێت و سەیر بکات. ئێمە دەزانین چۆن بینەر لە شاشەی مۆبایلەکەیەوە بهێنینە ناو پێشانگاکەت.'
                         : 'With tailored video strategy and bespoke design, we have gathered over 35M targeted viewers for our clients with 1,000+ high-retention assets.'}
                     </p>
                   </div>
-                  <div className="pt-2 text-[10px] font-mono text-zinc-500">١,٠٠٠+ بەرهەمی دیزاین و ڤیدیۆ</div>
+                  <div className="pt-2 text-xs font-medium text-zinc-400">١,٠٠٠+ بەرهەمی دیزاین و ڤیدیۆ</div>
                 </SpotlightCard>
 
                 {/* کارتی سێیەم: بەرزترین ئاستی قازانج (High ROI) (Page 4) */}
                 <SpotlightCard className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-1">
+                    <div className="text-xs font-semibold text-zinc-200 mb-1">
                       {isKurdish ? 'کارتی سێیەم: بەرزترین ئاستی قازانج (High ROI)' : 'HIGH ROI PROFIT OPTIMIZATION'}
                     </div>
-                    <div className="text-2xl font-extrabold tracking-tighter text-[#D4AF37]">
+                    <div className="text-2xl font-extrabold text-[#D4AF37]">
                       {isKurdish ? 'وەبەرهێنانی $٢٠,٠٠٠+ بەبێ بەفیڕۆدان' : '$20,000+ Ad Spend Optimized'}
                     </div>
-                    <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                    <p className="text-xs text-zinc-300 mt-2 leading-relaxed">
                       {isKurdish
                         ? 'ساڵانە زیاتر لە ٢٠,٠٠٠ دۆلار بودجەی سپۆنسەری کڕیارەکانمان بەڕێوەدەبەین بە زیرەکترین شێواز. بەپێی داتاکانی Meta، تێچووی هەر نامەیەکی کڕیارمان (Cost per Message) دابەزاندووە بۆ نزمترین ئاست—تەنانەت تا $٠.٠٦ بۆ هەر نامەیەک. واتە بە هەمان پارەی پێشووت، چەندین هێندە فرۆشتنی زیاترت بۆ دەستەبەر دەکەین.'
                         : 'Managing $20,000+ annual ad budgets with Meta CPM lowered to $0.06 per buyer inquiry, maximizing commercial returns.'}
                     </p>
                   </div>
-                  <div className="pt-2 text-[10px] font-mono text-[#D4AF37]">تەنانەت تا $٠.٠٦ بۆ هەر نامەیەک</div>
+                  <div className="pt-2 text-xs font-semibold text-[#D4AF37]">تەنانەت تا $٠.٠٦ بۆ هەر نامەیەک</div>
                 </SpotlightCard>
               </div>
             </div>
@@ -889,12 +902,12 @@ export default function PitchDeck({ onScheduleClick }) {
                   “
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm text-zinc-300 font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-200 font-medium leading-relaxed">
                     {isKurdish
                       ? '«پێشتر تەنها لایکمان دەهات، بەڵام لەگەڵ HBgrow ڕۆژانە نامەی کڕیاری ڕاستەقینەمان پێدەگات لە واتسئەپ و فرۆشمان بە تەواوی گۆڕاوە.»'
                       : '“We previously only received passive likes. With HBgrow, genuine buyer inquiries arrive in WhatsApp every morning.”'}
                   </p>
-                  <div className="text-[10px] text-zinc-500 mt-1 font-mono">
+                  <div className="text-xs text-zinc-400 mt-1 font-normal">
                     {isKurdish ? '٣. پەیامی متمانە (Social Proof / Testimonial)' : 'Verified Client Testimonial'}
                   </div>
                 </div>
@@ -928,10 +941,10 @@ export default function PitchDeck({ onScheduleClick }) {
               transition={{ duration: 1.2, ease: EASE_PRO }}
               className="text-center mb-6"
             >
-              <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-[#D4AF37] px-3 py-1 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/[0.04] mb-3">
+              <div className="inline-block text-xs font-semibold text-[#D4AF37] px-3.5 py-1.5 rounded-full border border-[#D4AF37]/25 bg-[#D4AF37]/[0.06] mb-3">
                 {isKurdish ? 'بەشی چوارەم: پاکێجەکان و وەبەرهێنان (The Packages & Pricing)' : 'THE PACKAGES & PRICING'}
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
+              <h2 className={`text-xl sm:text-3xl md:text-4xl font-extrabold text-white max-w-3xl mx-auto leading-snug ${isKurdish ? 'tracking-normal' : 'tracking-tighter'}`}>
                 {isKurdish
                   ? 'وەبەرهێنان لە سیستەمی فرۆشتندا، نەک خەرجییەکی بێسوود. سیستەمێک هەڵبژێرە کە گەشە بە بزنسەکەت دەدات.'
                   : 'Invest in a client acquisition engine, not dead overhead. Select the tier built to scale your enterprise.'}
@@ -941,56 +954,56 @@ export default function PitchDeck({ onScheduleClick }) {
             {/* ٢. کارتەکانی نرخ (Pricing Cards) (Pages 4 & 5) */}
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 mb-4">
               {/* کارتی یەکەم: Growth (گەشەسەندن - مانگانە) */}
-              <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-white/[0.04]">
+              <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-white/[0.08]">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+                    <span className="text-xs font-semibold text-zinc-200">
                       {isKurdish ? 'کارتی یەکەم: Growth' : 'Tier 1: Growth'}
                     </span>
-                    <span className="text-[10px] text-zinc-500 font-mono">
+                    <span className="text-xs text-zinc-400 font-medium">
                       {isKurdish ? 'گەشەسەندن - مانگانە' : 'Monthly Scale'}
                     </span>
                   </div>
 
                   {/* Price */}
                   <div className="mb-3">
-                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tighter text-white">
+                    <div className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
                       225$
-                      <span className="text-xs font-normal text-zinc-500 ms-1.5">
+                      <span className="text-xs font-normal text-zinc-400 ms-1.5">
                         {isKurdish ? '/ مانگانە' : '/ Month'}
                       </span>
                     </div>
-                    <div className="text-xs text-zinc-400 mt-1 font-mono">
+                    <div className="text-xs text-zinc-300 mt-1 font-medium">
                       {isKurdish ? '(نزیکەی 338,000 دینار)' : '(~338,000 IQD)'}
                     </div>
                   </div>
 
                   {/* ئامانج */}
-                  <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] text-[11px] text-zinc-300 mb-4 font-normal">
+                  <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.08] text-xs text-zinc-300 mb-4 font-normal">
                     <strong className="text-white block mb-0.5">{isKurdish ? 'ئامانج:' : 'Objective:'}</strong>
                     {isKurdish ? 'گونجاوە بۆ تاقیکردنەوەی خێرایی و کوالێتی تیمەکەمان.' : 'Ideal for testing our team’s speed and production quality.'}
                   </div>
 
                   {/* خزمەتگوزارییەکان */}
                   <div className="space-y-2 pt-3 border-t border-white/[0.04] text-xs">
-                    <div className="text-zinc-400 font-semibold mb-1">{isKurdish ? 'خزمەتگوزارییەکان:' : 'Deliverables:'}</div>
-                    <div className="flex items-start gap-2 text-zinc-300">
+                    <div className="text-zinc-300 font-semibold mb-1">{isKurdish ? 'خزمەتگوزارییەکان:' : 'Deliverables:'}</div>
+                    <div className="flex items-start gap-2 text-zinc-200">
                       <span className="text-[#D4AF37] font-bold">■</span>
                       <span>{isKurdish ? '٦ ڤیدیۆ ڕیڵ: ڤیدیۆی کوالێتی بەرز بۆ زیادکردنی فرۆش.' : '6 Video Reels: High-retention reels engineered for sales.'}</span>
                     </div>
-                    <div className="flex items-start gap-2 text-zinc-300">
+                    <div className="flex items-start gap-2 text-zinc-200">
                       <span className="text-[#D4AF37] font-bold">■</span>
                       <span>{isKurdish ? '٦ گرافیک دیزاین: پۆستی وێنە و سلاید بۆ زانیاری و براندینگ.' : '6 Graphic Designs: Feed carousels & brand assets.'}</span>
                     </div>
-                    <div className="flex items-start gap-2 text-zinc-300">
+                    <div className="flex items-start gap-2 text-zinc-200">
                       <span className="text-[#D4AF37] font-bold">■</span>
                       <span>{isKurdish ? 'پلاندانان و کاپشن: نووسینی تێکستی سەرنجڕاکێش بۆ هەر پۆستێک.' : 'Planning & Copywriting: Engaging hooks & captions.'}</span>
                     </div>
-                    <div className="flex items-start gap-2 text-zinc-300">
+                    <div className="flex items-start gap-2 text-zinc-200">
                       <span className="text-[#D4AF37] font-bold">■</span>
                       <span>{isKurdish ? 'دەنگخستنەسەر (Voiceover): بەپێی پێویستی سیناریۆکان.' : 'Voiceover: Professional voice recording as scripted.'}</span>
                     </div>
-                    <div className="flex items-start gap-2 text-zinc-300">
+                    <div className="flex items-start gap-2 text-zinc-200">
                       <span className="text-[#D4AF37] font-bold">■</span>
                       <span>{isKurdish ? 'بەڕێوەبردنی کەمپەینی سپۆنسەر: سپۆنسەرکردن بۆ ڕاکێشانی کڕیار.' : 'Meta Campaign Management: Lead acquisition ads.'}</span>
                     </div>
@@ -998,7 +1011,7 @@ export default function PitchDeck({ onScheduleClick }) {
                 </div>
 
                 <div className="mt-5 pt-4 border-t border-white/[0.04] flex flex-col gap-2">
-                  <div className="text-[10px] text-zinc-500 font-mono text-center">
+                  <div className="text-xs text-zinc-400 font-medium text-center">
                     {isKurdish ? '(ئەم پاکێجە بۆ یەک مانگە)' : '(1 Month Package)'}
                   </div>
                   <WireframeCTA
@@ -1016,39 +1029,39 @@ export default function PitchDeck({ onScheduleClick }) {
               </SpotlightCard>
 
               {/* کارتی دووەم: Growth+ (گەشەسەندن+ - سێ مانگ) 👑 [باشترین هەڵبژاردە] */}
-              <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-[#D4AF37]/30 bg-white/[0.025]">
+              <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-[#D4AF37]/30 bg-[#111116]/95">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37]">
+                    <span className="text-xs font-semibold text-[#D4AF37]">
                       {isKurdish ? 'کارتی دووەم: Growth+' : 'Tier 2: Growth+'}
                     </span>
-                    <span className="text-[10px] font-mono text-[#D4AF37] px-2 py-0.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20">
+                    <span className="text-xs font-semibold text-[#D4AF37] px-2.5 py-0.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20">
                       👑 {isKurdish ? '[باشترین هەڵبژاردە]' : '[BEST VALUE]'}
                     </span>
                   </div>
 
                   {/* Price */}
                   <div className="mb-3">
-                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tighter text-[#D4AF37]">
+                    <div className="text-4xl sm:text-5xl font-extrabold text-[#D4AF37] tracking-tight">
                       640$
-                      <span className="text-xs font-normal text-zinc-500 ms-1.5">
+                      <span className="text-xs font-normal text-zinc-400 ms-1.5">
                         {isKurdish ? '/ بۆ سێ مانگ' : '/ 3 Months'}
                       </span>
                     </div>
-                    <div className="text-xs text-zinc-400 mt-1 font-mono">
+                    <div className="text-xs text-zinc-300 mt-1 font-medium">
                       {isKurdish ? '(نزیکەی 960,000 دینار) — واتە تەنیا 213$ بۆ هەر مانگێک!' : '(~960,000 IQD) — Only $213 per month!'}
                     </div>
                   </div>
 
                   {/* ئامانج */}
-                  <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] text-[11px] text-zinc-300 mb-4 font-normal">
+                  <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.08] text-xs text-zinc-300 mb-4 font-normal">
                     <strong className="text-white block mb-0.5">{isKurdish ? 'ئامانج:' : 'Objective:'}</strong>
                     {isKurdish ? 'بۆ ئەو براندانەی دەیانەوێت بازاڕ کۆنترۆڵ بکەن و قازانجێکی زیاتر بکەن.' : 'For brands aiming to dominate market share and maximize return.'}
                   </div>
 
                   {/* خزمەتگوزارییەکان */}
                   <div className="space-y-2 pt-3 border-t border-white/[0.04] text-xs">
-                    <div className="text-zinc-400 font-semibold mb-1">{isKurdish ? 'خزمەتگوزارییەکان:' : 'Deliverables:'}</div>
+                    <div className="text-zinc-300 font-semibold mb-1">{isKurdish ? 'خزمەتگوزارییەکان:' : 'Deliverables:'}</div>
                     <div className="flex items-start gap-2 text-white">
                       <span className="text-[#D4AF37] font-bold">■</span>
                       <span>{isKurdish ? '١٨ ڤیدیۆ ڕیڵ: هێرشی بەردەوام بۆ سەرنجڕاکێشانی بینەر.' : '18 Video Reels: Continuous distribution for high attention.'}</span>
@@ -1073,7 +1086,7 @@ export default function PitchDeck({ onScheduleClick }) {
                 </div>
 
                 <div className="mt-5 pt-4 border-t border-white/[0.04] flex flex-col gap-2">
-                  <div className="text-[10px] text-zinc-500 font-mono text-center">
+                  <div className="text-xs text-zinc-400 font-medium text-center">
                     {isKurdish ? '(ئەم پاکێجە بۆ سێ مانگە)' : '(3 Months Package)'}
                   </div>
                   <WireframeCTA
@@ -1082,13 +1095,31 @@ export default function PitchDeck({ onScheduleClick }) {
                         ? 'سڵاو HBgrow، دەمەوێت پاکێجی Growth+ ($640 / ٣ مانگە) دەستپێبکەم بۆ براندەکەم.'
                         : 'Hello HBgrow, I would like to start with the Growth+ quarterly tier ($640/3mo).'
                     )}
-                    className="w-full !border-[#D4AF37]/50"
+                    isPrimary={true}
+                    className="w-full"
                   >
                     <WhatsAppIcon size={14} />
                     <span>{isKurdish ? 'دەستپێکردنی پاکێجی ٣ مانگە' : 'Select Growth+ Tier'}</span>
                   </WireframeCTA>
                 </div>
               </SpotlightCard>
+            </div>
+
+            {/* ⚠️ Section 5: The Boundaries (Crucial Disclaimer Box) */}
+            <div className="w-full mt-2 p-4 sm:p-5 rounded-2xl border border-white/[0.08] bg-[#111116]/95 backdrop-blur-md flex items-start gap-3.5 text-start">
+              <div className="h-7 w-7 rounded-lg border border-[#D4AF37]/30 bg-[#D4AF37]/10 flex items-center justify-center shrink-0 mt-0.5 text-[#D4AF37]">
+                <Shield size={14} />
+              </div>
+              <div className="text-xs leading-relaxed">
+                <span className="font-semibold text-white block mb-0.5">
+                  {isKurdish ? '⚠️ تێبینی گرنگ دەربارەی بودجەی سپۆنسەر (Meta Ad Spend):' : '⚠️ Note on Ad Spend Transparency:'}
+                </span>
+                <span className="text-zinc-400">
+                  {isKurdish
+                    ? 'پاکێجەکانی سەرەوە تەنیا تێچووی بەڕێوەبردن و بەرهەمهێنانی داهێنەرانەی HBgrow دەگرێتەوە. بودجەی سپۆنسەر (Meta Ad Spend) بە تەواوی جیاوازە، لەلایەن کڕیارەوە دیاری دەکرێت و ڕاستەوخۆ دەدرێت بە کۆمپانیای مێتا بەبێ هیچ خەرجییەکی شاراوە.'
+                    : 'The packages above cover HBgrow’s management and creative production. The Sponsorship Budget (Meta Ad Spend) is completely separate, determined by the client, and paid directly to Meta with zero hidden fees.'}
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -1110,16 +1141,16 @@ export default function PitchDeck({ onScheduleClick }) {
               transition={{ duration: 1.2, ease: EASE_PRO }}
               className="text-center mb-6"
             >
-              <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-full border border-white/[0.04] bg-white/[0.02] mb-3">
+              <div className="inline-block text-xs font-semibold text-[#D4AF37] px-3.5 py-1.5 rounded-full border border-[#D4AF37]/25 bg-[#D4AF37]/[0.06] mb-3">
                 {isKurdish ? 'بەشی پێنجەم: دروستکردنی پلانی تایبەت (The Smart Calculator)' : 'THE SMART CALCULATOR'}
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
+              <h2 className={`text-xl sm:text-3xl md:text-4xl font-extrabold text-white max-w-3xl mx-auto leading-snug ${isKurdish ? 'tracking-normal' : 'tracking-tighter'}`}>
                 {isKurdish
                   ? 'کۆنترۆڵی خەرجییەکانت بکە. تەنیا پارەی ئەو خزمەتگوزارییە بدە کە پێویستتە.'
                   : 'Take control of your expenditure. Pay only for the deliverables you require.'}
               </h2>
               {/* ٢. دەقی یارمەتیدەر (Sub-headline) (Pages 5 & 6) */}
-              <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto mt-2 leading-relaxed font-normal">
                 {isKurdish
                   ? 'ئەگەر پێویستت بە پاکێجی تەواوی مانگانە نییە، یان دەتەوێت خزمەتگوزاری زیاتر بۆ پاکێجەکەت زیاد بکەیت، لە ڕێگەی ئەم ژمێرەرە زیرەکەوە پلانی تایبەت بە بزنسەکەت دابڕێژە. بێ گرێبەستی ئاڵۆز، بێ خەرجی شاراوە.'
                   : 'If you don’t need a full monthly package or want to supplement your current scope, design your bespoke plan with this smart calculator. Zero complex contracts, zero hidden costs.'}
@@ -1129,20 +1160,20 @@ export default function PitchDeck({ onScheduleClick }) {
             {/* ٣. دیزاینی ژمێرەرە زیرەکەکە (The Interactive Calculator UI) (Page 6) */}
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
               {/* Item 1: 📸 ڤیدیۆی پرۆفیشناڵ بە کامێرا (Camera Videography) */}
-              <SpotlightCard className="p-5 flex flex-col justify-between">
+              <SpotlightCard className="p-5 flex flex-col justify-between border-white/[0.08]">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <Camera size={18} className="text-zinc-400" />
-                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">١١٠,٠٠٠ دینار</span>
+                    <Camera size={18} className="text-[#D4AF37]" />
+                    <span className="text-xs text-[#D4AF37] font-bold">١١٠,٠٠٠ دینار</span>
                   </div>
                   <h3 className="text-sm font-semibold text-white mb-1">
                     {isKurdish ? '📸 ڤیدیۆی پرۆفیشناڵ بە کامێرا' : 'Camera Videography'}
                   </h3>
-                  <div className="text-[11px] font-mono text-zinc-500 mb-2">
+                  <div className="text-xs font-medium text-zinc-200 mb-2.5">
                     {isKurdish ? 'نرخ: ١١٠,٠٠٠ دینار (بۆ هەر سەردانێک / ٣ تا ٤ ڤیدیۆ)' : '110,000 IQD per session (3-4 videos)'}
                   </div>
                   {/* دەقی قەناعەتپێکار */}
-                  <p className="text-xs text-zinc-400 leading-relaxed mb-4">
+                  <p className="text-xs text-zinc-300 leading-relaxed mb-4">
                     {isKurdish
                       ? 'هێنانی تیمی وێنەگرتنی پرۆفیشناڵ بۆ ناو شوێنی کارەکەت بە باشترین کوالێتی.'
                       : 'Deploying our professional video crew to your business location with cinema-grade quality.'}
@@ -1150,7 +1181,7 @@ export default function PitchDeck({ onScheduleClick }) {
                 </div>
 
                 <div className="pt-3 border-t border-white/[0.04] flex items-center justify-between">
-                  <span className="text-xs text-zinc-400">{isKurdish ? 'ژمارەی سەردان:' : 'Sessions:'}</span>
+                  <span className="text-xs text-zinc-300 font-medium">{isKurdish ? 'ژمارەی سەردان:' : 'Sessions:'}</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setCameraSessions((prev) => Math.max(0, prev - 1))}
@@ -1160,7 +1191,7 @@ export default function PitchDeck({ onScheduleClick }) {
                     >
                       <Minus size={12} />
                     </button>
-                    <span className="w-6 text-center font-mono font-bold text-sm text-white">{cameraSessions}</span>
+                    <span className="w-6 text-center font-bold text-sm text-white">{cameraSessions}</span>
                     <button
                       onClick={() => setCameraSessions((prev) => prev + 1)}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer"
@@ -1173,20 +1204,20 @@ export default function PitchDeck({ onScheduleClick }) {
               </SpotlightCard>
 
               {/* Item 2: 🎬 مۆنتاژ و ئیدیتینگی ڤیدیۆ (Professional Video Editing) */}
-              <SpotlightCard className="p-5 flex flex-col justify-between">
+              <SpotlightCard className="p-5 flex flex-col justify-between border-white/[0.08]">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <Video size={18} className="text-zinc-400" />
-                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">٣٠,٠٠٠ دینار</span>
+                    <Video size={18} className="text-[#D4AF37]" />
+                    <span className="text-xs text-[#D4AF37] font-bold">٣٠,٠٠٠ دینار</span>
                   </div>
                   <h3 className="text-sm font-semibold text-white mb-1">
                     {isKurdish ? '🎬 مۆنتاژ و ئیدیتینگی ڤیدیۆ' : 'Professional Video Editing'}
                   </h3>
-                  <div className="text-[11px] font-mono text-zinc-500 mb-2">
+                  <div className="text-xs font-medium text-zinc-200 mb-2.5">
                     {isKurdish ? 'نرخ: ٣٠,٠٠٠ دینار (بۆ هەر ڤیدیۆیەک)' : '30,000 IQD per video'}
                   </div>
                   {/* دەقی قەناعەتپێکار */}
-                  <p className="text-xs text-zinc-400 leading-relaxed mb-4">
+                  <p className="text-xs text-zinc-300 leading-relaxed mb-4">
                     {isKurdish
                       ? 'مۆنتاژی پێشکەوتوو بە ستراتیژی ڕاگرتنی سەرنج (Retention)، دەنگ، و ئیفێکتی تایبەت بۆ ئەوەی ڤیدیۆکەت زۆرترین بینەر بهێڵێتەوە.'
                       : 'Advanced video editing optimized for audience retention, sound design, and custom visual effects.'}
@@ -1194,7 +1225,7 @@ export default function PitchDeck({ onScheduleClick }) {
                 </div>
 
                 <div className="pt-3 border-t border-white/[0.04] flex items-center justify-between">
-                  <span className="text-xs text-zinc-400">{isKurdish ? 'ژمارەی ڤیدیۆ:' : 'Videos:'}</span>
+                  <span className="text-xs text-zinc-300 font-medium">{isKurdish ? 'ژمارەی ڤیدیۆ:' : 'Videos:'}</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setVideoEdits((prev) => Math.max(0, prev - 1))}
@@ -1204,7 +1235,7 @@ export default function PitchDeck({ onScheduleClick }) {
                     >
                       <Minus size={12} />
                     </button>
-                    <span className="w-6 text-center font-mono font-bold text-sm text-white">{videoEdits}</span>
+                    <span className="w-6 text-center font-bold text-sm text-white">{videoEdits}</span>
                     <button
                       onClick={() => setVideoEdits((prev) => prev + 1)}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer"
@@ -1217,20 +1248,20 @@ export default function PitchDeck({ onScheduleClick }) {
               </SpotlightCard>
 
               {/* Item 3: 🎨 گرافیک دیزاینی پێشکەوتوو (Graphic Design) */}
-              <SpotlightCard className="p-5 flex flex-col justify-between">
+              <SpotlightCard className="p-5 flex flex-col justify-between border-white/[0.08]">
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <Palette size={18} className="text-zinc-400" />
-                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">١٠,٠٠٠ دینار</span>
+                    <Palette size={18} className="text-[#D4AF37]" />
+                    <span className="text-xs text-[#D4AF37] font-bold">١٠,٠٠٠ دینار</span>
                   </div>
                   <h3 className="text-sm font-semibold text-white mb-1">
                     {isKurdish ? '🎨 گرافیک دیزاینی پێشکەوتوو' : 'Graphic Design'}
                   </h3>
-                  <div className="text-[11px] font-mono text-zinc-500 mb-2">
+                  <div className="text-xs font-medium text-zinc-200 mb-2.5">
                     {isKurdish ? 'نرخ: ١٠,٠٠٠ دینار (بۆ هەر دیزاینێک)' : '10,000 IQD per design'}
                   </div>
                   {/* دەقی قەناعەتپێکار */}
-                  <p className="text-xs text-zinc-400 leading-relaxed mb-4">
+                  <p className="text-xs text-zinc-300 leading-relaxed mb-4">
                     {isKurdish
                       ? 'دیزاینی ناوازە بۆ پۆست، ستۆری، یان ڕیکلامەکانت کە متمانەی براندەکەت لەلای کڕیار بەرز دەکاتەوە.'
                       : 'Bespoke designs for feed posts, stories, or ads that elevate client trust in your brand.'}
@@ -1238,7 +1269,7 @@ export default function PitchDeck({ onScheduleClick }) {
                 </div>
 
                 <div className="pt-3 border-t border-white/[0.04] flex items-center justify-between">
-                  <span className="text-xs text-zinc-400">{isKurdish ? 'ژمارەی دیزاین:' : 'Designs:'}</span>
+                  <span className="text-xs text-zinc-300 font-medium">{isKurdish ? 'ژمارەی دیزاین:' : 'Designs:'}</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setGraphicDesigns((prev) => Math.max(0, prev - 1))}
@@ -1248,7 +1279,7 @@ export default function PitchDeck({ onScheduleClick }) {
                     >
                       <Minus size={12} />
                     </button>
-                    <span className="w-6 text-center font-mono font-bold text-sm text-white">{graphicDesigns}</span>
+                    <span className="w-6 text-center font-bold text-sm text-white">{graphicDesigns}</span>
                     <button
                       onClick={() => setGraphicDesigns((prev) => prev + 1)}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer"
@@ -1262,18 +1293,18 @@ export default function PitchDeck({ onScheduleClick }) {
             </div>
 
             {/* ٤. ئەنجامی کۆتایی ژمێرەرەکە (The Dynamic Total) (Page 6) */}
-            <SpotlightCard className="w-full p-6 sm:p-7 flex flex-col md:flex-row items-center justify-between gap-5 border-[#D4AF37]/20">
+            <SpotlightCard className="w-full p-6 sm:p-7 flex flex-col md:flex-row items-center justify-between gap-5 border-[#D4AF37]/30 bg-[#111116]/95">
               <div className="text-center md:text-start">
-                <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                <div className="text-xs font-semibold text-zinc-300">
                   {isKurdish ? '📊 کۆی گشتی وەبەرهێنانەکەت:' : '📊 TOTAL ESTIMATED INVESTMENT:'}
                 </div>
-                <div className="text-3xl sm:text-4xl font-extrabold tracking-tighter text-white mt-1">
+                <div className="text-3xl sm:text-4xl font-extrabold text-white mt-1 tracking-tight">
                   {formatIQD(totalCalculatorIQD)}{' '}
-                  <span className="text-base sm:text-xl font-normal text-zinc-400 font-mono">
+                  <span className="text-base sm:text-xl font-normal text-zinc-300">
                     {isKurdish ? 'دینار' : 'IQD'}
                   </span>
                 </div>
-                <div className="text-xs text-zinc-400 mt-1 font-mono">
+                <div className="text-xs text-zinc-300 mt-1 font-medium">
                   {isKurdish
                     ? `${cameraSessions} سەردان • ${videoEdits} مۆنتاژ • ${graphicDesigns} دیزاین`
                     : `${cameraSessions} Session(s) • ${videoEdits} Video(s) • ${graphicDesigns} Design(s)`}
@@ -1281,7 +1312,7 @@ export default function PitchDeck({ onScheduleClick }) {
               </div>
 
               {/* [ دوگمەی: با دەست بە کارەکان بکەین / ڕەوانەکردنی پلانەکە ] */}
-              <WireframeCTA href={getCalculatorWhatsAppUrl()} className="!py-3.5 !px-8">
+              <WireframeCTA href={getCalculatorWhatsAppUrl()} isPrimary={true} className="!py-3.5 !px-8">
                 <WhatsAppIcon size={16} />
                 <span>{isKurdish ? 'با دەست بە کارەکان بکەین / ڕەوانەکردنی پلانەکە' : 'Launch / Dispatch Plan'}</span>
                 {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
@@ -1307,16 +1338,16 @@ export default function PitchDeck({ onScheduleClick }) {
               transition={{ duration: 1.2, ease: EASE_PRO }}
               className="text-center mb-6"
             >
-              <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-full border border-white/[0.04] bg-white/[0.02] mb-3">
+              <div className="inline-block text-xs font-semibold text-[#D4AF37] px-3.5 py-1.5 rounded-full border border-[#D4AF37]/25 bg-[#D4AF37]/[0.06] mb-3">
                 {isKurdish ? 'بەشی شەشەم: چۆن دەست پێدەکەین؟ (Frictionless Onboarding)' : 'FRICTIONLESS ONBOARDING'}
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
+              <h2 className={`text-xl sm:text-3xl md:text-4xl font-extrabold text-white max-w-3xl mx-auto leading-snug ${isKurdish ? 'tracking-normal' : 'tracking-tighter'}`}>
                 {isKurdish
                   ? 'دەتەوێت براندەکەت قازانجی ڕاستەقینە بکات؟ دەستپێکردن لەگەڵماندا تەنیا ٣ هەنگاوی سادەیە.'
                   : 'Want your brand to make real profit? Getting started with us is only 3 simple steps.'}
               </h2>
               {/* ٢. دەقی یارمەتیدەر (Sub-headline) */}
-              <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto mt-2 leading-relaxed font-normal">
                 {isKurdish
                   ? 'سیستەمێکی کارکردنی بێ ئەرک. تۆ کاتت نییە، بۆیە بە تیمە هەموو شتێکمان ئاسان کردووە بۆت. ئێمە هەموو کارە قورسەکان دەکەین، تۆش تەنیا سەیری ئەنجامەکان بکە.'
                   : 'Frictionless workflow. You don’t have time, so as a team we have simplified everything for you. We handle the heavy lifting; you monitor the results.'}
@@ -1326,12 +1357,12 @@ export default function PitchDeck({ onScheduleClick }) {
             {/* ٣. کارتەکانی پڕۆسەی کارکردن (The 3-Step Process Cards) (Page 7) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mb-6 text-start">
               {/* هەنگاوی ١: دیاریکردنی کێشەکان (١٥-٢٠ خولەک) */}
-              <SpotlightCard className="p-5">
-                <div className="text-[10px] font-mono text-[#D4AF37] mb-2">01 / DISCOVERY</div>
+              <SpotlightCard className="p-5 border-white/[0.08]">
+                <div className="text-xs font-mono text-[#D4AF37] mb-2 font-semibold">01 / DISCOVERY</div>
                 <h3 className="text-sm font-semibold text-white mb-1.5">
                   {isKurdish ? 'هەنگاوی ١: دیاریکردنی کێشەکان (١٥-٢٠ خولەک)' : 'Step 1: Discovery (15-20 min)'}
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-zinc-300 leading-relaxed">
                   {isKurdish
                     ? 'پەیوەندییەکی کورت دەکەین. گوێ لە کێشەکانی ئێستای بازاڕەکەت دەگرین، ئامانجەکانت دیاری دەکەین، و تێدەگەین کڕیارەکانت کێن و چۆن بیانگرین. بێ کۆبوونەوەی درێژ و بێزارکەر.'
                     : 'A brief call. We listen to current market roadblocks, identify your targets, and pinpoint who your buyers are. Zero lengthy or exhausting meetings.'}
@@ -1339,12 +1370,12 @@ export default function PitchDeck({ onScheduleClick }) {
               </SpotlightCard>
 
               {/* هەنگاوی ٢: پلان و ستراتیژی (٥-٧ ڕۆژ) */}
-              <SpotlightCard className="p-5">
-                <div className="text-[10px] font-mono text-[#D4AF37] mb-2">02 / ARCHITECTURE</div>
+              <SpotlightCard className="p-5 border-white/[0.08]">
+                <div className="text-xs font-mono text-[#D4AF37] mb-2 font-semibold">02 / ARCHITECTURE</div>
                 <h3 className="text-sm font-semibold text-white mb-1.5">
                   {isKurdish ? 'هەنگاوی ٢: پلان و ستراتیژی (٥-٧ ڕۆژ)' : 'Step 2: Strategy (5-7 Days)'}
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-zinc-300 leading-relaxed">
                   {isKurdish
                     ? 'تیمەکەمان دەست دەکات بە کار. لە ماوەی کەمتر لە هەفتەیەکدا، سیناریۆی ڤیدیۆکان، دیزاینەکان، و ستراتیژی کەمپەینەکانت بۆ ئامادە دەکەین و پێت پیشان دەدەین بۆ پەسەندکردن.'
                     : 'Our team starts execution. In under a week, scripts, visual designs, and campaign roadmaps are prepared and presented for your sign-off.'}
@@ -1352,12 +1383,12 @@ export default function PitchDeck({ onScheduleClick }) {
               </SpotlightCard>
 
               {/* هەنگاوی ٣: جێبەجێکردن و قازانج (پێشوازی لە کڕیار بکە) */}
-              <SpotlightCard className="p-5">
-                <div className="text-[10px] font-mono text-[#D4AF37] mb-2">03 / CONVERSION</div>
+              <SpotlightCard className="p-5 border-white/[0.08]">
+                <div className="text-xs font-mono text-[#D4AF37] mb-2 font-semibold">03 / CONVERSION</div>
                 <h3 className="text-sm font-semibold text-white mb-1.5">
                   {isKurdish ? 'هەنگاوی ٣: جێبەجێکردن و قازانج (پێشوازی لە کڕیار بکە)' : 'Step 3: Execution & Profit'}
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-zinc-300 leading-relaxed">
                   {isKurdish
                     ? 'سیستەمەکە کارا دەکەین. ڤیدیۆکان پۆست دەکرێن و کەمپەینە زیرەکەکانی Meta ڕادەگەیەنین. لێرەوە ئەرکی تۆ تەنیا وەڵامدانەوەی نامەی کڕیارە نوێیەکان و فرۆشتنی بەرهەمەکانتە.'
                     : 'We activate the system. Videos are deployed and smart Meta campaigns go live. Your only task is responding to incoming buyer inquiries and fulfilling orders.'}
@@ -1366,11 +1397,11 @@ export default function PitchDeck({ onScheduleClick }) {
             </div>
 
             {/* ٤. بانگهێشت بۆ کردار و دروستکردنی متمانە (The Ultimate CTA & Trust Signals) (Pages 7 & 8) */}
-            <SpotlightCard className="w-full p-6 sm:p-7 mb-5 text-center border-white/[0.06]">
-              <div className="text-base sm:text-xl font-bold tracking-tight text-white mb-2 max-w-xl mx-auto">
+            <SpotlightCard className="w-full p-6 sm:p-7 mb-5 text-center border-white/[0.08] bg-[#111116]/95">
+              <div className={`text-base sm:text-xl font-bold text-white mb-2 max-w-xl mx-auto ${isKurdish ? 'tracking-normal' : 'tracking-tight'}`}>
                 {isKurdish ? 'ئامادەی بۆ گەشەکردنی حەقیقی؟' : 'Ready for genuine growth?'}
               </div>
-              <p className="text-xs sm:text-sm text-zinc-400 mb-5 max-w-lg mx-auto">
+              <p className="text-xs sm:text-sm text-zinc-300 mb-5 max-w-lg mx-auto font-normal">
                 {isKurdish
                   ? 'کاتی خۆت بە فیڕۆ مەدە لەگەڵ ڕێگا کۆنەکان. با هەر ئەمڕۆ ستراتیژییەکەت بۆ دابڕێژین.'
                   : 'Don’t waste time on obsolete methods. Let us architect your strategy today.'}
@@ -1384,7 +1415,8 @@ export default function PitchDeck({ onScheduleClick }) {
                       ? 'سڵاو HBgrow، سەیری پرێزێنتەیشنەکەم کرد و دەمەوێت کاتێک دیاریبکەین بۆ گفتوگۆکردن و دەستپێکردن.'
                       : 'Hello HBgrow, I reviewed the pitch deck and would like to schedule a strategy call to start.'
                   )}
-                  className="!py-3.5 !px-8 !border-[#D4AF37]/60"
+                  isPrimary={true}
+                  className="!py-3.5 !px-8"
                 >
                   <WhatsAppIcon size={16} />
                   <span>{isKurdish ? 'کاتێک دیاریبکە بۆ گفتوگۆکردن' : 'Schedule Strategy Chat'}</span>
@@ -1403,8 +1435,8 @@ export default function PitchDeck({ onScheduleClick }) {
             </SpotlightCard>
 
             {/* لۆگۆی ڕێگاکانی پارەدان (Payment Trust Signals) (Page 8) */}
-            <div className="w-full max-w-3xl p-4 rounded-2xl border border-white/[0.04] bg-white/[0.01]">
-              <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-3 text-center">
+            <div className="w-full max-w-3xl p-4 rounded-2xl border border-white/[0.08] bg-[#111116]/60 backdrop-blur-md">
+              <div className="text-xs font-semibold text-zinc-300 mb-3 text-center">
                 {isKurdish ? 'لۆگۆی ڕێگاکانی پارەدان (Payment Trust Signals)' : 'PAYMENT TRUST SIGNALS'}
               </div>
 
@@ -1417,7 +1449,7 @@ export default function PitchDeck({ onScheduleClick }) {
               </div>
 
               {/* دەقی ژێر لۆگۆکان (Page 8 verbatim) */}
-              <div className="text-[11px] text-zinc-400 text-center mt-3 font-medium">
+              <div className="text-xs text-zinc-300 text-center mt-3 font-medium">
                 {isKurdish
                   ? 'پڕۆسەی پارەدانمان زۆر ئاسانە. دەتوانیت لە ڕێگەی هەژمارە بانکییە ناوخۆییەکانەوە مانگانە پارە بدەیت.'
                   : 'Our payment process is seamless. You can settle monthly via local Iraqi bank accounts.'}

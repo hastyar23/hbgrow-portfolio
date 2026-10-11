@@ -2,44 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Play, X, Grid } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const clients = [
-  "https://framerusercontent.com/images/9TyuBjK9AfPnTYHmIjnMwMJroik.webp",
-  "https://framerusercontent.com/images/YWRrcidcGDNbFjTq6dORFEmNxK8.webp",
-  "https://framerusercontent.com/images/jldyWUfNnSoIoNRS27EAqPkVCMI.webp",
-  "https://framerusercontent.com/images/1iktKPw73xJOa5aUkFRptJ40.webp",
-  "https://framerusercontent.com/images/6IIFqFqedwsPCkZZL5AaTck9k9s.webp",
-  "https://framerusercontent.com/images/hWPc2Q3P65ZDHVudSzUscNSMEB4.webp",
-  "https://framerusercontent.com/images/Qgi05qYH740sKBO88vpQbiIhI.webp",
-  "https://framerusercontent.com/images/OBy7G58X0A55NlkkeyLtJbydbeo.webp",
-  "https://framerusercontent.com/images/OPAHPdNC6VpD1urxt7qozKgjroE.webp",
-  "https://framerusercontent.com/images/b3Dqbm4Uzyd1S3iLXJVmA3jqYo.webp",
-  "https://framerusercontent.com/images/iZCMsUrUEt6CnsUwkkb66C1dupk.webp",
-  "https://framerusercontent.com/images/gArZDoTlKZNrLcIdR4dFCOu45ng.webp",
-  "https://framerusercontent.com/images/Wk94SikRDtN0VMhL6Bxj0WHMlc4.webp",
-  "https://framerusercontent.com/images/CekBiiEPXI1qVmshPHGhbWCfw.webp",
-  "https://framerusercontent.com/images/9Hu2gpMqKE38z4XRp2pwHA8ZXo.webp",
-  "https://framerusercontent.com/images/bzezBaxQBxh3AXRR7Rscxixnx4A.webp",
-  "https://framerusercontent.com/images/XK8YFQ35wTwFjSS83mjfQw6Wl4.webp",
-  "https://framerusercontent.com/images/NqnEXteqELv7bYRfVxHX1ommvOk.webp",
-  "https://framerusercontent.com/images/5uATtZAQKVHvzw2eRYDeMMZuc.webp"
-]
-
-const videoIds = Array.from(new Set([
-  'p0aFJdaP7pM', 'vsodX5maE0Y', 'GnJOvjbR-QI', 'vCpcE-WclXw',
-  'RmtVkzzyj6w', 'swsbNcqVeGY', 'mpD_NsfH8tg', 'KFzJ6bk_61g',
-  'xzEuBbw1Qn4', 'f_DTggAc378', '1yqfB-MXdcI', 'nNSHp3bsSBw',
-  'CXVaAGWucqg', 'jJbVeiI79H8', 'NJHue-TKTv4', 'jrKgxXOWuUI',
-  'Gh6nQCcXGP8', 'h8bVnb3SjGw', 'avEqHqHveEs', 'GH-k2yu9kxI',
-  'HWz7SrUfUGQ', '_l8bWRuJL4I', 'PSwS5ozVYQU', 'cuP7mgwGY6k',
-  'wIaDWAcGuO4', '8yUThY5Fez8', 'wGJAucD8CVo', 'mi-bfHoeFKk',
-  'ARDIm5i0-9w', '9nkGvpejPTk', '91k9IF-tsQs', 'exoj6m8Ib34',
-  '9sJRa8MC6a8', 'xVHH-M45E8g', 'a5r5bGOUFOk', 'EY_bEfzykZI',
-  'ysVbCzKga3U', 'Dq42ROqBJz4', '6zYlNqNRrUs', 'h2GGtoM0-7M',
-  'dkKXty424xU', 'VNdtS1eHeI8', 'm-w3gzsZCVw', 'PXXDE3CMqbs',
-  'GXj4Gy_obTQ', 'm3kPv4sUx68', 'jw9scewDkOM', 'YBWB_upTC3k',
-  'bk_PmsQOpxM', 'hDyWPH3jYvo', 'I8qNjzBC9F0', 'sVO04oQd_fA',
-  'y8Q8_M2ZeKg', '3I4zTTLzEfI', 'y2b799_DacQ'
-]));
+import { clients, videoIds } from '../data/portfolioData';
 
 // Limit marquee to top 15 videos to prevent iOS Safari memory crashes
 const marqueeVideoIds = videoIds.slice(0, 15);

@@ -2,43 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { X, Maximize2, Grid } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const designs = [
-  "/images/optimized/uy5HrR1.avif","/images/optimized/ZktcQkK.avif","/images/optimized/q6DnSPu.avif",
-  "/images/optimized/31X3UhC.avif","/images/optimized/9ZcXFxv.avif","/images/optimized/Udutqjg.avif",
-  "/images/optimized/x2zv7ZG.avif","/images/optimized/RYvnrEl.avif","/images/optimized/AejcHuv.avif",
-  "/images/optimized/HDnhsAa.avif","/images/optimized/d506zmK.avif","/images/optimized/MiIhRs8.avif",
-  "/images/optimized/EilfXvh.avif","/images/optimized/7tB1zkc.avif","/images/optimized/DFkhoY5.avif",
-  "/images/optimized/15VaTNm.avif","/images/optimized/1YkWFFr.avif","/images/optimized/dOhJM0E.avif",
-  "/images/optimized/ZXavnhR.avif","/images/optimized/v8gNGA2.avif","/images/optimized/C6uQfQq.avif",
-  "/images/optimized/RsutZuI.avif","/images/optimized/Rnk7g0Z.avif","/images/optimized/OpRGJkN.avif",
-  "/images/optimized/9XlKGpb.avif","/images/optimized/wFmWriU.avif","/images/optimized/Ncqp55p.avif",
-  "/images/optimized/BWWxq41.avif","/images/optimized/1wpms23.avif","/images/optimized/es5Tgss.avif",
-  "/images/optimized/8WI9Cct.avif","/images/optimized/hJH9J4m.avif","/images/optimized/0UXYdMW.avif",
-  "/images/optimized/txwqP8H.avif","/images/optimized/DKJWSmR.avif","/images/optimized/wdi3oYk.avif",
-  "/images/optimized/tgD2CzG.avif","/images/optimized/5ZwUNcA.avif","/images/optimized/UaVVdst.avif",
-  "/images/optimized/ba4XnXL.avif","/images/optimized/UbYHz0e.avif","/images/optimized/tAqtfO1.avif",
-  "/images/optimized/y50B95z.avif","/images/optimized/ecRahyT.avif","/images/optimized/MKHBOZJ.avif",
-  "/images/optimized/4elfTeS.avif","/images/optimized/cu7Ku3P.avif","/images/optimized/xMfhqsY.avif",
-  "/images/optimized/D0X0tV5.avif","/images/optimized/DnLy2Xl.avif","/images/optimized/6fwe56x.avif",
-  "/images/optimized/QDN9xSp.avif","/images/optimized/PqX0cHp.avif","/images/optimized/9ULeE5i.avif",
-  "/images/optimized/oE2S15s.avif","/images/optimized/WX1LhYR.avif","/images/optimized/snySCz2.avif",
-  "/images/optimized/2OXjkJK.avif","/images/optimized/r2DiU7e.avif","/images/optimized/OgHYtSq.avif",
-  "/images/optimized/wLUOB54.avif","/images/optimized/vUaZK3m.avif","/images/optimized/GEEa9yQ.avif",
-  "/images/optimized/3KBnxCT.avif","/images/optimized/raF9j2J.avif","/images/optimized/SDe6VP5.avif",
-  "/images/optimized/FgMI51L.avif","/images/optimized/tAE8UMP.avif","/images/optimized/uXRlh5R.avif",
-  "/images/optimized/r4iqpzD.avif","/images/optimized/3VQIE5X.avif","/images/optimized/tgIz4fU.avif",
-  "/images/optimized/l56uUMm.avif","/images/optimized/GTEJ2zi.avif","/images/optimized/EQ1I3Yh.avif",
-  "/images/optimized/MrAUsyZ.avif","/images/optimized/zkIrL81.avif","/images/optimized/7QuphkU.avif",
-  "/images/optimized/Ei3iyLy.avif","/images/optimized/JqRmhWp.avif","/images/optimized/gi0Yv00.avif",
-  "/images/optimized/2OTcuhr.avif","/images/optimized/kwyErgy.avif","/images/optimized/14eAtxV.avif",
-  "/images/optimized/R9qqDEX.avif","/images/optimized/r8jbsmQ.avif","/images/optimized/sMNlOlu.avif",
-  "/images/optimized/g6MFewc.avif","/images/optimized/6drsqLG.avif","/images/optimized/E07MkJO.avif",
-  "/images/optimized/TMzKTv6.avif","/images/optimized/EwBtK12.avif","/images/optimized/J8EyBlX.avif",
-  "/images/optimized/WKPmPVN.avif","/images/optimized/4WgrrdX.avif","/images/optimized/Of1DaFs.avif",
-  "/images/optimized/EVPNSDu.avif","/images/optimized/zZ1pcVF.avif","/images/optimized/Lgl9pV5.avif",
-  "/images/optimized/pS7miGb.avif","/images/optimized/XGB2E1A.avif","/images/optimized/pNSj5te.avif",
-  "/images/optimized/SfUSpI5.avif"
-];
+import { designs } from '../data/portfolioData';
 
 const track1 = designs.filter((_, i) => i % 2 === 0);
 const track2 = designs.filter((_, i) => i % 2 !== 0);
