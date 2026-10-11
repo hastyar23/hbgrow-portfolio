@@ -20,13 +20,13 @@ export default function PainSolution() {
       <div style={{
         position: 'absolute', top: '10%', left: '5%',
         width: 400, height: 400, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(220,80,80,0.06) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%)',
         filter: 'blur(60px)', pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', bottom: '15%', right: '5%',
         width: 500, height: 500, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
@@ -62,33 +62,32 @@ export default function PainSolution() {
               style={{
                 padding: '2.25rem',
                 transitionDelay: `${i * 80}ms`,
-                borderTop: '1px solid rgba(220,60,60,0.20)',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                 animationDelay: `${i * 1.5}s`,
               }}
             >
-              {/* Red ambient glow per card */}
+              {/* Subtle faint ambient glow per card (<= 3%) */}
               <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: '50%',
-                background: 'radial-gradient(ellipse 80% 60% at 50% -20%, rgba(220,80,80,0.08) 0%, transparent 70%)',
+                background: 'radial-gradient(ellipse 80% 60% at 50% -20%, rgba(255, 255, 255, 0.02) 0%, transparent 70%)',
                 pointerEvents: 'none',
               }} />
 
-              {/* Icon badge */}
+              {/* Icon badge - Unified Champagne Gold */}
               <div style={{
                 width: 40, height: 40, borderRadius: '0.75rem',
-                background: 'linear-gradient(135deg, rgba(220,80,80,0.15) 0%, rgba(220,80,80,0.06) 100%)',
-                border: '1px solid rgba(220,80,80,0.25)',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 marginBottom: '1.5rem', flexShrink: 0,
                 backdropFilter: 'blur(8px)',
-                boxShadow: '0 4px 16px rgba(220,80,80,0.12), inset 0 1px 0 rgba(255,255,255,0.08)',
               }}>
-                <XCircle size={16} style={{ color: 'rgba(240,100,100,0.85)' }} />
+                <XCircle size={16} style={{ color: '#D4AF37' }} />
               </div>
 
               <div style={{
                 fontSize: '0.65rem', fontWeight: 700,
-                color: 'rgba(240,100,100,0.60)', marginBottom: '0.75rem',
+                color: '#A1A1AA', marginBottom: '0.75rem',
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
                 textTransform: 'uppercase', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               }}>
@@ -170,12 +169,11 @@ export default function PainSolution() {
               {/* Icon badge */}
               <div style={{
                 width: 40, height: 40, borderRadius: '0.75rem',
-                background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(184, 146, 40, 0.06) 100%)',
-                border: '1px solid rgba(212, 175, 55, 0.35)',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 marginBottom: '1.5rem', flexShrink: 0,
                 backdropFilter: 'blur(8px)',
-                boxShadow: '0 4px 16px rgba(212, 175, 55, 0.20), inset 0 1px 0 rgba(255,255,255,0.15)',
               }}>
                 <CheckCircle2 size={16} style={{ color: '#D4AF37' }} />
               </div>

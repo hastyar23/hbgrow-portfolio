@@ -23,7 +23,7 @@ export default function ClosingCTA() {
         position: 'absolute', top: '50%', left: '50%',
         width: 'min(800px, 100vw)', height: 'min(800px, 100vw)',
         borderRadius: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 60%)',
+        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 60%)',
         pointerEvents: 'none',
       }} />
       <div style={{

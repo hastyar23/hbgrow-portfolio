@@ -143,7 +143,7 @@ export default function ScheduleModal({ onClose }) {
           <div className="modal-content success-content">
             <button className="modal-close" onClick={onClose}><X size={24} /></button>
             <div style={{ textAlign: 'center', padding: '2rem 0' }}>
-              <CheckCircle2 size={80} color="#D4AF37" style={{ margin: '0 auto 1.5rem auto', filter: 'drop-shadow(0 0 18px rgba(212, 175, 55, 0.4))' }} />
+              <CheckCircle2 size={80} color="#D4AF37" style={{ margin: '0 auto 1.5rem auto' }} />
               <h2 style={{ color: '#ffffff', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Sarchia Bokan', serif", }}>
                 {t('schedule.success_title')}
               </h2>

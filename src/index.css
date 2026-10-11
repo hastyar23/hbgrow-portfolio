@@ -52,7 +52,7 @@
   --gold-bright:  #FFFFFF;
   --gold-dark:    #B89228;
   --gold-dim:     rgba(212, 175, 55, 0.25);
-  --gold-glow:    rgba(212, 175, 55, 0.16);
+  --gold-glow:    rgba(212, 175, 55, 0.05);
 
   /* Neutralized System Blue Base */
   --blue:         #111116;
@@ -60,7 +60,7 @@
   --blue-dark:    #0A0A0C;
   --blue-lt:      #E5E4E2;
   --blue-cyan:    #E5E4E2;
-  --blue-glow:    rgba(212, 175, 55, 0.12);
+  --blue-glow:    rgba(212, 175, 55, 0.04);
 
   /* Precision Glass System */
   --glass-2:      rgba(255, 255, 255, 0.02);
@@ -76,7 +76,7 @@
 
   /* Shadows */
   --shadow-card:  0 16px 48px rgba(0, 0, 0, 0.85);
-  --shadow-gold:  0 0 32px rgba(212, 175, 55, 0.16);
+  --shadow-gold:  0 0 32px rgba(212, 175, 55, 0.05);
   --shadow-blue:  0 0 40px rgba(0, 0, 0, 0.50);
   --shadow-hover: 0 28px 72px -12px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.12);
 
@@ -214,7 +214,6 @@ p, a, li, button, input, textarea {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 14px rgba(212, 175, 55, 0.20));
 }
 
 /* ─── Hairline Divider ──────────────────────────────────────── */
@@ -634,7 +633,7 @@ p, a, li, button, input, textarea {
 }
 
 .glow-orb-gold {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(229, 228, 226, 0.02) 60%, transparent 80%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, rgba(229, 228, 226, 0.01) 60%, transparent 80%);
 }
 
 .glow-orb-blue {
@@ -644,7 +643,7 @@ p, a, li, button, input, textarea {
 }
 
 .glow-orb-cyan {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, rgba(229, 228, 226, 0.02) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, rgba(229, 228, 226, 0.01) 50%, transparent 75%);
   animation-delay: -2s;
   animation-duration: 10s;
 }
@@ -687,7 +686,7 @@ p, a, li, button, input, textarea {
     width: 420px;
     height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
@@ -740,7 +739,7 @@ p, a, li, button, input, textarea {
 
 /* ─── Testimonial Stars ─────────────────────────────────────── */
 .stars { display: flex; gap: 3px; }
-.stars span { color: #D4AF37; font-size: 0.85rem; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)); }
+.stars span { color: #D4AF37; font-size: 0.85rem; }
 
 /* ─── Portfolio Hover ───────────────────────────────────────── */
 .port-item {
@@ -790,7 +789,7 @@ p, a, li, button, input, textarea {
 /* ─── Custom Modal Scrollbar ────────────────────────────────── */
 .modal-scroll::-webkit-scrollbar { width: 4px; }
 .modal-scroll::-webkit-scrollbar-track { background: transparent; }
-.modal-scroll::-webkit-scrollbar-thumb { background: rgba(223, 178, 72, 0.35); border-radius: 4px; }
+.modal-scroll::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.35); border-radius: 4px; }
 
 /* ─── Masonry Gallery ───────────────────────────────────────── */
 .masonry-grid {
@@ -807,14 +806,14 @@ p, a, li, button, input, textarea {
   border-radius: 1.1rem;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111116;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .masonry-item:hover {
-  border-color: rgba(223, 178, 72, 0.40);
+  border-color: rgba(212, 175, 55, 0.40);
   transform: translateY(-4px);
-  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.75), 0 0 28px rgba(223, 178, 72, 0.16);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.75), 0 0 28px rgba(212, 175, 55, 0.16);
 }
 .masonry-item img {
   width: 100%;

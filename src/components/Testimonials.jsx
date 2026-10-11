@@ -221,7 +221,7 @@ export default function Testimonials() {
             {/* Stars */}
             <div style={{ display: 'flex', gap: 4 }}>
               {Array.from({ length: currentTestimonial.rating || 5 }).map((_, j) => (
-                <span key={j} style={{ color: '#D4AF37', fontSize: '1.1rem', filter: 'drop-shadow(0 0 6px rgba(212, 175, 55, 0.4))' }}>★</span>
+                <span key={j} style={{ color: '#D4AF37', fontSize: '1.1rem' }}>★</span>
               ))}
             </div>
 

@@ -67,24 +67,24 @@ export default function Hero() {
         <div className="grid-bg" />
         {/* Noise texture */}
         <div className="noise-overlay" />
-        {/* Ambient gold orb — left */}
+        {/* Ambient gold orb — left (subtle <= 4%) */}
         <div className="glow-orb glow-orb-gold" style={{
           width: 550, height: 550,
           top: '2%', left: '-5%',
-          opacity: 0.35,
+          opacity: 0.04,
         }} />
-        {/* Ambient subtle glow — right */}
+        {/* Ambient subtle glow — right (subtle <= 3%) */}
         <div className="glow-orb glow-orb-cyan" style={{
           width: 600, height: 600,
           top: '-8%', right: '-8%',
-          opacity: 0.30,
+          opacity: 0.03,
         }} />
         {/* Bottom subtle ambient orb */}
         <div className="glow-orb glow-orb-gold" style={{
           width: 500, height: 500,
           bottom: '-15%', left: '50%',
           transform: 'translateX(-50%)',
-          opacity: 0.20,
+          opacity: 0.03,
           animationDelay: '-2s',
         }} />
       </div>
