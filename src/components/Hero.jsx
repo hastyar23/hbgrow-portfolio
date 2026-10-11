@@ -61,14 +61,14 @@ export default function Hero() {
         {/* Sleek stage spotlight */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(13, 110, 253, 0.25) 0%, rgba(4, 35, 76, 0.45) 50%, transparent 75%)',
+          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(254, 215, 3, 0.12) 0%, rgba(4, 34, 70, 0.50) 50%, transparent 75%)',
         }} />
         {/* Dot grid texture */}
         <div className="grid-bg" />
         {/* Noise texture */}
         <div className="noise-overlay" />
-        {/* Ambient blue orb — left */}
-        <div className="glow-orb glow-orb-cyan" style={{
+        {/* Ambient gold orb — left */}
+        <div className="glow-orb glow-orb-gold" style={{
           width: 550, height: 550,
           top: '2%', left: '-5%',
           opacity: 0.45,
@@ -79,7 +79,7 @@ export default function Hero() {
           top: '-8%', right: '-8%',
           opacity: 0.50,
         }} />
-        {/* Bottom blue orb */}
+        {/* Bottom sapphire orb */}
         <div className="glow-orb glow-orb-sapphire" style={{
           width: 500, height: 500,
           bottom: '-15%', left: '50%',
@@ -149,7 +149,7 @@ export default function Hero() {
           }}
         >
           {t('hero.subtitle_1')}{' '}
-          <span style={{ color: '#BFDBFE', fontWeight: 600 }}>
+          <span style={{ color: '#FEF08A', fontWeight: 600 }}>
             {t('hero.subtitle_2')}
           </span>
         </p>
@@ -160,7 +160,7 @@ export default function Hero() {
             onClick={openSchedule}
             className="btn-primary"
             id="hero-cta-book"
-            style={{ boxShadow: '0 0 38px -4px rgba(13, 110, 253, 0.55)', border: 'none', cursor: 'pointer' }}
+            style={{ boxShadow: '0 0 38px -4px rgba(254, 215, 3, 0.55)', border: 'none', cursor: 'pointer' }}
           >
             <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
             {t('hero.cta_book')}
@@ -193,7 +193,7 @@ export default function Hero() {
             <div style={{
               position: 'absolute',
               inset: 0,
-              background: 'radial-gradient(ellipse at center top, rgba(13, 110, 253, 0.22) 0%, transparent 60%)',
+              background: 'radial-gradient(ellipse at center top, rgba(254, 215, 3, 0.14) 0%, transparent 60%)',
               borderRadius: 'inherit',
               pointerEvents: 'none',
             }} />
@@ -208,11 +208,11 @@ export default function Hero() {
                       fontFamily: "'Outfit', 'Sarchia Bokan', serif",
                       fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
                       fontWeight: 700, lineHeight: 1,
-                      backgroundImage: 'linear-gradient(135deg, #FFFFFF 0%, #EFF6FF 20%, #93C5FD 50%, #3B82F6 80%, #1D4ED8 100%)',
+                      backgroundImage: 'linear-gradient(135deg, #FFFFFF 0%, #FFF8D6 20%, #FEF08A 45%, #FED703 75%, #F59E0B 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
-                      filter: 'drop-shadow(0 4px 14px rgba(13, 110, 253, 0.35))',
+                      filter: 'drop-shadow(0 4px 14px rgba(254, 215, 3, 0.35))',
                     }}>
                       {val}
                     </div>
@@ -245,7 +245,7 @@ export default function Hero() {
       }}>
         <div style={{
           width: 1, height: 40,
-          background: 'linear-gradient(to bottom, rgba(59, 130, 246, 0.90), transparent)',
+          background: 'linear-gradient(to bottom, rgba(254, 215, 3, 0.90), transparent)',
           animation: 'float-y 2.5s ease-in-out infinite',
         }} />
       </div>

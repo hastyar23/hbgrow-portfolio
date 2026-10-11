@@ -57,8 +57,23 @@ export default function Footer() {
               <img
                 src="/images/optimized/U9X57gP.avif"
                 alt="HBgrow Agency Logo"
-                style={{ height: 44, width: 44, objectFit: 'contain', borderRadius: '50%' }}
+                style={{
+                  height: 44, width: 44,
+                  objectFit: 'contain',
+                  borderRadius: '50%',
+                  border: '1px solid rgba(254, 215, 3, 0.6)',
+                  boxShadow: '0 0 16px rgba(254, 215, 3, 0.25)'
+                }}
               />
+              <span style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: '1.25rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                letterSpacing: '-0.02em',
+              }}>
+                HB<span style={{ color: '#FED703' }}>grow</span>
+              </span>
             </div>
             <p style={{
               fontFamily: "'Noto Kufi Arabic', sans-serif",
@@ -85,14 +100,16 @@ export default function Footer() {
                     backdropFilter: 'blur(8px)',
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.color = '#3B82F6';
-                    e.currentTarget.style.borderColor = 'rgba(147, 197, 253, 0.50)';
-                    e.currentTarget.style.background = 'rgba(37, 99, 235, 0.16)';
+                    e.currentTarget.style.color = '#FED703';
+                    e.currentTarget.style.borderColor = 'rgba(254, 240, 138, 0.50)';
+                    e.currentTarget.style.background = 'rgba(254, 215, 3, 0.15)';
+                    e.currentTarget.style.boxShadow = '0 0 14px rgba(254, 215, 3, 0.3)';
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.color = 'rgba(203,213,225,0.55)';
                     e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
                     e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                    e.currentTarget.style.boxShadow = 'none';
                   }}
                 >{icon}</a>
               ))}
@@ -120,7 +137,7 @@ export default function Footer() {
                       textDecoration: 'none', fontWeight: 400,
                       transition: 'color 0.25s',
                     }}
-                    onMouseEnter={e => e.target.style.color = '#60A5FA'}
+                    onMouseEnter={e => e.target.style.color = '#FED703'}
                     onMouseLeave={e => e.target.style.color = 'rgba(203,213,225,0.55)'}
                   >
                     {t(labelKey)}
@@ -152,7 +169,7 @@ export default function Footer() {
                   width: '100%',
                   maxWidth: '280px',
                   justifyContent: 'center',
-                  boxShadow: '0 0 28px -4px rgba(13, 110, 253, 0.55)',
+                  boxShadow: '0 0 28px -4px rgba(254, 215, 3, 0.45)',
                   borderRadius: '12px',
                   transition: 'transform 0.2s'
                 }}
