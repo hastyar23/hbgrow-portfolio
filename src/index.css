@@ -20,28 +20,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Design Tokens: Visuvate-Inspired Luxury Blue Agency Palette ─── */
+/* ─── Design Tokens: Visuvate-Inspired Luxury Agency Palette (HBgrow Logo Blue Resonance) ─── */
 :root {
-  /* Deep Obsidian Void Canvas */
-  --deep:         #020408;
-  --void:         #000103;
-  --navy:         #040915;
-  --sapphire:     #071328;
+  /* Deep Midnight Obsidian Void Canvas (Harmonized with Logo Deep Dark #031E3F / #010610) */
+  --deep:         #020612;
+  --void:         #010308;
+  --navy:         #03142B;
+  --sapphire:     #04234C;
+  --logo-navy:    #031E3F;
 
-  /* High-End Luxury Blue Palette (HBgrow Blue Branding) */
-  --blue:         #0099FF;
-  --blue-lt:      #7ACAFF;
-  --blue-cyan:    #38BDF8;
-  --blue-dark:    #0068AD;
-  --blue-glow:    rgba(0, 153, 255, 0.35);
+  /* High-End Brand Royal Cobalt & Sapphire Palette (Matching Logo's Hue ~212°) */
+  --blue:         #2563EB;
+  --blue-vivid:   #0D6EFD;
+  --blue-dark:    #0B3275;
+  --blue-lt:      #93C5FD;
+  --blue-cyan:    #60A5FA;
+  --blue-glow:    rgba(13, 110, 253, 0.38);
 
-  /* Legacy & backward-compatible aliases mapped to luxury blue */
-  --gold:         #0099FF;
-  --gold-lt:      #BAE6FD;
-  --gold-bright:  #F0F9FF;
-  --gold-dark:    #0068AD;
-  --gold-dim:     rgba(0, 153, 255, 0.45);
-  --gold-glow:    rgba(0, 153, 255, 0.28);
+  /* Legacy & backward-compatible aliases mapped to luxury royal blue */
+  --gold:         #2563EB;
+  --gold-lt:      #BFDBFE;
+  --gold-bright:  #EFF6FF;
+  --gold-dark:    #0B3275;
+  --gold-dim:     rgba(13, 110, 253, 0.45);
+  --gold-glow:    rgba(13, 110, 253, 0.30);
 
   /* Typography & Neutrals */
   --white:        #ffffff;
@@ -58,16 +60,16 @@
   /* Precision Hairline Borders */
   --border-dim:   rgba(255, 255, 255, 0.07);
   --border-med:   rgba(255, 255, 255, 0.12);
-  --border-blue:  rgba(0, 153, 255, 0.28);
-  --border-blue-bright: rgba(122, 202, 255, 0.55);
+  --border-blue:  rgba(37, 99, 235, 0.30);
+  --border-blue-bright: rgba(147, 197, 253, 0.55);
   --border-gold:  var(--border-blue);
   --border-gold-bright: var(--border-blue-bright);
 
   /* Shadows */
-  --shadow-card:  0 16px 48px rgba(0, 0, 0, 0.75);
-  --shadow-blue:  0 0 40px rgba(0, 153, 255, 0.22);
+  --shadow-card:  0 16px 48px rgba(0, 0, 0, 0.80);
+  --shadow-blue:  0 0 40px rgba(13, 110, 253, 0.25);
   --shadow-gold:  var(--shadow-blue);
-  --shadow-hover: 0 28px 72px -12px rgba(0, 0, 0, 0.90), 0 0 0 1px rgba(0, 153, 255, 0.35);
+  --shadow-hover: 0 28px 72px -12px rgba(0, 0, 0, 0.92), 0 0 0 1px rgba(59, 130, 246, 0.40);
 
   /* Legacy compat */
   --glass:        var(--glass-4);
@@ -87,14 +89,14 @@ body {
   font-family: 'Inter', 'Noto Kufi Arabic', 'Rabar', sans-serif;
   background-color: var(--deep);
   background-image:
-    /* Luminous Electric Sapphire Zenith Glow */
-    radial-gradient(ellipse 70% 35% at 50% 0%, rgba(0, 153, 255, 0.13) 0%, transparent 60%),
-    /* Precision Stage Spotlight */
-    radial-gradient(ellipse 90% 50% at 50% -5%, rgba(7, 19, 40, 0.75) 0%, rgba(4, 9, 21, 0.45) 45%, transparent 75%),
+    /* High-End Royal Blue Zenith Glow (Harmonized with Logo) */
+    radial-gradient(ellipse 75% 35% at 50% 0%, rgba(13, 110, 253, 0.15) 0%, transparent 60%),
+    /* Precision Stage Spotlight echoing Logo Navy #04234C */
+    radial-gradient(ellipse 90% 50% at 50% -5%, rgba(4, 35, 76, 0.70) 0%, rgba(3, 20, 43, 0.45) 45%, transparent 75%),
     /* Ambient Sapphire Glows */
-    radial-gradient(circle at 12% 40%, rgba(0, 104, 173, 0.18) 0%, transparent 45%),
-    radial-gradient(circle at 88% 65%, rgba(10, 28, 56, 0.25) 0%, transparent 45%),
-    linear-gradient(180deg, #040813 0%, #020408 35%, #000103 100%);
+    radial-gradient(circle at 10% 40%, rgba(11, 50, 117, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 90% 65%, rgba(4, 35, 76, 0.30) 0%, transparent 45%),
+    linear-gradient(180deg, #030C1C 0%, #020612 35%, #010308 100%);
   background-attachment: fixed;
   color: var(--white);
   overflow-x: hidden;
@@ -108,11 +110,11 @@ body {
   width: 100%;
 }
 
-::selection { background: rgba(0, 153, 255, 0.35); color: #ffffff; }
+::selection { background: rgba(37, 99, 235, 0.40); color: #ffffff; }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--deep); }
-::-webkit-scrollbar-thumb { background: rgba(0, 153, 255, 0.45); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: rgba(37, 99, 235, 0.50); border-radius: 4px; }
 
 /* ─── Explicit RTL Support & Alignment Refinements ──────────── */
 html[dir="rtl"] {
@@ -176,14 +178,14 @@ p, a, li, button, input, textarea {
   line-height: 1.22;
 }
 
-/* ─── Visuvate Electric Sapphire Blue Gradient Text ───────── */
+/* ─── Visuvate Liquid Platinum & Royal Blue Gradient Text ─── */
 .text-gold,
 .text-blue-luxe {
-  background: linear-gradient(135deg, #FFFFFF 0%, #BAE6FD 20%, #38BDF8 50%, #0099FF 80%, #0068AD 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #EFF6FF 20%, #93C5FD 50%, #3B82F6 80%, #1D4ED8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 14px rgba(0, 153, 255, 0.30));
+  filter: drop-shadow(0 2px 14px rgba(13, 110, 253, 0.35));
 }
 
 /* ─── Hairline Divider ──────────────────────────────────────── */
@@ -192,9 +194,9 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(0, 153, 255, 0.12) 20%,
-    rgba(122, 202, 255, 0.45) 50%,
-    rgba(0, 153, 255, 0.12) 80%,
+    rgba(37, 99, 235, 0.15) 20%,
+    rgba(147, 197, 253, 0.50) 50%,
+    rgba(37, 99, 235, 0.15) 80%,
     transparent 100%
   );
 }
@@ -204,11 +206,11 @@ p, a, li, button, input, textarea {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.42rem 1.1rem;
+  padding: 0.42rem 1.15rem;
   border-radius: 100px;
-  border: 1px solid rgba(0, 153, 255, 0.30);
-  background: linear-gradient(135deg, rgba(0, 153, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
-  color: #BAE6FD;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+  color: #BFDBFE;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -217,32 +219,33 @@ p, a, li, button, input, textarea {
   -webkit-backdrop-filter: blur(16px);
   font-family: 'Inter', 'Noto Kufi Arabic', sans-serif;
   white-space: nowrap;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 20px rgba(0, 153, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 24px rgba(13, 110, 253, 0.15);
 }
 
 .badge .dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--blue-vivid);
   flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(0, 153, 255, 0.95);
+  box-shadow: 0 0 12px rgba(13, 110, 253, 0.95);
 }
 
-/* ─── High-End Electric Blue Luxury Button ─────────────────── */
+/* ─── High-End Brand Royal Blue Luxury Button ───────────────── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.9rem 2rem;
-  background: linear-gradient(135deg, #38BDF8 0%, #0099FF 45%, #0068AD 100%);
+  padding: 0.9rem 2.2rem;
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 45%, #0B3275 100%);
   background-size: 200% 100%;
   color: #ffffff;
   font-family: 'Inter', 'Noto Kufi Arabic', 'Rabar', sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-top: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 100px;
   cursor: pointer;
   text-decoration: none;
@@ -254,10 +257,10 @@ p, a, li, button, input, textarea {
   line-height: 1.4;
   max-width: 100%;
   box-shadow:
-    0 4px 20px rgba(0, 153, 255, 0.40),
+    0 4px 20px rgba(13, 110, 253, 0.45),
     0 1px 2px rgba(0, 0, 0, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.65),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.15);
+    inset 0 1px 1px rgba(255, 255, 255, 0.70),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .btn-primary::after {
@@ -274,14 +277,14 @@ p, a, li, button, input, textarea {
   background-position: 100% 0;
   transform: translateY(-2px);
   box-shadow:
-    0 12px 36px rgba(0, 153, 255, 0.55),
-    0 0 0 1px rgba(122, 202, 255, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.85);
+    0 12px 38px rgba(13, 110, 253, 0.60),
+    0 0 0 1px rgba(147, 197, 253, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.90);
 }
 
 .btn-primary:active {
   transform: scale(0.98);
-  box-shadow: 0 4px 16px rgba(0, 153, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(13, 110, 253, 0.35);
 }
 
 /* ─── Luxury Ghost Button ───────────────────────────────────── */
@@ -290,13 +293,14 @@ p, a, li, button, input, textarea {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.9rem 2rem;
+  padding: 0.9rem 2.2rem;
   background: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.90);
+  color: rgba(255, 255, 255, 0.92);
   font-family: 'Inter', 'Noto Kufi Arabic', 'Rabar', sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 100px;
   cursor: pointer;
   text-decoration: none;
@@ -307,15 +311,15 @@ p, a, li, button, input, textarea {
   max-width: 100%;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .btn-ghost:hover {
   color: var(--white);
-  border-color: rgba(0, 153, 255, 0.45);
-  background: rgba(0, 153, 255, 0.08);
+  border-color: rgba(59, 130, 246, 0.50);
+  background: rgba(13, 110, 253, 0.10);
   transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(0, 153, 255, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 32px rgba(13, 110, 253, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.20);
 }
 
 .btn-ghost:active { transform: scale(0.98); }
@@ -370,17 +374,17 @@ p, a, li, button, input, textarea {
 
 .glass-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(223, 186, 107, 0.32);
+  border-color: rgba(59, 130, 246, 0.40);
   box-shadow:
     0 24px 60px -8px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(223, 186, 107, 0.20),
-    0 0 32px rgba(223, 186, 107, 0.10),
+    0 0 0 1px rgba(59, 130, 246, 0.25),
+    0 0 32px rgba(13, 110, 253, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.16);
   background:
     linear-gradient(145deg,
       rgba(255, 255, 255, 0.065) 0%,
-      rgba(255, 255, 255, 0.018) 50%,
-      rgba(10, 18, 36, 0.55) 100%);
+      rgba(4, 35, 76, 0.25) 50%,
+      rgba(2, 11, 24, 0.75) 100%);
 }
 
 /* ─── Precision Stat Card ───────────────────────────────────── */
@@ -388,15 +392,16 @@ p, a, li, button, input, textarea {
   background:
     linear-gradient(145deg,
       rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0.015) 50%,
-      rgba(8, 14, 28, 0.45) 100%);
+      rgba(4, 35, 76, 0.45) 50%,
+      rgba(2, 11, 24, 0.85) 100%);
   backdrop-filter: blur(36px) saturate(180%);
   -webkit-backdrop-filter: blur(36px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 1px solid rgba(147, 197, 253, 0.40);
   border-radius: 1.25rem;
   padding: 1.5rem 2rem;
   box-shadow:
-    0 20px 56px rgba(0, 0, 0, 0.72),
+    0 20px 56px rgba(0, 0, 0, 0.78),
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   position: relative;
@@ -413,7 +418,7 @@ p, a, li, button, input, textarea {
   background: linear-gradient(90deg,
     transparent 10%,
     rgba(255, 255, 255, 0.20) 35%,
-    rgba(223, 186, 107, 0.32) 50%,
+    rgba(147, 197, 253, 0.60) 50%,
     rgba(255, 255, 255, 0.20) 65%,
     transparent 90%);
 }
@@ -424,18 +429,18 @@ p, a, li, button, input, textarea {
   inset: 0;
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%,
-      rgba(223, 186, 107, 0.07) 0%, transparent 60%);
+      rgba(13, 110, 253, 0.15) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .glass-stat-card:hover {
-  border-color: rgba(223, 186, 107, 0.32);
+  border-color: rgba(59, 130, 246, 0.45);
   transform: translateY(-5px);
   box-shadow:
-    0 28px 72px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(223, 186, 107, 0.20),
-    0 0 40px rgba(223, 186, 107, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    0 28px 72px rgba(0, 0, 0, 0.88),
+    0 0 0 1px rgba(59, 130, 246, 0.30),
+    0 0 40px rgba(13, 110, 253, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 /* ─── Floating Glass Panel ──────────────────────────────────── */
@@ -475,17 +480,18 @@ p, a, li, button, input, textarea {
 .glass-card-blue {
   background:
     linear-gradient(145deg,
-      rgba(0, 153, 255, 0.08) 0%,
-      rgba(0, 153, 255, 0.02) 50%,
-      rgba(6, 14, 30, 0.55) 100%);
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(4, 35, 76, 0.35) 50%,
+      rgba(2, 10, 22, 0.85) 100%);
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
-  border: 1px solid rgba(0, 153, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(147, 197, 253, 0.40);
   border-radius: 1.25rem;
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.72),
-    0 0 0 1px rgba(0, 153, 255, 0.12),
-    0 0 28px rgba(0, 153, 255, 0.12),
+    0 16px 48px rgba(0, 0, 0, 0.80),
+    0 0 0 1px rgba(37, 99, 235, 0.15),
+    0 0 28px rgba(13, 110, 253, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.18),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
@@ -502,9 +508,9 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 10%,
-    rgba(0, 153, 255, 0.45) 35%,
-    rgba(122, 202, 255, 0.85) 50%,
-    rgba(0, 153, 255, 0.45) 65%,
+    rgba(37, 99, 235, 0.50) 35%,
+    rgba(147, 197, 253, 0.85) 50%,
+    rgba(37, 99, 235, 0.50) 65%,
     transparent 90%);
 }
 
@@ -514,24 +520,25 @@ p, a, li, button, input, textarea {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse 75% 50% at 50% -10%,
-    rgba(0, 153, 255, 0.14) 0%, transparent 65%);
+    rgba(13, 110, 253, 0.16) 0%, transparent 65%);
   pointer-events: none;
 }
 
 .glass-card-gold:hover,
 .glass-card-blue:hover {
   transform: translateY(-5px);
-  border-color: rgba(0, 153, 255, 0.55);
+  border-color: rgba(59, 130, 246, 0.55);
+  border-top-color: rgba(191, 219, 254, 0.85);
   box-shadow:
-    0 28px 72px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(0, 153, 255, 0.4),
-    0 0 45px rgba(0, 153, 255, 0.28),
+    0 28px 72px rgba(0, 0, 0, 0.88),
+    0 0 0 1px rgba(59, 130, 246, 0.40),
+    0 0 45px rgba(13, 110, 253, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
   background:
     linear-gradient(145deg,
-      rgba(0, 153, 255, 0.12) 0%,
-      rgba(0, 153, 255, 0.04) 50%,
-      rgba(8, 20, 44, 0.65) 100%);
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(4, 35, 76, 0.50) 50%,
+      rgba(2, 11, 26, 0.90) 100%);
 }
 
 /* ─── Floating Navbar Pill ──────────────────────────────────── */
@@ -543,25 +550,27 @@ p, a, li, button, input, textarea {
   z-index: 200;
   width: calc(100% - 2.5rem);
   max-width: 900px;
-  background: rgba(3, 6, 12, 0.82);
+  background: rgba(3, 10, 22, 0.78);
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 1px solid rgba(147, 197, 253, 0.25);
   border-radius: 100px;
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    0 0 28px rgba(13, 110, 253, 0.12);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   animation: slideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .navbar-pill.scrolled {
-  background: rgba(2, 4, 8, 0.94);
-  border-color: rgba(0, 153, 255, 0.30);
+  background: rgba(2, 6, 16, 0.94);
+  border-color: rgba(59, 130, 246, 0.35);
   box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.85),
-    0 0 32px rgba(0, 153, 255, 0.15),
+    0 24px 64px rgba(0, 0, 0, 0.88),
+    0 0 32px rgba(13, 110, 253, 0.20),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
@@ -569,7 +578,7 @@ p, a, li, button, input, textarea {
 .nav-link {
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(203, 213, 225, 0.72);
+  color: rgba(203, 213, 225, 0.75);
   text-decoration: none;
   transition: color 0.25s ease;
   position: relative;
@@ -582,7 +591,7 @@ p, a, li, button, input, textarea {
   bottom: -2px;
   left: 0; right: 0;
   height: 1px;
-  background: #0099FF;
+  background: #2563EB;
   transform: scaleX(0);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
@@ -621,19 +630,19 @@ p, a, li, button, input, textarea {
 }
 
 .glow-orb-blue {
-  background: radial-gradient(circle, rgba(0, 153, 255, 0.28) 0%, rgba(6, 16, 36, 0.08) 60%, transparent 80%);
+  background: radial-gradient(circle, rgba(13, 110, 253, 0.32) 0%, rgba(4, 35, 76, 0.15) 50%, transparent 75%);
   animation-delay: -4s;
   animation-duration: 11s;
 }
 
 .glow-orb-cyan {
-  background: radial-gradient(circle, rgba(16, 38, 72, 0.3) 0%, transparent 75%);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.28) 0%, rgba(13, 110, 253, 0.12) 50%, transparent 75%);
   animation-delay: -2s;
   animation-duration: 10s;
 }
 
 .glow-orb-sapphire {
-  background: radial-gradient(circle, rgba(12, 24, 48, 0.35) 0%, transparent 75%);
+  background: radial-gradient(circle, rgba(4, 35, 76, 0.55) 0%, rgba(2, 14, 34, 0.25) 55%, transparent 75%);
   animation-delay: -6s;
   animation-duration: 12s;
 }
@@ -670,7 +679,7 @@ p, a, li, button, input, textarea {
     width: 420px;
     height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 153, 255, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(13, 110, 253, 0.12) 0%, transparent 70%);
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
@@ -701,7 +710,7 @@ p, a, li, button, input, textarea {
   font-size: clamp(1.6rem, 3.8vw, 2.75rem);
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(135deg, #FFFFFF 0%, #BAE6FD 25%, #38BDF8 60%, #0099FF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #EFF6FF 20%, #93C5FD 50%, #3B82F6 80%, #1D4ED8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -713,7 +722,7 @@ p, a, li, button, input, textarea {
   font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(180deg, rgba(0, 153, 255, 0.15) 0%, rgba(0, 153, 255, 0.01) 100%);
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.18) 0%, rgba(37, 99, 235, 0.01) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -726,7 +735,7 @@ p, a, li, button, input, textarea {
 
 /* ─── Testimonial Stars ─────────────────────────────────────── */
 .stars { display: flex; gap: 3px; }
-.stars span { color: var(--blue); font-size: 0.85rem; filter: drop-shadow(0 0 6px rgba(0, 153, 255, 0.5)); }
+.stars span { color: #3B82F6; font-size: 0.85rem; filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.6)); }
 
 /* ─── Portfolio Hover ───────────────────────────────────────── */
 .port-item {
@@ -894,7 +903,7 @@ p, a, li, button, input, textarea {
   width: 80%;
   margin: 0 auto;
   flex-shrink: 0;
-  background: linear-gradient(to right, transparent, rgba(0, 153, 255, 0.30), transparent);
+  background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.35), transparent);
 }
 
 @media (min-width: 540px) {
@@ -903,7 +912,7 @@ p, a, li, button, input, textarea {
     height: 48px;
     margin: 0 2rem;
     align-self: center;
-    background: linear-gradient(to bottom, transparent, rgba(0, 153, 255, 0.35), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.40), transparent);
   }
 }
 
@@ -945,8 +954,8 @@ p, a, li, button, input, textarea {
   width: 36px; height: 36px;
   border-radius: 0.625rem;
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, rgba(0, 153, 255, 0.22) 0%, rgba(0, 153, 255, 0.08) 100%);
-  border: 1px solid rgba(0, 153, 255, 0.35);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(13, 110, 253, 0.08) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.40);
   color: var(--gold-lt);
   flex-shrink: 0;
 }
@@ -1041,13 +1050,13 @@ p, a, li, button, input, textarea {
 }
 
 @keyframes blue-pulse-ring {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 153, 255, 0.45); }
-  50% { box-shadow: 0 0 0 10px rgba(0, 153, 255, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.55); }
+  50% { box-shadow: 0 0 0 10px rgba(13, 110, 253, 0); }
 }
 
 @keyframes gold-pulse-ring {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 153, 255, 0.45); }
-  50% { box-shadow: 0 0 0 10px rgba(0, 153, 255, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.55); }
+  50% { box-shadow: 0 0 0 10px rgba(13, 110, 253, 0); }
 }
 
 /* ─── Animate Classes ───────────────────────────────────────── */

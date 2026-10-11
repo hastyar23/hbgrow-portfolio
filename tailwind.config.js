@@ -4,15 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        deep:       '#020408',
-        navy:       '#050A18',
-        sapphire:   '#08162E',
-        'blue-500': '#0099FF',
-        'blue-300': '#7ACAFF',
-        'blue-700': '#0068AD',
-        'blue-glow':'rgba(0, 153, 255, 0.35)',
-        gold:       '#0099FF', // backwards compatibility alias to brand blue
-        'gold-lt':  '#BAE6FD',
+        deep:        '#020612',
+        navy:        '#03142B',
+        sapphire:    '#04234C',
+        'logo-navy': '#031E3F',
+        'blue-500':  '#2563EB',
+        'blue-600':  '#1D4ED8',
+        'blue-400':  '#60A5FA',
+        'blue-300':  '#93C5FD',
+        'blue-700':  '#0B3275',
+        'blue-glow': 'rgba(13, 110, 253, 0.38)',
+        gold:        '#2563EB', // backwards compatibility alias
+        'gold-lt':   '#BFDBFE',
       },
       fontFamily: {
         sans:  ['Inter', 'Noto Kufi Arabic', 'sans-serif'],

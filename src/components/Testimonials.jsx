@@ -87,11 +87,11 @@ export default function Testimonials() {
           flex-shrink: 0;
         }
         .ts-nav-btn:hover {
-          border-color: rgba(0, 153, 255, 0.55);
-          background: rgba(0, 153, 255, 0.16);
-          color: #7ACAFF;
+          border-color: rgba(147, 197, 253, 0.60);
+          background: rgba(37, 99, 235, 0.22);
+          color: #EFF6FF;
           transform: scale(1.08);
-          box-shadow: 0 0 20px rgba(0, 153, 255, 0.25);
+          box-shadow: 0 0 20px rgba(13, 110, 253, 0.35);
         }
         .ts-nav-btn:active { transform: scale(0.95); }
 
@@ -104,8 +104,8 @@ export default function Testimonials() {
         }
         .ts-dot.active {
           width: 24px; border-radius: 3px;
-          background: #0099FF;
-          box-shadow: 0 0 10px rgba(0, 153, 255, 0.65);
+          background: #2563EB;
+          box-shadow: 0 0 12px rgba(37, 99, 235, 0.85);
         }
         .ts-dot:hover:not(.active) { background: rgba(255,255,255,0.45); }
       `}</style>
@@ -168,8 +168,8 @@ export default function Testimonials() {
               key={current}
               style={{
                 height: '100%',
-                background: 'linear-gradient(90deg, #0099FF, #7ACAFF)',
-                boxShadow: '0 0 10px rgba(0, 153, 255, 0.5)',
+                background: 'linear-gradient(90deg, #1D4ED8, #60A5FA)',
+                boxShadow: '0 0 10px rgba(37, 99, 235, 0.6)',
                 animation: `progress-fill ${AUTOPLAY_MS}ms linear forwards`,
               }}
             />
@@ -187,12 +187,12 @@ export default function Testimonials() {
             key={current}
             className={animating ? '' : (direction === 'next' ? 'ts-card-enter-next' : 'ts-card-enter-prev')}
             style={{
-              background: 'rgba(255,255,255,0.03)',
+              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(4, 35, 76, 0.35) 50%, rgba(2, 10, 22, 0.85) 100%)',
               backdropFilter: 'blur(24px)',
               WebkitBackdropFilter: 'blur(24px)',
               border: '1px solid rgba(255,255,255,0.08)',
-              borderTop: '2px solid rgba(0, 153, 255, 0.45)',
-              boxShadow: '0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(0, 153, 255, 0.15)',
+              borderTop: '2px solid rgba(147, 197, 253, 0.50)',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.7), 0 0 32px rgba(13, 110, 253, 0.15)',
               borderRadius: '1.25rem',
               padding: 'clamp(2rem, 5vw, 3.5rem)',
               display: 'grid',
@@ -204,14 +204,14 @@ export default function Testimonials() {
             {/* Top row: quote icon + source */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <Quote size={36} style={{
-                color: 'rgba(0, 153, 255, 0.20)',
+                color: 'rgba(37, 99, 235, 0.25)',
                 transform: 'scaleX(-1)',
                 flexShrink: 0,
               }} />
               <span style={{
                 fontSize: '0.58rem',
                 textTransform: 'uppercase', fontWeight: 700,
-                color: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوك') ? 'rgba(130,170,255,0.65)' : 'rgba(100,220,130,0.65)',
+                color: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوک') ? 'rgba(130,170,255,0.65)' : 'rgba(100,220,130,0.65)',
                 fontFamily: "'Noto Kufi Arabic', sans-serif",
                 paddingTop: '0.25rem',
               }}>
@@ -222,7 +222,7 @@ export default function Testimonials() {
             {/* Stars */}
             <div style={{ display: 'flex', gap: 4 }}>
               {Array.from({ length: currentTestimonial.rating || 5 }).map((_, j) => (
-                <span key={j} style={{ color: '#0099FF', fontSize: '1.1rem', filter: 'drop-shadow(0 0 6px rgba(0, 153, 255, 0.55))' }}>★</span>
+                <span key={j} style={{ color: '#3B82F6', fontSize: '1.1rem', filter: 'drop-shadow(0 0 6px rgba(37, 99, 235, 0.6))' }}>★</span>
               ))}
             </div>
 
@@ -247,11 +247,11 @@ export default function Testimonials() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{
                   width: 46, height: 46, borderRadius: '50%', flexShrink: 0,
-                  background: 'linear-gradient(135deg, #0099FF, #7ACAFF)',
+                  background: 'linear-gradient(135deg, #1D4ED8, #60A5FA)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: "'Noto Kufi Arabic', sans-serif",
                   fontWeight: 900, fontSize: '0.9rem', color: '#ffffff',
-                  boxShadow: '0 0 20px rgba(0, 153, 255, 0.35)',
+                  boxShadow: '0 0 20px rgba(13, 110, 253, 0.40)',
                 }}>
                   {currentTestimonial.initials}
                 </div>

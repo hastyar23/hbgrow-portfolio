@@ -53,17 +53,28 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="#"
-            style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', flexShrink: 0 }}
           >
             <img
               src="/images/optimized/U9X57gP.avif"
               alt="HBgrow Agency Logo"
               style={{
                 height: 34, width: 34, objectFit: 'contain', borderRadius: '50%',
-                border: '1px solid rgba(0,153,255,0.40)',
-                boxShadow: '0 0 16px rgba(0,153,255,0.25)',
+                border: '1px solid rgba(147, 197, 253, 0.45)',
+                boxShadow: '0 0 18px rgba(13, 110, 253, 0.35)',
               }}
             />
+            <span style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontWeight: 700,
+              fontSize: '1.05rem',
+              letterSpacing: '-0.02em',
+              color: '#ffffff',
+              display: 'inline-flex',
+              alignItems: 'center',
+            }}>
+              HB<span style={{ color: '#60A5FA' }}>grow</span>
+            </span>
           </a>
 
           {/* Desktop Links */}
@@ -96,7 +107,7 @@ export default function Navbar() {
               borderRadius: '100px',
               border: '1px solid rgba(255,255,255,0.08)',
             }}>
-              <Globe size={12} color="rgba(122,202,255,0.65)" />
+              <Globe size={12} color="rgba(147, 197, 253, 0.75)" />
               {langs.map((lang) => (
                 <button
                   key={lang.code}
@@ -105,9 +116,10 @@ export default function Navbar() {
                     i18n.changeLanguage(lang.code);
                   }}
                   style={{
-                    background: i18n.language.startsWith(lang.code) ? 'rgba(0,153,255,0.20)' : 'none',
-                    border: i18n.language.startsWith(lang.code) ? '1px solid rgba(0,153,255,0.45)' : '1px solid transparent',
-                    color: i18n.language.startsWith(lang.code) ? '#BAE6FD' : 'rgba(203,213,225,0.6)',
+                    background: i18n.language.startsWith(lang.code) ? 'rgba(37, 99, 235, 0.25)' : 'none',
+                    border: i18n.language.startsWith(lang.code) ? '1px solid rgba(147, 197, 253, 0.45)' : '1px solid transparent',
+                    color: i18n.language.startsWith(lang.code) ? '#EFF6FF' : 'rgba(203, 213, 225, 0.65)',
+                    boxShadow: i18n.language.startsWith(lang.code) ? '0 0 12px rgba(13, 110, 253, 0.25)' : 'none',
                     fontSize: '0.68rem',
                     fontWeight: i18n.language.startsWith(lang.code) ? 700 : 500,
                     cursor: 'pointer',
@@ -137,9 +149,9 @@ export default function Navbar() {
             onClick={() => setOpen(!open)}
             aria-label={open ? t('nav.close_menu') : t('nav.open_menu')}
             style={{
-              background: open ? 'rgba(0,153,255,0.18)' : 'rgba(255,255,255,0.05)',
-              border: `1px solid ${open ? 'rgba(0,153,255,0.45)' : 'rgba(255,255,255,0.09)'}`,
-              color: open ? '#38BDF8' : 'rgba(255,255,255,0.85)',
+              background: open ? 'rgba(37, 99, 235, 0.25)' : 'rgba(255,255,255,0.05)',
+              border: `1px solid ${open ? 'rgba(147, 197, 253, 0.50)' : 'rgba(255,255,255,0.09)'}`,
+              color: open ? '#93C5FD' : 'rgba(255,255,255,0.85)',
               cursor: 'pointer',
               padding: '0.45rem',
               borderRadius: '0.625rem',
@@ -184,7 +196,7 @@ export default function Navbar() {
                   transition: 'color 0.25s, padding-right 0.3s',
                   animationDelay: `${i * 60}ms`,
                 }}
-                onMouseEnter={e => { e.target.style.color = '#0099FF'; e.target.style.paddingRight = '0.5rem'; }}
+                onMouseEnter={e => { e.target.style.color = '#3B82F6'; e.target.style.paddingRight = '0.5rem'; }}
                 onMouseLeave={e => { e.target.style.color = 'rgba(255,255,255,0.85)'; e.target.style.paddingRight = '0'; }}
               >
                 {label}
@@ -199,9 +211,10 @@ export default function Navbar() {
                 key={lang.code}
                 onClick={() => { i18n.changeLanguage(lang.code); setOpen(false); }}
                 style={{
-                  background: i18n.language.startsWith(lang.code) ? 'rgba(0,153,255,0.22)' : 'rgba(255,255,255,0.04)',
-                  border: i18n.language.startsWith(lang.code) ? '1px solid rgba(0,153,255,0.50)' : '1px solid rgba(255,255,255,0.07)',
-                  color: i18n.language.startsWith(lang.code) ? '#BAE6FD' : 'rgba(203,213,225,0.65)',
+                  background: i18n.language.startsWith(lang.code) ? 'rgba(37, 99, 235, 0.25)' : 'rgba(255,255,255,0.04)',
+                  border: i18n.language.startsWith(lang.code) ? '1px solid rgba(147, 197, 253, 0.50)' : '1px solid rgba(255,255,255,0.07)',
+                  color: i18n.language.startsWith(lang.code) ? '#EFF6FF' : 'rgba(203,213,225,0.65)',
+                  boxShadow: i18n.language.startsWith(lang.code) ? '0 0 16px rgba(13, 110, 253, 0.35)' : 'none',
                   padding: '0.6rem 1.5rem',
                   borderRadius: '100px',
                   fontSize: '0.9rem',
