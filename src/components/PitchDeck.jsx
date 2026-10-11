@@ -557,26 +557,26 @@ export default function PitchDeck({ onScheduleClick }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.3, ease: EASE_PRO }}
-              className="grid grid-cols-3 gap-3 sm:gap-4 w-full max-w-xl mb-8"
+              className="grid grid-cols-3 gap-2.5 sm:gap-4 w-full max-w-2xl mb-8"
             >
-              <SpotlightCard className="p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">100%</div>
-                <div className="text-xs text-zinc-300 mt-1 font-medium">
-                  {isKurdish ? 'ئامانج: هێنانی کڕیار' : 'Conversion Intent'}
+              <SpotlightCard className="p-3.5 sm:p-4 text-center flex flex-col justify-center items-center">
+                <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">100+</div>
+                <div className="text-[11px] sm:text-xs text-zinc-300 mt-1.5 font-medium leading-snug">
+                  {isKurdish ? 'براندی متمانەپێکراو' : 'Trusted Brands'}
                 </div>
               </SpotlightCard>
 
-              <SpotlightCard className="p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-gold tracking-tight">4:5</div>
-                <div className="text-xs text-zinc-300 mt-1 font-medium">
-                  {isKurdish ? 'ڤیدیۆی ڕیڵزی مۆبایل' : 'Vertical Reels'}
+              <SpotlightCard className="p-3.5 sm:p-4 text-center flex flex-col justify-center items-center border-[#D4AF37]/20">
+                <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#D4AF37] tracking-tight">60,000+</div>
+                <div className="text-[11px] sm:text-xs text-zinc-300 mt-1.5 font-medium leading-snug">
+                  {isKurdish ? 'بەرهەمهێنانی نامە بۆ کڕیارانمان' : 'Inquiries Generated'}
                 </div>
               </SpotlightCard>
 
-              <SpotlightCard className="p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">$0.06</div>
-                <div className="text-xs text-zinc-300 mt-1 font-medium">
-                  {isKurdish ? 'کەمترین تێچووی نامە' : 'Cost Per Lead'}
+              <SpotlightCard className="p-3.5 sm:p-4 text-center flex flex-col justify-center items-center">
+                <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">1,000+</div>
+                <div className="text-[11px] sm:text-xs text-zinc-300 mt-1.5 font-medium leading-snug">
+                  {isKurdish ? 'بەرهەمی دیزاین و ڤیدیۆ' : 'Design & Video Assets'}
                 </div>
               </SpotlightCard>
             </motion.div>
