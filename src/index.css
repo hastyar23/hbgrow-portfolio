@@ -20,61 +20,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Design Tokens: Visuvate-Inspired Luxury Agency Palette (HBgrow Logo Resonance & High-End Gold) ─── */
+/* ─── Design Tokens: Stealth Wealth Luxury Fintech Palette (Linear / Stripe / Vercel) ─── */
 :root {
-  /* Deep Midnight Obsidian Void Canvas (Harmonized with Logo Background #031B39 / #042246) */
-  --deep:         #020612;
-  --void:         #010308;
-  --navy:         #03142B;
-  --sapphire:     #042246;
-  --logo-navy:    #031B39;
+  /* Main Background (The Void) */
+  --deep:         #0A0A0C;
+  --void:         #0A0A0C;
+  --navy:         #0A0A0C;
+  --sapphire:     #111116;
+  --logo-navy:    #111116;
 
-  /* High-End Luxury Brand Gold & Champagne Silk Palette (18K Royal Gold #DFB248) */
-  --gold:         #DFB248;
-  --gold-vivid:   #DFB248;
-  --gold-lt:      #F6E4B4;
-  --gold-bright:  #FFF6DD;
-  --gold-dark:    #A87A1E;
-  --gold-dim:     rgba(223, 178, 72, 0.35);
-  --gold-glow:    rgba(223, 178, 72, 0.22);
+  /* Card Backgrounds & Borders (Frosted Glass & The Premium Edge) */
+  --card:         #111116;
+  --card-frosted: rgba(255, 255, 255, 0.03);
+  --border-edge:  rgba(255, 255, 255, 0.08);
+  --border-dim:   rgba(255, 255, 255, 0.08);
+  --border-med:   rgba(255, 255, 255, 0.12);
 
-  /* Brand Blue Base */
-  --blue:         #2563EB;
-  --blue-vivid:   #0D6EFD;
-  --blue-dark:    #0B3275;
-  --blue-lt:      #93C5FD;
-  --blue-cyan:    #60A5FA;
-  --blue-glow:    rgba(13, 110, 253, 0.38);
+  /* Primary Typography (Pure White) & Secondary Typography (Zinc 400) */
+  --white:        #FFFFFF;
+  --secondary:    #A1A1AA;
+  --slate:        #A1A1AA;
+  --slate-lt:     #A1A1AA;
+  --muted:        rgba(161, 161, 170, 0.70);
 
-  /* Typography & Neutrals */
-  --white:        #ffffff;
-  --slate:        #94A3B8;
-  --slate-lt:     #CBD5E1;
-  --muted:        rgba(160, 175, 195, 0.70);
+  /* The New Accent (Champagne Gold: #E5E4E2 to #D4AF37) */
+  --gold:         #D4AF37;
+  --gold-metallic:#D4AF37;
+  --platinum:     #E5E4E2;
+  --gold-vivid:   #D4AF37;
+  --gold-lt:      #E5E4E2;
+  --gold-bright:  #FFFFFF;
+  --gold-dark:    #B89228;
+  --gold-dim:     rgba(212, 175, 55, 0.25);
+  --gold-glow:    rgba(212, 175, 55, 0.16);
+
+  /* Neutralized System Blue Base */
+  --blue:         #111116;
+  --blue-vivid:   #D4AF37;
+  --blue-dark:    #0A0A0C;
+  --blue-lt:      #E5E4E2;
+  --blue-cyan:    #E5E4E2;
+  --blue-glow:    rgba(212, 175, 55, 0.12);
 
   /* Precision Glass System */
   --glass-2:      rgba(255, 255, 255, 0.02);
-  --glass-4:      rgba(255, 255, 255, 0.035);
-  --glass-6:      rgba(255, 255, 255, 0.055);
-  --glass-10:     rgba(255, 255, 255, 0.09);
+  --glass-4:      rgba(255, 255, 255, 0.03);
+  --glass-6:      rgba(255, 255, 255, 0.05);
+  --glass-10:     rgba(255, 255, 255, 0.08);
 
   /* Precision Hairline Borders */
-  --border-dim:   rgba(255, 255, 255, 0.07);
-  --border-med:   rgba(255, 255, 255, 0.12);
-  --border-gold:  rgba(223, 178, 72, 0.28);
-  --border-gold-bright: rgba(246, 228, 180, 0.45);
-  --border-blue:  rgba(37, 99, 235, 0.30);
-  --border-blue-bright: rgba(147, 197, 253, 0.55);
+  --border-gold:  rgba(212, 175, 55, 0.25);
+  --border-gold-bright: rgba(229, 228, 226, 0.40);
+  --border-blue:  rgba(255, 255, 255, 0.08);
+  --border-blue-bright: rgba(255, 255, 255, 0.15);
 
   /* Shadows */
-  --shadow-card:  0 16px 48px rgba(0, 0, 0, 0.80);
-  --shadow-gold:  0 0 32px rgba(223, 178, 72, 0.18);
-  --shadow-blue:  0 0 40px rgba(13, 110, 253, 0.25);
-  --shadow-hover: 0 28px 72px -12px rgba(0, 0, 0, 0.92), 0 0 0 1px rgba(223, 178, 72, 0.35);
+  --shadow-card:  0 16px 48px rgba(0, 0, 0, 0.85);
+  --shadow-gold:  0 0 32px rgba(212, 175, 55, 0.16);
+  --shadow-blue:  0 0 40px rgba(0, 0, 0, 0.50);
+  --shadow-hover: 0 28px 72px -12px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.12);
 
   /* Legacy compat */
   --glass:        var(--glass-4);
-  --border:       var(--border-dim);
+  --border:       var(--border-edge);
 }
 
 /* ─── Base Reset & Luxury Canvas ─────────────────────────────── */
@@ -90,14 +98,10 @@ body {
   font-family: 'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Rabar', sans-serif;
   background-color: var(--deep);
   background-image:
-    /* High-End Warm Gold Zenith Glow */
-    radial-gradient(ellipse 75% 35% at 50% 0%, rgba(223, 178, 72, 0.06) 0%, transparent 60%),
-    /* Precision Stage Spotlight echoing Logo Navy #042246 */
-    radial-gradient(ellipse 90% 50% at 50% -5%, rgba(4, 34, 70, 0.70) 0%, rgba(3, 27, 57, 0.45) 45%, transparent 75%),
-    /* Ambient Sapphire Glows */
-    radial-gradient(circle at 10% 40%, rgba(11, 50, 117, 0.18) 0%, transparent 45%),
-    radial-gradient(circle at 90% 65%, rgba(4, 34, 70, 0.25) 0%, transparent 45%),
-    linear-gradient(180deg, #030E1F 0%, #020612 35%, #010308 100%);
+    /* Subtle Champagne Zenith Shimmer */
+    radial-gradient(ellipse 75% 35% at 50% 0%, rgba(212, 175, 55, 0.03) 0%, transparent 60%),
+    /* Ultra-deep obsidian void canvas */
+    linear-gradient(180deg, #0A0A0C 0%, #08080A 40%, #060608 100%);
   background-attachment: fixed;
   color: var(--white);
   overflow-x: hidden;
@@ -111,11 +115,11 @@ body {
   width: 100%;
 }
 
-::selection { background: rgba(223, 178, 72, 0.28); color: #ffffff; }
+::selection { background: rgba(212, 175, 55, 0.25); color: #ffffff; }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--deep); }
-::-webkit-scrollbar-thumb { background: rgba(223, 178, 72, 0.35); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.30); border-radius: 4px; }
 
 /* ─── Explicit RTL Support & Alignment Refinements ──────────── */
 html[dir="rtl"] {
@@ -179,14 +183,14 @@ p, a, li, button, input, textarea {
   line-height: 1.22;
 }
 
-/* ─── Visuvate Liquid Platinum & Luxury 18K Royal Gold Gradient Text ─── */
+/* ─── Stealth Wealth Champagne Gold Gradient Text (#E5E4E2 to #D4AF37) ─── */
 .text-gold,
 .text-blue-luxe {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFF6DD 18%, #F6E4B4 38%, #DFB248 68%, #C2912A 86%, #946914 100%);
+  background: linear-gradient(135deg, #E5E4E2 0%, #F5EFEB 35%, #D4AF37 75%, #AA8722 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 14px rgba(223, 178, 72, 0.22));
+  filter: drop-shadow(0 2px 14px rgba(212, 175, 55, 0.20));
 }
 
 /* ─── Hairline Divider ──────────────────────────────────────── */
@@ -195,23 +199,23 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(223, 178, 72, 0.10) 20%,
-    rgba(246, 228, 180, 0.40) 50%,
-    rgba(223, 178, 72, 0.10) 80%,
+    rgba(255, 255, 255, 0.03) 20%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 80%,
     transparent 100%
   );
 }
 
-/* ─── Luxury Visuvate Pill Badge ────────────────────────────── */
+/* ─── Luxury Stealth Wealth Pill Badge ───────────────────────── */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.42rem 1.15rem;
   border-radius: 100px;
-  border: 1px solid rgba(223, 178, 72, 0.28);
-  background: linear-gradient(135deg, rgba(223, 178, 72, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-  color: #F6E4B4;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(17, 17, 22, 0.95) 100%);
+  color: #E5E4E2;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -220,7 +224,7 @@ p, a, li, button, input, textarea {
   -webkit-backdrop-filter: blur(16px);
   font-family: 'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif;
   white-space: nowrap;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 20px rgba(223, 178, 72, 0.10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .badge .dot {
@@ -229,24 +233,24 @@ p, a, li, button, input, textarea {
   background: var(--gold-vivid);
   flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(223, 178, 72, 0.85);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.85);
 }
 
-/* ─── High-End Brand 18K Royal Gold Luxury Button ───────────── */
+/* ─── Stealth Wealth Champagne Gold Button (#E5E4E2 to #D4AF37) ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
   padding: 0.9rem 2.2rem;
-  background: linear-gradient(135deg, #FFF6DD 0%, #E8C15A 26%, #DFB248 58%, #B88924 85%, #946914 100%);
+  background: linear-gradient(135deg, #E5E4E2 0%, #E2D9C8 28%, #D4AF37 70%, #C49E28 100%);
   background-size: 200% 100%;
-  color: #060912;
+  color: #0A0A0C;
   font-family: 'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Rabar', sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
-  border: 1px solid rgba(223, 178, 72, 0.55);
-  border-top: 1px solid rgba(255, 255, 255, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.50);
   border-radius: 100px;
   cursor: pointer;
   text-decoration: none;
@@ -258,8 +262,8 @@ p, a, li, button, input, textarea {
   line-height: 1.4;
   max-width: 100%;
   box-shadow:
-    0 4px 20px -2px rgba(223, 178, 72, 0.32),
-    0 12px 30px -4px rgba(0, 0, 0, 0.75),
+    0 4px 20px -2px rgba(212, 175, 55, 0.25),
+    0 12px 30px -4px rgba(0, 0, 0, 0.85),
     inset 0 1px 0 rgba(255, 255, 255, 0.80),
     inset 0 -1px 2px rgba(0, 0, 0, 0.30);
 }
@@ -277,16 +281,16 @@ p, a, li, button, input, textarea {
 .btn-primary:hover {
   background-position: 100% 0;
   transform: translateY(-2px);
-  color: #020409;
+  color: #0A0A0C;
   box-shadow:
-    0 8px 32px rgba(223, 178, 72, 0.45),
-    0 0 0 1px rgba(246, 228, 180, 0.50),
+    0 8px 32px rgba(212, 175, 55, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.20),
     inset 0 1px 1px rgba(255, 255, 255, 0.95);
 }
 
 .btn-primary:active {
   transform: scale(0.98);
-  box-shadow: 0 4px 16px rgba(223, 178, 72, 0.25);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.20);
 }
 
 /* ─── Luxury Ghost Button ───────────────────────────────────── */
@@ -297,12 +301,12 @@ p, a, li, button, input, textarea {
   gap: 0.55rem;
   padding: 0.9rem 2.2rem;
   background: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.92);
+  color: #A1A1AA;
   font-family: 'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Rabar', sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 100px;
   cursor: pointer;
   text-decoration: none;
@@ -313,33 +317,32 @@ p, a, li, button, input, textarea {
   max-width: 100%;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .btn-ghost:hover {
   color: var(--white);
-  border-color: rgba(223, 178, 72, 0.40);
-  background: rgba(223, 178, 72, 0.08);
+  border-color: rgba(212, 175, 55, 0.30);
+  background: rgba(212, 175, 55, 0.06);
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(223, 178, 72, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .btn-ghost:active { transform: scale(0.98); }
 
-/* ─── Precision Smoked Glass Card (Base) ───────────────────── */
+/* ─── Precision Frosted Glass Card (#111116 + rgba(255,255,255,0.03) + 1px rgba(255,255,255,0.08)) ─── */
 .glass-card {
-  background:
+  background-color: #111116;
+  background-image:
     linear-gradient(145deg,
-      rgba(255, 255, 255, 0.045) 0%,
-      rgba(255, 255, 255, 0.012) 50%,
-      rgba(7, 14, 28, 0.55) 100%);
-  backdrop-filter: blur(32px) saturate(180%);
-  -webkit-backdrop-filter: blur(32px) saturate(180%);
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.005) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.70),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.30);
+    0 16px 40px rgba(0, 0, 0, 0.80),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
   position: relative;
@@ -355,9 +358,9 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 10%,
-    rgba(255, 255, 255, 0.18) 35%,
-    rgba(223, 178, 72, 0.35) 50%,
-    rgba(255, 255, 255, 0.18) 65%,
+    rgba(255, 255, 255, 0.12) 35%,
+    rgba(212, 175, 55, 0.25) 50%,
+    rgba(255, 255, 255, 0.12) 65%,
     transparent 90%);
   border-radius: inherit;
 }
@@ -368,7 +371,7 @@ p, a, li, button, input, textarea {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse 70% 45% at 50% -5%,
-    rgba(255, 255, 255, 0.035) 0%,
+    rgba(255, 255, 255, 0.03) 0%,
     transparent 65%);
   pointer-events: none;
   border-radius: inherit;
@@ -376,36 +379,30 @@ p, a, li, button, input, textarea {
 
 .glass-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(223, 178, 72, 0.35);
+  border-color: rgba(255, 255, 255, 0.15);
   box-shadow:
-    0 24px 60px -8px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(223, 178, 72, 0.20),
-    0 0 32px rgba(223, 178, 72, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
-  background:
-    linear-gradient(145deg,
-      rgba(255, 255, 255, 0.065) 0%,
-      rgba(4, 34, 70, 0.25) 50%,
-      rgba(2, 11, 24, 0.75) 100%);
+    0 24px 60px -8px rgba(0, 0, 0, 0.90),
+    0 0 0 1px rgba(255, 255, 255, 0.10),
+    0 0 32px rgba(212, 175, 55, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  background-color: #141419;
 }
 
 /* ─── Precision Stat Card ───────────────────────────────────── */
 .glass-stat-card {
-  background:
+  background-color: #111116;
+  background-image:
     linear-gradient(145deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(4, 34, 70, 0.45) 50%,
-      rgba(2, 11, 24, 0.85) 100%);
-  backdrop-filter: blur(36px) saturate(180%);
-  -webkit-backdrop-filter: blur(36px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-top: 1px solid rgba(246, 228, 180, 0.40);
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.005) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem;
   padding: 1.5rem 2rem;
   box-shadow:
-    0 20px 56px rgba(0, 0, 0, 0.78),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    0 20px 56px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
@@ -419,9 +416,9 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 10%,
-    rgba(255, 255, 255, 0.20) 35%,
-    rgba(246, 228, 180, 0.55) 50%,
-    rgba(255, 255, 255, 0.20) 65%,
+    rgba(255, 255, 255, 0.12) 35%,
+    rgba(229, 228, 226, 0.30) 50%,
+    rgba(255, 255, 255, 0.12) 65%,
     transparent 90%);
 }
 
@@ -431,35 +428,33 @@ p, a, li, button, input, textarea {
   inset: 0;
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%,
-      rgba(223, 178, 72, 0.08) 0%, transparent 60%);
+      rgba(212, 175, 55, 0.05) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .glass-stat-card:hover {
-  border-color: rgba(223, 178, 72, 0.35);
+  border-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-5px);
   box-shadow:
-    0 28px 72px rgba(0, 0, 0, 0.88),
-    0 0 0 1px rgba(223, 178, 72, 0.25),
-    0 0 40px rgba(223, 178, 72, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    0 28px 72px rgba(0, 0, 0, 0.92),
+    0 0 0 1px rgba(255, 255, 255, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 /* ─── Floating Glass Panel ──────────────────────────────────── */
 .glass-panel {
-  background:
+  background-color: #111116;
+  background-image:
     linear-gradient(145deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0.015) 60%,
-      rgba(8, 14, 28, 0.45) 100%);
-  backdrop-filter: blur(36px) saturate(180%);
-  -webkit-backdrop-filter: blur(36px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.005) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem;
   box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    0 24px 64px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -471,31 +466,27 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 10%,
-    rgba(255, 255, 255, 0.20) 35%,
-    rgba(223, 178, 72, 0.35) 50%,
-    rgba(255, 255, 255, 0.20) 65%,
+    rgba(255, 255, 255, 0.12) 35%,
+    rgba(212, 175, 55, 0.25) 50%,
+    rgba(255, 255, 255, 0.12) 65%,
     transparent 90%);
 }
 
-/* ─── Precision Visuvate Gold Accent Card ─────────── */
+/* ─── Precision Stealth Accent Cards ────────────────────────── */
 .glass-card-gold,
 .glass-card-blue {
-  background:
+  background-color: #111116;
+  background-image:
     linear-gradient(145deg,
-      rgba(255, 255, 255, 0.04) 0%,
-      rgba(4, 34, 70, 0.35) 50%,
-      rgba(2, 10, 22, 0.85) 100%);
-  backdrop-filter: blur(32px) saturate(180%);
-  -webkit-backdrop-filter: blur(32px) saturate(180%);
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.005) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top: 1px solid rgba(246, 228, 180, 0.40);
   border-radius: 1.25rem;
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.80),
-    0 0 0 1px rgba(223, 178, 72, 0.12),
-    0 0 28px rgba(223, 178, 72, 0.10),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    0 16px 48px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -510,9 +501,9 @@ p, a, li, button, input, textarea {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 10%,
-    rgba(223, 178, 72, 0.35) 35%,
-    rgba(246, 228, 180, 0.70) 50%,
-    rgba(223, 178, 72, 0.35) 65%,
+    rgba(255, 255, 255, 0.12) 35%,
+    rgba(212, 175, 55, 0.25) 50%,
+    rgba(255, 255, 255, 0.12) 65%,
     transparent 90%);
 }
 
@@ -522,25 +513,20 @@ p, a, li, button, input, textarea {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse 75% 50% at 50% -10%,
-    rgba(223, 178, 72, 0.10) 0%, transparent 65%);
+    rgba(212, 175, 55, 0.04) 0%, transparent 65%);
   pointer-events: none;
 }
 
 .glass-card-gold:hover,
 .glass-card-blue:hover {
   transform: translateY(-5px);
-  border-color: rgba(223, 178, 72, 0.40);
-  border-top-color: rgba(246, 228, 180, 0.70);
+  border-color: rgba(255, 255, 255, 0.15);
   box-shadow:
-    0 28px 72px rgba(0, 0, 0, 0.88),
-    0 0 0 1px rgba(223, 178, 72, 0.25),
-    0 0 45px rgba(223, 178, 72, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  background:
-    linear-gradient(145deg,
-      rgba(255, 255, 255, 0.06) 0%,
-      rgba(4, 34, 70, 0.50) 50%,
-      rgba(2, 11, 26, 0.90) 100%);
+    0 28px 72px rgba(0, 0, 0, 0.92),
+    0 0 0 1px rgba(255, 255, 255, 0.10),
+    0 0 45px rgba(212, 175, 55, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  background-color: #141419;
 }
 
 /* ─── Floating Navbar Pill ──────────────────────────────────── */
@@ -552,35 +538,31 @@ p, a, li, button, input, textarea {
   z-index: 200;
   width: calc(100% - 2.5rem);
   max-width: 900px;
-  background: rgba(3, 10, 22, 0.82);
-  backdrop-filter: blur(32px) saturate(180%);
-  -webkit-backdrop-filter: blur(32px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-top: 1px solid rgba(246, 228, 180, 0.35);
+  background: rgba(17, 17, 22, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 100px;
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.75),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-    0 0 24px rgba(223, 178, 72, 0.08);
+    0 16px 48px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   animation: slideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .navbar-pill.scrolled {
-  background: rgba(2, 6, 16, 0.94);
-  border-color: rgba(223, 178, 72, 0.25);
+  background: rgba(10, 10, 12, 0.95);
+  border-color: rgba(255, 255, 255, 0.12);
   box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.88),
-    0 0 28px rgba(223, 178, 72, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 24px 64px rgba(0, 0, 0, 0.92),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 /* Nav link styles */
 .nav-link {
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(203, 213, 225, 0.75);
+  color: #A1A1AA;
   text-decoration: none;
   transition: color 0.25s ease;
   position: relative;
@@ -593,14 +575,14 @@ p, a, li, button, input, textarea {
   bottom: -2px;
   left: 0; right: 0;
   height: 1px;
-  background: #DFB248;
+  background: #D4AF37;
   transform: scaleX(0);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
 }
 
 .nav-link:hover {
-  color: rgba(255, 255, 255, 0.98);
+  color: #FFFFFF;
 }
 
 .nav-link:hover::after {
@@ -628,23 +610,23 @@ p, a, li, button, input, textarea {
 }
 
 .glow-orb-gold {
-  background: radial-gradient(circle, rgba(223, 178, 72, 0.14) 0%, rgba(168, 122, 30, 0.04) 60%, transparent 80%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(229, 228, 226, 0.02) 60%, transparent 80%);
 }
 
 .glow-orb-blue {
-  background: radial-gradient(circle, rgba(223, 178, 72, 0.10) 0%, rgba(4, 34, 70, 0.35) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(17, 17, 22, 0.5) 50%, transparent 75%);
   animation-delay: -4s;
   animation-duration: 11s;
 }
 
 .glow-orb-cyan {
-  background: radial-gradient(circle, rgba(223, 178, 72, 0.14) 0%, rgba(168, 122, 30, 0.05) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, rgba(229, 228, 226, 0.02) 50%, transparent 75%);
   animation-delay: -2s;
   animation-duration: 10s;
 }
 
 .glow-orb-sapphire {
-  background: radial-gradient(circle, rgba(4, 34, 70, 0.55) 0%, rgba(2, 14, 34, 0.25) 55%, transparent 75%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, rgba(10, 10, 12, 0.5) 55%, transparent 75%);
   animation-delay: -6s;
   animation-duration: 12s;
 }
@@ -681,7 +663,7 @@ p, a, li, button, input, textarea {
     width: 420px;
     height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(223, 178, 72, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
@@ -706,16 +688,13 @@ p, a, li, button, input, textarea {
   filter: blur(0);
 }
 
-/* ─── Stat Number ───────────────────────────────────────────── */
+/* ─── Stat Number (Primary Typography: Pure White #FFFFFF) ──── */
 .stat-val {
   font-family: 'Outfit', 'Sarchia Bokan', serif;
   font-size: clamp(1.6rem, 3.8vw, 2.75rem);
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFF6DD 20%, #F6E4B4 45%, #DFB248 75%, #A87A1E 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #FFFFFF;
 }
 
 /* ─── Step Ghost Number ─────────────────────────────────────── */
@@ -724,7 +703,7 @@ p, a, li, button, input, textarea {
   font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(180deg, rgba(223, 178, 72, 0.12) 0%, rgba(223, 178, 72, 0.01) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -737,7 +716,7 @@ p, a, li, button, input, textarea {
 
 /* ─── Testimonial Stars ─────────────────────────────────────── */
 .stars { display: flex; gap: 3px; }
-.stars span { color: #DFB248; font-size: 0.85rem; filter: drop-shadow(0 0 8px rgba(223, 178, 72, 0.5)); }
+.stars span { color: #D4AF37; font-size: 0.85rem; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)); }
 
 /* ─── Portfolio Hover ───────────────────────────────────────── */
 .port-item {
@@ -750,7 +729,7 @@ p, a, li, button, input, textarea {
 .port-item .port-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(3, 6, 14, 0.88);
+  background: rgba(10, 10, 12, 0.90);
   backdrop-filter: blur(10px);
   opacity: 0;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -759,7 +738,7 @@ p, a, li, button, input, textarea {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid rgba(223, 178, 72, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 1rem;
 }
 
