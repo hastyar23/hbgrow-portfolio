@@ -87,27 +87,26 @@ export default function Testimonials() {
           flex-shrink: 0;
         }
         .ts-nav-btn:hover {
-          border-color: rgba(246, 228, 180, 0.55);
-          background: rgba(223, 178, 72, 0.16);
-          color: #FFF6DD;
-          transform: scale(1.08);
-          box-shadow: 0 0 20px rgba(223, 178, 72, 0.25);
+          border-color: rgba(255, 255, 255, 0.20);
+          background: rgba(255, 255, 255, 0.08);
+          color: #FFFFFF;
+          transform: scale(1.05);
         }
         .ts-nav-btn:active { transform: scale(0.95); }
 
         .ts-dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: rgba(255,255,255,0.2);
+          background: rgba(255,255,255,0.15);
           border: none; cursor: pointer;
           transition: all 0.35s ease; padding: 0;
           flex-shrink: 0;
         }
         .ts-dot.active {
           width: 24px; border-radius: 3px;
-          background: #DFB248;
-          box-shadow: 0 0 12px rgba(223, 178, 72, 0.75);
+          background: #D4AF37;
+          box-shadow: 0 0 12px rgba(212, 175, 55, 0.65);
         }
-        .ts-dot:hover:not(.active) { background: rgba(255,255,255,0.45); }
+        .ts-dot:hover:not(.active) { background: rgba(255,255,255,0.35); }
       `}</style>
 
       <div className="section-wrap">
@@ -168,8 +167,8 @@ export default function Testimonials() {
               key={current}
               style={{
                 height: '100%',
-                background: 'linear-gradient(90deg, #A87A1E, #DFB248, #F6E4B4)',
-                boxShadow: '0 0 10px rgba(223, 178, 72, 0.5)',
+                background: 'linear-gradient(90deg, #E5E4E2, #D4AF37)',
+                boxShadow: '0 0 10px rgba(212, 175, 55, 0.4)',
                 animation: `progress-fill ${AUTOPLAY_MS}ms linear forwards`,
               }}
             />
@@ -187,12 +186,12 @@ export default function Testimonials() {
             key={current}
             className={animating ? '' : (direction === 'next' ? 'ts-card-enter-next' : 'ts-card-enter-prev')}
             style={{
-              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(4, 35, 76, 0.35) 50%, rgba(2, 10, 22, 0.85) 100%)',
+              backgroundColor: '#111116',
+              backgroundImage: 'linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%)',
               backdropFilter: 'blur(24px)',
               WebkitBackdropFilter: 'blur(24px)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderTop: '2px solid rgba(246, 228, 180, 0.45)',
-              boxShadow: '0 24px 64px rgba(0,0,0,0.7), 0 0 32px rgba(223, 178, 72, 0.10)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
               borderRadius: '1.25rem',
               padding: 'clamp(2rem, 5vw, 3.5rem)',
               display: 'grid',
@@ -204,14 +203,14 @@ export default function Testimonials() {
             {/* Top row: quote icon + source */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <Quote size={36} style={{
-                color: 'rgba(223, 178, 72, 0.22)',
+                color: 'rgba(212, 175, 55, 0.22)',
                 transform: 'scaleX(-1)',
                 flexShrink: 0,
               }} />
               <span style={{
                 fontSize: '0.58rem',
                 textTransform: 'uppercase', fontWeight: 700,
-                color: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوک') ? 'rgba(130,170,255,0.65)' : 'rgba(100,220,130,0.65)',
+                color: '#A1A1AA',
                 fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 paddingTop: '0.25rem',
               }}>
@@ -222,7 +221,7 @@ export default function Testimonials() {
             {/* Stars */}
             <div style={{ display: 'flex', gap: 4 }}>
               {Array.from({ length: currentTestimonial.rating || 5 }).map((_, j) => (
-                <span key={j} style={{ color: '#DFB248', fontSize: '1.1rem', filter: 'drop-shadow(0 0 6px rgba(223, 178, 72, 0.5))' }}>★</span>
+                <span key={j} style={{ color: '#D4AF37', fontSize: '1.1rem', filter: 'drop-shadow(0 0 6px rgba(212, 175, 55, 0.4))' }}>★</span>
               ))}
             </div>
 
@@ -230,7 +229,7 @@ export default function Testimonials() {
             <p style={{
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
-              color: 'rgba(255,255,255,0.88)',
+              color: '#FFFFFF',
               lineHeight: 2.1,
               fontWeight: 300,
             }}>
@@ -247,11 +246,11 @@ export default function Testimonials() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{
                   width: 46, height: 46, borderRadius: '50%', flexShrink: 0,
-                  background: 'linear-gradient(135deg, #FFF6DD 0%, #DFB248 60%, #A87A1E 100%)',
+                  background: 'linear-gradient(135deg, #E5E4E2 0%, #D4AF37 100%)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                  fontWeight: 900, fontSize: '0.9rem', color: '#060912',
-                  boxShadow: '0 0 20px rgba(223, 178, 72, 0.25)',
+                  fontWeight: 900, fontSize: '0.9rem', color: '#0A0A0C',
+                  boxShadow: '0 0 20px rgba(212, 175, 55, 0.20)',
                 }}>
                   {currentTestimonial.initials}
                 </div>
@@ -262,7 +261,7 @@ export default function Testimonials() {
                   }}>{currentTestimonial.name}</p>
                   <p style={{
                     fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                    fontSize: '0.78rem', color: 'rgba(203,213,225,0.45)',
+                    fontSize: '0.78rem', color: '#A1A1AA',
                     marginTop: '0.2rem', fontWeight: 300,
                   }}>{currentTestimonial.role}</p>
                 </div>
@@ -271,7 +270,7 @@ export default function Testimonials() {
               {/* Counter */}
               <div style={{
                 fontFamily: "'Sarchia Bokan', serif",
-                fontSize: '0.78rem', color: 'rgba(203,213,225,0.3)', fontWeight: 600,
+                fontSize: '0.78rem', color: '#A1A1AA', fontWeight: 600,
               }}>
                 {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
               </div>

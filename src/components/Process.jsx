@@ -2,10 +2,10 @@ import { Phone, BarChart2, Eye, Smile } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const STEP_COLORS = [
-  { border: 'rgba(223, 178, 72, 0.45)', glow: 'rgba(223, 178, 72, 0.18)', icon: '#DFB248', bg: 'rgba(223, 178, 72, 0.12)' },
-  { border: 'rgba(232, 195, 106, 0.45)', glow: 'rgba(223, 178, 72, 0.16)', icon: '#E8C36A', bg: 'rgba(232, 195, 106, 0.12)' },
-  { border: 'rgba(246, 228, 180, 0.50)', glow: 'rgba(246, 228, 180, 0.16)', icon: '#F6E4B4', bg: 'rgba(246, 228, 180, 0.12)' },
-  { border: 'rgba(255, 246, 221, 0.55)', glow: 'rgba(255, 246, 221, 0.18)', icon: '#FFF6DD', bg: 'rgba(255, 246, 221, 0.12)' },
+  { border: 'rgba(212, 175, 55, 0.35)', glow: 'rgba(212, 175, 55, 0.12)', icon: '#D4AF37', bg: 'rgba(212, 175, 55, 0.08)' },
+  { border: 'rgba(229, 228, 226, 0.35)', glow: 'rgba(229, 228, 226, 0.10)', icon: '#E5E4E2', bg: 'rgba(229, 228, 226, 0.08)' },
+  { border: 'rgba(212, 175, 55, 0.35)', glow: 'rgba(212, 175, 55, 0.12)', icon: '#D4AF37', bg: 'rgba(212, 175, 55, 0.08)' },
+  { border: 'rgba(229, 228, 226, 0.35)', glow: 'rgba(229, 228, 226, 0.10)', icon: '#E5E4E2', bg: 'rgba(229, 228, 226, 0.08)' },
 ];
 
 export default function Process() {
@@ -25,7 +25,7 @@ export default function Process() {
       <div style={{
         position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)',
         width: 800, height: 400, borderRadius: '50%',
-        background: 'radial-gradient(ellipse, rgba(223, 178, 72, 0.08) 0%, rgba(4, 34, 70, 0.25) 45%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(212, 175, 55, 0.05) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
@@ -46,7 +46,7 @@ export default function Process() {
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: 'clamp(0.875rem, 2vw, 0.95rem)',
-            color: 'rgba(203,213,225,0.6)', lineHeight: 2, fontWeight: 300,
+            color: '#A1A1AA', lineHeight: 2, fontWeight: 300,
           }}>
             {t('process.subtitle')}
           </p>
@@ -122,7 +122,7 @@ export default function Process() {
                 {/* Desc */}
                 <p style={{
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                  fontSize: '0.875rem', color: 'rgba(203,213,225,0.6)',
+                  fontSize: '0.875rem', color: '#A1A1AA',
                   lineHeight: 2, fontWeight: 300,
                   position: 'relative', zIndex: 1,
                 }}>

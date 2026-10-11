@@ -79,9 +79,9 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
         transition: 'transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.38s ease',
         transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
         boxShadow: hover
-          ? '0 24px 56px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(254, 215, 3, 0.45)'
+          ? '0 24px 56px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(212, 175, 55, 0.45)'
           : '0 8px 32px rgba(0,0,0,0.6)',
-        background: '#0a0a0a',
+        background: '#0A0A0C',
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -195,7 +195,7 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
           <img
             src="/images/optimized/U9X57gP.avif"
             alt="HBgrow"
-            style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(223, 178, 72, 0.85)', objectFit: 'cover', flexShrink: 0 }}
+            style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(212, 175, 55, 0.85)', objectFit: 'cover', flexShrink: 0 }}
           />
           <span style={{ color: 'white', fontSize: '0.72rem', fontWeight: 700, fontFamily: "'Inter', sans-serif", }}>
             hbgrow
@@ -220,15 +220,15 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
       }}>
         <div style={{
           width: 52, height: 52, borderRadius: '50%',
-          background: 'rgba(223, 178, 72, 0.20)',
-          border: '2px solid rgba(246, 228, 180, 0.75)',
+          background: 'rgba(212, 175, 55, 0.15)',
+          border: '1.5px solid rgba(229, 228, 226, 0.6)',
           backdropFilter: 'blur(12px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           transform: hover ? 'scale(1.05)' : 'scale(0.9)',
           transition: 'transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94)',
-          boxShadow: '0 0 24px rgba(223, 178, 72, 0.35)',
+          boxShadow: '0 0 24px rgba(212, 175, 55, 0.3)',
         }}>
-          <Play size={20} style={{ fill: '#DFB248', color: '#DFB248', marginLeft: 2 }} />
+          <Play size={20} style={{ fill: '#D4AF37', color: '#D4AF37', marginLeft: 2 }} />
         </div>
       </div>
     </div>
@@ -277,7 +277,7 @@ export default function Portfolio() {
             </h2>
             <p style={{
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-              fontSize: '0.875rem', color: 'rgba(203,213,225,0.6)',
+              fontSize: '0.875rem', color: '#A1A1AA',
               maxWidth: 320, lineHeight: 2, fontWeight: 300,
             }}>
               {t('portfolio.subtitle')}
@@ -290,7 +290,7 @@ export default function Portfolio() {
           {['left', 'right'].map(side => (
             <div key={side} style={{
               position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '10%', zIndex: 2,
-              background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(2,5,10,0.95), transparent)`,
+              background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(10,10,12,0.95), transparent)`,
               pointerEvents: 'none',
             }} />
           ))}
@@ -330,7 +330,7 @@ export default function Portfolio() {
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
-            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(2,5,10,0.95), transparent)`,
+            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(10,10,12,0.95), transparent)`,
             pointerEvents: 'none',
           }} />
         ))}
@@ -363,7 +363,7 @@ export default function Portfolio() {
         <div
           style={{
             position: 'fixed', inset: 0, zIndex: 9999,
-            background: 'rgba(2,5,10,0.97)', backdropFilter: 'blur(24px)',
+            background: 'rgba(10,10,12,0.96)', backdropFilter: 'blur(24px)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem',
           }}
           onClick={() => setActiveVideo(null)}
@@ -403,7 +403,7 @@ export default function Portfolio() {
       {showAllVideos && (
         <div className="modal-scroll" style={{
           position: 'fixed', inset: 0, zIndex: 9998,
-          background: 'rgba(2,5,10,0.98)', backdropFilter: 'blur(24px)',
+          background: 'rgba(10,10,12,0.98)', backdropFilter: 'blur(24px)',
           overflowY: 'auto', direction: 'rtl',
         }}>
           <div className="section-wrap" style={{ padding: 'clamp(2rem, 6vw, 4rem) 1.25rem' }}>
@@ -418,7 +418,7 @@ export default function Portfolio() {
                 </h2>
                 <p style={{
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                  fontSize: '0.875rem', color: 'rgba(203,213,225,0.7)',
+                  fontSize: '0.875rem', color: '#A1A1AA',
                   marginTop: '0.5rem',
                 }}>
                   {t('portfolio.archive_subtitle')}
@@ -441,12 +441,12 @@ export default function Portfolio() {
                   style={{
                     width: '100%', aspectRatio: '9/16',
                     position: 'relative', borderRadius: '0.75rem', overflow: 'hidden',
-                    cursor: 'pointer', border: '1px solid rgba(255,255,255,0.07)',
-                    background: '#020810', transition: 'all 0.35s ease',
+                    cursor: 'pointer', border: '1px solid rgba(255,255,255,0.08)',
+                    background: '#111116', transition: 'all 0.35s ease',
                   }}
                   onClick={() => { setShowAllVideos(false); setActiveVideo(id); }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.borderColor = 'rgba(254, 215, 3, 0.50)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.45)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
                 >
                   <img
                     src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
@@ -461,10 +461,10 @@ export default function Portfolio() {
                   <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{
                       width: 40, height: 40, borderRadius: '50%',
-                      background: 'rgba(223, 178, 72, 0.20)', border: '1px solid rgba(246, 228, 180, 0.65)',
+                      background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(229, 228, 226, 0.5)',
                       backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      <Play size={16} style={{ fill: '#DFB248', color: '#DFB248', marginRight: -2 }} />
+                      <Play size={16} style={{ fill: '#D4AF37', color: '#D4AF37', marginRight: -2 }} />
                     </div>
                   </div>
                 </div>

@@ -23,14 +23,14 @@ export default function ClosingCTA() {
         position: 'absolute', top: '50%', left: '50%',
         width: 'min(800px, 100vw)', height: 'min(800px, 100vw)',
         borderRadius: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(223, 178, 72, 0.10) 0%, transparent 60%)',
+        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 60%)',
         pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
         width: 'min(600px, 80vw)', height: 'min(600px, 80vw)',
         borderRadius: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(4, 34, 70, 0.60) 0%, transparent 65%)',
+        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 65%)',
         pointerEvents: 'none',
       }} />
 
@@ -58,10 +58,10 @@ export default function ClosingCTA() {
           maxWidth: 500, margin: '0 auto clamp(2.5rem, 6vw, 4rem)',
           fontSize: 'clamp(0.875rem, 2vw, 1rem)',
           fontWeight: 300,
-          color: 'rgba(203,213,225,0.65)', lineHeight: 2,
+          color: '#A1A1AA', lineHeight: 2,
         }}>
           {t('closing_cta.subtitle_p1')}{' '}
-          <span style={{ color: '#F6E4B4', fontWeight: 600 }}>
+          <span style={{ color: '#E5E4E2', fontWeight: 600 }}>
             {t('closing_cta.subtitle_highlight')}
           </span>
         </p>
@@ -76,7 +76,7 @@ export default function ClosingCTA() {
             className="btn-primary"
             id="closing-cta"
             style={{
-              boxShadow: '0 0 52px -4px rgba(223, 178, 72, 0.35)',
+              boxShadow: '0 0 52px -4px rgba(212, 175, 55, 0.35)',
               fontSize: 'clamp(0.85rem, 2vw, 1rem)',
               padding: 'clamp(0.875rem, 2vw, 1.125rem) clamp(1.5rem, 4vw, 3rem)',
               maxWidth: 420, width: '100%', justifyContent: 'center', border: 'none', cursor: 'pointer'
@@ -92,7 +92,8 @@ export default function ClosingCTA() {
           marginTop: '1.25rem',
           fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
           fontSize: '0.75rem',
-          color: 'rgba(203,213,225,0.3)',
+          color: '#A1A1AA',
+          opacity: 0.7,
         }}>
           {t('closing_cta.disclaimer')}
         </p>
@@ -102,7 +103,7 @@ export default function ClosingCTA() {
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: '0.58rem',
-            textTransform: 'uppercase', color: 'rgba(203,213,225,0.3)',
+            textTransform: 'uppercase', color: '#A1A1AA',
             marginBottom: '1.25rem', fontWeight: 700,
           }}>
             {t('closing_cta.trusted_by')}
@@ -112,7 +113,7 @@ export default function ClosingCTA() {
               <span key={idx} style={{
                 fontFamily: "'Sarchia Bokan', serif",
                 fontSize: 'clamp(0.875rem, 2vw, 1rem)', fontWeight: 600,
-                color: 'rgba(203,213,225,0.55)',
+                color: '#A1A1AA',
               }}>
                 {item}
               </span>

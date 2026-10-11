@@ -86,12 +86,12 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         borderRadius: '0.9rem',
         overflow: 'hidden',
         cursor: 'pointer',
-        background: '#0e0e0e',
-        border: `1px solid ${hover ? 'rgba(223, 178, 72, 0.45)' : 'rgba(255,255,255,0.08)'}`,
+        background: '#111116',
+        border: `1px solid ${hover ? 'rgba(212, 175, 55, 0.45)' : 'rgba(255,255,255,0.08)'}`,
         transition: 'all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
         boxShadow: hover
-          ? '0 20px 52px -8px rgba(0,0,0,0.80), 0 0 0 1px rgba(223, 178, 72, 0.30)'
+          ? '0 20px 52px -8px rgba(0,0,0,0.80), 0 0 0 1px rgba(212, 175, 55, 0.25)'
           : '0 6px 28px rgba(0,0,0,0.55)',
       }}
       onMouseEnter={() => setHover(true)}
@@ -104,7 +104,7 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         height: isMobile ? 230 : 280,
         position: 'relative',
         overflow: 'hidden',
-        background: error ? 'rgba(223, 178, 72, 0.05)' : 'rgba(2,6,16,0.5)',
+        background: error ? 'rgba(212, 175, 55, 0.05)' : 'rgba(10,10,12,0.5)',
       }}>
         {/* Skeleton shimmer */}
         {!loaded && !error && (
@@ -138,25 +138,25 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
           <div style={{
             position: 'absolute', inset: 0,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'rgba(223, 178, 72, 0.5)', fontSize: '1.5rem',
+            color: 'rgba(212, 175, 55, 0.5)', fontSize: '1.5rem',
           }}>🎨</div>
         )}
         {/* Hover zoom overlay */}
         {!error && loaded && (
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'rgba(2,5,10,0.40)', backdropFilter: 'blur(2px)',
+            background: 'rgba(10,10,12,0.40)', backdropFilter: 'blur(2px)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             opacity: hover ? 1 : 0, transition: 'opacity 0.35s ease',
           }}>
             <div style={{
               width: 40, height: 40, borderRadius: '50%',
-              background: 'rgba(223, 178, 72, 0.20)', border: '1px solid rgba(246, 228, 180, 0.65)',
+              background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(229, 228, 226, 0.6)',
               backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
               transform: hover ? 'scale(1)' : 'scale(0.8)',
               transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
             }}>
-              <Maximize2 size={15} style={{ color: '#FFF6DD' }} />
+              <Maximize2 size={15} style={{ color: '#E5E4E2' }} />
             </div>
           </div>
         )}
@@ -230,7 +230,7 @@ export default function DesignPortfolio() {
           </h2>
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-            fontSize: '0.875rem', color: 'rgba(203,213,225,0.6)',
+            fontSize: '0.875rem', color: '#A1A1AA',
             maxWidth: 400, lineHeight: 2, fontWeight: 300,
             margin: '1rem auto 0',
           }}>
@@ -244,7 +244,7 @@ export default function DesignPortfolio() {
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
-            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(2,5,10,0.95), transparent)`,
+            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(10,10,12,0.95), transparent)`,
             pointerEvents: 'none',
           }} />
         ))}
@@ -260,7 +260,7 @@ export default function DesignPortfolio() {
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
-            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(2,5,10,0.95), transparent)`,
+            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(10,10,12,0.95), transparent)`,
             pointerEvents: 'none',
           }} />
         ))}
@@ -286,7 +286,7 @@ export default function DesignPortfolio() {
         <div
           style={{
             position: 'fixed', inset: 0, zIndex: 9999,
-            background: 'rgba(2,5,10,0.99)', backdropFilter: 'blur(24px)',
+            background: 'rgba(10,10,12,0.98)', backdropFilter: 'blur(24px)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: '1rem',
           }}
@@ -321,7 +321,7 @@ export default function DesignPortfolio() {
       {showAllDesigns && (
         <div className="modal-scroll" style={{
           position: 'fixed', inset: 0, zIndex: 9998,
-          background: 'rgba(2,5,10,0.98)', backdropFilter: 'blur(24px)',
+          background: 'rgba(10,10,12,0.98)', backdropFilter: 'blur(24px)',
           overflowY: 'auto', direction: 'rtl',
         }}>
           <div className="section-wrap" style={{ padding: 'clamp(2rem, 6vw, 4rem) 1.25rem' }}>
@@ -336,7 +336,7 @@ export default function DesignPortfolio() {
                 </h2>
                 <p style={{
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                  fontSize: '0.875rem', color: 'rgba(203,213,225,0.7)',
+                  fontSize: '0.875rem', color: '#A1A1AA',
                   marginTop: '0.5rem',
                 }}>
                   {t('design_portfolio.archive_subtitle')}
@@ -358,7 +358,7 @@ export default function DesignPortfolio() {
                   />
                   <div className="masonry-overlay">
                     <div className="masonry-btn">
-                      <Maximize2 size={18} style={{ color: '#FFF6DD' }} />
+                      <Maximize2 size={18} style={{ color: '#E5E4E2' }} />
                     </div>
                   </div>
                 </div>

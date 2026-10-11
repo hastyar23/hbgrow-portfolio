@@ -170,19 +170,19 @@ export default function PainSolution() {
               {/* Icon badge */}
               <div style={{
                 width: 40, height: 40, borderRadius: '0.75rem',
-                background: 'linear-gradient(135deg, rgba(223, 178, 72, 0.18) 0%, rgba(168, 122, 30, 0.06) 100%)',
-                border: '1px solid rgba(223, 178, 72, 0.35)',
+                background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(184, 146, 40, 0.06) 100%)',
+                border: '1px solid rgba(212, 175, 55, 0.35)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 marginBottom: '1.5rem', flexShrink: 0,
                 backdropFilter: 'blur(8px)',
-                boxShadow: '0 4px 16px rgba(223, 178, 72, 0.20), inset 0 1px 0 rgba(255,255,255,0.20)',
+                boxShadow: '0 4px 16px rgba(212, 175, 55, 0.20), inset 0 1px 0 rgba(255,255,255,0.15)',
               }}>
-                <CheckCircle2 size={16} style={{ color: '#DFB248' }} />
+                <CheckCircle2 size={16} style={{ color: '#D4AF37' }} />
               </div>
 
               <div style={{
                 fontSize: '0.65rem', fontWeight: 700,
-                color: '#F6E4B4', marginBottom: '0.75rem',
+                color: '#E5E4E2', marginBottom: '0.75rem',
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
                 textTransform: 'uppercase', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               }}>
@@ -198,7 +198,7 @@ export default function PainSolution() {
               </h3>
               <p style={{
                 fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                fontSize: '0.9rem', color: 'rgba(203,213,225,0.60)',
+                fontSize: '0.9rem', color: '#A1A1AA',
                 lineHeight: 2, fontWeight: 300,
               }}>
                 {desc}
@@ -216,7 +216,7 @@ export default function PainSolution() {
           <p style={{
             marginTop: '1.25rem',
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-            fontSize: '0.8rem', color: 'rgba(203,213,225,0.4)',
+            fontSize: '0.8rem', color: '#A1A1AA',
           }}>
             {t('pain_solution.cta_desc')}
           </p>

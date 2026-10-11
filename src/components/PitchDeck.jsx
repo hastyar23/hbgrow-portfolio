@@ -19,10 +19,8 @@ import {
   Video,
   Palette,
   ExternalLink,
-  Shield,
   Lock,
   Sparkles,
-  TrendingUp,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -145,25 +143,6 @@ function MacOSWindow({ title = 'Meta Ads Manager', url = 'business.facebook.com/
   );
 }
 
-// ─── Photorealistic Titanium iPhone 15 Pro Bezel ──────────────────────────────
-function TitaniumPhoneFrame({ children, className = '' }) {
-  return (
-    <div className={`relative mx-auto w-[250px] sm:w-[275px] rounded-[48px] p-2.5 border-[2.5px] border-[#2C2B2A] bg-[#050505] shadow-none ${className}`}>
-      {/* Titanium Edge Inner Chamfer */}
-      <div className="absolute inset-0 rounded-[45px] border border-white/[0.08] pointer-events-none" />
-      {/* Dynamic Island Pill */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 h-4.5 w-20 rounded-full bg-black border border-white/[0.08] flex items-center justify-between px-2">
-        <div className="h-2 w-2 rounded-full bg-[#0a0a0c]" />
-        <div className="h-1.5 w-1.5 rounded-full bg-[#031326]" />
-      </div>
-      {/* Screen Aspect */}
-      <div className="relative overflow-hidden rounded-[38px] bg-[#09090b] aspect-[9/19] flex flex-col justify-between">
-        {children}
-      </div>
-    </div>
-  );
-}
-
 // ─── Stealth Monochromatic Iraqi Payment Signals ──────────────────────────────
 function StealthFIBLogo({ className = 'h-5 w-auto' }) {
   return (
@@ -252,7 +231,7 @@ export default function PitchDeck({ onScheduleClick }) {
   // Active Case Study Index in Section 3
   const [activeProofIndex, setActiveProofIndex] = useState(0);
 
-  // Interactive Smart Calculator State (Slide 5)
+  // Interactive Smart Calculator State (Slide 5 / Page 5-6)
   const [cameraSessions, setCameraSessions] = useState(0);
   const [videoEdits, setVideoEdits] = useState(4);
   const [graphicDesigns, setGraphicDesigns] = useState(4);
@@ -342,27 +321,27 @@ export default function PitchDeck({ onScheduleClick }) {
     return () => observer.disconnect();
   }, []);
 
-  // WhatsApp Pre-fill builders
+  // WhatsApp Pre-fill builders verbatim with PDF intent
   const getWhatsAppUrl = (customText) => {
-    const textKu = `سڵاو HBgrow، سەیری پرێزێنتەیشنەکەم کرد و دەمەوێت گفتوگۆ بکەین بۆ دەستپێکردنی کار لەگەڵتان.`;
-    const textEn = `Hello HBgrow, I reviewed your Executive Pitch Deck and would like to discuss scaling my brand with you.`;
+    const textKu = `سڵاو HBgrow، سەیری پرێزێنتەیشنەکەم کرد و دەمەوێت کاتێک دیاریبکەین بۆ گفتوگۆکردن و دەستپێکردنی کار لەگەڵتان.`;
+    const textEn = `Hello HBgrow, I reviewed the pitch presentation and would like to schedule a strategy call to start working with you.`;
     const text = customText || (isKurdish ? textKu : textEn);
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   };
 
   const getCalculatorWhatsAppUrl = () => {
-    const textKu = `سڵاو HBgrow، لە ڕێگەی ژمێرەری زیرەکەوە ئەم پلانە تایبەتەم دیاری کردووە:\n• وێنەگرتنی کامێرا: ${cameraSessions} سێشن\n• ئیدیتینگی ڤیدیۆ: ${videoEdits} ڤیدیۆ\n• گرافیک دیزاین: ${graphicDesigns} دیزاین\nکۆی گشتی خەمڵێندراو: ${formatIQD(totalCalculatorIQD)} دینار.\nدەمەوێت ئەم پلانە لەگەڵتان دەستپێبکەم.`;
-    const textEn = `Hello HBgrow, I configured a custom plan via the Interactive Smart Calculator:\n• Camera Videography: ${cameraSessions} session(s)\n• Video Editing: ${videoEdits} video(s)\n• Graphic Design: ${graphicDesigns} design(s)\nEstimated Total: ${formatIQD(totalCalculatorIQD)} IQD.\nI would like to proceed with this tailored plan.`;
+    const textKu = `سڵاو HBgrow، لە ڕێگەی ژمێرەری زیرەکەوە ئەم پلانە تایبەتەم دیاری کردووە:\n• وێنەگرتنی کامێرا: ${cameraSessions} سەردان\n• مۆنتاژ و ئیدیتینگی ڤیدیۆ: ${videoEdits} ڤیدیۆ\n• گرافیک دیزاین: ${graphicDesigns} دیزاین\nکۆی گشتی وەبەرهێنانەکەم: ${formatIQD(totalCalculatorIQD)} دینار.\nدەمەوێت ئەم پلانە لەگەڵتان دەستپێبکەم.`;
+    const textEn = `Hello HBgrow, I configured my customized plan via the Smart Calculator:\n• Camera Videography: ${cameraSessions} session(s)\n• Video Editing: ${videoEdits} video(s)\n• Graphic Design: ${graphicDesigns} design(s)\nTotal Investment: ${formatIQD(totalCalculatorIQD)} IQD.\nI would like to launch this plan.`;
     return getWhatsAppUrl(isKurdish ? textKu : textEn);
   };
 
   const slideTitles = [
-    { num: '01', en: 'The Core Premise', ku: 'دەستپێکی ستراتیژی' },
-    { num: '02', en: 'Old Paradigm vs Engine', ku: 'کۆن دژی HBgrow' },
-    { num: '03', en: 'Meta Telemetry Proof', ku: 'بەڵگە و ئەنجامەکان' },
-    { num: '04', en: 'Capital Allocation', ku: 'پاکێجەکان و نرخ' },
-    { num: '05', en: 'Interactive Calculator', ku: 'ژمێرەری زیرەک' },
-    { num: '06', en: 'Launch Protocol', ku: 'چۆن دەست پێدەکەین؟' },
+    { num: '01', en: 'Hero', ku: 'دەستپێکی ستراتیژی' },
+    { num: '02', en: 'Old Way vs HBgrow', ku: 'ڕێگای کۆن بەرامبەر HBgrow' },
+    { num: '03', en: 'Proof & Case Studies', ku: 'بەڵگە و ئەنجامەکان' },
+    { num: '04', en: 'Packages & Pricing', ku: 'پاکێجەکان و وەبەرهێنان' },
+    { num: '05', en: 'Smart Calculator', ku: 'ژمێرەری زیرەک' },
+    { num: '06', en: 'Frictionless Onboarding', ku: 'چۆن دەست پێدەکەین؟' },
   ];
 
   return (
@@ -386,7 +365,7 @@ export default function PitchDeck({ onScheduleClick }) {
           <div className="flex items-center gap-2">
             <span className="font-semibold tracking-tight text-sm text-white">HBgrow</span>
             <span className="text-[10px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-400 border border-white/[0.04]">
-              Executive
+              Pitch
             </span>
           </div>
         </div>
@@ -423,7 +402,7 @@ export default function PitchDeck({ onScheduleClick }) {
 
           <WireframeCTA href={getWhatsAppUrl()} className="!py-1.5 !px-4 !text-[11px]">
             <WhatsAppIcon size={13} />
-            <span>{isKurdish ? 'پەیوەندی' : 'Consult'}</span>
+            <span>{isKurdish ? 'گفتوگۆکردن' : 'Consult'}</span>
           </WireframeCTA>
         </div>
       </header>
@@ -501,7 +480,7 @@ export default function PitchDeck({ onScheduleClick }) {
         style={{ scrollSnapType: 'y mandatory', WebkitOverflowScrolling: 'touch' }}
       >
         {/* ==================================================================== */}
-        {/* SLIDE 1: THE CORE PREMISE (VERBATIM PDF PAGE 1)                      */}
+        {/* SLIDE 1: HERO (PAGE 1 VERBATIM)                                      */}
         {/* ==================================================================== */}
         <section
           ref={(el) => (slideRefs.current[0] = el)}
@@ -519,44 +498,44 @@ export default function PitchDeck({ onScheduleClick }) {
             >
               <div className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
               <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400">
-                {isKurdish ? 'ستراتیژی نوێی گەشە بۆ ٢٠٢٦' : 'THE 2026 STRATEGIC ENGINE'}
+                {isKurdish ? 'سیستەمی گەشەی HBgrow' : 'HBGROW GROWTH SYSTEM'}
               </span>
             </motion.div>
 
-            {/* Massive Pure White H1 with Tight Tracking */}
+            {/* Massive Pure White H1 with Tight Tracking (PDF Page 1) */}
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.1, ease: EASE_PRO }}
-              className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter text-white leading-[1.18] max-w-4xl mb-6"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-white leading-[1.25] max-w-4xl mb-6"
             >
               {isKurdish ? (
                 <>
                   ئێمە کار لەسەر هێنانی ڤیو لایکی زۆر ناکەین،{' '}
                   <span className="text-[#D4AF37]">ئێمە کار لەسەر هێنانی کڕیاری زیاتر دەکەین</span>{' '}
-                  بۆ بزنسەکەت له ڕێی سۆشیال میدیاکەتەوە.
+                  بۆ بزنسەکەت لە ڕێی سۆشیال میدیاکەتەوە
                 </>
               ) : (
                 <>
-                  We don&apos;t chase vanity views and likes.{' '}
-                  <span className="text-[#D4AF37]">We engineer systems that convert real buyers</span>{' '}
-                  for your enterprise through social media.
+                  We don&apos;t focus on chasing empty views and likes.{' '}
+                  <span className="text-[#D4AF37]">We engineer systems that bring real paying customers</span>{' '}
+                  to your business through social media.
                 </>
               )}
             </motion.h1>
 
-            {/* Muted Zinc Body Paragraph */}
+            {/* Sub-headline / Supporting Copy (Body) (PDF Page 1) */}
             <motion.p
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.2, ease: EASE_PRO }}
-              className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-2xl leading-relaxed mb-10 font-normal"
+              className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-3xl leading-relaxed mb-10 font-normal"
             >
               {isKurdish
                 ? 'لەڕێی بەرهەمهێنانی ستراتیجی تایبەت و دیزاین و ڤیدیۆی تایبەت، وادەکەین پەیجی بزنسەکەت هەم ڕێک و پێک و پرۆفێشناڵ وەک براندێکی پێشکەوتوو دەربکەوێت، هەم بەکاریاندەهێنینەوە بۆ ڕاکێشانی کڕیاری زیاتر بۆ بزنسەکەت لە ڕێی سپۆنسەرکردنی تایبەتەوە.'
-                : 'Through custom strategy, bespoke design, and high-retention video production, we position your business profile as a premier market leader while deploying targeted Meta campaigns to systematically attract paying customers.'}
+                : 'Through tailored strategy, bespoke design, and high-retention video production, we elevate your business profile into a premium market-leading brand, and deploy targeted ad campaigns to consistently attract qualified customers.'}
             </motion.p>
 
             {/* Asymmetrical Bento Teaser Stats */}
@@ -594,14 +573,14 @@ export default function PitchDeck({ onScheduleClick }) {
               onClick={nextSlide}
               className="flex items-center gap-1.5 text-xs text-zinc-500 hover:text-white transition-colors cursor-pointer"
             >
-              <span>{isKurdish ? 'بەراوردی ڕاستەقینە ببینە' : 'Inspect the paradigm shift'}</span>
+              <span>{isKurdish ? 'بۆ بینینی هەنگاوی دووەم دەست لێبدە' : 'Inspect the paradigm shift'}</span>
               <ChevronDown size={13} />
             </button>
           </div>
         </section>
 
         {/* ==================================================================== */}
-        {/* SLIDE 2: ASYMMETRICAL BENTO BOX: OLD VS NEW (PDF PAGES 1 & 2)       */}
+        {/* SLIDE 2: ڕێگای کۆن بەرامبەر سیستەمی فرۆشتنی HBgrow (PAGES 1 & 2)       */}
         {/* ==================================================================== */}
         <section
           ref={(el) => (slideRefs.current[1] = el)}
@@ -609,7 +588,7 @@ export default function PitchDeck({ onScheduleClick }) {
           className="relative w-full min-h-[100dvh] h-full snap-start snap-always flex flex-col justify-center items-center px-4 sm:px-8 md:px-14 py-16 overflow-y-auto bg-[#050505]"
         >
           <div className="max-w-5xl w-full mx-auto my-auto flex flex-col">
-            {/* Header */}
+            {/* Header: ١. سەردێڕی سەرەکی (Headline) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -618,7 +597,7 @@ export default function PitchDeck({ onScheduleClick }) {
               className="text-center mb-6"
             >
               <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-full border border-white/[0.04] bg-white/[0.02] mb-3">
-                {isKurdish ? 'بەراوردی ڕاستەقینە • ڕێگای کۆن دژی نوێ' : 'PARADIGM SHIFT • ZERO VANITY'}
+                {isKurdish ? 'ڕێگای کۆن بەرامبەر سیستەمی فرۆشتنی HBgrow' : 'OLD PARADIGM VS HBGROW GROWTH SYSTEM'}
               </div>
               <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
                 {isKurdish
@@ -627,15 +606,18 @@ export default function PitchDeck({ onScheduleClick }) {
               </h2>
             </motion.div>
 
-            {/* Asymmetrical Bento Grid */}
+            {/* Two Glassmorphic Bento Cards (PDF Page 1 & 2) */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4">
-              {/* Left Bento: The Old Way (4 cols) */}
+              {/* Left Bento: کارتی چەپ: ڕێگای کۆن و باو (ئەیجێنسی\فریلانسی ئاسایی و پۆستکردنی بێ پلان) */}
               <SpotlightCard className="md:col-span-5 p-6 flex flex-col justify-between border-red-500/10">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-red-400/80 px-2.5 py-1 rounded-md bg-red-500/[0.06] border border-red-500/15">
-                      {isKurdish ? 'ڕێگای کۆن (سەرفکردنی بێسوود)' : 'THE OBSOLETE WAY'}
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-red-400/90 px-2.5 py-1 rounded-md bg-red-500/[0.06] border border-red-500/15">
+                      {isKurdish ? 'کارتی چەپ: ڕێگای کۆن و باو' : 'THE OUTDATED WAY (FAILING)'}
                     </span>
+                  </div>
+                  <div className="text-[11px] text-zinc-500 mb-4 font-mono">
+                    {isKurdish ? 'ئەیجێنسی / فریلانسی ئاسایی و پۆستکردنی بێ پلان' : 'Generic agencies & unstrategic posting'}
                   </div>
 
                   <ul className="space-y-4 text-xs">
@@ -645,12 +627,12 @@ export default function PitchDeck({ onScheduleClick }) {
                       </div>
                       <div>
                         <strong className="text-zinc-200 block font-semibold mb-0.5">
-                          {isKurdish ? 'دیزاینی وێنەی بێ گیان' : 'Static Feed Graphics'}
+                          {isKurdish ? 'دیزاینی وێنەی بێ گیان:' : 'Lifeless Static Designs:'}
                         </strong>
                         <span className="text-zinc-400 leading-relaxed block">
                           {isKurdish
-                            ? 'دیزاینی وێنەی ئاسایی کە لەناو سۆشیال میدیادا کەس نایبینێت و تێپەڕ دەبێت.'
-                            : 'Generic Canva templates scrolled past in 0.3s without registering attention.'}
+                            ? 'وێنەیەک کە بە چەند چرکەیەک دیزاین کراوە و لەناو هەزاران پۆستی تردا کەس سەیری ناکات.'
+                            : 'Standard static images designed in seconds and scrolled past without registering attention.'}
                         </span>
                       </div>
                     </li>
@@ -661,12 +643,12 @@ export default function PitchDeck({ onScheduleClick }) {
                       </div>
                       <div>
                         <strong className="text-zinc-200 block font-semibold mb-0.5">
-                          {isKurdish ? 'سپۆنسەری بێ ئامانج' : 'Blind Boosting'}
+                          {isKurdish ? 'سپۆنسەری بێ ئامانج:' : 'Aimless Boosting:'}
                         </strong>
                         <span className="text-zinc-400 leading-relaxed block">
                           {isKurdish
-                            ? 'داگرتنی دوگمەی Boost Post بەبێ هیچ فەنەڵ و بە ئامانجگرتنێکی دروست.'
-                            : 'Tapping Boost Post blindly with zero attribution tracking or sales funnels.'}
+                            ? 'تەنها داگرتنی دوگمەی Boost Post و بەفیڕۆدانی بودجە بەبێ هیچ تارگێتێکی دروست.'
+                            : 'Blindly clicking Boost Post and burning ad budget with zero targeting data.'}
                         </span>
                       </div>
                     </li>
@@ -677,12 +659,12 @@ export default function PitchDeck({ onScheduleClick }) {
                       </div>
                       <div>
                         <strong className="text-zinc-200 block font-semibold mb-0.5">
-                          {isKurdish ? 'دڵخۆشبوون بە لایک' : 'Vanity Metrics'}
+                          {isKurdish ? 'دڵخۆشبوون بە لایک:' : 'Celebrating Vanity Likes:'}
                         </strong>
                         <span className="text-zinc-400 leading-relaxed block">
                           {isKurdish
-                            ? 'سەیرکردنی لایک و ڤیو لە جیاتی ئەوەی سەرنج لەسەر هێنانی کڕیار و نامە بێت.'
-                            : 'Chasing empty likes that never translate to commercial cash flow or payroll.'}
+                            ? 'گرنگیدان بە ژمارەی ڤیو و لایک، لە کاتێکدا کڕیار پێویستە نامە بنێرێت یان سەردانت بکات.'
+                            : 'Focusing on vanity views and likes, while actual paying customers should message or visit.'}
                         </span>
                       </div>
                     </li>
@@ -693,12 +675,12 @@ export default function PitchDeck({ onScheduleClick }) {
                       </div>
                       <div>
                         <strong className="text-zinc-200 block font-semibold mb-0.5">
-                          {isKurdish ? 'نەبوونی ڕێڕەوی فرۆشتن' : 'Zero Funnel Architecture'}
+                          {isKurdish ? 'نەبوونی ڕێڕەوی فرۆشتن:' : 'Zero Sales Funnel:'}
                         </strong>
                         <span className="text-zinc-400 leading-relaxed block">
                           {isKurdish
-                            ? 'کەس نازانێت چۆن بینەر دەبێت بە کڕیار و پارە بۆ بزنسەکەت دروست دەکات.'
-                            : 'No systematic bridge between mobile screen view and finalized transaction.'}
+                            ? 'هیچ پلانێک نییە بۆ ئەوەی ئەو کەسەی پۆستەکە دەبینێت چۆن ببێتە کڕیار.'
+                            : 'No clear mechanism to transition a casual viewer into a commercial paying buyer.'}
                         </span>
                       </div>
                     </li>
@@ -711,62 +693,62 @@ export default function PitchDeck({ onScheduleClick }) {
                 </div>
               </SpotlightCard>
 
-              {/* Right Bento: The HBgrow Engine (7 cols) */}
+              {/* Right Bento: کارتی ڕاست: سیستەمی گەشەی HBgrow */}
               <SpotlightCard className="md:col-span-7 p-6 flex flex-col justify-between border-white/[0.08]">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-[10px] font-mono uppercase tracking-wider text-[#D4AF37] px-2.5 py-1 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/20">
-                      {isKurdish ? 'سیستەمی گەشەی HBgrow' : 'THE HBGROW ENGINE'}
+                      {isKurdish ? 'کارتی ڕاست: سیستەمی گەشەی HBgrow' : 'THE HBGROW GROWTH SYSTEM'}
                     </span>
                     <Sparkles size={12} className="text-[#D4AF37]" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                    <div className="p-3 rounded-2xl bg-white/[0.015] border border-white/[0.03]">
+                    <div className="p-3.5 rounded-2xl bg-white/[0.015] border border-white/[0.03]">
                       <div className="flex items-center gap-1.5 text-white font-semibold mb-1">
                         <Check size={12} className="text-[#D4AF37]" />
-                        <span>{isKurdish ? 'ڤیدیۆی کوالێتی بەرز' : 'High-Retention Reels'}</span>
+                        <span>{isKurdish ? 'ڤیدیۆی کوالێتی بەرز:' : 'High-Retention Video:'}</span>
                       </div>
                       <p className="text-zinc-400 text-[11px] leading-relaxed">
                         {isKurdish
-                          ? 'بەرهەمهێنانی ڤیدیۆ بە دەنگخستنەسەر (Voiceover) و سەرنجڕاکێشان لە ۳ چرکەی یەکەمدا.'
-                          : 'Engineered with professional voiceovers and immediate 3s algorithmic thumb-stops.'}
+                          ? 'سیناریۆی سەرنجڕاکێش و دەنگ (Voiceover) کە لە ۳ چرکەی یەکەمدا سەرنجی کڕیار ڕادەکێشێت.'
+                          : 'Compelling scripts and professional Kurdish voiceover capturing customer attention in the first 3s.'}
                       </p>
                     </div>
 
-                    <div className="p-3 rounded-2xl bg-white/[0.015] border border-white/[0.03]">
+                    <div className="p-3.5 rounded-2xl bg-white/[0.015] border border-white/[0.03]">
                       <div className="flex items-center gap-1.5 text-white font-semibold mb-1">
                         <Check size={12} className="text-[#D4AF37]" />
-                        <span>{isKurdish ? 'کەمپەینی داتامەبەست' : 'Precision Meta Ads'}</span>
+                        <span>{isKurdish ? 'کەمپەینی داتامەبەست لە Meta:' : 'Data-Driven Meta Ads:'}</span>
                       </div>
                       <p className="text-zinc-400 text-[11px] leading-relaxed">
                         {isKurdish
-                          ? 'دانانی کەمپەینی ڕیکلامی ورد لە Meta بۆ بە ئامانجگرتنی ئەو کەسانەی ئامادەن بکڕن.'
-                          : 'Laser targeting qualified high-income buyer clusters in Erbil and Sulaymaniyah.'}
+                          ? 'بەکارهێنانی سیستەمی پێشکەوتووی سپۆنسەر بۆ گەیشتن بەو کەسانەی بەڕاستی توانای کڕینیان هەیە.'
+                          : 'Deploying advanced Meta ad systems targeting prospects with verified purchasing capacity.'}
                       </p>
                     </div>
 
-                    <div className="p-3 rounded-2xl bg-white/[0.015] border border-white/[0.03]">
+                    <div className="p-3.5 rounded-2xl bg-white/[0.015] border border-white/[0.03]">
                       <div className="flex items-center gap-1.5 text-white font-semibold mb-1">
                         <Check size={12} className="text-[#D4AF37]" />
-                        <span>{isKurdish ? 'فەنەڵی واتسئەپ' : 'Direct WhatsApp Pipeline'}</span>
+                        <span>{isKurdish ? 'فەنەڵی گۆڕینی بینەر بۆ کڕیار:' : 'Direct WhatsApp Funnel:'}</span>
                       </div>
                       <p className="text-zinc-400 text-[11px] leading-relaxed">
                         {isKurdish
-                          ? 'دروستکردنی سیستەمێک کە ڕاستەوخۆ بینەر دەباتە سەر کڕین و نامەناردن لە واتسئەپ.'
-                          : 'Frictionless checkout path leading ready prospects directly to order placement.'}
+                          ? 'ئاراستەکردنی بینەر ڕاستەوخۆ بۆ ناو واتسئەپ و نامەکان بە پەیامی ڕوون و ئامادەکراو.'
+                          : 'Guiding audience directly to WhatsApp with clear prefilled inquiry triggers.'}
                       </p>
                     </div>
 
-                    <div className="p-3 rounded-2xl bg-white/[0.015] border border-white/[0.03]">
+                    <div className="p-3.5 rounded-2xl bg-white/[0.015] border border-white/[0.03]">
                       <div className="flex items-center gap-1.5 text-white font-semibold mb-1">
                         <Check size={12} className="text-[#D4AF37]" />
-                        <span>{isKurdish ? 'ئامانجی ڕوون' : 'Measurable Revenue'}</span>
+                        <span>{isKurdish ? 'ئامانجی ڕوون:' : 'Clear Commercial Goal:'}</span>
                       </div>
                       <p className="text-zinc-400 text-[11px] leading-relaxed">
                         {isKurdish
-                          ? 'هەموو کارەکانمان یەک ئامانجیان هەیە: زیادکردنی فرۆشتن و داهاتی بزنسەکەت.'
-                          : 'Complete telemetry showing exact cost-per-lead and bottom-line commercial returns.'}
+                          ? 'گرنگیدان بە زیادکردنی فرۆشتن و ناوبانگی براندەکەت لە بازاڕدا، نەک تەنها ژمارەی سەر شاشە.'
+                          : 'Focusing on scaling real sales and enterprise market authority, not vanity screen digits.'}
                       </p>
                     </div>
                   </div>
@@ -779,19 +761,19 @@ export default function PitchDeck({ onScheduleClick }) {
               </SpotlightCard>
             </div>
 
-            {/* Bottom Verbatim Conclusion Banner */}
+            {/* Bottom Verbatim Conclusion Banner (PDF Page 2) */}
             <SpotlightCard className="p-4 sm:p-5 text-center border-white/[0.05]">
               <p className="text-xs sm:text-sm text-zinc-300 font-medium leading-relaxed max-w-3xl mx-auto">
                 {isKurdish
-                  ? 'ئەگەر بەردەوام بیت لەسەر هەمان ڕێگای کۆن، هەمان ئەنجامی بێسوودت دەستدەکەوێتەوە. کاتی ئەوەیە سۆشیال میدیاکەت لە ئەرکێکی بێسوودەوە بکەیت بە باشترین سەرمایەی بزنسەکەت.'
-                  : 'If you stay on the old road, you will keep getting zero return. It is time to turn your social media from a chore into your highest-performing business asset.'}
+                  ? 'ئەگەر بەردەوام بیت لەسەر هەمان ڕێگای کۆن، هەمان ئەنجامی بێسوودت دەستدەکەوێتەوە. کاتی ئەوەیە سۆشیال میدیاکەت لە ئەرکێکی بێسوودەوە بکەیت بە باشترین سەرمایەی بزنسەکەت'
+                  : 'If you continue on the old road, you will keep getting zero return. It is time to turn your social media from a chore into your highest-performing business asset.'}
               </p>
             </SpotlightCard>
           </div>
         </section>
 
         {/* ==================================================================== */}
-        {/* SLIDE 3: META TELEMETRY PROOF (BENTO GRID WITH MACOS WINDOW)         */}
+        {/* SLIDE 3: بەشی سێیەم: بەڵگە و ئەنجامەکان (PAGES 3 & 4)                */}
         {/* ==================================================================== */}
         <section
           ref={(el) => (slideRefs.current[2] = el)}
@@ -799,7 +781,7 @@ export default function PitchDeck({ onScheduleClick }) {
           className="relative w-full min-h-[100dvh] h-full snap-start snap-always flex flex-col justify-center items-center px-4 sm:px-8 md:px-14 py-16 overflow-y-auto bg-[#050505]"
         >
           <div className="max-w-5xl w-full mx-auto my-auto flex flex-col">
-            {/* Header */}
+            {/* Header: ١. سەردێڕی سەرەکی (Headline) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -808,110 +790,99 @@ export default function PitchDeck({ onScheduleClick }) {
               className="text-center mb-6"
             >
               <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-full border border-white/[0.04] bg-white/[0.02] mb-3">
-                {isKurdish ? 'بەڵگەی سەلمێنراو • داتا و ژمارەکان' : 'AUDITED PERFORMANCE • DATA & RESULTS'}
+                {isKurdish ? 'بەشی سێیەم: بەڵگە و ئەنجامەکان (The Proof & Case Studies)' : 'THE PROOF & CASE STUDIES'}
               </div>
               <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
                 {isKurdish
                   ? 'ئێمە بەڵێنی بێ بنەما نادەین، بە ژمارە و داتا ئەنجامەکانت پیشان دەدەین.'
-                  : 'We make zero unsubstantiated claims. Every milestone is backed by raw Meta telemetry.'}
+                  : 'We make zero unsubstantiated claims. We demonstrate your results with audited data.'}
               </h2>
+              {/* ٢. دەقی یارمەتیدەر (Sub-headline) */}
               <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto mt-2">
                 {isKurdish
-                  ? 'بینینی سەرکەوتنی کڕیارەکانمان باشترین بەڵگەیە بۆ ئەو گەشەیەی کە دەتوانین بۆ بزنسەکەی تۆیشی بکەین...'
-                  : 'Documented wins from local Iraqi business accounts audited in real-time...'}
+                  ? 'بینینی سەرکەوتنی کڕیارەکانمان باشترین بەڵگەیە بۆ ئەو گەشەیەی کە دەتوانین بۆ بزنسەکەی تۆیشی بکەین. ئێمە کار بۆ بەدەستهێنانی متمانە و زیادکردنی قازانج دەکەین.'
+                  : 'Witnessing our client success is the strongest evidence of the growth we deliver for your business. We engineer trust and real bottom-line profitability.'}
               </p>
             </motion.div>
 
             {/* Bento Grid with MacOS Window Asset Framing */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4">
-              {/* Left Column: Photorealistic MacOS Meta Dashboard (7 cols) */}
+              {/* Left Column: کارتی یەکەم: مەکینەی هێنانی نامە و کڕیار (7 cols) */}
               <div className="md:col-span-7">
-                <MacOSWindow title="Meta Ads Manager — Client Campaign Telemetry">
+                <MacOSWindow title="Meta Ads Manager — ٦,٦٧٧ نامەی کڕیار">
                   <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.04]">
                     <div>
                       <div className="text-[10px] uppercase font-mono tracking-widest text-zinc-500">
-                        {isKurdish ? 'کۆی نامەی کڕیار' : 'Inbound Inquiries'}
+                        {isKurdish ? 'کارتی یەکەم: مەکینەی هێنانی نامە و کڕیار' : 'CLIENT ACQUISITION ENGINE'}
                       </div>
-                      <div className="text-3xl sm:text-4xl font-extrabold tracking-tighter text-white mt-0.5">
-                        6,677
+                      <div className="text-2xl sm:text-3xl font-extrabold tracking-tighter text-white mt-0.5">
+                        {isKurdish ? 'دروستکردنی ٦٠,٠٠٠+ دەرفەتی فرۆشتن' : '60,000+ Sales Opportunities'}
                       </div>
                     </div>
                     <div className="text-end">
                       <div className="text-[10px] uppercase font-mono tracking-widest text-zinc-500">
-                        {isKurdish ? 'تێچووی هەر نامەیەک' : 'Cost Per Result'}
+                        {isKurdish ? 'نامەی ڕاستەقینە' : 'Inbound Leads'}
                       </div>
                       <div className="text-xl sm:text-2xl font-bold tracking-tight text-[#D4AF37] mt-0.5">
-                        $0.06
+                        6,677
                       </div>
                     </div>
                   </div>
 
-                  {/* Simulated Telemetry Bar Chart */}
-                  <div className="space-y-2 py-2">
-                    <div className="flex items-center justify-between text-[11px] text-zinc-400">
-                      <span>{isKurdish ? 'دەرفەتی فرۆشتن دروستکراو' : 'Sales Opportunities Created'}</span>
-                      <span className="font-mono text-white font-semibold">60,000+</span>
-                    </div>
-                    <div className="w-full h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
-                      <div className="h-full bg-[#D4AF37] rounded-full w-[88%]" />
-                    </div>
-
-                    <div className="flex items-center justify-between text-[11px] text-zinc-400 pt-2">
-                      <span>{isKurdish ? 'ڕێژەی گۆڕین بۆ کڕین' : 'Qualified WhatsApp Rate'}</span>
-                      <span className="font-mono text-emerald-400 font-semibold">92.4%</span>
-                    </div>
-                    <div className="w-full h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
-                      <div className="h-full bg-emerald-400/80 rounded-full w-[92%]" />
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-zinc-400 mt-3 pt-3 border-t border-white/[0.04] leading-relaxed">
+                  {/* Verbatim Body Copy from PDF Page 3 */}
+                  <p className="text-xs text-zinc-300 leading-relaxed pt-1 pb-3">
                     {isKurdish
-                      ? 'لە ڕێگەی کەمپەینە پێشکەوتووەکانمانەوە ٦,٦٧٧ نامەی کڕیاری ڕاستەقینە بۆ یەکێک لە براندەکان دروستکراوە بە کەمترین تێچوو.'
-                      : 'Audited live Meta Ads Manager campaign showing 6,677 verified incoming buyer messages at $0.06 cost-per-lead.'}
+                      ? 'ئێمە تەنیا پۆست ناکەین. ستراتیجییەکەمان تا ئێستا زیاتر لە ٦٠,٠٠٠ نامەی کڕیاری ڕاستەقینەیان بۆ براندەکان هێناوە. لە یەکێک لە کەمپەینەکانماندا بۆ کڕیارێک، بە کەمترین تێچوو ٦,٦٧٧ نامەی نوێی کڕیارمان ڕاکێشایە ناو ئەکاونتەکەیەوە. ئێمە قەرەباڵغی دروست ناکەین، ئێمە کڕیار دەهێنین.'
+                      : 'We don’t just post. Our strategy has brought over 60,000 real customer inquiries to brands. In a single campaign, we drove 6,677 new buyer messages at minimal cost. We don’t create noise; we deliver buyers.'}
                   </p>
+
+                  <div className="w-full h-1 rounded-full bg-white/[0.04] overflow-hidden">
+                    <div className="h-full bg-[#D4AF37] rounded-full w-[90%]" />
+                  </div>
                 </MacOSWindow>
               </div>
 
-              {/* Right Column: Key Proof Bento Cards (5 cols) */}
+              {/* Right Column: کارتی دووەم & کارتی سێیەم (5 cols) */}
               <div className="md:col-span-5 flex flex-col gap-4">
+                {/* کارتی دووەم: کۆنترۆڵکردنی سەرنجی بازاڕ (Page 3) */}
                 <SpotlightCard className="p-5 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-1">
-                      {isKurdish ? 'قۆرخکردنی سەرنج' : 'MARKET RETENTION'}
+                      {isKurdish ? 'کارتی دووەم: کۆنترۆڵکردنی سەرنجی بازاڕ' : 'MARKET ATTENTION DOMINANCE'}
                     </div>
-                    <div className="text-3xl font-extrabold tracking-tighter text-white">
-                      35,000,000+
+                    <div className="text-2xl font-extrabold tracking-tighter text-white">
+                      {isKurdish ? '٣٥ ملیۆن+ بینەری ئامانجدار' : '35M+ Targeted Impressions'}
                     </div>
                     <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
                       {isKurdish
-                        ? 'زیاتر لە ١٠٠٠ پارچە ناوەڕۆکی ڤیدیۆ و دیزاین کە ڕاستەوخۆ سەرنجی کڕیارانیان لە بازاڕدا قۆرخ کردووە.'
-                        : 'Over 1,000 high-retention reel assets generating 35M+ qualified views across Kurdistan.'}
+                        ? 'بە ستراتیژی ڤیدیۆییەکانمان و دیزاینە تایبەتەکانمان، زیاتر لە ٣٥ ملیۆن بینەری ئامانجدارمان بۆ کڕیارەکانمان کۆکردۆتەوە. زیاتر لە ١,٠٠٠ بەرهەمی دیزاین و ڤیدیۆمان بەرهەمهێناوە کە بینەر ناچار دەکات بوەستێت و سەیر بکات. ئێمە دەزانین چۆن بینەر لە شاشەی مۆبایلەکەیەوە بهێنینە ناو پێشانگاکەت.'
+                        : 'With tailored video strategy and bespoke design, we have gathered over 35M targeted viewers for our clients with 1,000+ high-retention assets.'}
                     </p>
                   </div>
-                  <div className="pt-2 text-[11px] font-mono text-zinc-500">1,000+ Assets Deployed</div>
+                  <div className="pt-2 text-[10px] font-mono text-zinc-500">١,٠٠٠+ بەرهەمی دیزاین و ڤیدیۆ</div>
                 </SpotlightCard>
 
+                {/* کارتی سێیەم: بەرزترین ئاستی قازانج (High ROI) (Page 4) */}
                 <SpotlightCard className="p-5 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-1">
-                      {isKurdish ? 'وەبەرهێنانی بەسوود' : 'CAPITAL EFFICIENCY'}
+                      {isKurdish ? 'کارتی سێیەم: بەرزترین ئاستی قازانج (High ROI)' : 'HIGH ROI PROFIT OPTIMIZATION'}
                     </div>
-                    <div className="text-3xl font-extrabold tracking-tighter text-[#D4AF37]">
-                      $20,000+
+                    <div className="text-2xl font-extrabold tracking-tighter text-[#D4AF37]">
+                      {isKurdish ? 'وەبەرهێنانی $٢٠,٠٠٠+ بەبێ بەفیڕۆدان' : '$20,000+ Ad Spend Optimized'}
                     </div>
                     <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
                       {isKurdish
-                        ? 'تێچووی هێنانی یەک کڕیار گەیەندراوەتە کەمترین ئاست ($0.06 بۆ هەر نامەیەک) کە قازانجی ڕاستەقینە بۆ خاوەن بزنسەکە مسۆگەر دەکات.'
-                        : 'Over $20k in ad spend managed with zero waste, driving unprecedented ROI margins.'}
+                        ? 'ساڵانە زیاتر لە ٢٠,٠٠٠ دۆلار بودجەی سپۆنسەری کڕیارەکانمان بەڕێوەدەبەین بە زیرەکترین شێواز. بەپێی داتاکانی Meta، تێچووی هەر نامەیەکی کڕیارمان (Cost per Message) دابەزاندووە بۆ نزمترین ئاست—تەنانەت تا $٠.٠٦ بۆ هەر نامەیەک. واتە بە هەمان پارەی پێشووت، چەندین هێندە فرۆشتنی زیاترت بۆ دەستەبەر دەکەین.'
+                        : 'Managing $20,000+ annual ad budgets with Meta CPM lowered to $0.06 per buyer inquiry, maximizing commercial returns.'}
                     </p>
                   </div>
-                  <div className="pt-2 text-[11px] font-mono text-zinc-500">Zero Ad Budget Waste</div>
+                  <div className="pt-2 text-[10px] font-mono text-[#D4AF37]">تەنانەت تا $٠.٠٦ بۆ هەر نامەیەک</div>
                 </SpotlightCard>
               </div>
             </div>
 
-            {/* Testimonial & Portfolio Wireframe Action */}
+            {/* Testimonial & Button that goes straight to landing page example section (Page 4) */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
               <SpotlightCard className="md:col-span-8 p-4 sm:p-5 flex items-center gap-3">
                 <div className="h-8 w-8 rounded-full border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-[#D4AF37] shrink-0 font-serif">
@@ -921,17 +892,18 @@ export default function PitchDeck({ onScheduleClick }) {
                   <p className="text-xs sm:text-sm text-zinc-300 font-medium leading-relaxed">
                     {isKurdish
                       ? '«پێشتر تەنها لایکمان دەهات، بەڵام لەگەڵ HBgrow ڕۆژانە نامەی کڕیاری ڕاستەقینەمان پێدەگات لە واتسئەپ و فرۆشمان بە تەواوی گۆڕاوە.»'
-                      : '“We previously only received passive likes. With HBgrow, qualified buyer inquiries arrive in WhatsApp every morning.”'}
+                      : '“We previously only received passive likes. With HBgrow, genuine buyer inquiries arrive in WhatsApp every morning.”'}
                   </p>
                   <div className="text-[10px] text-zinc-500 mt-1 font-mono">
-                    {isKurdish ? '— کڕیاری سۆشیال میدیا و فرۆش • هەرێمی کوردستان' : '— Verified Enterprise Client • Retail & Aesthetic'}
+                    {isKurdish ? '٣. پەیامی متمانە (Social Proof / Testimonial)' : 'Verified Client Testimonial'}
                   </div>
                 </div>
               </SpotlightCard>
 
+              {/* a button that go straight to the landing (page example section) */}
               <div className="md:col-span-4 flex justify-center md:justify-end">
                 <WireframeCTA href="/#portfolio" className="w-full justify-center">
-                  <span>{isKurdish ? 'نموونەی کارەکانمان ببینە' : 'Inspect Portfolio Archive'}</span>
+                  <span>{isKurdish ? 'نموونەی کارەکانمان ببینە' : 'View Case Studies'}</span>
                   <ExternalLink size={13} />
                 </WireframeCTA>
               </div>
@@ -940,7 +912,7 @@ export default function PitchDeck({ onScheduleClick }) {
         </section>
 
         {/* ==================================================================== */}
-        {/* SLIDE 4: CAPITAL ALLOCATION & PRICING (ACETATE GLASS BENTO)          */}
+        {/* SLIDE 4: بەشی چوارەم: پاکێجەکان و وەبەرهێنان (PAGES 4 & 5)           */}
         {/* ==================================================================== */}
         <section
           ref={(el) => (slideRefs.current[3] = el)}
@@ -948,7 +920,7 @@ export default function PitchDeck({ onScheduleClick }) {
           className="relative w-full min-h-[100dvh] h-full snap-start snap-always flex flex-col justify-center items-center px-4 sm:px-8 md:px-14 py-16 overflow-y-auto bg-[#050505]"
         >
           <div className="max-w-4xl w-full mx-auto my-auto flex flex-col items-center">
-            {/* Header */}
+            {/* Header: ١. سەردێڕی سەرەکی (Headline) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -957,145 +929,172 @@ export default function PitchDeck({ onScheduleClick }) {
               className="text-center mb-6"
             >
               <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-[#D4AF37] px-3 py-1 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/[0.04] mb-3">
-                Social Media Management
+                {isKurdish ? 'بەشی چوارەم: پاکێجەکان و وەبەرهێنان (The Packages & Pricing)' : 'THE PACKAGES & PRICING'}
               </div>
               <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
                 {isKurdish
                   ? 'وەبەرهێنان لە سیستەمی فرۆشتندا، نەک خەرجییەکی بێسوود. سیستەمێک هەڵبژێرە کە گەشە بە بزنسەکەت دەدات.'
-                  : 'Capital investment into a sales engine, not dead overhead. Select your scaling tier.'}
+                  : 'Invest in a client acquisition engine, not dead overhead. Select the tier built to scale your enterprise.'}
               </h2>
-              <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto mt-2">
-                {isKurdish ? 'نرخەکان ڕوون و شەفافن، بەبێ هیچ خەرجییەکی شاراوە.' : '100% transparent pricing with zero concealed charges.'}
-              </p>
             </motion.div>
 
-            {/* Bento Pricing Tiers */}
+            {/* ٢. کارتەکانی نرخ (Pricing Cards) (Pages 4 & 5) */}
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 mb-4">
-              {/* Tier 1: Growth */}
+              {/* کارتی یەکەم: Growth (گەشەسەندن - مانگانە) */}
               <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-white/[0.04]">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">Growth</span>
-                    <span className="text-[10px] text-zinc-500 font-mono">Monthly Scale</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+                      {isKurdish ? 'کارتی یەکەم: Growth' : 'Tier 1: Growth'}
+                    </span>
+                    <span className="text-[10px] text-zinc-500 font-mono">
+                      {isKurdish ? 'گەشەسەندن - مانگانە' : 'Monthly Scale'}
+                    </span>
                   </div>
 
-                  {/* Oversized Price */}
-                  <div className="mb-4">
+                  {/* Price */}
+                  <div className="mb-3">
                     <div className="text-4xl sm:text-5xl font-extrabold tracking-tighter text-white">
-                      $225
+                      225$
                       <span className="text-xs font-normal text-zinc-500 ms-1.5">
                         {isKurdish ? '/ مانگانە' : '/ Month'}
                       </span>
                     </div>
                     <div className="text-xs text-zinc-400 mt-1 font-mono">
-                      {isKurdish ? 'نزیکەی 338,000 دینار' : '~338,000 IQD'}
+                      {isKurdish ? '(نزیکەی 338,000 دینار)' : '(~338,000 IQD)'}
                     </div>
                   </div>
 
-                  {/* Deliverables */}
-                  <div className="space-y-2.5 pt-4 border-t border-white/[0.04] text-xs">
-                    <div className="flex items-center gap-2 text-zinc-300">
-                      <span className="font-mono text-white font-bold">6</span>
-                      <span>{isKurdish ? 'ڤیدیۆ ڕیل (پۆستی ڤیدیۆی سەرنجڕاکێش)' : 'Video Reels (High-Retention)'}</span>
+                  {/* ئامانج */}
+                  <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] text-[11px] text-zinc-300 mb-4 font-normal">
+                    <strong className="text-white block mb-0.5">{isKurdish ? 'ئامانج:' : 'Objective:'}</strong>
+                    {isKurdish ? 'گونجاوە بۆ تاقیکردنەوەی خێرایی و کوالێتی تیمەکەمان.' : 'Ideal for testing our team’s speed and production quality.'}
+                  </div>
+
+                  {/* خزمەتگوزارییەکان */}
+                  <div className="space-y-2 pt-3 border-t border-white/[0.04] text-xs">
+                    <div className="text-zinc-400 font-semibold mb-1">{isKurdish ? 'خزمەتگوزارییەکان:' : 'Deliverables:'}</div>
+                    <div className="flex items-start gap-2 text-zinc-300">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? '٦ ڤیدیۆ ڕیڵ: ڤیدیۆی کوالێتی بەرز بۆ زیادکردنی فرۆش.' : '6 Video Reels: High-retention reels engineered for sales.'}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-zinc-300">
-                      <span className="font-mono text-white font-bold">6</span>
-                      <span>{isKurdish ? 'گرافیک دیزاین (پۆستی وێنە + سلاید)' : 'Graphic Designs (Posts + Slides)'}</span>
+                    <div className="flex items-start gap-2 text-zinc-300">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? '٦ گرافیک دیزاین: پۆستی وێنە و سلاید بۆ زانیاری و براندینگ.' : '6 Graphic Designs: Feed carousels & brand assets.'}</span>
                     </div>
-                    <div className="text-zinc-400">{isKurdish ? 'پلاندانانی ستراتیجی ناوەڕۆک و نووسینی کاپشن' : 'Strategic Planning & Copywriting'}</div>
-                    <div className="text-zinc-400">{isKurdish ? 'دەنگخستنەسەر (Voiceover) بۆ ڤیدیۆکان' : 'Voiceover Production'}</div>
-                    <div className="text-zinc-400">{isKurdish ? 'بەڕێوەبردن و چاودێریکردنی کەمپەینی سپۆنسەر' : 'Meta Sponsored Ads Management'}</div>
-                    <div className="text-zinc-400">{isKurdish ? 'ڕاپۆرتی مانگانەی ئەنجامەکان و شیکاری' : 'Monthly Performance Analytics'}</div>
+                    <div className="flex items-start gap-2 text-zinc-300">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? 'پلاندانان و کاپشن: نووسینی تێکستی سەرنجڕاکێش بۆ هەر پۆستێک.' : 'Planning & Copywriting: Engaging hooks & captions.'}</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-zinc-300">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? 'دەنگخستنەسەر (Voiceover): بەپێی پێویستی سیناریۆکان.' : 'Voiceover: Professional voice recording as scripted.'}</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-zinc-300">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? 'بەڕێوەبردنی کەمپەینی سپۆنسەر: سپۆنسەرکردن بۆ ڕاکێشانی کڕیار.' : 'Meta Campaign Management: Lead acquisition ads.'}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.04]">
+                <div className="mt-5 pt-4 border-t border-white/[0.04] flex flex-col gap-2">
+                  <div className="text-[10px] text-zinc-500 font-mono text-center">
+                    {isKurdish ? '(ئەم پاکێجە بۆ یەک مانگە)' : '(1 Month Package)'}
+                  </div>
                   <WireframeCTA
                     href={getWhatsAppUrl(
                       isKurdish
                         ? 'سڵاو HBgrow، دەمەوێت پاکێجی Growth ($225 / مانگانە) دەستپێبکەم بۆ براندەکەم.'
-                        : 'Hello HBgrow, I want to start with the Growth tier ($225/mo).'
+                        : 'Hello HBgrow, I would like to start with the Growth tier ($225/mo).'
                     )}
                     className="w-full"
                   >
                     <WhatsAppIcon size={14} />
-                    <span>{isKurdish ? 'دەستپێکردنی پاکێجی مانگانە' : 'Deploy Monthly Tier'}</span>
+                    <span>{isKurdish ? 'دەستپێکردنی پاکێجی مانگانە' : 'Select Growth Tier'}</span>
                   </WireframeCTA>
                 </div>
               </SpotlightCard>
 
-              {/* Tier 2: Growth+ (Stealth Gold Border) */}
+              {/* کارتی دووەم: Growth+ (گەشەسەندن+ - سێ مانگ) 👑 [باشترین هەڵبژاردە] */}
               <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-[#D4AF37]/30 bg-white/[0.025]">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37]">Growth+</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-mono uppercase tracking-wider text-[#D4AF37]">
+                      {isKurdish ? 'کارتی دووەم: Growth+' : 'Tier 2: Growth+'}
+                    </span>
                     <span className="text-[10px] font-mono text-[#D4AF37] px-2 py-0.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20">
-                      {isKurdish ? 'باشترین هەڵبژاردە • ٣ مانگ' : 'BEST VALUE (3 MO)'}
+                      👑 {isKurdish ? '[باشترین هەڵبژاردە]' : '[BEST VALUE]'}
                     </span>
                   </div>
 
-                  {/* Oversized Price */}
-                  <div className="mb-4">
+                  {/* Price */}
+                  <div className="mb-3">
                     <div className="text-4xl sm:text-5xl font-extrabold tracking-tighter text-[#D4AF37]">
-                      $640
+                      640$
                       <span className="text-xs font-normal text-zinc-500 ms-1.5">
                         {isKurdish ? '/ بۆ سێ مانگ' : '/ 3 Months'}
                       </span>
                     </div>
                     <div className="text-xs text-zinc-400 mt-1 font-mono">
-                      {isKurdish ? '960,000 دینار (مانگانە $213 دەکەوێت)' : '~960,000 IQD ($213/mo • Save $35)'}
+                      {isKurdish ? '(نزیکەی 960,000 دینار) — واتە تەنیا 213$ بۆ هەر مانگێک!' : '(~960,000 IQD) — Only $213 per month!'}
                     </div>
                   </div>
 
-                  {/* Deliverables */}
-                  <div className="space-y-2.5 pt-4 border-t border-white/[0.04] text-xs">
-                    <div className="flex items-center gap-2 text-white font-medium">
-                      <span className="font-mono text-[#D4AF37] font-bold">18</span>
-                      <span>{isKurdish ? 'ڤیدیۆ ڕیل (پۆستی ڤیدیۆی پێشکەوتوو بە دەنگ)' : 'Video Reels (Quarterly Batch)'}</span>
+                  {/* ئامانج */}
+                  <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] text-[11px] text-zinc-300 mb-4 font-normal">
+                    <strong className="text-white block mb-0.5">{isKurdish ? 'ئامانج:' : 'Objective:'}</strong>
+                    {isKurdish ? 'بۆ ئەو براندانەی دەیانەوێت بازاڕ کۆنترۆڵ بکەن و قازانجێکی زیاتر بکەن.' : 'For brands aiming to dominate market share and maximize return.'}
+                  </div>
+
+                  {/* خزمەتگوزارییەکان */}
+                  <div className="space-y-2 pt-3 border-t border-white/[0.04] text-xs">
+                    <div className="text-zinc-400 font-semibold mb-1">{isKurdish ? 'خزمەتگوزارییەکان:' : 'Deliverables:'}</div>
+                    <div className="flex items-start gap-2 text-white">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? '١٨ ڤیدیۆ ڕیڵ: هێرشی بەردەوام بۆ سەرنجڕاکێشانی بینەر.' : '18 Video Reels: Continuous distribution for high attention.'}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-white font-medium">
-                      <span className="font-mono text-[#D4AF37] font-bold">18</span>
-                      <span>{isKurdish ? 'گرافیک دیزاین (پۆستی وێنە + سلاید)' : 'Graphic Designs (Posts + Slides)'}</span>
+                    <div className="flex items-start gap-2 text-white">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? '١٨ گرافیک دیزاین: پۆستی وێنە و سلاید بۆ زانیاری و براندینگ.' : '18 Graphic Designs: Editorial slides & branding.'}</span>
                     </div>
-                    <div className="text-zinc-300">{isKurdish ? 'ستراتیژی فرۆشتنی درێژخایەن و بەردەوام' : '90-Day Continuous Growth Roadmap'}</div>
-                    <div className="text-zinc-300">{isKurdish ? 'داشکاندنی تایبەت (پاشەکەوتکردنی $35 لە ٣ مانگدا)' : 'Quarterly Discount (Save $35)'}</div>
-                    <div className="text-zinc-300">{isKurdish ? 'دەنگخستنەسەر (Voiceover) و کەمپەینی سپۆنسەر' : 'Voiceover & Full Meta Ad Management'}</div>
-                    <div className="text-[#D4AF37]">{isKurdish ? 'ئەولەویەت لە خزمەتگوزاری و وەڵامدانەوە' : 'VIP Priority Account Execution'}</div>
+                    <div className="flex items-start gap-2 text-white">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? 'پلاندانان و کاپشن بۆ ٣ مانگ: سیستەمێکی ئامادەکراو بۆ چارەکێکی ساڵ.' : 'Planning & Copywriting for 3 Months: Turnkey roadmap.'}</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-white">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? 'دەنگخستنەسەر (Voiceover): بەپێی پێویستی ڤیدیۆکان.' : 'Voiceover: Tailored audio recorded for all reels.'}</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-white">
+                      <span className="text-[#D4AF37] font-bold">■</span>
+                      <span>{isKurdish ? 'کەمپەینی سپۆنسەرکردن: بەڕێوەبردنی زیرەکانەی سپۆنسەرەکان بۆ زۆرترین فرۆشتن.' : 'Sponsored Campaigns: Smart Meta ad distribution for sales.'}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/[0.04]">
+                <div className="mt-5 pt-4 border-t border-white/[0.04] flex flex-col gap-2">
+                  <div className="text-[10px] text-zinc-500 font-mono text-center">
+                    {isKurdish ? '(ئەم پاکێجە بۆ سێ مانگە)' : '(3 Months Package)'}
+                  </div>
                   <WireframeCTA
                     href={getWhatsAppUrl(
                       isKurdish
-                        ? 'سڵاو HBgrow، دەمەوێت پاکێجی Growth+ ($640 / ٣ مانگە) دەستپێبکەم بۆ گەشەی بەردەوام.'
-                        : 'Hello HBgrow, I want to start with the Growth+ quarterly tier ($640/3mo).'
+                        ? 'سڵاو HBgrow، دەمەوێت پاکێجی Growth+ ($640 / ٣ مانگە) دەستپێبکەم بۆ براندەکەم.'
+                        : 'Hello HBgrow, I would like to start with the Growth+ quarterly tier ($640/3mo).'
                     )}
                     className="w-full !border-[#D4AF37]/50"
                   >
                     <WhatsAppIcon size={14} />
-                    <span>{isKurdish ? 'دەستپێکردنی پاکێجی ٣ مانگە' : 'Deploy Quarterly Tier'}</span>
+                    <span>{isKurdish ? 'دەستپێکردنی پاکێجی ٣ مانگە' : 'Select Growth+ Tier'}</span>
                   </WireframeCTA>
                 </div>
               </SpotlightCard>
-            </div>
-
-            {/* Ad Spend Disclosure Note */}
-            <div className="w-full max-w-2xl text-center text-[11px] text-zinc-500 font-normal leading-relaxed">
-              <span className="text-zinc-400 font-medium">
-                {isKurdish ? 'تێبینی شەفافیەت: ' : 'Transparency Note: '}
-              </span>
-              <span>
-                {isKurdish
-                  ? 'بودجەی سپۆنسەر (ڕیکلام) لە ئەستۆی خاوەن بزنسەکەیە و بڕەکەی لەلایەن خۆتەوە دیاری دەکرێت و بە وەسڵی فەرمی دەچێتە لای مێتا.'
-                  : 'Meta ad spend is completely segregated, determined by client, and billed directly by Meta.'}
-              </span>
             </div>
           </div>
         </section>
 
         {/* ==================================================================== */}
-        {/* SLIDE 5: INTERACTIVE SMART BUDGET CALCULATOR (ACETATE GLASS BENTO)   */}
+        {/* SLIDE 5: بەشی پێنجەم: دروستکردنی پلانی تایبەت (PAGES 5 & 6)          */}
         {/* ==================================================================== */}
         <section
           ref={(el) => (slideRefs.current[4] = el)}
@@ -1103,7 +1102,7 @@ export default function PitchDeck({ onScheduleClick }) {
           className="relative w-full min-h-[100dvh] h-full snap-start snap-always flex flex-col justify-center items-center px-4 sm:px-8 md:px-14 py-16 overflow-y-auto bg-[#050505]"
         >
           <div className="max-w-4xl w-full mx-auto my-auto flex flex-col items-center">
-            {/* Header */}
+            {/* Header: ١. سەردێڕی سەرەکی (Headline) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1112,46 +1111,52 @@ export default function PitchDeck({ onScheduleClick }) {
               className="text-center mb-6"
             >
               <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-full border border-white/[0.04] bg-white/[0.02] mb-3">
-                {isKurdish ? 'ژمێرەری زیرەکی HBgrow' : 'INTERACTIVE SMART CALCULATOR'}
+                {isKurdish ? 'بەشی پێنجەم: دروستکردنی پلانی تایبەت (The Smart Calculator)' : 'THE SMART CALCULATOR'}
               </div>
               <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
                 {isKurdish
                   ? 'کۆنترۆڵی خەرجییەکانت بکە. تەنیا پارەی ئەو خزمەتگوزارییە بدە کە پێویستتە.'
-                  : 'Control your capital. Pay only for the surgical deliverables you need.'}
+                  : 'Take control of your expenditure. Pay only for the deliverables you require.'}
               </h2>
-              <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto mt-2">
+              {/* ٢. دەقی یارمەتیدەر (Sub-headline) (Pages 5 & 6) */}
+              <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto mt-2 leading-relaxed">
                 {isKurdish
-                  ? 'ئەگەر پێویستت بە پاکێجی تەواوی مانگانە نییە، بەم ژمێرەرە پاکێجی تایبەت بە خۆت دیاریبکە:'
-                  : 'Configure a customized modular production package below:'}
+                  ? 'ئەگەر پێویستت بە پاکێجی تەواوی مانگانە نییە، یان دەتەوێت خزمەتگوزاری زیاتر بۆ پاکێجەکەت زیاد بکەیت، لە ڕێگەی ئەم ژمێرەرە زیرەکەوە پلانی تایبەت بە بزنسەکەت دابڕێژە. بێ گرێبەستی ئاڵۆز، بێ خەرجی شاراوە.'
+                  : 'If you don’t need a full monthly package or want to supplement your current scope, design your bespoke plan with this smart calculator. Zero complex contracts, zero hidden costs.'}
               </p>
             </motion.div>
 
-            {/* Tactile Bento Stepper Grid */}
+            {/* ٣. دیزاینی ژمێرەرە زیرەکەکە (The Interactive Calculator UI) (Page 6) */}
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-              {/* Item 1: Camera Videography */}
+              {/* Item 1: 📸 ڤیدیۆی پرۆفیشناڵ بە کامێرا (Camera Videography) */}
               <SpotlightCard className="p-5 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <Camera size={18} className="text-zinc-400" />
-                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">110,000 IQD</span>
+                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">١١٠,٠٠٠ دینار</span>
                   </div>
                   <h3 className="text-sm font-semibold text-white mb-1">
-                    {isKurdish ? 'ڤیدیۆی پرۆفیشناڵ بە کامێرا' : 'Camera Videography'}
+                    {isKurdish ? '📸 ڤیدیۆی پرۆفیشناڵ بە کامێرا' : 'Camera Videography'}
                   </h3>
+                  <div className="text-[11px] font-mono text-zinc-500 mb-2">
+                    {isKurdish ? 'نرخ: ١١٠,٠٠٠ دینار (بۆ هەر سەردانێک / ٣ تا ٤ ڤیدیۆ)' : '110,000 IQD per session (3-4 videos)'}
+                  </div>
+                  {/* دەقی قەناعەتپێکار */}
                   <p className="text-xs text-zinc-400 leading-relaxed mb-4">
                     {isKurdish
-                      ? 'سێشنێکی وێنەگرتنی پرۆفیشناڵ بە کامێرا کە لە ٣ بۆ ٤ ڤیدیۆ پێکدێت.'
-                      : 'On-location cinematic camera shoot (produces 3-4 finished reels).'}
+                      ? 'هێنانی تیمی وێنەگرتنی پرۆفیشناڵ بۆ ناو شوێنی کارەکەت بە باشترین کوالێتی.'
+                      : 'Deploying our professional video crew to your business location with cinema-grade quality.'}
                   </p>
                 </div>
 
                 <div className="pt-3 border-t border-white/[0.04] flex items-center justify-between">
-                  <span className="text-xs text-zinc-400">{isKurdish ? 'سێشن:' : 'Sessions:'}</span>
+                  <span className="text-xs text-zinc-400">{isKurdish ? 'ژمارەی سەردان:' : 'Sessions:'}</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setCameraSessions((prev) => Math.max(0, prev - 1))}
                       disabled={cameraSessions === 0}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white disabled:opacity-20 cursor-pointer"
+                      aria-label="Decrease camera sessions"
                     >
                       <Minus size={12} />
                     </button>
@@ -1159,6 +1164,7 @@ export default function PitchDeck({ onScheduleClick }) {
                     <button
                       onClick={() => setCameraSessions((prev) => prev + 1)}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer"
+                      aria-label="Increase camera sessions"
                     >
                       <Plus size={12} />
                     </button>
@@ -1166,30 +1172,35 @@ export default function PitchDeck({ onScheduleClick }) {
                 </div>
               </SpotlightCard>
 
-              {/* Item 2: Video Editing */}
+              {/* Item 2: 🎬 مۆنتاژ و ئیدیتینگی ڤیدیۆ (Professional Video Editing) */}
               <SpotlightCard className="p-5 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <Video size={18} className="text-zinc-400" />
-                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">30,000 IQD</span>
+                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">٣٠,٠٠٠ دینار</span>
                   </div>
                   <h3 className="text-sm font-semibold text-white mb-1">
-                    {isKurdish ? 'مۆنتاژ و ئیدیتینگی ڤیدیۆ' : 'Professional Video Edit'}
+                    {isKurdish ? '🎬 مۆنتاژ و ئیدیتینگی ڤیدیۆ' : 'Professional Video Editing'}
                   </h3>
+                  <div className="text-[11px] font-mono text-zinc-500 mb-2">
+                    {isKurdish ? 'نرخ: ٣٠,٠٠٠ دینار (بۆ هەر ڤیدیۆیەک)' : '30,000 IQD per video'}
+                  </div>
+                  {/* دەقی قەناعەتپێکار */}
                   <p className="text-xs text-zinc-400 leading-relaxed mb-4">
                     {isKurdish
-                      ? 'مۆنتاژی پێشکەوتوو بە دەنگخستنەسەر (Voiceover) و گرافیک و کاریگەری.'
-                      : 'Modern high-retention reel edits with voiceover pacing and graphics.'}
+                      ? 'مۆنتاژی پێشکەوتوو بە ستراتیژی ڕاگرتنی سەرنج (Retention)، دەنگ، و ئیفێکتی تایبەت بۆ ئەوەی ڤیدیۆکەت زۆرترین بینەر بهێڵێتەوە.'
+                      : 'Advanced video editing optimized for audience retention, sound design, and custom visual effects.'}
                   </p>
                 </div>
 
                 <div className="pt-3 border-t border-white/[0.04] flex items-center justify-between">
-                  <span className="text-xs text-zinc-400">{isKurdish ? 'ڤیدیۆ:' : 'Videos:'}</span>
+                  <span className="text-xs text-zinc-400">{isKurdish ? 'ژمارەی ڤیدیۆ:' : 'Videos:'}</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setVideoEdits((prev) => Math.max(0, prev - 1))}
                       disabled={videoEdits === 0}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white disabled:opacity-20 cursor-pointer"
+                      aria-label="Decrease video edits"
                     >
                       <Minus size={12} />
                     </button>
@@ -1197,6 +1208,7 @@ export default function PitchDeck({ onScheduleClick }) {
                     <button
                       onClick={() => setVideoEdits((prev) => prev + 1)}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer"
+                      aria-label="Increase video edits"
                     >
                       <Plus size={12} />
                     </button>
@@ -1204,30 +1216,35 @@ export default function PitchDeck({ onScheduleClick }) {
                 </div>
               </SpotlightCard>
 
-              {/* Item 3: Graphic Design */}
+              {/* Item 3: 🎨 گرافیک دیزاینی پێشکەوتوو (Graphic Design) */}
               <SpotlightCard className="p-5 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <Palette size={18} className="text-zinc-400" />
-                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">10,000 IQD</span>
+                    <span className="text-xs font-mono text-[#D4AF37] font-semibold">١٠,٠٠٠ دینار</span>
                   </div>
                   <h3 className="text-sm font-semibold text-white mb-1">
-                    {isKurdish ? 'گرافیک دیزاینی پێشکەوتوو' : 'Graphic Design'}
+                    {isKurdish ? '🎨 گرافیک دیزاینی پێشکەوتوو' : 'Graphic Design'}
                   </h3>
+                  <div className="text-[11px] font-mono text-zinc-500 mb-2">
+                    {isKurdish ? 'نرخ: ١٠,٠٠٠ دینار (بۆ هەر دیزاینێک)' : '10,000 IQD per design'}
+                  </div>
+                  {/* دەقی قەناعەتپێکار */}
                   <p className="text-xs text-zinc-400 leading-relaxed mb-4">
                     {isKurdish
-                      ? 'دیزاینی براندینگی پرۆفیشناڵ، وێنە و پۆست و کارۆسێلی فرۆشیار.'
-                      : 'Editorial brand graphics, carousels, and high-impact visual covers.'}
+                      ? 'دیزاینی ناوازە بۆ پۆست، ستۆری، یان ڕیکلامەکانت کە متمانەی براندەکەت لەلای کڕیار بەرز دەکاتەوە.'
+                      : 'Bespoke designs for feed posts, stories, or ads that elevate client trust in your brand.'}
                   </p>
                 </div>
 
                 <div className="pt-3 border-t border-white/[0.04] flex items-center justify-between">
-                  <span className="text-xs text-zinc-400">{isKurdish ? 'دیزاین:' : 'Designs:'}</span>
+                  <span className="text-xs text-zinc-400">{isKurdish ? 'ژمارەی دیزاین:' : 'Designs:'}</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setGraphicDesigns((prev) => Math.max(0, prev - 1))}
                       disabled={graphicDesigns === 0}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white disabled:opacity-20 cursor-pointer"
+                      aria-label="Decrease graphic designs"
                     >
                       <Minus size={12} />
                     </button>
@@ -1235,6 +1252,7 @@ export default function PitchDeck({ onScheduleClick }) {
                     <button
                       onClick={() => setGraphicDesigns((prev) => prev + 1)}
                       className="h-6 w-6 rounded-md border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer"
+                      aria-label="Increase graphic designs"
                     >
                       <Plus size={12} />
                     </button>
@@ -1243,26 +1261,29 @@ export default function PitchDeck({ onScheduleClick }) {
               </SpotlightCard>
             </div>
 
-            {/* Oversized Dynamic Total Box */}
+            {/* ٤. ئەنجامی کۆتایی ژمێرەرەکە (The Dynamic Total) (Page 6) */}
             <SpotlightCard className="w-full p-6 sm:p-7 flex flex-col md:flex-row items-center justify-between gap-5 border-[#D4AF37]/20">
               <div className="text-center md:text-start">
-                <div className="text-[10px] uppercase font-mono tracking-widest text-zinc-500">
-                  {isKurdish ? 'کۆی گشتی خەمڵێندراو' : 'ESTIMATED CAPITAL TOTAL'}
+                <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                  {isKurdish ? '📊 کۆی گشتی وەبەرهێنانەکەت:' : '📊 TOTAL ESTIMATED INVESTMENT:'}
                 </div>
                 <div className="text-3xl sm:text-4xl font-extrabold tracking-tighter text-white mt-1">
                   {formatIQD(totalCalculatorIQD)}{' '}
-                  <span className="text-sm font-normal text-zinc-400 font-mono">
-                    {isKurdish ? 'دیناری عێراقی' : 'IQD'}
+                  <span className="text-base sm:text-xl font-normal text-zinc-400 font-mono">
+                    {isKurdish ? 'دینار' : 'IQD'}
                   </span>
                 </div>
                 <div className="text-xs text-zinc-400 mt-1 font-mono">
-                  {cameraSessions} Shoot(s) • {videoEdits} Edit(s) • {graphicDesigns} Design(s)
+                  {isKurdish
+                    ? `${cameraSessions} سەردان • ${videoEdits} مۆنتاژ • ${graphicDesigns} دیزاین`
+                    : `${cameraSessions} Session(s) • ${videoEdits} Video(s) • ${graphicDesigns} Design(s)`}
                 </div>
               </div>
 
+              {/* [ دوگمەی: با دەست بە کارەکان بکەین / ڕەوانەکردنی پلانەکە ] */}
               <WireframeCTA href={getCalculatorWhatsAppUrl()} className="!py-3.5 !px-8">
                 <WhatsAppIcon size={16} />
-                <span>{isKurdish ? 'با دەست بە کارەکان بکەین' : 'Dispatch Custom Plan'}</span>
+                <span>{isKurdish ? 'با دەست بە کارەکان بکەین / ڕەوانەکردنی پلانەکە' : 'Launch / Dispatch Plan'}</span>
                 {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
               </WireframeCTA>
             </SpotlightCard>
@@ -1270,7 +1291,7 @@ export default function PitchDeck({ onScheduleClick }) {
         </section>
 
         {/* ==================================================================== */}
-        {/* SLIDE 6: ONBOARDING & STEALTH TRUST PROTOCOL (PDF PAGES 7 & 8)      */}
+        {/* SLIDE 6: بەشی شەشەم: چۆن دەست پێدەکەین؟ (PAGES 7 & 8)                */}
         {/* ==================================================================== */}
         <section
           ref={(el) => (slideRefs.current[5] = el)}
@@ -1278,7 +1299,7 @@ export default function PitchDeck({ onScheduleClick }) {
           className="relative w-full min-h-[100dvh] h-full snap-start snap-always flex flex-col justify-center items-center px-4 sm:px-8 md:px-14 py-16 overflow-y-auto bg-[#050505]"
         >
           <div className="max-w-4xl w-full mx-auto my-auto text-center flex flex-col items-center">
-            {/* Header */}
+            {/* Header: ١. سەردێڕی سەرەکی (Headline) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1287,78 +1308,86 @@ export default function PitchDeck({ onScheduleClick }) {
               className="text-center mb-6"
             >
               <div className="inline-block text-[11px] font-mono uppercase tracking-widest text-zinc-400 px-3 py-1 rounded-full border border-white/[0.04] bg-white/[0.02] mb-3">
-                {isKurdish ? 'دەستپێکردن لە ٣ هەنگاوی سادەدا' : 'ONBOARDING PROTOCOL • 3 STEPS'}
+                {isKurdish ? 'بەشی شەشەم: چۆن دەست پێدەکەین؟ (Frictionless Onboarding)' : 'FRICTIONLESS ONBOARDING'}
               </div>
               <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-white max-w-3xl mx-auto leading-snug">
                 {isKurdish
                   ? 'دەتەوێت براندەکەت قازانجی ڕاستەقینە بکات؟ دەستپێکردن لەگەڵماندا تەنیا ٣ هەنگاوی سادەیە.'
-                  : 'Ready for verified commercial returns? Launching takes exactly 3 seamless steps.'}
+                  : 'Want your brand to make real profit? Getting started with us is only 3 simple steps.'}
               </h2>
-              <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto mt-2">
+              {/* ٢. دەقی یارمەتیدەر (Sub-headline) */}
+              <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto mt-2 leading-relaxed">
                 {isKurdish
-                  ? 'سیستەمێکی کارکردنی بێ ئەرک. تۆ کاتت نییە سەرقاڵی وردەکارییەکان بیت، ئێمە هەموو شتێک بەڕێوەدەبەین:'
-                  : 'Frictionless workflow. You focus on enterprise leadership; we engineer the creative and distribution:'}
+                  ? 'سیستەمێکی کارکردنی بێ ئەرک. تۆ کاتت نییە، بۆیە بە تیمە هەموو شتێکمان ئاسان کردووە بۆت. ئێمە هەموو کارە قورسەکان دەکەین، تۆش تەنیا سەیری ئەنجامەکان بکە.'
+                  : 'Frictionless workflow. You don’t have time, so as a team we have simplified everything for you. We handle the heavy lifting; you monitor the results.'}
               </p>
             </motion.div>
 
-            {/* 3 Bento Step Cards */}
+            {/* ٣. کارتەکانی پڕۆسەی کارکردن (The 3-Step Process Cards) (Page 7) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mb-6 text-start">
+              {/* هەنگاوی ١: دیاریکردنی کێشەکان (١٥-٢٠ خولەک) */}
               <SpotlightCard className="p-5">
                 <div className="text-[10px] font-mono text-[#D4AF37] mb-2">01 / DISCOVERY</div>
                 <h3 className="text-sm font-semibold text-white mb-1.5">
-                  {isKurdish ? 'دیاریکردنی کێشەکان' : 'Discovery Call'}
+                  {isKurdish ? 'هەنگاوی ١: دیاریکردنی کێشەکان (١٥-٢٠ خولەک)' : 'Step 1: Discovery (15-20 min)'}
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed">
                   {isKurdish
-                    ? '١٥-٢٠ خولەک گفتوگۆ بۆ تێگەیشتن لە ئامانج و کێشەکانی پەیجەکەت و دەستنیشانکردنی دەرفەتەکان.'
-                    : '15-20 min consultation to audit acquisition bottlenecks and pinpoint buyer targets.'}
+                    ? 'پەیوەندییەکی کورت دەکەین. گوێ لە کێشەکانی ئێستای بازاڕەکەت دەگرین، ئامانجەکانت دیاری دەکەین، و تێدەگەین کڕیارەکانت کێن و چۆن بیانگرین. بێ کۆبوونەوەی درێژ و بێزارکەر.'
+                    : 'A brief call. We listen to current market roadblocks, identify your targets, and pinpoint who your buyers are. Zero lengthy or exhausting meetings.'}
                 </p>
               </SpotlightCard>
 
+              {/* هەنگاوی ٢: پلان و ستراتیژی (٥-٧ ڕۆژ) */}
               <SpotlightCard className="p-5">
                 <div className="text-[10px] font-mono text-[#D4AF37] mb-2">02 / ARCHITECTURE</div>
                 <h3 className="text-sm font-semibold text-white mb-1.5">
-                  {isKurdish ? 'پلان و ستراتیژی' : 'Custom Strategy'}
+                  {isKurdish ? 'هەنگاوی ٢: پلان و ستراتیژی (٥-٧ ڕۆژ)' : 'Step 2: Strategy (5-7 Days)'}
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed">
                   {isKurdish
-                    ? 'لە ماوەی ٥ بۆ ٧ ڕۆژدا ستراتیژ، یەکەم ڤیدیۆ و دیزاینەکان بە تەواوی ئامادە دەبن بۆ دەستپێکردن.'
-                    : 'Within 5-7 days, your visual roadmap, first reels, and graphics are produced ready for launch.'}
+                    ? 'تیمەکەمان دەست دەکات بە کار. لە ماوەی کەمتر لە هەفتەیەکدا، سیناریۆی ڤیدیۆکان، دیزاینەکان، و ستراتیژی کەمپەینەکانت بۆ ئامادە دەکەین و پێت پیشان دەدەین بۆ پەسەندکردن.'
+                    : 'Our team starts execution. In under a week, scripts, visual designs, and campaign roadmaps are prepared and presented for your sign-off.'}
                 </p>
               </SpotlightCard>
 
+              {/* هەنگاوی ٣: جێبەجێکردن و قازانج (پێشوازی لە کڕیار بکە) */}
               <SpotlightCard className="p-5">
                 <div className="text-[10px] font-mono text-[#D4AF37] mb-2">03 / CONVERSION</div>
                 <h3 className="text-sm font-semibold text-white mb-1.5">
-                  {isKurdish ? 'جێبەجێکردن و قازانج' : 'Execution & Profit'}
+                  {isKurdish ? 'هەنگاوی ٣: جێبەجێکردن و قازانج (پێشوازی لە کڕیار بکە)' : 'Step 3: Execution & Profit'}
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed">
                   {isKurdish
-                    ? 'دەستپێکردنی بڵاوکردنەوە و سپۆنسەری زیرەک، و پێشوازی لە نامە و کڕیارە نوێیەکانت بکە لە واتسئەپ.'
-                    : 'Deploying algorithmic distribution—inbound high-intent buyer inquiries flow straight into WhatsApp.'}
+                    ? 'سیستەمەکە کارا دەکەین. ڤیدیۆکان پۆست دەکرێن و کەمپەینە زیرەکەکانی Meta ڕادەگەیەنین. لێرەوە ئەرکی تۆ تەنیا وەڵامدانەوەی نامەی کڕیارە نوێیەکان و فرۆشتنی بەرهەمەکانتە.'
+                    : 'We activate the system. Videos are deployed and smart Meta campaigns go live. Your only task is responding to incoming buyer inquiries and fulfilling orders.'}
                 </p>
               </SpotlightCard>
             </div>
 
-            {/* Final Action Callout Bento */}
+            {/* ٤. بانگهێشت بۆ کردار و دروستکردنی متمانە (The Ultimate CTA & Trust Signals) (Pages 7 & 8) */}
             <SpotlightCard className="w-full p-6 sm:p-7 mb-5 text-center border-white/[0.06]">
-              <h3 className="text-base sm:text-xl font-bold tracking-tight text-white mb-4 max-w-xl mx-auto">
+              <div className="text-base sm:text-xl font-bold tracking-tight text-white mb-2 max-w-xl mx-auto">
+                {isKurdish ? 'ئامادەی بۆ گەشەکردنی حەقیقی؟' : 'Ready for genuine growth?'}
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-400 mb-5 max-w-lg mx-auto">
                 {isKurdish
-                  ? 'ئامادەی بۆ گەشەکردنی حەقیقی؟ کاتی خۆت بە فیڕۆ مەدە لەگەڵ ڕێگا کۆنەکان. با هەر ئەمڕۆ ستراتیژییەکەت بۆ دابڕێژین.'
-                  : 'Stop burning time on dead methods. Let us engineer your acquisition strategy today.'}
-              </h3>
+                  ? 'کاتی خۆت بە فیڕۆ مەدە لەگەڵ ڕێگا کۆنەکان. با هەر ئەمڕۆ ستراتیژییەکەت بۆ دابڕێژین.'
+                  : 'Don’t waste time on obsolete methods. Let us architect your strategy today.'}
+              </p>
 
+              {/* [ دوگمەی زەردی درەوشاوە: کاتێک دیاریبکە بۆ گفتوگۆکردن ] */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <WireframeCTA
                   href={getWhatsAppUrl(
                     isKurdish
                       ? 'سڵاو HBgrow، سەیری پرێزێنتەیشنەکەم کرد و دەمەوێت کاتێک دیاریبکەین بۆ گفتوگۆکردن و دەستپێکردن.'
-                      : 'Hello HBgrow, I finished reviewing the Executive Pitch Deck and want to schedule a strategy call to start.'
+                      : 'Hello HBgrow, I reviewed the pitch deck and would like to schedule a strategy call to start.'
                   )}
-                  className="!py-3.5 !px-8"
+                  className="!py-3.5 !px-8 !border-[#D4AF37]/60"
                 >
                   <WhatsAppIcon size={16} />
-                  <span>{isKurdish ? 'کاتێک دیاریبکە بۆ گفتوگۆکردن' : 'Schedule Strategy Briefing'}</span>
+                  <span>{isKurdish ? 'کاتێک دیاریبکە بۆ گفتوگۆکردن' : 'Schedule Strategy Chat'}</span>
                   {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
                 </WireframeCTA>
 
@@ -1373,14 +1402,13 @@ export default function PitchDeck({ onScheduleClick }) {
               </div>
             </SpotlightCard>
 
-            {/* Stealth Monochromatic Trust Signals */}
+            {/* لۆگۆی ڕێگاکانی پارەدان (Payment Trust Signals) (Page 8) */}
             <div className="w-full max-w-3xl p-4 rounded-2xl border border-white/[0.04] bg-white/[0.01]">
               <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-3 text-center">
-                {isKurdish
-                  ? 'پڕۆسەی پارەدانمان زۆر ئاسانە. دەتوانیت لە ڕێگەی هەژمارە بانکییە ناوخۆییەکانەوە مانگانە پارە بدەیت:'
-                  : 'SETTLE MONTHLY VIA PREFERRED LOCAL IRAQI BANKING & WALLET CHANNELS:'}
+                {isKurdish ? 'لۆگۆی ڕێگاکانی پارەدان (Payment Trust Signals)' : 'PAYMENT TRUST SIGNALS'}
               </div>
 
+              {/* (FIB - FastPay - Qi card - Asia Pay) */}
               <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 py-1">
                 <StealthFIBLogo />
                 <StealthFastPayLogo />
@@ -1388,10 +1416,11 @@ export default function PitchDeck({ onScheduleClick }) {
                 <StealthAsiaPayLogo />
               </div>
 
-              <div className="text-[10px] text-zinc-600 text-center mt-2.5 font-mono">
+              {/* دەقی ژێر لۆگۆکان (Page 8 verbatim) */}
+              <div className="text-[11px] text-zinc-400 text-center mt-3 font-medium">
                 {isKurdish
-                  ? 'پارەدانی دەستبەجێ بەبێ کێشەی حەواڵە • بە فاکتەری فەرمی بازرگانی لە ناوخۆی عێراق و کوردستان'
-                  : 'Instant corporate settlement • Zero currency conversion friction • Audited invoicing'}
+                  ? 'پڕۆسەی پارەدانمان زۆر ئاسانە. دەتوانیت لە ڕێگەی هەژمارە بانکییە ناوخۆییەکانەوە مانگانە پارە بدەیت.'
+                  : 'Our payment process is seamless. You can settle monthly via local Iraqi bank accounts.'}
               </div>
             </div>
           </div>
