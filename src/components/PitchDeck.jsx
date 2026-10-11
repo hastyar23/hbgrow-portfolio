@@ -123,7 +123,7 @@ function WireframeCTA({ href, onClick, children, className = '', isPrimary = fal
 }
 
 // ─── Photorealistic macOS Dark-Mode Browser Window ────────────────────────────
-function MacOSBrowserFrame({ title = 'Meta Ads Manager', url = 'business.facebook.com/adsmanager', children, className = '' }) {
+function MacOSWindow({ title = 'Meta Ads Manager', url = 'business.facebook.com/adsmanager', children, className = '' }) {
   return (
     <div className={`overflow-hidden rounded-[24px] border border-white/[0.06] bg-[#09090b]/90 backdrop-blur-3xl shadow-none ${className}`}>
       {/* Window Title Bar */}

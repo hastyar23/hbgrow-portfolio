@@ -26,7 +26,7 @@ export default function PainSolution() {
       <div style={{
         position: 'absolute', bottom: '15%', right: '5%',
         width: 500, height: 500, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(223, 178, 72, 0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
@@ -104,7 +104,7 @@ export default function PainSolution() {
               </h3>
               <p style={{
                 fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                fontSize: '0.9rem', color: 'rgba(203,213,225,0.60)',
+                fontSize: '0.9rem', color: '#A1A1AA',
                 lineHeight: 2, fontWeight: 300,
               }}>
                 {desc}
@@ -118,23 +118,24 @@ export default function PainSolution() {
           padding: '3rem 2.5rem',
           marginBottom: 'clamp(3rem, 8vw, 5rem)',
           textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(223, 178, 72, 0.08) 0%, rgba(4, 34, 70, 0.40) 50%, rgba(2, 10, 22, 0.7) 100%)',
-          border: '1px solid rgba(223, 178, 72, 0.30)',
+          backgroundColor: '#111116',
+          backgroundImage: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
           borderRadius: '1.75rem',
           backdropFilter: 'blur(32px)',
           WebkitBackdropFilter: 'blur(32px)',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255, 255, 255, 0.20), 0 0 40px rgba(223, 178, 72, 0.12)',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
           position: 'relative', overflow: 'hidden',
         }}>
           {/* Banner shine line */}
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, height: 1,
-            background: 'linear-gradient(90deg, transparent 10%, rgba(223, 178, 72, 0.35) 35%, rgba(246, 228, 180, 0.75) 50%, rgba(223, 178, 72, 0.35) 65%, transparent 90%)',
+            background: 'linear-gradient(90deg, transparent 10%, rgba(255, 255, 255, 0.12) 35%, rgba(229, 228, 226, 0.40) 50%, rgba(255, 255, 255, 0.12) 65%, transparent 90%)',
           }} />
           {/* Banner inner glow */}
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse 70% 60% at 50% -10%, rgba(223, 178, 72, 0.10) 0%, transparent 65%)',
+            background: 'radial-gradient(ellipse 70% 60% at 50% -10%, rgba(212, 175, 55, 0.04) 0%, transparent 65%)',
             pointerEvents: 'none',
           }} />
           <p style={{

@@ -56,12 +56,12 @@ export default function Hero() {
         {/* Dark gradient overlay */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(3,5,10,0.3) 0%, rgba(3,5,10,0.6) 50%, rgba(1,2,4,0.98) 100%)',
+          background: 'linear-gradient(to bottom, rgba(10,10,12,0.4) 0%, rgba(10,10,12,0.7) 50%, #0A0A0C 100%)',
         }} />
         {/* Sleek stage spotlight */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(223, 178, 72, 0.08) 0%, rgba(4, 34, 70, 0.50) 50%, transparent 75%)',
+          background: 'radial-gradient(ellipse 75% 45% at 50% -5%, rgba(212, 175, 55, 0.05) 0%, rgba(17, 17, 22, 0.35) 50%, transparent 75%)',
         }} />
         {/* Dot grid texture */}
         <div className="grid-bg" />
@@ -71,20 +71,20 @@ export default function Hero() {
         <div className="glow-orb glow-orb-gold" style={{
           width: 550, height: 550,
           top: '2%', left: '-5%',
-          opacity: 0.45,
+          opacity: 0.35,
         }} />
-        {/* Ambient blue orb — right */}
-        <div className="glow-orb glow-orb-blue" style={{
+        {/* Ambient subtle glow — right */}
+        <div className="glow-orb glow-orb-cyan" style={{
           width: 600, height: 600,
           top: '-8%', right: '-8%',
-          opacity: 0.50,
+          opacity: 0.30,
         }} />
-        {/* Bottom sapphire orb */}
-        <div className="glow-orb glow-orb-sapphire" style={{
+        {/* Bottom subtle ambient orb */}
+        <div className="glow-orb glow-orb-gold" style={{
           width: 500, height: 500,
           bottom: '-15%', left: '50%',
           transform: 'translateX(-50%)',
-          opacity: 0.40,
+          opacity: 0.20,
           animationDelay: '-2s',
         }} />
       </div>
@@ -128,7 +128,7 @@ export default function Hero() {
             marginTop: '0.1rem',
             fontSize: 'clamp(1.5rem, 5vw, 2.75rem)',
             fontWeight: 400,
-            color: 'rgba(203,213,225,0.72)',
+            color: '#A1A1AA',
           }}>
             {t('hero.title_p2')}
           </span>
@@ -143,13 +143,13 @@ export default function Hero() {
             margin: '0 auto 2.5rem',
             fontSize: 'clamp(0.875rem, 2.2vw, 1rem)',
             fontWeight: 300,
-            color: 'rgba(203,213,225,0.65)',
+            color: '#A1A1AA',
             lineHeight: 2.1,
             wordBreak: 'break-word',
           }}
         >
           {t('hero.subtitle_1')}{' '}
-          <span style={{ color: '#F6E4B4', fontWeight: 600 }}>
+          <span style={{ color: '#E5E4E2', fontWeight: 600 }}>
             {t('hero.subtitle_2')}
           </span>
         </p>
@@ -160,7 +160,7 @@ export default function Hero() {
             onClick={openSchedule}
             className="btn-primary"
             id="hero-cta-book"
-            style={{ boxShadow: '0 0 38px -4px rgba(223, 178, 72, 0.40)', border: 'none', cursor: 'pointer' }}
+            style={{ boxShadow: '0 0 38px -4px rgba(212, 175, 55, 0.35)', border: 'none', cursor: 'pointer' }}
           >
             <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
             {t('hero.cta_book')}
@@ -193,7 +193,7 @@ export default function Hero() {
             <div style={{
               position: 'absolute',
               inset: 0,
-              background: 'radial-gradient(ellipse at center top, rgba(223, 178, 72, 0.10) 0%, transparent 60%)',
+              background: 'radial-gradient(ellipse at center top, rgba(212, 175, 55, 0.05) 0%, transparent 60%)',
               borderRadius: 'inherit',
               pointerEvents: 'none',
             }} />
@@ -207,19 +207,15 @@ export default function Hero() {
                     <div style={{
                       fontFamily: "'Outfit', 'Sarchia Bokan', serif",
                       fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
-                      fontWeight: 700, lineHeight: 1,
-                      backgroundImage: 'linear-gradient(135deg, #FFFFFF 0%, #FFF6DD 20%, #F6E4B4 45%, #DFB248 75%, #A87A1E 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                      filter: 'drop-shadow(0 4px 14px rgba(223, 178, 72, 0.22))',
+                      fontWeight: 800, lineHeight: 1,
+                      color: '#FFFFFF',
                     }}>
                       {val}
                     </div>
                     <div style={{
                       fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                       fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
-                      color: 'rgba(235, 240, 248, 0.85)',
+                      color: '#A1A1AA',
                       marginTop: '0.5rem',
                       fontWeight: 500,
                     }}>
@@ -245,7 +241,7 @@ export default function Hero() {
       }}>
         <div style={{
           width: 1, height: 40,
-          background: 'linear-gradient(to bottom, rgba(223, 178, 72, 0.85), transparent)',
+          background: 'linear-gradient(to bottom, rgba(212, 175, 55, 0.65), transparent)',
           animation: 'float-y 2.5s ease-in-out infinite',
         }} />
       </div>
