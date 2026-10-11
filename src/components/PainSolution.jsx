@@ -90,20 +90,20 @@ export default function PainSolution() {
                 fontSize: '0.65rem', fontWeight: 700,
                 color: 'rgba(240,100,100,0.60)', marginBottom: '0.75rem',
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
-                textTransform: 'uppercase', fontFamily: "'Noto Kufi Arabic', sans-serif",
+                textTransform: 'uppercase', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               }}>
                 {String(i + 1).padStart(2, '0')}
               </div>
 
               <h3 style={{
-                fontFamily: "'Noto Kufi Arabic', sans-serif",
+                fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 fontSize: '1rem', fontWeight: 700,
                 color: '#ffffff', marginBottom: '1rem', lineHeight: 1.5,
               }}>
                 {title}
               </h3>
               <p style={{
-                fontFamily: "'Noto Kufi Arabic', sans-serif",
+                fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 fontSize: '0.9rem', color: 'rgba(203,213,225,0.60)',
                 lineHeight: 2, fontWeight: 300,
               }}>
@@ -183,20 +183,20 @@ export default function PainSolution() {
                 fontSize: '0.65rem', fontWeight: 700,
                 color: '#F6E4B4', marginBottom: '0.75rem',
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
-                textTransform: 'uppercase', fontFamily: "'Noto Kufi Arabic', sans-serif",
+                textTransform: 'uppercase', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               }}>
                 {String(i + 1).padStart(2, '0')}
               </div>
 
               <h3 style={{
-                fontFamily: "'Noto Kufi Arabic', sans-serif",
+                fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 fontSize: '1rem', fontWeight: 700,
                 color: '#ffffff', marginBottom: '1rem', lineHeight: 1.5,
               }}>
                 {title}
               </h3>
               <p style={{
-                fontFamily: "'Noto Kufi Arabic', sans-serif",
+                fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 fontSize: '0.9rem', color: 'rgba(203,213,225,0.60)',
                 lineHeight: 2, fontWeight: 300,
               }}>
@@ -214,7 +214,7 @@ export default function PainSolution() {
           </button>
           <p style={{
             marginTop: '1.25rem',
-            fontFamily: "'Noto Kufi Arabic', sans-serif",
+            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: '0.8rem', color: 'rgba(203,213,225,0.4)',
           }}>
             {t('pain_solution.cta_desc')}

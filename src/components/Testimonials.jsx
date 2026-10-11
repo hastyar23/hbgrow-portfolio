@@ -133,7 +133,7 @@ export default function Testimonials() {
                 <span className="text-gold">{t('testimonials.title_highlight')}</span>
               </h2>
               <p style={{
-                fontFamily: "'Noto Kufi Arabic', sans-serif",
+                fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 fontSize: '0.875rem', color: 'rgba(203,213,225,0.5)',
                 marginTop: '1rem', fontWeight: 300, lineHeight: 1.9,
               }}>
@@ -212,7 +212,7 @@ export default function Testimonials() {
                 fontSize: '0.58rem',
                 textTransform: 'uppercase', fontWeight: 700,
                 color: (currentTestimonial.source === 'Facebook' || currentTestimonial.source === 'فيسبوک') ? 'rgba(130,170,255,0.65)' : 'rgba(100,220,130,0.65)',
-                fontFamily: "'Noto Kufi Arabic', sans-serif",
+                fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 paddingTop: '0.25rem',
               }}>
                 ● {currentTestimonial.source}
@@ -228,7 +228,7 @@ export default function Testimonials() {
 
             {/* Quote text */}
             <p style={{
-              fontFamily: "'Noto Kufi Arabic', sans-serif",
+              fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
               color: 'rgba(255,255,255,0.88)',
               lineHeight: 2.1,
@@ -249,7 +249,7 @@ export default function Testimonials() {
                   width: 46, height: 46, borderRadius: '50%', flexShrink: 0,
                   background: 'linear-gradient(135deg, #FFF6DD 0%, #DFB248 60%, #A87A1E 100%)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: "'Noto Kufi Arabic', sans-serif",
+                  fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   fontWeight: 900, fontSize: '0.9rem', color: '#060912',
                   boxShadow: '0 0 20px rgba(223, 178, 72, 0.25)',
                 }}>
@@ -257,11 +257,11 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p style={{
-                    fontFamily: "'Noto Kufi Arabic', sans-serif",
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                     fontSize: '1rem', fontWeight: 700, color: '#ffffff', lineHeight: 1.2,
                   }}>{currentTestimonial.name}</p>
                   <p style={{
-                    fontFamily: "'Noto Kufi Arabic', sans-serif",
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                     fontSize: '0.78rem', color: 'rgba(203,213,225,0.45)',
                     marginTop: '0.2rem', fontWeight: 300,
                   }}>{currentTestimonial.role}</p>

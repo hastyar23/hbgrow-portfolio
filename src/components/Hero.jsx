@@ -138,7 +138,7 @@ export default function Hero() {
         <p
           className="animate-fade-in-up delay-300"
           style={{
-            fontFamily: "'Inter', 'Noto Kufi Arabic', sans-serif",
+            fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             maxWidth: 540,
             margin: '0 auto 2.5rem',
             fontSize: 'clamp(0.875rem, 2.2vw, 1rem)',
@@ -217,7 +217,7 @@ export default function Hero() {
                       {val}
                     </div>
                     <div style={{
-                      fontFamily: "'Inter', 'Noto Kufi Arabic', sans-serif",
+                      fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                       fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
                       color: 'rgba(235, 240, 248, 0.85)',
                       marginTop: '0.5rem',

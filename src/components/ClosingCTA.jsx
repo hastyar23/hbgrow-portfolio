@@ -54,7 +54,7 @@ export default function ClosingCTA() {
         </h2>
 
         <p style={{
-          fontFamily: "'Noto Kufi Arabic', sans-serif",
+          fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
           maxWidth: 500, margin: '0 auto clamp(2.5rem, 6vw, 4rem)',
           fontSize: 'clamp(0.875rem, 2vw, 1rem)',
           fontWeight: 300,
@@ -90,7 +90,7 @@ export default function ClosingCTA() {
 
         <p style={{
           marginTop: '1.25rem',
-          fontFamily: "'Noto Kufi Arabic', sans-serif",
+          fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
           fontSize: '0.75rem',
           color: 'rgba(203,213,225,0.3)',
         }}>
@@ -100,7 +100,7 @@ export default function ClosingCTA() {
         {/* Social proof */}
         <div style={{ marginTop: 'clamp(3rem, 7vw, 6rem)', paddingTop: 'clamp(2rem, 5vw, 3.5rem)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
           <p style={{
-            fontFamily: "'Noto Kufi Arabic', sans-serif",
+            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: '0.58rem',
             textTransform: 'uppercase', color: 'rgba(203,213,225,0.3)',
             marginBottom: '1.25rem', fontWeight: 700,

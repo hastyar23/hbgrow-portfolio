@@ -276,7 +276,7 @@ export default function Portfolio() {
               <span className="text-gold">{t('portfolio.title_highlight')}</span>
             </h2>
             <p style={{
-              fontFamily: "'Noto Kufi Arabic', sans-serif",
+              fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: '0.875rem', color: 'rgba(203,213,225,0.6)',
               maxWidth: 320, lineHeight: 2, fontWeight: 300,
             }}>
@@ -417,7 +417,7 @@ export default function Portfolio() {
                   {t('portfolio.archive_title_p1')}<span className="text-gold">{t('portfolio.archive_title_highlight')}</span>
                 </h2>
                 <p style={{
-                  fontFamily: "'Noto Kufi Arabic', sans-serif",
+                  fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   fontSize: '0.875rem', color: 'rgba(203,213,225,0.7)',
                   marginTop: '0.5rem',
                 }}>

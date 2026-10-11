@@ -88,7 +88,7 @@ export default function Navbar() {
                   href={href}
                   className="nav-link"
                   style={{
-                    fontFamily: "'Noto Kufi Arabic', sans-serif",
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   }}
                 >
                   {label}
@@ -191,7 +191,7 @@ export default function Navbar() {
                   textDecoration: 'none',
                   padding: '1rem 0',
                   borderBottom: '1px solid rgba(255,255,255,0.05)',
-                  fontFamily: "'Noto Kufi Arabic', sans-serif",
+                  fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   display: 'block',
                   transition: 'color 0.25s, padding-right 0.3s',
                   animationDelay: `${i * 60}ms`,

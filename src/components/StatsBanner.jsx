@@ -75,7 +75,7 @@ export default function StatsBanner() {
         <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 3.5rem)', opacity: 0.5 }} />
 
         <p data-reveal style={{
-          fontFamily: "'Noto Kufi Arabic', sans-serif",
+          fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
           fontSize: '0.58rem',
           textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
           marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 700,
@@ -98,7 +98,7 @@ export default function StatsBanner() {
               <div style={{ color: '#DFB248' }}>{icon}</div>
               <div className="stat-val">{val}</div>
               <p style={{
-                fontFamily: "'Noto Kufi Arabic', sans-serif",
+                fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 fontSize: '0.82rem', color: 'rgba(203,213,225,0.6)',
                 lineHeight: 1.9, fontWeight: 300,
               }}>{label}</p>
@@ -223,7 +223,7 @@ export default function StatsBanner() {
                     gap: '0.75rem', padding: '1.5rem', textAlign: 'center',
                   }}>
                     <BarChart2 size={36} color="#DFB248" />
-                    <div style={{ color: '#F6E4B4', fontSize: '0.8rem', fontFamily: "'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
+                    <div style={{ color: '#F6E4B4', fontSize: '0.8rem', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
                       {t('stats.campaign_num')}{currentIndex + 1}
                     </div>
                     <div style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.65rem' }}>Meta Ads Dashboard</div>

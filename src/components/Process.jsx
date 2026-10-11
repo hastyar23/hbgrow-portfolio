@@ -44,7 +44,7 @@ export default function Process() {
             <span className="text-gold">{t('process.title_highlight')}</span>
           </h2>
           <p style={{
-            fontFamily: "'Noto Kufi Arabic', sans-serif",
+            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: 'clamp(0.875rem, 2vw, 0.95rem)',
             color: 'rgba(203,213,225,0.6)', lineHeight: 2, fontWeight: 300,
           }}>
@@ -100,7 +100,7 @@ export default function Process() {
 
                 {/* Duration label */}
                 <div style={{
-                  fontFamily: "'Noto Kufi Arabic', sans-serif",
+                  fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   fontSize: '0.65rem', textTransform: 'uppercase',
                   color: c.icon.replace('0.85', '0.55'),
                   marginBottom: '0.75rem', fontWeight: 700,
@@ -111,7 +111,7 @@ export default function Process() {
 
                 {/* Title */}
                 <h3 style={{
-                  fontFamily: "'Noto Kufi Arabic', sans-serif",
+                  fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   fontSize: 'clamp(0.95rem, 2.5vw, 1.05rem)', fontWeight: 700,
                   color: '#ffffff', marginBottom: '0.875rem', lineHeight: 1.4,
                   position: 'relative', zIndex: 1,
@@ -121,7 +121,7 @@ export default function Process() {
 
                 {/* Desc */}
                 <p style={{
-                  fontFamily: "'Noto Kufi Arabic', sans-serif",
+                  fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   fontSize: '0.875rem', color: 'rgba(203,213,225,0.6)',
                   lineHeight: 2, fontWeight: 300,
                   position: 'relative', zIndex: 1,

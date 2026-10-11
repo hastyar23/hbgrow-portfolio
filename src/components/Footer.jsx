@@ -76,7 +76,7 @@ export default function Footer() {
               </span>
             </div>
             <p style={{
-              fontFamily: "'Noto Kufi Arabic', sans-serif",
+              fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: '0.82rem', color: 'rgba(203,213,225,0.5)',
               lineHeight: 2, fontWeight: 300, maxWidth: 260,
             }}>
@@ -119,7 +119,7 @@ export default function Footer() {
           {/* Links */}
           <div>
             <p style={{
-              fontFamily: "'Noto Kufi Arabic', sans-serif",
+              fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: '0.65rem',
               textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
               fontWeight: 700, marginBottom: '1.25rem',
@@ -132,7 +132,7 @@ export default function Footer() {
                   <a
                     href={href}
                     style={{
-                      fontFamily: "'Noto Kufi Arabic', sans-serif",
+                      fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                       fontSize: '0.875rem', color: 'rgba(203,213,225,0.55)',
                       textDecoration: 'none', fontWeight: 400,
                       transition: 'color 0.25s',
@@ -150,7 +150,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <p style={{
-              fontFamily: "'Noto Kufi Arabic', sans-serif",
+              fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: '0.65rem',
               textTransform: 'uppercase', color: 'rgba(203,213,225,0.45)',
               fontWeight: 700, marginBottom: '1.25rem',
@@ -193,14 +193,14 @@ export default function Footer() {
           gap: '0.5rem',
         }}>
           <p style={{
-            fontFamily: "'Noto Kufi Arabic', sans-serif",
+            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: '0.75rem', color: 'rgba(203,213,225,0.3)',
             fontWeight: 300,
           }}>
             © {new Date().getFullYear()} {t('footer.copyright')}
           </p>
           <p style={{
-            fontFamily: "'Noto Kufi Arabic', sans-serif",
+            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: '0.72rem', color: 'rgba(203,213,225,0.1)',
             fontWeight: 300,
           }}>
