@@ -23,18 +23,11 @@ export default function ClosingCTA() {
         position: 'absolute', top: '50%', left: '50%',
         width: 'min(800px, 100vw)', height: 'min(800px, 100vw)',
         borderRadius: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 60%)',
-        pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', top: '50%', left: '50%',
-        width: 'min(600px, 80vw)', height: 'min(600px, 80vw)',
-        borderRadius: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 65%)',
+        background: 'radial-gradient(circle, rgba(3, 20, 43, 0.02) 0%, transparent 60%)',
         pointerEvents: 'none',
       }} />
 
-      <div className="hairline" style={{ position: 'absolute', top: 0, left: 0, right: 0, opacity: 0.5 }} />
+      <div className="hairline" style={{ position: 'absolute', top: 0, left: 0, right: 0, opacity: 0.8 }} />
 
       <div className="section-wrap" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
 
@@ -46,7 +39,7 @@ export default function ClosingCTA() {
         <h2 style={{
           fontFamily: "'Sarchia Bokan', serif",
           fontSize: 'clamp(1.75rem, 5.5vw, 4rem)',
-          fontWeight: 700, lineHeight: 1.2, color: '#ffffff',
+          fontWeight: 700, lineHeight: 1.2, color: '#0A0A0C',
           marginBottom: '1.5rem',
         }}>
           {t('closing_cta.title_p1')}<br />
@@ -57,11 +50,11 @@ export default function ClosingCTA() {
           fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
           maxWidth: 500, margin: '0 auto clamp(2.5rem, 6vw, 4rem)',
           fontSize: 'clamp(0.875rem, 2vw, 1rem)',
-          fontWeight: 300,
-          color: '#A1A1AA', lineHeight: 2,
+          fontWeight: 400,
+          color: '#52525B', lineHeight: 2,
         }}>
           {t('closing_cta.subtitle_p1')}{' '}
-          <span style={{ color: '#E5E4E2', fontWeight: 600 }}>
+          <span style={{ color: '#0A0A0C', fontWeight: 600 }}>
             {t('closing_cta.subtitle_highlight')}
           </span>
         </p>
@@ -76,7 +69,7 @@ export default function ClosingCTA() {
             className="btn-primary"
             id="closing-cta"
             style={{
-              boxShadow: '0 0 52px -4px rgba(212, 175, 55, 0.35)',
+              boxShadow: '0 4px 20px -2px rgba(3, 20, 43, 0.35)',
               fontSize: 'clamp(0.85rem, 2vw, 1rem)',
               padding: 'clamp(0.875rem, 2vw, 1.125rem) clamp(1.5rem, 4vw, 3rem)',
               maxWidth: 420, width: '100%', justifyContent: 'center', border: 'none', cursor: 'pointer'
@@ -92,18 +85,17 @@ export default function ClosingCTA() {
           marginTop: '1.25rem',
           fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
           fontSize: '0.75rem',
-          color: '#A1A1AA',
-          opacity: 0.7,
+          color: '#64748B',
         }}>
           {t('closing_cta.disclaimer')}
         </p>
 
         {/* Social proof */}
-        <div style={{ marginTop: 'clamp(3rem, 7vw, 6rem)', paddingTop: 'clamp(2rem, 5vw, 3.5rem)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ marginTop: 'clamp(3rem, 7vw, 6rem)', paddingTop: 'clamp(2rem, 5vw, 3.5rem)', borderTop: '1px solid rgba(0, 0, 0, 0.06)' }}>
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: '0.58rem',
-            textTransform: 'uppercase', color: '#A1A1AA',
+            textTransform: 'uppercase', color: '#64748B',
             marginBottom: '1.25rem', fontWeight: 700,
           }}>
             {t('closing_cta.trusted_by')}

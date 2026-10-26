@@ -42,8 +42,8 @@ export default function Footer() {
 
   return (
     <footer style={{
-      borderTop: '1px solid rgba(255,255,255,0.08)',
-      background: 'rgba(10, 10, 12, 0.95)',
+      borderTop: '1px solid rgba(0, 0, 0, 0.06)',
+      background: '#F8F9FA',
       backdropFilter: 'blur(12px)',
     }}>
       <div className="section-wrap" style={{ padding: 'clamp(3rem, 8vw, 5.5rem) 1.25rem clamp(2rem, 5vw, 3.5rem)' }}>
@@ -61,24 +61,24 @@ export default function Footer() {
                   height: 44, width: 44,
                   objectFit: 'contain',
                   borderRadius: '50%',
-                  border: '1px solid rgba(212, 175, 55, 0.35)',
-                  boxShadow: '0 0 16px rgba(212, 175, 55, 0.18)'
+                  border: '1px solid rgba(3, 20, 43, 0.15)',
+                  boxShadow: '0 0 12px rgba(3, 20, 43, 0.10)'
                 }}
               />
               <span style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: '1.25rem',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: '#0A0A0C',
                 letterSpacing: '-0.02em',
               }}>
-                HB<span style={{ color: '#D4AF37' }}>grow</span>
+                HB<span style={{ color: '#0B3275' }}>grow</span>
               </span>
             </div>
             <p style={{
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-              fontSize: '0.82rem', color: '#A1A1AA',
-              lineHeight: 2, fontWeight: 300, maxWidth: 260,
+              fontSize: '0.82rem', color: '#52525B',
+              lineHeight: 2, fontWeight: 400, maxWidth: 260,
             }}>
               {t('footer.brand_desc')}
             </p>
@@ -92,24 +92,22 @@ export default function Footer() {
                   aria-label={label}
                   style={{
                     width: 34, height: 34, borderRadius: '0.5rem',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(0, 0, 0, 0.08)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: '#A1A1AA', textDecoration: 'none',
+                    color: '#475569', textDecoration: 'none',
                     transition: 'all 0.3s',
-                    background: 'rgba(255,255,255,0.03)',
-                    backdropFilter: 'blur(8px)',
+                    background: '#FFFFFF',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.02)',
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.color = '#D4AF37';
-                    e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.4)';
-                    e.currentTarget.style.background = 'rgba(212, 175, 55, 0.12)';
-                    e.currentTarget.style.boxShadow = '0 0 14px rgba(212, 175, 55, 0.18)';
+                    e.currentTarget.style.color = '#03142B';
+                    e.currentTarget.style.borderColor = '#03142B';
+                    e.currentTarget.style.background = '#F1F5F9';
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.color = '#A1A1AA';
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
-                    e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.color = '#475569';
+                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                    e.currentTarget.style.background = '#FFFFFF';
                   }}
                 >{icon}</a>
               ))}
@@ -121,7 +119,7 @@ export default function Footer() {
             <p style={{
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: '0.65rem',
-              textTransform: 'uppercase', color: '#A1A1AA',
+              textTransform: 'uppercase', color: '#64748B',
               fontWeight: 700, marginBottom: '1.25rem',
             }}>
               {t('footer.links_title')}
@@ -133,12 +131,12 @@ export default function Footer() {
                     href={href}
                     style={{
                       fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                      fontSize: '0.875rem', color: '#A1A1AA',
+                      fontSize: '0.875rem', color: '#475569',
                       textDecoration: 'none', fontWeight: 400,
                       transition: 'color 0.25s',
                     }}
-                    onMouseEnter={e => e.target.style.color = '#D4AF37'}
-                    onMouseLeave={e => e.target.style.color = '#A1A1AA'}
+                    onMouseEnter={e => e.target.style.color = '#03142B'}
+                    onMouseLeave={e => e.target.style.color = '#475569'}
                   >
                     {t(labelKey)}
                   </a>
@@ -152,7 +150,7 @@ export default function Footer() {
             <p style={{
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: '0.65rem',
-              textTransform: 'uppercase', color: '#A1A1AA',
+              textTransform: 'uppercase', color: '#64748B',
               fontWeight: 700, marginBottom: '1.25rem',
             }}>
               {t('footer.contact_title')}
@@ -169,7 +167,7 @@ export default function Footer() {
                   width: '100%',
                   maxWidth: '280px',
                   justifyContent: 'center',
-                  boxShadow: '0 0 28px -4px rgba(212, 175, 55, 0.25)',
+                  boxShadow: '0 4px 16px rgba(3, 20, 43, 0.25)',
                   borderRadius: '12px',
                   transition: 'transform 0.2s'
                 }}
@@ -186,7 +184,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{
           paddingTop: '1.75rem',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderTop: '1px solid rgba(0, 0, 0, 0.06)',
           display: 'flex',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
@@ -194,15 +192,15 @@ export default function Footer() {
         }}>
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-            fontSize: '0.75rem', color: 'rgba(161, 161, 170, 0.6)',
-            fontWeight: 300,
+            fontSize: '0.75rem', color: '#64748B',
+            fontWeight: 400,
           }}>
             © {new Date().getFullYear()} {t('footer.copyright')}
           </p>
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-            fontSize: '0.72rem', color: 'rgba(161, 161, 170, 0.4)',
-            fontWeight: 300,
+            fontSize: '0.72rem', color: '#94A3B8',
+            fontWeight: 400,
           }}>
             {t('footer.made_by')}
           </p>

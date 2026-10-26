@@ -20,13 +20,13 @@ export default function PainSolution() {
       <div style={{
         position: 'absolute', top: '10%', left: '5%',
         width: 400, height: 400, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(3, 20, 43, 0.02) 0%, transparent 70%)',
         filter: 'blur(60px)', pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', bottom: '15%', right: '5%',
         width: 500, height: 500, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(3, 20, 43, 0.02) 0%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
@@ -39,7 +39,7 @@ export default function PainSolution() {
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.6rem, 3.5vw, 2.75rem)',
             fontWeight: 700, lineHeight: 1.25,
-            color: '#ffffff', maxWidth: 620, margin: '0 auto',
+            color: '#0A0A0C', maxWidth: 620, margin: '0 auto',
           }}>
             {t('pain_solution.title_p1')}{' '}
             <span className="text-gold">{t('pain_solution.title_highlight')}</span>{' '}
@@ -62,32 +62,25 @@ export default function PainSolution() {
               style={{
                 padding: '2.25rem',
                 transitionDelay: `${i * 80}ms`,
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(0, 0, 0, 0.07)',
                 animationDelay: `${i * 1.5}s`,
               }}
             >
-              {/* Subtle faint ambient glow per card (<= 3%) */}
-              <div style={{
-                position: 'absolute', top: 0, left: 0, right: 0, height: '50%',
-                background: 'radial-gradient(ellipse 80% 60% at 50% -20%, rgba(255, 255, 255, 0.02) 0%, transparent 70%)',
-                pointerEvents: 'none',
-              }} />
-
-              {/* Icon badge - Unified Champagne Gold */}
+              {/* Icon badge */}
               <div style={{
                 width: 40, height: 40, borderRadius: '0.75rem',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'rgba(3, 20, 43, 0.04)',
+                border: '1px solid rgba(3, 20, 43, 0.08)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 marginBottom: '1.5rem', flexShrink: 0,
                 backdropFilter: 'blur(8px)',
               }}>
-                <XCircle size={16} style={{ color: '#D4AF37' }} />
+                <XCircle size={16} style={{ color: '#03142B' }} />
               </div>
 
               <div style={{
                 fontSize: '0.65rem', fontWeight: 700,
-                color: '#A1A1AA', marginBottom: '0.75rem',
+                color: '#64748B', marginBottom: '0.75rem',
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
                 textTransform: 'uppercase', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               }}>
@@ -97,14 +90,14 @@ export default function PainSolution() {
               <h3 style={{
                 fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 fontSize: '1rem', fontWeight: 700,
-                color: '#ffffff', marginBottom: '1rem', lineHeight: 1.5,
+                color: '#0A0A0C', marginBottom: '1rem', lineHeight: 1.5,
               }}>
                 {title}
               </h3>
               <p style={{
                 fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                fontSize: '0.9rem', color: '#A1A1AA',
-                lineHeight: 2, fontWeight: 300,
+                fontSize: '0.9rem', color: '#52525B',
+                lineHeight: 2, fontWeight: 400,
               }}>
                 {desc}
               </p>
@@ -117,31 +110,25 @@ export default function PainSolution() {
           padding: '3rem 2.5rem',
           marginBottom: 'clamp(3rem, 8vw, 5rem)',
           textAlign: 'center',
-          backgroundColor: '#111116',
-          backgroundImage: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          backgroundColor: '#FFFFFF',
+          backgroundImage: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)',
+          border: '1px solid rgba(0, 0, 0, 0.08)',
           borderRadius: '1.75rem',
           backdropFilter: 'blur(32px)',
           WebkitBackdropFilter: 'blur(32px)',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.04)',
           position: 'relative', overflow: 'hidden',
         }}>
           {/* Banner shine line */}
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, height: 1,
-            background: 'linear-gradient(90deg, transparent 10%, rgba(255, 255, 255, 0.12) 35%, rgba(229, 228, 226, 0.40) 50%, rgba(255, 255, 255, 0.12) 65%, transparent 90%)',
-          }} />
-          {/* Banner inner glow */}
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse 70% 60% at 50% -10%, rgba(212, 175, 55, 0.04) 0%, transparent 65%)',
-            pointerEvents: 'none',
+            background: 'linear-gradient(90deg, transparent 10%, rgba(0, 0, 0, 0.05) 35%, rgba(3, 20, 43, 0.15) 50%, rgba(0, 0, 0, 0.05) 65%, transparent 90%)',
           }} />
           <p style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.4rem, 3vw, 2.25rem)',
             fontWeight: 700, lineHeight: 1.35,
-            color: '#ffffff', position: 'relative', zIndex: 1,
+            color: '#0A0A0C', position: 'relative', zIndex: 1,
           }}>
             {t('pain_solution.shift_p1')}{' '}
             <span className="text-gold">{t('pain_solution.shift_highlight')}</span>
@@ -164,23 +151,24 @@ export default function PainSolution() {
               style={{
                 padding: '2.25rem',
                 transitionDelay: `${i * 80}ms`,
+                border: '1px solid rgba(0, 0, 0, 0.07)',
               }}
             >
               {/* Icon badge */}
               <div style={{
                 width: 40, height: 40, borderRadius: '0.75rem',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'rgba(3, 20, 43, 0.04)',
+                border: '1px solid rgba(3, 20, 43, 0.08)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 marginBottom: '1.5rem', flexShrink: 0,
                 backdropFilter: 'blur(8px)',
               }}>
-                <CheckCircle2 size={16} style={{ color: '#D4AF37' }} />
+                <CheckCircle2 size={16} style={{ color: '#0B3275' }} />
               </div>
 
               <div style={{
                 fontSize: '0.65rem', fontWeight: 700,
-                color: '#E5E4E2', marginBottom: '0.75rem',
+                color: '#03142B', marginBottom: '0.75rem',
                 display: 'flex', alignItems: 'center', gap: '0.4rem',
                 textTransform: 'uppercase', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               }}>
@@ -190,14 +178,14 @@ export default function PainSolution() {
               <h3 style={{
                 fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                 fontSize: '1rem', fontWeight: 700,
-                color: '#ffffff', marginBottom: '1rem', lineHeight: 1.5,
+                color: '#0A0A0C', marginBottom: '1rem', lineHeight: 1.5,
               }}>
                 {title}
               </h3>
               <p style={{
                 fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                fontSize: '0.9rem', color: '#A1A1AA',
-                lineHeight: 2, fontWeight: 300,
+                fontSize: '0.9rem', color: '#52525B',
+                lineHeight: 2, fontWeight: 400,
               }}>
                 {desc}
               </p>
@@ -214,7 +202,7 @@ export default function PainSolution() {
           <p style={{
             marginTop: '1.25rem',
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-            fontSize: '0.8rem', color: '#A1A1AA',
+            fontSize: '0.8rem', color: '#64748B',
           }}>
             {t('pain_solution.cta_desc')}
           </p>

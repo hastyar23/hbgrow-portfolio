@@ -77,7 +77,7 @@ export default function StatsBanner() {
         <p data-reveal style={{
           fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
           fontSize: '0.58rem',
-          textTransform: 'uppercase', color: '#A1A1AA',
+          textTransform: 'uppercase', color: '#64748B',
           marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 700,
         }}>
           {t('stats.top_subtitle')}
@@ -95,12 +95,12 @@ export default function StatsBanner() {
         >
           {stats.map(({ icon, val, label }, i) => (
             <div key={i} className="glass-card" style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-              <div style={{ color: '#D4AF37' }}>{icon}</div>
+              <div style={{ color: '#0B3275' }}>{icon}</div>
               <div className="stat-val">{val}</div>
               <p style={{
                 fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                fontSize: '0.82rem', color: '#A1A1AA',
-                lineHeight: 1.9, fontWeight: 300,
+                fontSize: '0.82rem', color: '#52525B',
+                lineHeight: 1.9, fontWeight: 400,
               }}>{label}</p>
             </div>
           ))}
@@ -126,7 +126,7 @@ export default function StatsBanner() {
           ))}
         </div>
 
-        <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 3.5rem)', opacity: 0.5 }} />
+        <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 3.5rem)', opacity: 0.8 }} />
 
         {/* Ad Results Advanced Slider */}
         <div data-reveal style={{ marginBottom: 'clamp(3rem, 6vw, 4rem)', position: 'relative' }}>
@@ -135,7 +135,7 @@ export default function StatsBanner() {
              <h3 style={{
                 fontFamily: "'Sarchia Bokan', serif",
                 fontSize: 'clamp(1.3rem, 3.5vw, 2rem)',
-                fontWeight: 700, color: '#ffffff', margin: 0
+                fontWeight: 700, color: '#0A0A0C', margin: 0
              }}>
                {t('stats.slider_title_p1')}<span className="text-gold">{t('stats.slider_title_highlight')}</span>
              </h3>
@@ -162,12 +162,12 @@ export default function StatsBanner() {
               key={`${currentIndex}-${timerKey}`} 
               className={`slider-card animate-${direction}`}
               style={{
-                backgroundColor: '#111116',
-                backgroundImage: 'linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%)',
+                backgroundColor: '#FFFFFF',
+                backgroundImage: 'linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                boxShadow: '0 20px 50px -15px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(0, 0, 0, 0.08)',
+                boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1)',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 display: 'flex', 
@@ -180,14 +180,14 @@ export default function StatsBanner() {
                 key={`progress-${timerKey}`}
                 style={{
                   position: 'absolute', top: 0, left: 0, right: 0, height: '4px',
-                  background: 'rgba(255, 255, 255, 0.05)',
+                  background: 'rgba(0, 0, 0, 0.04)',
                   zIndex: 10,
                 }}
               >
                 <div style={{
                   height: '100%', width: '100%',
-                  background: 'linear-gradient(90deg, #E5E4E2, #D4AF37)',
-                  boxShadow: '0 0 10px rgba(212, 175, 55, 0.4)',
+                  background: 'linear-gradient(90deg, #020C1B, #0B3275)',
+                  boxShadow: '0 0 10px rgba(11, 50, 117, 0.3)',
                   transformOrigin: 'right',
                   animation: 'progress-fill 5s linear forwards',
                 }} />
@@ -199,7 +199,7 @@ export default function StatsBanner() {
                 padding: '1.5rem', 
                 paddingTop: '2rem',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: 'rgba(10, 10, 12, 0.6)',
+                background: '#F8FAFC',
                 cursor: imgError ? 'default' : 'pointer',
                 minHeight: 220,
                 position: 'relative',
@@ -210,7 +210,7 @@ export default function StatsBanner() {
                   <div style={{
                     position: 'absolute', inset: '1.5rem',
                     borderRadius: 16,
-                    background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%)',
+                    background: 'linear-gradient(90deg, rgba(0,0,0,0.03) 25%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.03) 75%)',
                     backgroundSize: '200% 100%',
                     animation: 'shimmer 1.6s ease infinite',
                   }} />
@@ -222,11 +222,11 @@ export default function StatsBanner() {
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                     gap: '0.75rem', padding: '1.5rem', textAlign: 'center',
                   }}>
-                    <BarChart2 size={36} color="#D4AF37" />
-                    <div style={{ color: '#E5E4E2', fontSize: '0.8rem', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
+                    <BarChart2 size={36} color="#0B3275" />
+                    <div style={{ color: '#0A0A0C', fontSize: '0.8rem', fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif", lineHeight: 1.6 }}>
                       {t('stats.campaign_num')}{currentIndex + 1}
                     </div>
-                    <div style={{ color: '#A1A1AA', fontSize: '0.65rem' }}>Meta Ads Dashboard</div>
+                    <div style={{ color: '#64748B', fontSize: '0.65rem' }}>Meta Ads Dashboard</div>
                   </div>
                 )}
 
@@ -238,7 +238,7 @@ export default function StatsBanner() {
                     width: '100%', height: 'auto', maxHeight: '350px', objectFit: 'contain', 
                     display: imgError ? 'none' : 'block',
                     opacity: imgLoaded ? 1 : 0,
-                    borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)',
+                    borderRadius: '16px', border: '1px solid rgba(0,0,0,0.08)',
                     transition: 'transform 0.4s ease, opacity 0.4s ease',
                   }}
                   crossOrigin="anonymous"
@@ -261,23 +261,23 @@ export default function StatsBanner() {
                 position: 'relative',
               }}>
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#A1A1AA', marginBottom: '0.5rem' }}>
-                    <MessageCircle size={22} color="#D4AF37" />
-                    <span style={{ fontSize: '1.1rem', fontWeight: 500, color: '#A1A1AA' }}>{t('stats.msg_rate')}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#64748B', marginBottom: '0.5rem' }}>
+                    <MessageCircle size={22} color="#0B3275" />
+                    <span style={{ fontSize: '1.1rem', fontWeight: 500, color: '#64748B' }}>{t('stats.msg_rate')}</span>
                   </div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff' }}>
+                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#0A0A0C' }}>
                     {adResults[currentIndex].messages}
                   </div>
                 </div>
                 
-                <div style={{ height: '1px', background: 'rgba(255,255,255,0.08)', width: '100%' }} />
+                <div style={{ height: '1px', background: 'rgba(0, 0, 0, 0.08)', width: '100%' }} />
                 
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#A1A1AA', marginBottom: '0.5rem' }}>
-                    <Eye size={22} color="#D4AF37" />
-                    <span style={{ fontSize: '1.1rem', fontWeight: 500, color: '#A1A1AA' }}>{t('stats.view_rate')}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#64748B', marginBottom: '0.5rem' }}>
+                    <Eye size={22} color="#0B3275" />
+                    <span style={{ fontSize: '1.1rem', fontWeight: 500, color: '#64748B' }}>{t('stats.view_rate')}</span>
                   </div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff' }}>
+                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#0A0A0C' }}>
                     {adResults[currentIndex].impressions}
                   </div>
                 </div>
@@ -285,7 +285,7 @@ export default function StatsBanner() {
                 {/* Counter */}
                 <div style={{
                   position: 'absolute', bottom: '1.5rem', left: '2rem',
-                  fontFamily: 'monospace', fontSize: '1rem', color: '#A1A1AA', fontWeight: 600, direction: 'ltr'
+                  fontFamily: 'monospace', fontSize: '1rem', color: '#64748B', fontWeight: 600, direction: 'ltr'
                 }}>
                   {String(currentIndex + 1).padStart(2, '0')} / {String(adResults.length).padStart(2, '0')}
                 </div>
@@ -307,8 +307,8 @@ export default function StatsBanner() {
                       height: '8px',
                       width: currentIndex === idx ? '24px' : '8px',
                       borderRadius: '4px',
-                      background: currentIndex === idx ? '#D4AF37' : 'rgba(255,255,255,0.15)',
-                      boxShadow: currentIndex === idx ? '0 0 14px rgba(212, 175, 55, 0.65)' : 'none',
+                      background: currentIndex === idx ? '#03142B' : 'rgba(0, 0, 0, 0.12)',
+                      boxShadow: currentIndex === idx ? '0 0 10px rgba(3, 20, 43, 0.3)' : 'none',
                       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                       padding: 0, border: 'none', cursor: 'pointer'
                     }}
@@ -341,19 +341,20 @@ export default function StatsBanner() {
             .animate-prev { animation: slide-in-prev 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
             
             .slider-btn {
-              background: rgba(255,255,255,0.03);
-              border: 1px solid rgba(255,255,255,0.08);
-              color: #A1A1AA;
+              background: #FFFFFF;
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              color: #0A0A0C;
               width: 44px; height: 44px;
               border-radius: 50%;
               display: flex; align-items: center; justify-content: center;
               cursor: pointer;
               transition: all 0.3s ease;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             }
             .slider-btn:hover {
-              background: rgba(255, 255, 255, 0.08);
-              border-color: rgba(255, 255, 255, 0.20);
-              color: #FFFFFF;
+              background: #F8FAFC;
+              border-color: #03142B;
+              color: #03142B;
             }
             
             .mobile-only-arrows { display: none !important; }
@@ -385,7 +386,7 @@ export default function StatsBanner() {
           `}} />
         </div>
 
-        <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 3.5rem)', opacity: 0.5 }} />
+        <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 3.5rem)', opacity: 0.8 }} />
 
         {/* CTA */}
         <div data-reveal style={{ textAlign: 'center' }}>
@@ -393,7 +394,7 @@ export default function StatsBanner() {
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.3rem, 3.5vw, 2.3rem)',
             fontWeight: 700, lineHeight: 1.3,
-            color: '#ffffff', marginBottom: '1.75rem',
+            color: '#0A0A0C', marginBottom: '1.75rem',
           }}>
             {t('stats.cta_title_p1')}
             <span className="text-gold">{t('stats.cta_title_highlight')}</span>

@@ -42,9 +42,9 @@ function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
         transition: 'transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.38s ease',
         transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
         boxShadow: hover
-          ? '0 24px 56px -8px rgba(0,0,0,0.85), 0 0 0 1px rgba(212, 175, 55, 0.45)'
-          : '0 8px 32px rgba(0,0,0,0.6)',
-        background: '#0A0A0C',
+          ? '0 16px 36px -4px rgba(3, 20, 43, 0.15), 0 0 0 1px rgba(3, 20, 43, 0.25)'
+          : '0 4px 16px rgba(0,0,0,0.06)',
+        background: '#FFFFFF',
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -233,15 +233,15 @@ export default function Portfolio() {
             <h2 style={{
               fontFamily: "'Sarchia Bokan', serif",
               fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
-              fontWeight: 700, lineHeight: 1.25, color: '#ffffff', maxWidth: 460,
+              fontWeight: 700, lineHeight: 1.25, color: '#0A0A0C', maxWidth: 460,
             }}>
               {t('portfolio.title_p1')}{' '}
               <span className="text-gold">{t('portfolio.title_highlight')}</span>
             </h2>
             <p style={{
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-              fontSize: '0.875rem', color: '#A1A1AA',
-              maxWidth: 320, lineHeight: 2, fontWeight: 300,
+              fontSize: '0.875rem', color: '#52525B',
+              maxWidth: 320, lineHeight: 2, fontWeight: 400,
             }}>
               {t('portfolio.subtitle')}
             </p>
@@ -253,7 +253,7 @@ export default function Portfolio() {
           {['left', 'right'].map(side => (
             <div key={side} style={{
               position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '10%', zIndex: 2,
-              background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(10,10,12,0.95), transparent)`,
+              background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, #FFFFFF, transparent)`,
               pointerEvents: 'none',
             }} />
           ))}
@@ -262,11 +262,11 @@ export default function Portfolio() {
               <div key={i} style={{
                 flexShrink: 0, height: 30,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                opacity: 0.5, filter: 'grayscale(100%) brightness(180%)',
+                opacity: 0.65, filter: 'grayscale(100%)',
                 transition: 'all 0.4s ease',
               }}
-                onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.filter = 'grayscale(0%) brightness(100%)'; }}
-                onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; e.currentTarget.style.filter = 'grayscale(100%) brightness(180%)'; }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.filter = 'grayscale(0%)'; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '0.65'; e.currentTarget.style.filter = 'grayscale(100%)'; }}
               >
                 <img src={src} alt="Client Logo" style={{ height: '100%', width: 'auto', objectFit: 'contain' }} loading="lazy" />
               </div>
@@ -274,7 +274,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)', opacity: 0.4 }} />
+        <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)', opacity: 0.8 }} />
       </div>
 
       {/* ── Video GIF Marquee ── */}
@@ -293,7 +293,7 @@ export default function Portfolio() {
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
-            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(10,10,12,0.95), transparent)`,
+            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, #FFFFFF, transparent)`,
             pointerEvents: 'none',
           }} />
         ))}
@@ -366,7 +366,7 @@ export default function Portfolio() {
       {showAllVideos && (
         <div className="modal-scroll" style={{
           position: 'fixed', inset: 0, zIndex: 9998,
-          background: 'rgba(10,10,12,0.98)', backdropFilter: 'blur(24px)',
+          background: 'rgba(255, 255, 255, 0.98)', backdropFilter: 'blur(24px)',
           overflowY: 'auto', direction: 'rtl',
         }}>
           <div className="section-wrap" style={{ padding: 'clamp(2rem, 6vw, 4rem) 1.25rem' }}>
@@ -375,13 +375,13 @@ export default function Portfolio() {
                 <span className="badge" style={{ marginBottom: '0.75rem' }}>{t('portfolio.archive_badge')}</span>
                 <h2 style={{
                   fontFamily: "'Sarchia Bokan', serif",
-                  fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#ffffff',
+                  fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#0A0A0C',
                 }}>
                   {t('portfolio.archive_title_p1')}<span className="text-gold">{t('portfolio.archive_title_highlight')}</span>
                 </h2>
                 <p style={{
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                  fontSize: '0.875rem', color: '#A1A1AA',
+                  fontSize: '0.875rem', color: '#52525B',
                   marginTop: '0.5rem',
                 }}>
                   {t('portfolio.archive_subtitle')}
@@ -404,12 +404,13 @@ export default function Portfolio() {
                   style={{
                     width: '100%', aspectRatio: '9/16',
                     position: 'relative', borderRadius: '0.75rem', overflow: 'hidden',
-                    cursor: 'pointer', border: '1px solid rgba(255,255,255,0.08)',
-                    background: '#111116', transition: 'all 0.35s ease',
+                    cursor: 'pointer', border: '1px solid rgba(0, 0, 0, 0.08)',
+                    background: '#FFFFFF', transition: 'all 0.35s ease',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
                   }}
                   onClick={() => { setShowAllVideos(false); setActiveVideo(id); }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.45)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.borderColor = '#03142B'; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)'; }}
                 >
                   <img
                     src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
@@ -419,15 +420,15 @@ export default function Portfolio() {
                       }
                     }}
                     alt="Video Thumbnail"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55 }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }}
                   />
                   <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{
                       width: 40, height: 40, borderRadius: '50%',
-                      background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(229, 228, 226, 0.5)',
+                      background: 'rgba(3, 20, 43, 0.85)', border: '1px solid rgba(255, 255, 255, 0.3)',
                       backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      <Play size={16} style={{ fill: '#D4AF37', color: '#D4AF37', marginRight: -2 }} />
+                      <Play size={16} style={{ fill: '#FFFFFF', color: '#FFFFFF', marginRight: -2 }} />
                     </div>
                   </div>
                 </div>
@@ -439,7 +440,7 @@ export default function Portfolio() {
                 <button
                   onClick={() => setVisibleCount(prev => prev + 12)}
                   className="btn-ghost"
-                  style={{ padding: '0.875rem 2rem', fontSize: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                  style={{ padding: '0.875rem 2rem', fontSize: '1rem' }}
                 >
                   <Grid size={16} style={{ opacity: 0.75, flexShrink: 0, marginLeft: '0.5rem' }} />
                   {t('portfolio.btn_load_more')}

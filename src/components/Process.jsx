@@ -2,10 +2,10 @@ import { Phone, BarChart2, Eye, Smile } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const STEP_COLORS = [
-  { border: 'rgba(255, 255, 255, 0.08)', glow: 'rgba(212, 175, 55, 0.03)', icon: '#D4AF37', bg: 'rgba(255, 255, 255, 0.03)' },
-  { border: 'rgba(255, 255, 255, 0.08)', glow: 'rgba(212, 175, 55, 0.03)', icon: '#D4AF37', bg: 'rgba(255, 255, 255, 0.03)' },
-  { border: 'rgba(255, 255, 255, 0.08)', glow: 'rgba(212, 175, 55, 0.03)', icon: '#D4AF37', bg: 'rgba(255, 255, 255, 0.03)' },
-  { border: 'rgba(255, 255, 255, 0.08)', glow: 'rgba(212, 175, 55, 0.03)', icon: '#D4AF37', bg: 'rgba(255, 255, 255, 0.03)' },
+  { border: 'rgba(0, 0, 0, 0.08)', glow: 'rgba(3, 20, 43, 0.03)', icon: '#0B3275', bg: 'rgba(3, 20, 43, 0.04)' },
+  { border: 'rgba(0, 0, 0, 0.08)', glow: 'rgba(3, 20, 43, 0.03)', icon: '#0B3275', bg: 'rgba(3, 20, 43, 0.04)' },
+  { border: 'rgba(0, 0, 0, 0.08)', glow: 'rgba(3, 20, 43, 0.03)', icon: '#0B3275', bg: 'rgba(3, 20, 43, 0.04)' },
+  { border: 'rgba(0, 0, 0, 0.08)', glow: 'rgba(3, 20, 43, 0.03)', icon: '#0B3275', bg: 'rgba(3, 20, 43, 0.04)' },
 ];
 
 export default function Process() {
@@ -25,7 +25,7 @@ export default function Process() {
       <div style={{
         position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)',
         width: 800, height: 400, borderRadius: '50%',
-        background: 'radial-gradient(ellipse, rgba(212, 175, 55, 0.05) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(3, 20, 43, 0.03) 0%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
@@ -37,7 +37,7 @@ export default function Process() {
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
-            fontWeight: 700, lineHeight: 1.25, color: '#ffffff',
+            fontWeight: 700, lineHeight: 1.25, color: '#0A0A0C',
             marginBottom: '1rem', marginTop: '0.75rem',
           }}>
             {t('process.title_p1')}{' '}
@@ -46,7 +46,7 @@ export default function Process() {
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             fontSize: 'clamp(0.875rem, 2vw, 0.95rem)',
-            color: '#A1A1AA', lineHeight: 2, fontWeight: 300,
+            color: '#52525B', lineHeight: 2, fontWeight: 400,
           }}>
             {t('process.subtitle')}
           </p>
@@ -70,29 +70,22 @@ export default function Process() {
                   position: 'relative',
                   overflow: 'hidden',
                   transitionDelay: `${i * 80}ms`,
-                  borderTop: `1px solid ${c.border}`,
+                  border: '1px solid rgba(0, 0, 0, 0.07)',
                 }}
               >
-                {/* Per-card top colour glow */}
-                <div style={{
-                  position: 'absolute', top: 0, left: 0, right: 0, height: '55%',
-                  background: `radial-gradient(ellipse 90% 55% at 50% -15%, ${c.glow} 0%, transparent 70%)`,
-                  pointerEvents: 'none',
-                }} />
-
                 {/* Ghost large number */}
                 <span className="step-num">{num}</span>
 
                 {/* Icon badge */}
                 <div style={{
                   width: 44, height: 44, borderRadius: '0.875rem',
-                  background: `linear-gradient(135deg, ${c.bg} 0%, rgba(255,255,255,0.04) 100%)`,
-                  border: `1px solid ${c.border}`,
+                  background: 'rgba(3, 20, 43, 0.04)',
+                  border: '1px solid rgba(3, 20, 43, 0.08)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: c.icon,
+                  color: '#0B3275',
                   marginBottom: '1.5rem',
                   backdropFilter: 'blur(8px)',
-                  boxShadow: `0 4px 20px ${c.glow}, inset 0 1px 0 rgba(255,255,255,0.10)`,
+                  boxShadow: '0 2px 10px rgba(3, 20, 43, 0.05)',
                   position: 'relative', zIndex: 1,
                 }}>
                   {icon}
@@ -102,7 +95,7 @@ export default function Process() {
                 <div style={{
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   fontSize: '0.65rem', textTransform: 'uppercase',
-                  color: c.icon.replace('0.85', '0.55'),
+                  color: '#64748B',
                   marginBottom: '0.75rem', fontWeight: 700,
                   position: 'relative', zIndex: 1,
                 }}>
@@ -113,7 +106,7 @@ export default function Process() {
                 <h3 style={{
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   fontSize: 'clamp(0.95rem, 2.5vw, 1.05rem)', fontWeight: 700,
-                  color: '#ffffff', marginBottom: '0.875rem', lineHeight: 1.4,
+                  color: '#0A0A0C', marginBottom: '0.875rem', lineHeight: 1.4,
                   position: 'relative', zIndex: 1,
                 }}>
                   {title}
@@ -122,8 +115,8 @@ export default function Process() {
                 {/* Desc */}
                 <p style={{
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                  fontSize: '0.875rem', color: '#A1A1AA',
-                  lineHeight: 2, fontWeight: 300,
+                  fontSize: '0.875rem', color: '#52525B',
+                  lineHeight: 2, fontWeight: 400,
                   position: 'relative', zIndex: 1,
                 }}>
                   {desc}

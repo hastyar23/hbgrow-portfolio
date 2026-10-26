@@ -143,17 +143,17 @@ export default function ScheduleModal({ onClose }) {
           <div className="modal-content success-content">
             <button className="modal-close" onClick={onClose}><X size={24} /></button>
             <div style={{ textAlign: 'center', padding: '2rem 0' }}>
-              <CheckCircle2 size={80} color="#D4AF37" style={{ margin: '0 auto 1.5rem auto' }} />
-              <h2 style={{ color: '#ffffff', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Sarchia Bokan', serif", }}>
+              <CheckCircle2 size={80} color="#0B3275" style={{ margin: '0 auto 1.5rem auto' }} />
+              <h2 style={{ color: '#0A0A0C', fontSize: '2rem', marginBottom: '1rem', fontFamily: "'Sarchia Bokan', serif", }}>
                 {t('schedule.success_title')}
               </h2>
-              <p style={{ color: '#A1A1AA', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+              <p style={{ color: '#52525B', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
                 {t('schedule.success_subtitle1')}
               </p>
-              <p style={{ color: 'rgba(161, 161, 170, 0.7)', fontSize: '1rem' }}>
+              <p style={{ color: '#71717A', fontSize: '1rem' }}>
                 {t('schedule.success_subtitle2')}
               </p>
-              <button onClick={onClose} className="btn-primary" style={{ marginTop: '2.5rem' }}>
+              <button onClick={onClose} className="btn-primary" style={{ marginTop: '2.5rem', border: 'none', cursor: 'pointer' }}>
                 {t('schedule.btn_close')}
               </button>
             </div>
@@ -162,25 +162,31 @@ export default function ScheduleModal({ onClose }) {
         <style dangerouslySetInnerHTML={{__html: `
           .modal-overlay {
             position: fixed; inset: 0; z-index: 10000;
-            background: rgba(10, 10, 12, 0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            display: flex; justify-content: center; align-items: center; padding: 1rem;
+            background: rgba(3, 20, 43, 0.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            display: flex; justify-content: center; align-items: flex-end; padding: 0;
+          }
+          @media (min-width: 600px) {
+            .modal-overlay { align-items: center; padding: 1rem; }
           }
           .modal-content {
-            background: #0A0A0C; border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px; width: 100%; max-width: 700px;
-            max-height: 90vh; overflow-y: auto; position: relative;
-            box-shadow: 0 32px 80px -20px rgba(0,0,0,0.9), 0 0 45px rgba(212, 175, 55, 0.08);
+            background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 24px 24px 0 0; width: 100%; max-width: 700px;
+            max-height: 92dvh; overflow-y: auto; position: relative;
+            box-shadow: 0 -10px 40px -10px rgba(0,0,0,0.15);
             display: flex; flex-direction: column;
+          }
+          @media (min-width: 600px) {
+            .modal-content { border-radius: 24px; max-height: 90vh; box-shadow: 0 20px 60px -15px rgba(0,0,0,0.2); }
           }
           .success-content { padding: 4rem 2rem; justify-content: center; align-items: center; }
           .modal-close {
-            position: absolute; top: 1.5rem; left: 1.5rem;
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-            color: #fff; border-radius: 50%; width: 40px; height: 40px;
+            position: absolute; top: 1.25rem; left: 1.25rem;
+            background: #F8FAFC; border: 1px solid rgba(0, 0, 0, 0.08);
+            color: #0A0A0C; border-radius: 50%; width: 40px; height: 40px;
             display: flex; justify-content: center; align-items: center;
             cursor: pointer; transition: all 0.2s; z-index: 10;
           }
-          .modal-close:hover { background: rgba(255,255,255,0.1); transform: scale(1.05); }
+          .modal-close:hover { background: #EDF2F7; transform: scale(1.05); }
         `}} />
       </>
     );
@@ -376,7 +382,7 @@ export default function ScheduleModal({ onClose }) {
       <style dangerouslySetInnerHTML={{__html: `
         .modal-overlay {
           position: fixed; inset: 0; z-index: 10000;
-          background: rgba(10, 10, 12, 0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+          background: rgba(3, 20, 43, 0.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
           display: flex; justify-content: center; align-items: flex-end;
           padding: 0;
         }
@@ -384,30 +390,30 @@ export default function ScheduleModal({ onClose }) {
           .modal-overlay { align-items: center; padding: 1rem; }
         }
         .modal-content {
-          background: #0A0A0C; border: 1px solid rgba(255, 255, 255, 0.08);
+          background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 24px 24px 0 0; width: 100%; max-width: 700px;
           max-height: 92dvh; overflow-y: auto; position: relative;
-          box-shadow: 0 -16px 60px -10px rgba(0,0,0,0.95), 0 0 35px rgba(212, 175, 55, 0.08);
+          box-shadow: 0 -10px 40px -10px rgba(0,0,0,0.15);
           display: flex; flex-direction: column;
         }
         @media (min-width: 600px) {
-          .modal-content { border-radius: 24px; max-height: 90vh; box-shadow: 0 32px 80px -20px rgba(0,0,0,0.95), 0 0 50px rgba(212, 175, 55, 0.1); }
+          .modal-content { border-radius: 24px; max-height: 90vh; box-shadow: 0 20px 60px -15px rgba(0,0,0,0.2); }
         }
         .success-content { padding: 3rem 1.5rem; justify-content: center; align-items: center; }
         .modal-close {
           position: absolute; top: 1rem; left: 1rem;
-          background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-          color: #fff; border-radius: 50%; width: 38px; height: 38px;
+          background: #F8FAFC; border: 1px solid rgba(0, 0, 0, 0.08);
+          color: #0A0A0C; border-radius: 50%; width: 38px; height: 38px;
           display: flex; justify-content: center; align-items: center;
           cursor: pointer; transition: all 0.2s; z-index: 10; flex-shrink: 0;
         }
-        .modal-close:hover { background: rgba(255,255,255,0.1); transform: scale(1.05); }
+        .modal-close:hover { background: #EDF2F7; transform: scale(1.05); }
         .modal-progress {
-          height: 4px; background: rgba(255,255,255,0.05); width: 100%;
+          height: 4px; background: rgba(0, 0, 0, 0.04); width: 100%;
           border-radius: 24px 24px 0 0; overflow: hidden; flex-shrink: 0;
         }
         .modal-progress-fill {
-          height: 100%; background: linear-gradient(90deg, #E5E4E2, #D4AF37); box-shadow: 0 0 10px rgba(212, 175, 55, 0.35); transition: width 0.4s ease;
+          height: 100%; background: linear-gradient(90deg, #020C1B, #0B3275); box-shadow: 0 0 10px rgba(11, 50, 117, 0.35); transition: width 0.4s ease;
         }
         .step-container {
           padding: 1.5rem 1.25rem 1rem;
@@ -419,17 +425,17 @@ export default function ScheduleModal({ onClose }) {
         .step-title {
           font-family: 'Sarchia Bokan', serif;
           font-size: clamp(1.3rem, 5vw, 2.2rem);
-          color: #ffffff; margin-bottom: 0.5rem; font-weight: 700;
+          color: #0A0A0C; margin-bottom: 0.5rem; font-weight: 700;
           padding-left: 2.5rem;
           line-height: 1.3;
         }
         .step-subtitle {
-          color: #A1A1AA;
+          color: #52525B;
           font-size: clamp(0.82rem, 3vw, 1.1rem);
           line-height: 1.7; margin-bottom: 2rem;
         }
         .step-question {
-          color: #ffffff;
+          color: #0A0A0C;
           font-size: clamp(0.95rem, 3.5vw, 1.5rem);
           margin-bottom: 1.25rem; font-weight: 600; line-height: 1.4;
         }
@@ -442,30 +448,31 @@ export default function ScheduleModal({ onClose }) {
           .options-grid { gap: 1rem; }
         }
         .option-btn {
-          background: #111116; border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 14px; padding: 1.25rem 0.75rem; color: #A1A1AA; cursor: pointer;
+          background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.08);
+          border-radius: 14px; padding: 1.25rem 0.75rem; color: #52525B; cursor: pointer;
           display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
           transition: all 0.3s ease; font-size: clamp(0.78rem, 2.5vw, 0.95rem);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
         }
         @media (min-width: 480px) {
           .option-btn { border-radius: 16px; padding: 2rem 1.5rem; font-size: 1rem; }
         }
         .option-btn svg { width: clamp(20px, 5vw, 28px); height: clamp(20px, 5vw, 28px); }
-        .option-btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(212, 175, 55, 0.4); color: #ffffff; }
+        .option-btn:hover { background: #F8FAFC; border-color: #03142B; color: #03142B; }
         .option-btn.active {
-          background: rgba(212, 175, 55, 0.12); border-color: #D4AF37;
-          box-shadow: 0 0 24px rgba(212, 175, 55, 0.2); color: #ffffff;
+          background: rgba(3, 20, 43, 0.06); border-color: #03142B;
+          box-shadow: 0 0 16px rgba(3, 20, 43, 0.1); color: #03142B;
         }
         .input-group { margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
-        .input-group label { color: #A1A1AA; font-size: clamp(0.85rem, 3vw, 1.1rem); }
+        .input-group label { color: #52525B; font-size: clamp(0.85rem, 3vw, 1.1rem); }
         .step-input {
-          background: #111116; border: 1px solid rgba(255,255,255,0.08);
-          padding: 0.9rem 1.1rem; border-radius: 12px; color: #ffffff;
+          background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.1);
+          padding: 0.9rem 1.1rem; border-radius: 12px; color: #0A0A0C;
           font-size: clamp(0.9rem, 3vw, 1.1rem);
           font-family: inherit; transition: all 0.3s; width: 100%;
         }
-        .step-input::placeholder { color: rgba(161, 161, 170, 0.4); }
-        .step-input:focus { outline: none; border-color: #D4AF37; background: rgba(255, 255, 255, 0.04); box-shadow: 0 0 16px rgba(212, 175, 55, 0.15); }
+        .step-input::placeholder { color: rgba(82, 82, 91, 0.5); }
+        .step-input:focus { outline: none; border-color: #03142B; background: #FFFFFF; box-shadow: 0 0 12px rgba(3, 20, 43, 0.1); }
         .input-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
         @media (min-width: 520px) {
           .input-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -478,16 +485,16 @@ export default function ScheduleModal({ onClose }) {
         .dates-row::-webkit-scrollbar { display: none; }
         .date-btn {
           flex: 0 0 64px; height: 88px; border-radius: 14px;
-          background: #111116; border: 1px solid rgba(255,255,255,0.08);
-          color: #A1A1AA; cursor: pointer;
+          background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.08);
+          color: #52525B; cursor: pointer;
           display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.15rem;
           transition: all 0.2s;
         }
         @media (min-width: 480px) {
           .date-btn { flex: 0 0 80px; height: 100px; }
         }
-        .date-btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(212, 175, 55, 0.4); color: #ffffff; }
-        .date-btn.active { background: linear-gradient(135deg, #E5E4E2 0%, #D4AF37 100%); border-color: #E5E4E2; color: #0A0A0C; font-weight: 800; box-shadow: 0 0 20px rgba(212, 175, 55, 0.35); }
+        .date-btn:hover { background: #F8FAFC; border-color: #03142B; color: #03142B; }
+        .date-btn.active { background: linear-gradient(135deg, #020C1B 0%, #0B3275 100%); border-color: #020C1B; color: #FFFFFF; font-weight: 800; box-shadow: 0 4px 16px rgba(3, 20, 43, 0.25); }
         .date-num { font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 800; font-family: monospace; }
         .date-day, .date-month { font-size: clamp(0.7rem, 2.5vw, 0.9rem); }
         
@@ -498,18 +505,18 @@ export default function ScheduleModal({ onClose }) {
           .times-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
         }
         .time-btn {
-          background: #111116; border: 1px solid rgba(255,255,255,0.08);
-          padding: 0.875rem 0.5rem; border-radius: 12px; color: #A1A1AA; cursor: pointer;
+          background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.08);
+          padding: 0.875rem 0.5rem; border-radius: 12px; color: #52525B; cursor: pointer;
           transition: all 0.2s; font-family: monospace; font-size: clamp(0.82rem, 2.5vw, 1.05rem);
           text-align: center;
         }
-        .time-btn:hover { border-color: rgba(212, 175, 55, 0.4); background: rgba(255,255,255,0.05); color: #ffffff; }
-        .time-btn.active { background: rgba(212, 175, 55, 0.12); border-color: #D4AF37; color: #ffffff; box-shadow: 0 0 18px rgba(212, 175, 55, 0.2); }
+        .time-btn:hover { border-color: #03142B; background: #F8FAFC; color: #03142B; }
+        .time-btn.active { background: rgba(3, 20, 43, 0.08); border-color: #03142B; color: #03142B; box-shadow: 0 0 12px rgba(3, 20, 43, 0.1); }
 
         .modal-footer {
-          padding: 1rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.08);
+          padding: 1rem 1.25rem; border-top: 1px solid rgba(0, 0, 0, 0.06);
           display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
-          background: rgba(10, 10, 12, 0.85); flex-shrink: 0;
+          background: #F8FAFC; flex-shrink: 0;
         }
         @media (min-width: 480px) {
           .modal-footer { padding: 1.25rem 2rem; }
@@ -518,9 +525,9 @@ export default function ScheduleModal({ onClose }) {
           display: flex; align-items: center; gap: 0.4rem;
           font-size: clamp(0.85rem, 3vw, 1.1rem);
           cursor: pointer; background: transparent; border: none; transition: all 0.2s;
-          color: #A1A1AA; white-space: nowrap; flex-shrink: 0;
+          color: #64748B; white-space: nowrap; flex-shrink: 0;
         }
-        .nav-btn.prev:hover { color: #fff; }
+        .nav-btn.prev:hover { color: #0A0A0C; }
         .nav-btn.prev:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .animate-fade-in { animation: modalFadeIn 0.4s ease forwards; }

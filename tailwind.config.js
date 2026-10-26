@@ -4,56 +4,61 @@ export default {
   theme: {
     extend: {
       colors: {
-        // ── Main Background (The Void) ──
-        void: '#0A0A0C',
-        background: '#0A0A0C',
-        obsidian: '#0A0A0C',
-        deep: '#0A0A0C',
+        // ── Main Background (Minimal High-End White) ──
+        void: '#FFFFFF',
+        background: '#FFFFFF',
+        obsidian: '#FAFAFA',
+        deep: '#FFFFFF',
 
-        // ── Card Backgrounds (Frosted Glass: #111116) ──
-        card: '#111116',
-        'glass-card': '#111116',
-        'frosted-glass': '#111116',
-        'card-frosted': 'rgba(255, 255, 255, 0.03)',
+        // ── Card Backgrounds (Frosted White Porcelain: #FFFFFF) ──
+        card: '#FFFFFF',
+        'glass-card': '#FFFFFF',
+        'frosted-glass': '#FFFFFF',
+        'card-frosted': 'rgba(0, 0, 0, 0.02)',
 
-        // ── Card Borders (The Premium Edge: rgba(255, 255, 255, 0.08)) ──
-        'premium-edge': 'rgba(255, 255, 255, 0.08)',
-        'glass-edge': 'rgba(255, 255, 255, 0.08)',
-        border: 'rgba(255, 255, 255, 0.08)',
+        // ── Card Borders (The Premium Edge: rgba(0, 0, 0, 0.08)) ──
+        'premium-edge': 'rgba(0, 0, 0, 0.08)',
+        'glass-edge': 'rgba(0, 0, 0, 0.08)',
+        border: 'rgba(0, 0, 0, 0.08)',
 
-        // ── Primary Typography (Pure White) ──
-        primary: '#FFFFFF',
+        // ── Primary Typography (Obsidian / Midnight Charcoal) ──
+        primary: '#0A0A0C',
 
-        // ── Secondary Typography (Body Text: Zinc 400) ──
-        secondary: '#A1A1AA',
-        body: '#A1A1AA',
-        slate: '#A1A1AA',
+        // ── Secondary Typography (Body Text: Slate 600 / Zinc 600) ──
+        secondary: '#52525B',
+        body: '#52525B',
+        slate: '#52525B',
 
-        // ── The New Accent (Champagne Gold: #E5E4E2 to #D4AF37) ──
-        platinum: '#E5E4E2',
+        // ── Accent & Brand Palette ──
+        platinum: '#F4F4F6',
         gold: '#D4AF37',
-        'gold-metallic': '#D4AF37',
-        'gold-vivid': '#D4AF37',
-        'gold-lt': '#E5E4E2',
-        'gold-bright': '#FFFFFF',
-        'gold-dark': '#B89228',
-        'gold-glow': 'rgba(212, 175, 55, 0.18)',
+        'gold-metallic': '#B8860B',
+        'gold-vivid': '#03142B',
+        'gold-lt': '#F1F5F9',
+        'gold-bright': '#0A0A0C',
+        'gold-dark': '#020C1B',
+        'gold-glow': 'rgba(3, 20, 43, 0.12)',
 
-        // ── System Compatibility Mappings Routed to Stealth Wealth Palette ──
-        navy: '#0A0A0C',
-        sapphire: '#111116',
-        'logo-navy': '#111116',
-        'blue-glow': 'rgba(212, 175, 55, 0.15)',
+        // ── Signature Dark Navy Blue (Brand Main) ──
+        navy: '#03142B',
+        'navy-dark': '#020C1B',
+        'navy-mid': '#041E42',
+        'navy-light': '#0A2E66',
+        sapphire: '#0B3275',
+        'logo-navy': '#03142B',
+        'blue-glow': 'rgba(3, 20, 43, 0.18)',
       },
       backgroundImage: {
-        'champagne-gold': 'linear-gradient(135deg, #E5E4E2 0%, #D4AF37 100%)',
-        'champagne-gold-hover': 'linear-gradient(135deg, #FFFFFF 0%, #E5C158 100%)',
-        'gold-gradient': 'linear-gradient(135deg, #E5E4E2 0%, #D4AF37 100%)',
-        'void-canvas': 'linear-gradient(180deg, #0A0A0C 0%, #08080A 40%, #060608 100%)',
+        'navy-gradient': 'linear-gradient(135deg, #020C1B 0%, #041E42 50%, #0A2E66 100%)',
+        'navy-gradient-hover': 'linear-gradient(135deg, #03142B 0%, #08244D 50%, #0E3B7D 100%)',
+        'champagne-gold': 'linear-gradient(135deg, #020C1B 0%, #041E42 50%, #0A2E66 100%)',
+        'champagne-gold-hover': 'linear-gradient(135deg, #03142B 0%, #08244D 50%, #0E3B7D 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #020C1B 0%, #041E42 50%, #0A2E66 100%)',
+        'void-canvas': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 50%, #F4F4F6 100%)',
       },
       borderColor: {
-        'premium-edge': 'rgba(255, 255, 255, 0.08)',
-        'glass-edge': 'rgba(255, 255, 255, 0.08)',
+        'premium-edge': 'rgba(0, 0, 0, 0.08)',
+        'glass-edge': 'rgba(0, 0, 0, 0.08)',
       },
       fontFamily: {
         sans: ['Inter', '"IBM Plex Sans Arabic"', '"Noto Kufi Arabic"', 'sans-serif'],
@@ -71,9 +76,11 @@ export default {
         '2xl': '32px',
       },
       boxShadow: {
-        'premium-glass': '0 16px 40px rgba(0, 0, 0, 0.80), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
-        'champagne-glow': '0 0 24px rgba(212, 175, 55, 0.25)',
-        'champagne-hover': '0 0 32px rgba(212, 175, 55, 0.40)',
+        'premium-glass': '0 4px 24px -2px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1)',
+        'navy-glow': '0 4px 20px -2px rgba(3, 20, 43, 0.35)',
+        'navy-hover': '0 8px 28px -2px rgba(3, 20, 43, 0.45)',
+        'champagne-glow': '0 4px 20px -2px rgba(3, 20, 43, 0.35)',
+        'champagne-hover': '0 8px 28px -2px rgba(3, 20, 43, 0.45)',
       },
     },
   },

@@ -50,13 +50,13 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         borderRadius: '0.9rem',
         overflow: 'hidden',
         cursor: 'pointer',
-        background: '#111116',
-        border: `1px solid ${hover ? 'rgba(212, 175, 55, 0.45)' : 'rgba(255,255,255,0.08)'}`,
+        background: '#FFFFFF',
+        border: `1px solid ${hover ? 'rgba(3, 20, 43, 0.25)' : 'rgba(0,0,0,0.08)'}`,
         transition: 'all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
         boxShadow: hover
-          ? '0 20px 52px -8px rgba(0,0,0,0.80), 0 0 0 1px rgba(212, 175, 55, 0.25)'
-          : '0 6px 28px rgba(0,0,0,0.55)',
+          ? '0 16px 36px -4px rgba(3, 20, 43, 0.12)'
+          : '0 4px 16px rgba(0,0,0,0.04)',
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -68,13 +68,13 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
         height: isMobile ? 230 : 280,
         position: 'relative',
         overflow: 'hidden',
-        background: error ? 'rgba(212, 175, 55, 0.05)' : 'rgba(10,10,12,0.5)',
+        background: error ? 'rgba(3, 20, 43, 0.04)' : '#F8FAFC',
       }}>
         {/* Skeleton shimmer */}
         {!loaded && !error && (
           <div style={{
             position: 'absolute', inset: 0, minHeight: 200,
-            background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%)',
+            background: 'linear-gradient(90deg, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.02) 75%)',
             backgroundSize: '200% 100%',
             animation: 'shimmer 1.6s ease infinite',
           }} />
@@ -102,25 +102,25 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
           <div style={{
             position: 'absolute', inset: 0,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'rgba(212, 175, 55, 0.5)', fontSize: '1.5rem',
+            color: 'rgba(3, 20, 43, 0.4)', fontSize: '1.5rem',
           }}>🎨</div>
         )}
         {/* Hover zoom overlay */}
         {!error && loaded && (
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'rgba(10,10,12,0.40)', backdropFilter: 'blur(2px)',
+            background: 'rgba(3, 20, 43, 0.40)', backdropFilter: 'blur(2px)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             opacity: hover ? 1 : 0, transition: 'opacity 0.35s ease',
           }}>
             <div style={{
               width: 40, height: 40, borderRadius: '50%',
-              background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(229, 228, 226, 0.6)',
+              background: 'rgba(255, 255, 255, 0.25)', border: '1px solid rgba(255, 255, 255, 0.6)',
               backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
               transform: hover ? 'scale(1)' : 'scale(0.8)',
               transition: 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
             }}>
-              <Maximize2 size={15} style={{ color: '#E5E4E2' }} />
+              <Maximize2 size={15} style={{ color: '#FFFFFF' }} />
             </div>
           </div>
         )}
@@ -129,26 +129,26 @@ function MarqueeThumbnail({ src, onClick, isMobile, index }) {
       {/* ── BOTTOM: Instagram action bar ── */}
       <div style={{
         padding: '0.5rem 0.65rem 0.5rem',
-        background: 'rgba(255,255,255,0.02)',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
+        background: '#F8FAFC',
+        borderTop: '1px solid rgba(0, 0, 0, 0.06)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             {/* Heart */}
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#64748B" strokeWidth="2.2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
             {/* Comment */}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" strokeWidth="2.2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
             {/* Share */}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" strokeWidth="2.2">
               <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
             </svg>
           </div>
           {/* Bookmark */}
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" strokeWidth="2.2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" strokeWidth="2.2">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
           </svg>
         </div>
@@ -186,7 +186,7 @@ export default function DesignPortfolio() {
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
-            fontWeight: 700, lineHeight: 1.25, color: '#ffffff',
+            fontWeight: 700, lineHeight: 1.25, color: '#0A0A0C',
             maxWidth: 560, margin: '0 auto',
           }}>
             {t('design_portfolio.title_p1')}{' '}
@@ -194,7 +194,7 @@ export default function DesignPortfolio() {
           </h2>
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-            fontSize: '0.875rem', color: '#A1A1AA',
+            fontSize: '0.875rem', color: '#52525B',
             maxWidth: 400, lineHeight: 2, fontWeight: 300,
             margin: '1rem auto 0',
           }}>
@@ -208,7 +208,7 @@ export default function DesignPortfolio() {
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
-            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(10,10,12,0.95), transparent)`,
+            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, #FFFFFF, transparent)`,
             pointerEvents: 'none',
           }} />
         ))}
@@ -224,7 +224,7 @@ export default function DesignPortfolio() {
         {['left', 'right'].map(side => (
           <div key={side} style={{
             position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
-            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, rgba(10,10,12,0.95), transparent)`,
+            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, #FFFFFF, transparent)`,
             pointerEvents: 'none',
           }} />
         ))}
@@ -250,7 +250,7 @@ export default function DesignPortfolio() {
         <div
           style={{
             position: 'fixed', inset: 0, zIndex: 9999,
-            background: 'rgba(10,10,12,0.98)', backdropFilter: 'blur(24px)',
+            background: 'rgba(3, 20, 43, 0.75)', backdropFilter: 'blur(24px)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: '1rem',
           }}
@@ -260,7 +260,7 @@ export default function DesignPortfolio() {
             onClick={e => { e.stopPropagation(); setActiveImg(null); }}
             style={{
               position: 'absolute', top: '1rem', right: '1rem',
-              background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)',
+              background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)',
               color: '#ffffff', borderRadius: '50%', width: 40, height: 40,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer', zIndex: 10,
@@ -274,7 +274,7 @@ export default function DesignPortfolio() {
             style={{
               maxWidth: '100%', maxHeight: '92dvh',
               objectFit: 'contain', borderRadius: '0.75rem',
-              boxShadow: '0 32px 80px -12px rgba(0,0,0,0.9)',
+              boxShadow: '0 32px 80px -12px rgba(0,0,0,0.5)',
             }}
             onClick={e => e.stopPropagation()}
           />
@@ -285,7 +285,7 @@ export default function DesignPortfolio() {
       {showAllDesigns && (
         <div className="modal-scroll" style={{
           position: 'fixed', inset: 0, zIndex: 9998,
-          background: 'rgba(10,10,12,0.98)', backdropFilter: 'blur(24px)',
+          background: 'rgba(255, 255, 255, 0.98)', backdropFilter: 'blur(24px)',
           overflowY: 'auto', direction: 'rtl',
         }}>
           <div className="section-wrap" style={{ padding: 'clamp(2rem, 6vw, 4rem) 1.25rem' }}>
@@ -294,13 +294,13 @@ export default function DesignPortfolio() {
                 <span className="badge" style={{ marginBottom: '0.75rem' }}>{t('design_portfolio.archive_badge')}</span>
                 <h2 style={{
                   fontFamily: "'Sarchia Bokan', serif",
-                  fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#ffffff',
+                  fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#0A0A0C',
                 }}>
                   {t('design_portfolio.archive_title_p1')}<span className="text-gold">{t('design_portfolio.archive_title_highlight')}</span>
                 </h2>
                 <p style={{
                   fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                  fontSize: '0.875rem', color: '#A1A1AA',
+                  fontSize: '0.875rem', color: '#52525B',
                   marginTop: '0.5rem',
                 }}>
                   {t('design_portfolio.archive_subtitle')}
@@ -334,7 +334,7 @@ export default function DesignPortfolio() {
                 <button
                   onClick={() => setVisibleCount(prev => prev + 12)}
                   className="btn-ghost"
-                  style={{ padding: '0.875rem 2rem', fontSize: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                  style={{ padding: '0.875rem 2rem', fontSize: '1rem' }}
                 >
                   <Grid size={16} style={{ opacity: 0.75, flexShrink: 0, marginLeft: '0.5rem' }} />
                   {t('design_portfolio.btn_load_more')}
