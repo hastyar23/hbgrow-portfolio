@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Calendar, Play } from 'lucide-react';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
+import HeroMockup from './HeroMockup';
 
 export default function Hero() {
   const { openSchedule } = useSchedule();
@@ -34,7 +35,6 @@ export default function Hero() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        overflow: 'hidden',
       }}
     >
       {/* Cursor glow — only visible on desktop (controlled via CSS pointer:fine) */}
@@ -170,7 +170,7 @@ export default function Hero() {
         />
 
         {/* Stats Card — glassmorphic, responsive via CSS classes */}
-        <div className="animate-fade-in-up delay-600" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="animate-fade-in-up delay-600" style={{ display: 'flex', justifyContent: 'center', marginBottom: '2.5rem' }}>
           <div
             className="glass-stat-card"
             style={{
@@ -223,19 +223,23 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll cue */}
-      <div style={{
-        position: 'absolute', bottom: '1.5rem', left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 2,
-      }}>
+        {/* Interactive High-End Mockup Element */}
+        <div className="animate-fade-in-up delay-700" style={{ display: 'flex', justifyContent: 'center', width: '100%', position: 'relative', zIndex: 3 }}>
+          <HeroMockup />
+        </div>
+
+        {/* Scroll cue */}
         <div style={{
-          width: 1, height: 40,
-          background: 'linear-gradient(to bottom, rgba(3, 20, 43, 0.4), transparent)',
-          animation: 'float-y 2.5s ease-in-out infinite',
-        }} />
+          display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 2,
+          marginTop: 'clamp(2.5rem, 5vw, 4rem)',
+        }}>
+          <div style={{
+            width: 1, height: 36,
+            background: 'linear-gradient(to bottom, rgba(3, 20, 43, 0.4), transparent)',
+            animation: 'float-y 2.5s ease-in-out infinite',
+          }} />
+        </div>
       </div>
     </section>
   );
