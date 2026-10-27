@@ -1510,7 +1510,7 @@ export default function PitchDeck({ onScheduleClick }) {
           id="slide-4"
           className="relative w-full min-h-[100dvh] snap-start flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 lg:px-16 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:py-24 overflow-y-auto bg-[#FAFAFA]"
         >
-          <div className="max-w-5xl w-full mx-auto my-auto flex flex-col items-center py-4">
+          <div className="max-w-6xl w-full mx-auto my-auto flex flex-col items-center py-4">
             {/* Header: Headline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1521,267 +1521,337 @@ export default function PitchDeck({ onScheduleClick }) {
             >
               <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#03142B] px-3.5 py-1.5 rounded-full border border-[#03142B]/20 bg-[#03142B]/[0.08] mb-3 sm:mb-4 shadow-xs">
                 <Sparkles size={12} className="text-[#0B3275]" />
-                <span>{isKurdish ? 'هاوبەشی ستراتیژی و ڕەتینەرەکانی گەشە' : 'STRATEGIC GROWTH RETAINERS'}</span>
+                <span>{isKurdish ? 'پاکێجەکان و وەبەرهێنان' : 'PACKAGES & PRICING'}</span>
               </div>
               <h2 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#0A0A0C] leading-snug sm:leading-tight ${isKurdish ? 'tracking-normal' : 'tracking-tighter'}`}>
                 {isKurdish
-                  ? 'تیمێکی تەواوی بەرهەمهێنان و سپۆنسەر بە کەمتر لە مووچەی یەک کارمەند.'
-                  : 'A dedicated production & Meta ad engine for less than the payroll of a single employee.'}
+                  ? 'سیستەمی گونجاو بۆ قۆناغی ئێستای بزنسەکەت هەڵبژێرە'
+                  : 'Choose the Right Acquisition Engine for Your Business Stage'}
               </h2>
               <p className="text-xs sm:text-sm text-zinc-600 mt-3 max-w-2xl mx-auto leading-relaxed">
                 {isKurdish
-                  ? 'لەبری ئەوەی چەندین مانگ لە گەڕان بەدوای دیزاینەر و مۆنتێر بەفیڕۆ بدەیت، سیستەمێکی ئامادەکراوی فرۆش و ڕاکێشانی کڕیار بۆ بزنسەکەت دابمەزرێنە.'
-                  : 'Instead of burning months managing fragmented freelancers, partner with a synchronized creative and paid acquisition engine.'}
+                  ? 'نرخی ڕوون، بێ تێچووی شاراوە، لەگەڵ گەرەنتی ئەنجامی مسۆگەر لەسەر داتا.'
+                  : 'Transparent retainers, zero hidden markups, paired with a verifiable 14-day performance guarantee.'}
               </p>
             </motion.div>
 
-            {/* Pricing Cards */}
-            <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-8 mb-6 sm:mb-8 items-stretch">
-              {/* Card 1: Growth Sprint (Validation Retainer) */}
-              <SpotlightCard className="p-6 sm:p-8 md:p-9 flex flex-col justify-between border-black/[0.08] bg-white rounded-3xl shadow-[0_12px_40px_rgba(0,0,0,0.04)] hover:border-black/[0.15] transition-all">
+            {/* 3 Packages Cards */}
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 mb-6 sm:mb-8 items-stretch">
+              
+              {/* Package 1: Sales Launch */}
+              <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-black/[0.08] bg-white rounded-3xl shadow-[0_12px_40px_rgba(0,0,0,0.03)] hover:border-black/[0.15] transition-all">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold text-zinc-800 uppercase tracking-wider">
-                      {isKurdish ? 'ڕەتینەری مانگانە • Growth Sprint' : 'MONTHLY SPRINT RETAINER'}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-bold text-zinc-600 uppercase tracking-wider">
+                      {isKurdish ? 'دەستپێکی فرۆش' : 'VALIDATION SPRINT'}
                     </span>
-                    <span className="text-xs text-zinc-600 font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 border border-black/[0.06]">
-                      {isKurdish ? 'تاقیکردنەوەی خێرایی و کوالێتی' : 'Scope Validation'}
+                    <span className="text-[10px] text-zinc-600 font-medium px-2 py-0.5 rounded-full bg-zinc-100 border border-black/[0.06]">
+                      {isKurdish ? 'تاقیکردنەوە' : 'Sprint'}
                     </span>
                   </div>
 
+                  <h3 className="text-lg sm:text-xl font-extrabold text-[#0A0A0C] mb-2 font-mono">
+                    Sales Launch
+                  </h3>
+
                   {/* Price */}
-                  <div className="mb-4">
-                    <div className="text-4xl sm:text-5xl font-extrabold text-[#0A0A0C] tracking-tight font-mono">
-                      225$
-                      <span className="text-xs sm:text-sm font-normal text-zinc-500 ms-1.5 font-sans">
+                  <div className="mb-4 pb-3 border-b border-black/[0.06]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#0A0A0C] tracking-tight font-mono">
+                      $150
+                      <span className="text-xs font-normal text-zinc-500 ms-1.5 font-sans">
+                        {isKurdish ? '/ یەک جار' : '/ One-time'}
+                      </span>
+                    </div>
+                    <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
+                      {isKurdish
+                        ? 'تایبەت بەو بزنسانەی دەیانەوێت بە کەمترین تێچوو و بەبێ پابەندبوونی مانگانە، کاریگەری سیستەمی HBgrow تاقیبکەنەوە.'
+                        : 'For businesses wanting to test HBgrow’s conversion engine with minimal risk and zero monthly commitment.'}
+                    </p>
+                  </div>
+
+                  {/* Scannable Deliverables */}
+                  <div className="space-y-2.5 text-xs">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
+                      </div>
+                      <span className="text-zinc-700">{isKurdish ? 'داڕشتنی ئۆفەری سەرەکی فرۆش' : 'Core High-Converting Sales Offer'}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
+                      </div>
+                      <span className="text-zinc-700">{isKurdish ? '٣ ڤیدیۆ ڕیلی مۆنتاژکراو + ٣ دیزاین' : '3 High-Retention Reels + 3 Ad Designs'}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
+                      </div>
+                      <span className="text-zinc-700">{isKurdish ? 'نووسینی دەق و سیناریۆی فرۆش' : 'Persuasive Scriptwriting & Hooks'}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
+                      </div>
+                      <span className="text-zinc-700">{isKurdish ? 'ڕێکخستنی کەمپەینی نامە لە Meta' : 'Targeted Meta Messaging Campaign'}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
+                      </div>
+                      <span className="text-zinc-700">{isKurdish ? 'ماوەی کارکردن: ١٤ بۆ ٢٠ ڕۆژ' : 'Sprint Duration: 14 to 20 days'}</span>
+                    </div>
+                  </div>
+
+                  {/* Special Discount Notice */}
+                  <div className="mt-4 p-2.5 rounded-xl bg-zinc-50 border border-black/[0.05] text-[11px] text-[#03142B] font-semibold leading-relaxed">
+                    {isKurdish
+                      ? '💡 داشکاندن: لە کاتی نوێکردنەوە بۆ پاکێجی مانگانە، ٧٥$ داشکاندنت بۆ دەکرێت.'
+                      : '💡 Upgrade Bonus: $75 credited toward your next monthly retainer.'}
+                  </div>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-black/[0.06]">
+                  <WireframeCTA
+                    href={getWhatsAppUrl(
+                      isKurdish
+                        ? 'سڵاو HBgrow، دەمەوێت بە پاکێجی Sales Launch ($150) دەستپێبکەم بۆ بزنسەکەم.'
+                        : 'Hello HBgrow, I want to start with the Sales Launch package ($150).'
+                    )}
+                    className="w-full !py-3 text-xs font-semibold !bg-white hover:!bg-[#03142B] !text-[#0A0A0C] hover:!text-white !border-black/[0.12] hover:!border-[#03142B]"
+                  >
+                    <WhatsAppIcon size={14} />
+                    <span>{isKurdish ? 'بەم پاکێجە دەستپێبکە' : 'Start with Sales Launch'}</span>
+                    {isRTL ? <ArrowLeft size={12} /> : <ArrowRight size={12} />}
+                  </WireframeCTA>
+                </div>
+              </SpotlightCard>
+
+              {/* Package 2: Sales Engine (Featured) */}
+              <SpotlightCard className="relative p-6 sm:p-7 flex flex-col justify-between rounded-3xl border-2 border-[#03142B] bg-gradient-to-b from-white via-white to-zinc-50/70 backdrop-blur-2xl shadow-[0_20px_50px_rgba(3,20,43,0.12)] hover:border-[#03142B] transition-all scale-[1.02] z-10">
+                <div>
+                  <div className="flex items-center justify-between mb-3 flex-wrap gap-1.5">
+                    <span className="text-[11px] font-bold text-[#0B3275] uppercase tracking-wider">
+                      {isKurdish ? 'بزوێنەری فرۆش' : 'GROWTH ENGINE'}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#03142B] text-white text-[10px] font-bold shadow-xs">
+                      {isKurdish ? '⭐ باشترین هەڵبژاردە' : '⭐ MOST POPULAR'}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#0A0A0C] mb-2 font-mono">
+                    Sales Engine
+                  </h3>
+
+                  {/* Price */}
+                  <div className="mb-4 pb-3 border-b border-black/[0.06]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#03142B] tracking-tight font-mono">
+                      $350
+                      <span className="text-xs font-normal text-zinc-500 ms-1.5 font-sans">
                         {isKurdish ? '/ مانگانە' : '/ Month'}
                       </span>
                     </div>
-                    <div className="text-xs sm:text-sm text-zinc-600 mt-1.5 font-medium flex items-center gap-2">
-                      <span className="font-mono text-[#0A0A0C] font-semibold">338,000 IQD</span>
-                      <span className="text-zinc-400">•</span>
-                      <span>{isKurdish ? 'بێ گرێبەستی درێژخایەن' : 'No Long-term Lock-in'}</span>
-                    </div>
-                  </div>
-
-                  {/* At-a-Glance Executive Metric Ribbon */}
-                  <div className="grid grid-cols-3 gap-2 my-5 p-2 rounded-2xl bg-zinc-50 border border-black/[0.05] text-center">
-                    <div className="p-2 rounded-xl bg-white border border-black/[0.04] shadow-2xs">
-                      <div className="text-base sm:text-lg font-extrabold text-[#0A0A0C] font-mono">6</div>
-                      <div className="text-[10px] sm:text-[11px] text-zinc-600 font-medium">{isKurdish ? 'ڤیدیۆ ڕیڵس' : 'Reels (4:5)'}</div>
-                    </div>
-                    <div className="p-2 rounded-xl bg-white border border-black/[0.04] shadow-2xs">
-                      <div className="text-base sm:text-lg font-extrabold text-[#0A0A0C] font-mono">6</div>
-                      <div className="text-[10px] sm:text-[11px] text-zinc-600 font-medium">{isKurdish ? 'دیزاینی پۆست' : 'Designs'}</div>
-                    </div>
-                    <div className="p-2 rounded-xl bg-white border border-black/[0.04] shadow-2xs">
-                      <div className="text-base sm:text-lg font-extrabold text-[#0B3275] font-mono">Meta</div>
-                      <div className="text-[10px] sm:text-[11px] text-zinc-600 font-medium">{isKurdish ? 'کەمپەینی ڕیکلام' : 'Ad Setup'}</div>
-                    </div>
+                    <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
+                      {isKurdish
+                        ? 'بۆ بزنس و براندێک کە دەیەوێت هەموو مانگێک بە پلان و سیستەمێکی جێگیر کڕیاری نوێ و فرۆشی بەردەوام بەدەستبهێنێت.'
+                        : 'Engineered for businesses requiring a steady stream of qualified inbound buyer inquiries each month.'}
+                    </p>
                   </div>
 
                   {/* Scannable Deliverables */}
-                  <div className="space-y-3 pt-3 border-t border-black/[0.06] text-xs sm:text-sm">
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={12} />
+                  <div className="space-y-2.5 text-xs">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
+                        <Check size={10} />
                       </div>
-                      <div>
-                        <strong className="text-[#0A0A0C] block font-semibold">{isKurdish ? '٦ ڤیدیۆ ڕیڵسی 4:5 بە مۆنتاژی پێشکەوتوو' : '6 High-Retention Video Reels'}</strong>
-                        <span className="text-zinc-600 text-xs">{isKurdish ? 'سیناریۆی سەرنجڕاکێش، مۆنتاژی ئەلگۆریتمی و دەنگی تایبەت' : 'Engineered hooks, dynamic cuts, and audio design'}</span>
-                      </div>
+                      <strong className="text-zinc-900">{isKurdish ? 'هەموو خزمەتگوزارییەکانی Sales Launch' : 'All Sales Launch Deliverables'}</strong>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={12} />
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
+                        <Check size={10} />
                       </div>
-                      <div>
-                        <strong className="text-[#0A0A0C] block font-semibold">{isKurdish ? '٦ گرافیک دیزاینی براندینگ و پۆست' : '6 Premium Graphic Design Assets'}</strong>
-                        <span className="text-zinc-600 text-xs">{isKurdish ? 'دیزاینی سەرنجڕاکێش بۆ دروستکردنی متمانە و پێگەی بەرز' : 'Editorial slides, carousels, and brand collateral'}</span>
-                      </div>
+                      <span className="text-zinc-800 font-medium">{isKurdish ? '٨ بەرهەمی تایبەت (٤ ڤیدیۆ ڕیل + ٤ دیزاین)' : '8 Assets / Month (4 Reels + 4 Designs)'}</span>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={12} />
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
+                        <Check size={10} />
                       </div>
-                      <div>
-                        <strong className="text-[#0A0A0C] block font-semibold">{isKurdish ? 'دەنگخستنەسەر (Voiceover) و پلاندانانی کاپشن' : 'Studio Voiceover & Strategic Copywriting'}</strong>
-                        <span className="text-zinc-600 text-xs">{isKurdish ? 'تۆمارکردنی دەنگی پرۆفیشناڵ لەگەڵ نووسینی کاپشنەکان' : 'Voice recordings as scripted with persuasive copy hooks'}</span>
-                      </div>
+                      <span className="text-zinc-700">{isKurdish ? 'بەڕێوەبردنی هەفتانەی کامپەینەکان' : 'Weekly Campaign Management & Tuning'}</span>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={12} />
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
+                        <Check size={10} />
                       </div>
-                      <div>
-                        <strong className="text-[#0A0A0C] block font-semibold">{isKurdish ? 'بەڕێوەبردنی کەمپەینی سپۆنسەری مێتا' : 'Meta Sponsored Ads Management'}</strong>
-                        <span className="text-zinc-600 text-xs">{isKurdish ? 'ڕێکخستنی کەمپەین و بەئامانجگرتنی کڕیار بە کەمترین تێچووی نامە' : 'Targeted audience architecture to optimize cost-per-lead'}</span>
+                      <span className="text-zinc-700">{isKurdish ? 'نوێکردنەوە و پەرەپێدانی ئۆفەری فرۆش' : 'Monthly Offer Iteration & Hook Refresh'}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
+                        <Check size={10} />
                       </div>
+                      <span className="text-zinc-700">{isKurdish ? 'سکرێپت و ڕاهێنانی ستاف بۆ فرۆش لە نامە' : 'Sales Scripting for Your Chat Admins'}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
+                        <Check size={10} />
+                      </div>
+                      <span className="text-zinc-700">{isKurdish ? 'بەڕێوەبردنی سپۆنسەر تا 1,500$ لە مانگێکدا' : 'Manages Ad Spend up to $1,500/mo'}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-black/[0.06] flex flex-col gap-2.5">
+                <div className="mt-5 pt-4 border-t border-black/[0.06]">
                   <WireframeCTA
                     href={getWhatsAppUrl(
                       isKurdish
-                        ? 'سڵاو HBgrow، دەمەوێت گفتوگۆ بکەین لەسەر پلانی تاقیکردنەوەی مانگانە (Growth Sprint) بۆ براندەکەم.'
-                        : 'Hello HBgrow, I would like to discuss the Monthly Growth Sprint for my brand.'
+                        ? 'سڵاو HBgrow، دەمەوێت بە پاکێجی Sales Engine ($350) دەستپێبکەم بۆ بزنسەکەم.'
+                        : 'Hello HBgrow, I want to partner on the Sales Engine package ($350/mo).'
                     )}
-                    className="w-full !py-3.5 sm:!py-4 text-xs sm:text-sm font-semibold !bg-white hover:!bg-[#03142B] !text-[#0A0A0C] hover:!text-white !border-black/[0.12] hover:!border-[#03142B]"
+                    isPrimary={true}
+                    className="w-full !py-3.5 text-xs font-bold shadow-md"
                   >
-                    <WhatsAppIcon size={16} />
-                    <span>{isKurdish ? 'گفتوگۆ لەسەر پلانی مانگانە' : 'Discuss Monthly Scope'}</span>
-                    {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+                    <WhatsAppIcon size={14} />
+                    <span>{isKurdish ? 'ببە بە خاوەنی بزوێنەری فرۆش' : 'Claim Sales Engine'}</span>
+                    {isRTL ? <ArrowLeft size={12} /> : <ArrowRight size={12} />}
                   </WireframeCTA>
-                  <div className="text-[11px] text-zinc-500 text-center font-medium">
-                    {isKurdish ? 'بێ گرێبەستی زۆرەملی • دەستپێکردنی خێرا لە ٤٨ کاتژمێردا' : 'No long-term lock-in • Rapid onboarding within 48h'}
-                  </div>
                 </div>
               </SpotlightCard>
 
-              {/* Card 2: Growth+ (Quarterly Market Dominance Partner) */}
-              <SpotlightCard className="relative p-6 sm:p-8 md:p-9 flex flex-col justify-between rounded-3xl border-2 border-[#03142B]/35 bg-gradient-to-b from-white via-white to-zinc-50/70 backdrop-blur-2xl shadow-[0_24px_70px_rgba(3,20,43,0.12),0_0_0_1px_rgba(3,20,43,0.1)] hover:border-[#03142B]/55 transition-all">
+              {/* Package 3: Sales Machine */}
+              <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-black/[0.08] bg-white rounded-3xl shadow-[0_12px_40px_rgba(0,0,0,0.03)] hover:border-black/[0.15] transition-all">
                 <div>
-                  <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-[#03142B] animate-pulse" />
-                      <span className="text-xs font-bold text-[#03142B] tracking-wider uppercase">
-                        {isKurdish ? 'هاوبەشی گەشەی ٣ مانگە' : 'QUARTERLY DOMINANCE PARTNER'}
-                      </span>
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-[#03142B]/10 border border-[#03142B]/25 text-[#03142B] text-[10px] sm:text-[11px] font-bold shadow-xs flex items-center gap-1.5">
-                      <Crown size={12} className="text-[#03142B]" />
-                      <span>{isKurdish ? 'زۆرترین داواکاری لە لایەن بزنسەکانەوە' : 'MOST REQUESTED PARTNERSHIP'}</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-bold text-zinc-600 uppercase tracking-wider">
+                      {isKurdish ? 'ماشینی فرۆش' : 'ENTERPRISE PARTNER'}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#03142B]/10 text-[#03142B] border border-[#03142B]/20 text-[10px] font-bold">
+                      VIP Partner
                     </span>
                   </div>
 
-                  {/* Price */}
-                  <div className="mb-4">
-                    <div className="text-4xl sm:text-5xl font-extrabold text-[#03142B] tracking-tight font-mono">
-                      640$
-                      <span className="text-xs sm:text-sm font-normal text-zinc-500 ms-1.5 font-sans">
-                        {isKurdish ? '/ بۆ ٣ مانگ' : '/ 90 Days'}
-                      </span>
-                    </div>
-                    <div className="text-xs sm:text-sm text-zinc-600 mt-1.5 font-medium flex items-center gap-2 flex-wrap">
-                      <span className="font-mono text-[#0A0A0C] font-bold">960,000 IQD</span>
-                      <span className="text-zinc-400">•</span>
-                      <span className="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
-                        {isKurdish ? 'تەنیا 213$ بۆ هەر مانگێک (پاشەکەوتکردنی ١٥٪)' : 'Only $213/mo (Save 15%)'}
-                      </span>
-                    </div>
-                  </div>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-[#0A0A0C] mb-2 font-mono">
+                    Sales Machine
+                  </h3>
 
-                  {/* At-a-Glance Executive Metric Ribbon */}
-                  <div className="grid grid-cols-3 gap-2 my-5 p-2 rounded-2xl bg-[#03142B]/[0.05] border border-[#03142B]/15 text-center">
-                    <div className="p-2 rounded-xl bg-white border border-[#03142B]/10 shadow-2xs">
-                      <div className="text-base sm:text-lg font-extrabold text-[#03142B] font-mono">18</div>
-                      <div className="text-[10px] sm:text-[11px] text-zinc-700 font-semibold">{isKurdish ? 'ڤیدیۆ ڕیڵس' : 'Reels (4:5)'}</div>
+                  {/* Price */}
+                  <div className="mb-4 pb-3 border-b border-black/[0.06]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#0A0A0C] tracking-tight font-mono">
+                      $750
+                      <span className="text-xs font-normal text-zinc-500 ms-1.5 font-sans">
+                        {isKurdish ? '/ مانگانە' : '/ Month'}
+                      </span>
                     </div>
-                    <div className="p-2 rounded-xl bg-white border border-[#03142B]/10 shadow-2xs">
-                      <div className="text-base sm:text-lg font-extrabold text-[#0A0A0C] font-mono">18</div>
-                      <div className="text-[10px] sm:text-[11px] text-zinc-700 font-semibold">{isKurdish ? 'دیزاینی براند' : 'Brand Assets'}</div>
-                    </div>
-                    <div className="p-2 rounded-xl bg-white border border-[#03142B]/10 shadow-2xs">
-                      <div className="text-base sm:text-lg font-extrabold text-emerald-700 font-mono">90D</div>
-                      <div className="text-[10px] sm:text-[11px] text-zinc-700 font-semibold">{isKurdish ? 'فەنەڵی فرۆش' : 'Meta Funnel'}</div>
-                    </div>
+                    <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
+                      {isKurdish
+                        ? 'تایبەت بە کلینیکەکان، شۆڕووم، پڕۆژەکانی عقارات و کۆمپانیاکان. ئێمە لە وێنەگرتنەوە تا هێنانی کڕیار و وەڵامدانەوەی نامەکان جێبەجێ دەکەین.'
+                        : 'End-to-end turnkey acquisition for clinics, real estate, and enterprise brands — including chat handling.'}
+                    </p>
                   </div>
 
                   {/* Scannable Deliverables */}
-                  <div className="space-y-3 pt-3 border-t border-black/[0.06] text-xs sm:text-sm">
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#03142B]/15 border border-[#03142B]/35 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={12} />
+                  <div className="space-y-2.5 text-xs">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
                       </div>
-                      <div>
-                        <strong className="text-[#0A0A0C] block font-semibold">{isKurdish ? '١٨ ڤیدیۆ ڕیڵسی ئەلگۆریتمی (هەفتانە بەردەوام)' : '18 High-Retention Video Reels (Weekly Stream)'}</strong>
-                        <span className="text-zinc-600 text-xs">{isKurdish ? 'ئامادەکاری سیناریۆی فرۆش، وێنەگری/مۆنتاژ و ئەلگۆریتمی مێتا بۆ ٣ مانگ' : 'Continuous content velocity to capture and retain market attention'}</span>
-                      </div>
+                      <strong className="text-zinc-900">{isKurdish ? 'هەموو خزمەتگوزارییەکانی Sales Engine' : 'All Sales Engine Deliverables'}</strong>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#03142B]/15 border border-[#03142B]/35 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={12} />
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
                       </div>
-                      <div>
-                        <strong className="text-[#0A0A0C] block font-semibold">{isKurdish ? '١٨ گرافیک دیزاینی لوکس و کارۆسێلی براندینگ' : '18 Luxury Brand Collateral & Carousels'}</strong>
-                        <span className="text-zinc-600 text-xs">{isKurdish ? 'دروستکردنی پێگەیەکی سەنگین بۆ براندەکەت کە متمانەی کڕیار ڕادەکێشێت' : 'Editorial visual presence that elevates premium perceived value'}</span>
-                      </div>
+                      <span className="text-zinc-700">{isKurdish ? '١٢ بەرهەم مانگانە (٦ ڕیل + ٦ دیزاین)' : '12 Assets / Mo (6 Reels + 6 Designs)'}</span>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#03142B]/15 border border-[#03142B]/35 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={12} />
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
                       </div>
-                      <div>
-                        <strong className="text-[#0A0A0C] block font-semibold">{isKurdish ? 'دەنگخستنەسەر (Voiceover)ی تەواو و پلانی ٣ مانگە' : 'Turnkey Voiceover & 90-Day Content Roadmap'}</strong>
-                        <span className="text-zinc-600 text-xs">{isKurdish ? 'پلاندانانی کۆپیرایتینگ بۆ چارەکێکی ساڵ بەبێ ئەوەی کاتت لێ بڕوات' : 'Full scripted pipeline executed end-to-end with zero owner friction'}</span>
-                      </div>
+                      <span className="text-zinc-800 font-medium">{isKurdish ? 'وەڵامدانەوەی کڕیارە جدییەکان تا ٣٠٠ نامە' : 'HBgrow Team Answers up to 300 Buyers'}</span>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#03142B]/15 border border-[#03142B]/35 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={12} />
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
                       </div>
-                      <div>
-                        <strong className="text-[#0A0A0C] block font-semibold">{isKurdish ? 'فەنەڵی سپۆنسەری مێتا و ئۆپتیمایزکردنی فرۆش' : 'Meta Conversion Ads Funnel & Scaling'}</strong>
-                        <span className="text-zinc-600 text-xs">{isKurdish ? 'بەڕێوەبردن و باشترکردنی بەردەوامی کەمپەینەکان بۆ گەڕاندنەوەی زۆرترین قازانج' : 'Multi-stage retargeting, messaging ads, and continuous lead qualification'}</span>
+                      <span className="text-zinc-700">{isKurdish ? 'سیستەمی بەدواداچوون (Retargeting & Follow-up)' : 'Retargeting & Follow-up System'}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
                       </div>
+                      <span className="text-zinc-700">{isKurdish ? 'کۆبوونەوەی ستراتیژی مانگانە' : 'Monthly Executive Strategy Review'}</span>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                        <Check size={10} />
+                      </div>
+                      <span className="text-zinc-700">{isKurdish ? 'بەڕێوەبردنی سپۆنسەر تا 3,000$ لە مانگێکدا' : 'Manages Ad Spend up to $3,000/mo'}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-black/[0.06] flex flex-col gap-2.5">
+                <div className="mt-5 pt-4 border-t border-black/[0.06]">
                   <WireframeCTA
                     href={getWhatsAppUrl(
                       isKurdish
-                        ? 'سڵاو HBgrow، دەمەوێت کۆبوونەوەیەکی تایبەتی ستراتیژی (١-بۆ-١) ڕێکبخەین بۆ پلانی ٣ مانگەی گەشەسەندن (Growth+) بۆ تاوتوێکردنی فرۆش و براندەکەم.'
-                        : 'Hello HBgrow, I would like to schedule a 1-on-1 strategy session for the 90-Day Growth+ Retainer to review my brand acquisition strategy.'
+                        ? 'سڵاو HBgrow، دەمەوێت کۆبوونەوەیەکی تایبەت دابنێین بۆ پاکێجی Sales Machine ($750) بۆ براندەکەم.'
+                        : 'Hello HBgrow, I want to book a VIP strategy session for Sales Machine ($750/mo).'
                     )}
-                    isPrimary={true}
-                    className="w-full !py-4 text-xs sm:text-sm font-bold shadow-[0_4px_24px_rgba(3,20,43,0.35)]"
+                    className="w-full !py-3 text-xs font-semibold !bg-white hover:!bg-[#03142B] !text-[#0A0A0C] hover:!text-white !border-black/[0.12] hover:!border-[#03142B]"
                   >
-                    <WhatsAppIcon size={16} />
-                    <span>{isKurdish ? 'داواکردنی کۆبوونەوەی ستراتیژی (١-بۆ-١)' : 'Book 1-on-1 Strategy Session'}</span>
-                    {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+                    <WhatsAppIcon size={14} />
+                    <span>{isKurdish ? 'داوای پاکێجی VIP بکە' : 'Request VIP Partnership'}</span>
+                    {isRTL ? <ArrowLeft size={12} /> : <ArrowRight size={12} />}
                   </WireframeCTA>
-                  <div className="text-[11px] text-[#03142B] text-center font-bold flex items-center justify-center gap-1.5">
-                    <Sparkles size={11} className="text-[#0B3275]" />
-                    <span>{isKurdish ? 'وەرگرتنی سنوردار: مانگانە تەنیا ٣ براند وەردەگرین بۆ پاراستنی ئەنجامەکان' : 'Selective Capacity: Strictly 3 partner brands onboarded per cohort'}</span>
-                  </div>
                 </div>
               </SpotlightCard>
+
             </div>
 
-            {/* Financial Transparency Banner */}
-            <div className="w-full mt-4 sm:mt-6 p-5 sm:p-6 md:p-7 rounded-2xl border border-black/[0.08] bg-white shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-start">
-              <div className="flex items-start gap-4">
-                <div className="h-9 w-9 rounded-xl border border-[#03142B]/20 bg-[#03142B]/10 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                  <Shield size={18} />
+            {/* 14-Day Performance Guarantee Card */}
+            <div className="w-full p-5 sm:p-6 md:p-7 rounded-2xl border border-black/[0.09] bg-white shadow-xs mb-4 text-start">
+              <div className="flex items-start gap-3.5">
+                <div className="h-10 w-10 rounded-xl border border-[#03142B]/20 bg-[#03142B]/10 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+                  <ShieldCheck size={20} />
                 </div>
                 <div>
-                  <div className="text-xs sm:text-sm font-bold text-[#0A0A0C] mb-1">
-                    {isKurdish ? 'شەفافیەتی دارایی و بودجەی سپۆنسەر (100% Ad Spend Transparency):' : 'Financial Integrity & Meta Ad Spend Policy:'}
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-bold text-[#03142B] px-2 py-0.5 rounded-full bg-[#03142B]/10">
+                      {isKurdish ? 'گەرەنتی' : 'GUARANTEE'}
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold text-[#0A0A0C]">
+                      {isKurdish ? 'گەرەنتی ١٤ ڕۆژ ئەنجامی مسۆگەر: ئێمە بە داتا کار دەکەین نەک بە قسە.' : '14-Day Verifiable Performance Guarantee: Results Driven by Data.'}
+                    </span>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed max-w-2xl">
+                  <p className="text-xs text-zinc-600 leading-relaxed max-w-3xl">
                     {isKurdish
-                      ? 'پاکێجەکانی سەرەوە تەنیا تێچووی بەرهەمهێنان و بەڕێوەبردنی HBgrow لەخۆدەگرن. بودجەی سپۆنسەر بە تەواوی جیاوازە، بە ویستی کڕیار دیاری دەکرێت و ڕاستەوخۆ دەچێتە ناو ئەکاونتی مێتا بەبێ هیچ باج یان زیادکراوێکی شاراوە.'
-                      : 'Our retainers cover creative production and algorithmic Meta campaign management. Your advertising budget is paid directly to Meta with zero agency markup, keeping your financial pipeline 100% transparent.'}
+                      ? 'ئەگەر لە ١٤ ڕۆژی یەکەمی کامپەینەکەتدا نەگەیشتین بەو ژمارە نامەیەی کە لە سەرەتادا لەسەری ڕێکدەکەوین، بەبێ هیچ کرێیەکی زیادە بەردەوام دەبین لە کارکردن تاوەکو دەگەین بە ئامانجەکە.'
+                      : 'If we do not achieve our mutually agreed lead volume target in the first 14 days, our team works at zero additional fee until the target is met.'}
+                  </p>
+                  <p className="text-[11px] text-zinc-500 mt-1.5 font-medium">
+                    {isKurdish
+                      ? '(مەرجی گەرەنتی: بەردەوامبوونی بودجەی سپۆنسەری دیاریکراو و پەسەندکردنی ئۆفەر و سیستەمەکە لەلایەن خۆتەوە).'
+                      : '(Condition: Continuous active ad budget and owner approval of the offer and system architecture).'}
                   </p>
                 </div>
               </div>
+            </div>
 
-              <div className="flex flex-wrap md:flex-col gap-2 shrink-0 text-[10px] text-zinc-700 font-mono font-medium">
-                <span className="px-2.5 py-1 rounded-full bg-zinc-100 border border-black/[0.06] text-center">
-                  ✓ {isKurdish ? '٠٪ زیادکراو لەسەر ڕیکلام' : '0% Ad Spend Markup'}
+            {/* Financial Transparency Banner */}
+            <div className="w-full p-4 sm:p-5 rounded-2xl border border-black/[0.06] bg-zinc-50/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-start">
+              <div className="flex items-center gap-3">
+                <span className="text-base">⚠️</span>
+                <p className="text-xs text-zinc-600 leading-relaxed">
+                  {isKurdish
+                    ? 'تێبینی گرنگ: نرخەکانی سەرەوە کرێی کار و سیستەمی HBgrowـە. بودجەی سپۆنسەر بە تەواوی جیاوازە، ڕاستەوخۆ دەدرێت بە Meta و ئەکاونتی ڕیکلامەکە ٪١٠٠ لەژێر کۆنترۆڵ و خاوەندارێتی خۆتدا دەبێت.'
+                    : 'Important Note: Retainers reflect HBgrow’s system fees. Ad spend is paid directly to Meta with zero markup and 100% owner control.'}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap md:flex-col gap-1.5 shrink-0 text-[10px] text-zinc-700 font-mono font-medium">
+                <span className="px-2 py-0.5 rounded-full bg-white border border-black/[0.06] text-center">
+                  ✓ {isKurdish ? '٠٪ زیادکراو لەسەر ڕیکلام' : '0% Ad Markup'}
                 </span>
-                <span className="px-2.5 py-1 rounded-full bg-zinc-100 border border-black/[0.06] text-center">
-                  ✓ {isKurdish ? 'ئەکاونتی مێتا لەژێر دەستی خۆتە' : 'Client Owns Meta Account'}
+                <span className="px-2 py-0.5 rounded-full bg-white border border-black/[0.06] text-center">
+                  ✓ {isKurdish ? 'ئەکاونتی مێتا لەژێر دەستی خۆتە' : 'Client Owns Account'}
                 </span>
               </div>
             </div>

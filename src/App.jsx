@@ -7,8 +7,10 @@ import PainSolution from './components/PainSolution';
 import Portfolio from './components/Portfolio';
 import DesignPortfolio from './components/DesignPortfolio';
 import StatsBanner from './components/StatsBanner';
+import Packages from './components/Packages';
 import Process from './components/Process';
 import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 import ClosingCTA from './components/ClosingCTA';
 import Footer from './components/Footer';
 import PitchDeck from './components/PitchDeck';
@@ -95,8 +97,10 @@ export default function App() {
         <Portfolio />
         <DesignPortfolio />
         <StatsBanner />
-        <Process />
         <Testimonials />
+        <Packages />
+        <Process />
+        <FAQ />
         <ClosingCTA />
       </main>
       <Footer />

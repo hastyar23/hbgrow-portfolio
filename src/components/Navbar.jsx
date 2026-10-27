@@ -28,7 +28,9 @@ export default function Navbar() {
   const links = [
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.portfolio'), href: '#portfolio' },
+    { label: t('nav.packages'), href: '#packages' },
     { label: t('nav.process'), href: '#process' },
+    { label: t('nav.faq'), href: '#faq' },
     { label: t('nav.testimonials'), href: '#testimonials' },
   ];
 

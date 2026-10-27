@@ -1,301 +1,404 @@
 {
   "hero": {
-    "badge": "Trusted by 100+ clients across Kurdistan & Iraq",
-    "title_p1": "Your brand deserves",
-    "title_highlight": "customers,",
-    "title_p2": "not just viewers",
-    "subtitle_1": "We don't just \"post\". We build a complete growth and sales strategy for premium clinics, companies, and brands.",
-    "subtitle_2": "Focus on your business, and leave the growth to us.",
-    "cta_book": "Book a call with us",
-    "cta_work": "View our work",
+    "badge": "HBgrow Revenue & Growth Acquisition System",
+    "title_p1": "Boosting your posts...",
+    "title_highlight": "but sales aren't",
+    "title_p2": "growing?",
+    "subtitle_1": "We turn your social media into a structured sales system: a compelling offer, direct-response advertising, and a frictionless path driving paying clients straight into your WhatsApp and DMs.",
+    "subtitle_2": "Guaranteed results backed by clear audited data.",
+    "cta_book": "Claim a Free Audit for Your Ads & Page",
+    "cta_work": "Explore Our Work",
     "stats": {
       "brands": "Trusted Brands",
-      "leads": "Leads Generated",
+      "leads": "Customer Inquiries Delivered",
       "creative": "Design & Video Outputs"
     }
   },
   "nav": {
-    "about": "About Us",
-    "portfolio": "Our Work",
-    "process": "Our Process",
+    "about": "Problem & System",
+    "portfolio": "Portfolio",
+    "packages": "Packages",
+    "process": "How It Works",
+    "faq": "FAQ",
     "testimonials": "Testimonials",
-    "cta": "Book a Call",
+    "cta": "Free Audit",
     "close_menu": "Close Menu",
     "open_menu": "Open Menu"
   },
-  "process": {
-    "badge": "Our Process",
-    "title_p1": "Our workflow:",
-    "title_highlight": "How it works?",
-    "subtitle": "An effortless workflow. You don't have time, so we made everything easy.",
-    "steps": {
-      "0": {
-        "num": "1",
-        "title": "Identifying Problems",
-        "duration": "15–20 Mins",
-        "desc": "First, we have a 15-20 minute call to understand your goals and style."
+  "pain_solution": {
+    "badge": "The Core Problem",
+    "title_p1": "Why do standard boost ads and daily posts",
+    "title_highlight": "fail to generate",
+    "title_p2": "actual revenue?",
+    "pains": [
+      {
+        "title": "Boosting Without a High-Converting Offer",
+        "desc": "You burn cash on Facebook and Instagram ads, but buyers have zero compelling reason or incentive to purchase right now."
       },
-      "1": {
-        "num": "2",
-        "title": "Plan & Strategy",
-        "duration": "5–7 Days",
-        "desc": "Within 5-7 days, your plan and strategy will be tailored to align with your goals."
+      {
+        "title": "Likes & Views Don't Pay the Bills",
+        "desc": "Your post gets tens of thousands of video views, but at the end of the month, your sales figures remain stagnant."
       },
-      "2": {
-        "num": "3",
-        "title": "Sit Back & Watch",
-        "duration": "Execution",
-        "desc": "Your posts are created according to a set schedule; all you have to do is approve."
+      {
+        "title": "Exhaustion From Low-Intent 'Price?' Messages",
+        "desc": "Hundreds ask 'Price?', wasting your time and staff hours, but the moment you reply with the price, they vanish and never respond."
       },
-      "3": {
-        "num": "4",
-        "title": "Happiness & Growth",
-        "duration": "After a few months",
-        "desc": "After a few months, you'll be happy to see your results and increased brand awareness."
+      {
+        "title": "Slow & Untrained Message Replies",
+        "desc": "Buyers send inquiries, only to be answered hours late or with cold robotic replies, causing them to immediately buy from your competitor."
       }
-    }
+    ],
+    "shift_p1": "Paid ads are only 50% of the equation.",
+    "shift_highlight": "The other 50% is your offer",
+    "shift_p2": "and how effectively you convert the buyer.",
+    "system_badge": "Our 4-Step Revenue System",
+    "system_title_p1": "How Do We",
+    "system_title_highlight": "Scale Your Sales?",
+    "solutions": [
+      {
+        "title": "Data & Business Audit",
+        "desc": "We inspect your products, pricing models, and historical ad spend data to pinpoint weaknesses and high-profit opportunities."
+      },
+      {
+        "title": "High-Converting Offer Architecture",
+        "desc": "We engineer an irresistible offer for your business where the customer perceives massive immediate value and buys quickly."
+      },
+      {
+        "title": "Direct-Response Commercial Creative",
+        "desc": "We produce viral short-form Reels and luxury conversion designs engineered to convince buyers, not just populate your feed."
+      },
+      {
+        "title": "Frictionless Acquisition Funnel (Sales Page & WhatsApp)",
+        "desc": "We qualify and filter buyers through dedicated sales pages, directing serious decision-makers straight to your WhatsApp and inbox."
+      }
+    ],
+    "cta_btn": "Claim a Free Audit for Your Ads & Page",
+    "cta_desc": "A focused 15-minute qualification call to analyze your current advertising and growth bottlenecks."
   },
   "portfolio": {
-    "badge": "Portfolio",
-    "title_p1": "We don't just talk,",
-    "title_highlight": "see the quality of our work yourself",
-    "subtitle": "Some of the brands and projects that trusted our team.",
-    "btn_more": "View More Videos",
+    "badge": "Client Portfolio",
+    "title_p1": "We don't make hollow claims,",
+    "title_highlight": "inspect our real production quality",
+    "subtitle": "A curated selection of leading brands and companies that trust HBgrow Agency.",
+    "btn_more": "View More Video Reels",
     "archive_badge": "Archive",
-    "archive_title_p1": "Some of our sample ",
-    "archive_title_highlight": "videos",
-    "archive_subtitle": "We reduced the quality of some videos for faster loading",
+    "archive_title_p1": "Explore our portfolio of ",
+    "archive_title_highlight": "Video Reels",
+    "archive_subtitle": "Compressed for optimal web streaming performance",
     "btn_close": "Close",
     "btn_load_more": "Load More"
   },
   "design_portfolio": {
-    "badge": "Design",
-    "title_p1": "Exceptional designs for ",
-    "title_highlight": "leading brands.",
-    "subtitle": "A showcase of designs that have helped brands stand out.",
-    "btn_more": "View More Designs",
+    "badge": "Creative Design",
+    "title_p1": "Luxury graphic architecture for ",
+    "title_highlight": "market-leading brands.",
+    "subtitle": "A visual showcase of brand identity and high-ticket social assets engineered to capture immediate market attention.",
+    "btn_more": "View More Graphic Designs",
     "archive_badge": "Archive",
-    "archive_title_p1": "Some samples of our ",
-    "archive_title_highlight": "designs",
-    "archive_subtitle": "We reduced the quality of some designs for faster loading",
+    "archive_title_p1": "Selected showcase of ",
+    "archive_title_highlight": "Graphic Designs",
+    "archive_subtitle": "Optimized for instant responsive viewing",
     "btn_close": "Close",
     "btn_load_more": "Load More Designs"
   },
   "stats": {
-    "top_subtitle": "Data from some of our campaigns",
+    "top_subtitle": "Audited Meta Campaign Telemetry",
     "items": {
       "0": {
         "val": "$20,000+",
-        "label": "Over $20,000 spent annually on our clients' campaigns."
+        "label": "Over $20,000 in monthly ad budget managed directly across our verified client accounts."
       },
       "1": {
         "val": "35M+ Views",
-        "label": "Reach the maximum number of people and get real customers at the lowest cost."
+        "label": "Deep local and regional audience reach delivering genuine high-intent customer inquiries at minimum CPA."
       },
       "2": {
-        "val": "High ROI",
-        "label": "The right sponsorship strategy for the highest return on investment."
+        "val": "High ROAS",
+        "label": "Strategic paid acquisition systems engineered for peak measurable return on ad spend."
       }
     },
-    "slider_title_p1": "Results of some of our campaigns on ",
-    "slider_title_highlight": "Meta",
-    "campaign_num": "Campaign No. ",
-    "msg_rate": "Message Rate",
-    "view_rate": "View Rate",
-    "cta_title_p1": "Want your brand ",
-    "cta_title_highlight": "to be here?",
-    "cta_btn": "Let's Get Started"
+    "slider_title_p1": "Audited Client Campaign Performance on ",
+    "slider_title_highlight": "Meta Ads",
+    "campaign_num": "Campaign #",
+    "msg_rate": "Inquiries Delivered",
+    "view_rate": "Audited Impressions",
+    "cta_title_p1": "Ready to place your brand ",
+    "cta_title_highlight": "at the top?",
+    "cta_btn": "Launch Your Campaign"
   },
-  "schedule": {
-    "success_title": "Thank you, your request is submitted!",
-    "success_subtitle1": "We will try to contact you at the time you specified",
-    "success_subtitle2": "We will send you a reminder message on WhatsApp before the call",
-    "btn_close": "Close",
-    "step1_title": "Hello, thank you for choosing HBgrow",
-    "step1_subtitle": "Just fill out the details and we will chat with you via WhatsApp shortly",
-    "step1_question": "How would you prefer to communicate?",
-    "method_phone": "Phone Call",
-    "method_meeting": "Online Meeting",
-    "method_message": "Message",
-    "step2_title": "More info about your business",
-    "job_label": "What is your business type?",
-    "job_placeholder": "e.g., Clothing store, Real Estate...",
-    "city_label": "Which city are you in?",
-    "city_placeholder": "e.g., London",
-    "email_label": "Email",
-    "email_placeholder": "Enter your email here",
-    "step3_title": "Personal Information",
-    "name_label": "Your Name",
-    "name_placeholder": "Enter your name here",
-    "phone_label": "Your WhatsApp Number",
-    "phone_placeholder": "+44 123 4567 890",
-    "time_question": "When is a good time to call you?",
-    "btn_prev": "Back",
-    "btn_next": "Next",
-    "btn_submitting": "Submitting...",
-    "btn_submit": "Submit"
+  "packages": {
+    "badge": "Growth Retainers",
+    "title": "Select the Sales Package Built for Your Business",
+    "subtitle": "Transparent, low-risk revenue systems designed specifically for businesses across Kurdistan and Iraq.",
+    "items": [
+      {
+        "id": "launch",
+        "name": "Sales Launch",
+        "tagline": "Immediate Sales Jumpstart",
+        "price": "$150",
+        "period": "One-time (14-20 Day Sprint)",
+        "desc": "Built for businesses seeking minimal risk to witness the full power of our sales system on their own bottom line before a monthly commitment. System launches in 10 days.",
+        "features": [
+          "Complete audit of your business, products, and advertising data",
+          "Architecting 1 high-converting commercial sales offer",
+          "4 bespoke ad creative assets (2 Video Reels + 2 Conversion Designs)",
+          "Setting up and managing the sales campaign for the first 7 days",
+          "Custom guide and reply script to convert incoming message inquiries into sales",
+          "Final performance report backed by verified numbers and data"
+        ],
+        "specialOffer": "✨ Special Incentive: Upgrade to the monthly Sales Engine within 7 days and receive a $75 discount on your first month.",
+        "cta": "Start With Sales Launch"
+      },
+      {
+        "id": "engine",
+        "name": "Sales Engine",
+        "tagline": "Continuous Sales Engine",
+        "badge": "⭐ Most Popular Choice for Established Businesses",
+        "isPopular": true,
+        "price": "$350",
+        "period": "Monthly Retainer",
+        "desc": "For businesses, boutique shops, and growing brands that require a disciplined monthly plan to acquire steady new paying customers continuously.",
+        "features": [
+          "Includes all deliverables from Sales Launch",
+          "8 bespoke ad creative assets monthly (4 Video Reels + 4 Conversion Designs)",
+          "Weekly active ad optimization and Meta budget management",
+          "Monthly iteration and refinement of your sales offers",
+          "Staff sales training and messaging conversion scripts to maximize close rates",
+          "Transparent monthly performance reports with verified analytics",
+          "Managing up to $1,500 in monthly ad spend"
+        ],
+        "cta": "Partner With Sales Engine"
+      },
+      {
+        "id": "machine",
+        "name": "Sales Machine",
+        "tagline": "Complete Revenue Machine",
+        "badge": "VIP Strategic Partner",
+        "price": "$750",
+        "period": "Monthly Retainer",
+        "desc": "Engineered for medical clinics, luxury showrooms, real estate developments, and premier corporations. We handle everything from video production to customer acquisition and lead qualification.",
+        "features": [
+          "Includes all deliverables from Sales Engine",
+          "12 bespoke ad creative assets monthly (6 Video Reels + 6 Designs)",
+          "Automated lead filtration + direct qualification of serious buyers by our internal team (up to 300 buyers/mo)",
+          "Retargeting & Follow-up systems to recover prospects who inquired but haven't purchased yet",
+          "Monthly executive strategy sessions to scale transaction volume",
+          "Managing up to $3,000 in monthly ad spend"
+        ],
+        "cta": "Apply for VIP Sales Machine"
+      }
+    ],
+    "notice": "⚠️ Important Notice: The prices above represent HBgrow's management and creative system fee. Ad spend (paid directly to Meta for Facebook & Instagram) is separate, paid straight to Meta, and your ad account remains 100% under your ownership and control.",
+    "guarantee_badge": "Performance Guarantee",
+    "guarantee_title": "14-Day Guaranteed Results: We work with data, not hollow words.",
+    "guarantee_desc": "If we do not hit the pre-agreed volume of qualified customer inquiries within the first 14 days of your campaign, we will continue working completely free of charge until the goal is achieved.",
+    "guarantee_condition": "(Guarantee condition: Maintaining the agreed daily ad spend and approving the creative strategy promptly)."
+  },
+  "process": {
+    "badge": "Onboarding",
+    "title_p1": "How Do We",
+    "title_highlight": "Get Started?",
+    "subtitle": "A transparent 4-step onboarding protocol designed to launch your inbound sales engine in days.",
+    "steps": {
+      "0": {
+        "num": "1",
+        "title": "Send a WhatsApp Message",
+        "duration": "Step 1",
+        "desc": "Click the button below to start a direct chat with our team."
+      },
+      "1": {
+        "num": "2",
+        "title": "Brief 15-Minute Call",
+        "duration": "15 Mins",
+        "desc": "We listen to your commercial targets and audit your current setup."
+      },
+      "2": {
+        "num": "3",
+        "title": "System Setup (5-7 Days)",
+        "duration": "5–7 Days",
+        "desc": "We build your commercial offer, video scripts, and custom ad creatives."
+      },
+      "3": {
+        "num": "4",
+        "title": "Campaign Launch & Inbound Leads",
+        "duration": "Go Live",
+        "desc": "Your campaign goes live and qualified customer inquiries begin flowing in."
+      }
+    },
+    "payment_title": "Supported Payment Methods:",
+    "payment_methods": "FIB · FastPay · QiCard · AsiaPay · Direct Bank Transfer"
+  },
+  "faq": {
+    "badge": "Frequently Asked Questions",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "Who owns the ad account and social pages?",
+        "a": "100% yours. We operate purely as growth partners via Meta Business Manager. You retain complete master ownership and 24/7 visibility over all numbers, assets, and billing."
+      },
+      {
+        "q": "Do you guarantee actual sales?",
+        "a": "Sales are a collaborative effort (50% marketing acquisition system and 50% your product quality and competitive pricing). What we guarantee 100% is building an airtight system: an irresistible offer, compelling ads, and delivering a verified volume of qualified buyer inquiries backed by monthly reports. When your product is strong, this system directly produces revenue."
+      },
+      {
+        "q": "How do you assist if my own staff handles incoming messages?",
+        "a": "Under Sales Launch and Sales Engine, we provide full objection-handling guides and sales scripts to train your admins to turn inquiries into closed deals. If you lack the time, under Sales Machine our internal specialists handle buyer filtering and qualification on your behalf."
+      }
+    ]
   },
   "testimonials": {
-    "badge": "Testimonials",
-    "title_p1": "Those who decided before you, ",
-    "title_highlight": "are now at the top.",
-    "subtitle": "Our results are not just numbers, they are real business growth.",
+    "badge": "Audited Testimonials",
+    "title_p1": "Those who partnered before you, ",
+    "title_highlight": "are now leading their market.",
+    "subtitle": "Our numbers are real proof of genuine business revenue and market dominance.",
     "list": [
       {
         "name": "Awer",
         "initials": "AH",
         "rating": 5,
-        "role": "Customer",
-        "text": "The best agency I have ever worked with! I can warranty this team 100 hundred percent without any doubt! If there are other agencies that fill a part of your business, this agency is different — they can run your business completely, do everything as you please and as its necessary. Keep up the fine works guys.",
+        "role": "Client",
+        "text": "Best agency I have ever worked with! I guarantee this team 100% without hesitation. If other agencies only handle a fraction of your work, this agency is completely different — they run your entire growth engine flawlessly.",
         "source": "Facebook"
       },
       {
         "name": "Sakar",
         "initials": "SA",
         "rating": 5,
-        "role": "Customer",
-        "text": "Great job, everything is excellent. We are very satisfied with your staff and your work, wish you the best ❤️❤️",
+        "role": "Client",
+        "text": "Outstanding work! We are extremely satisfied with the staff and the results delivered. Wishing you continuous health and success ❤️❤️",
         "source": "Facebook"
       },
       {
         "name": "Muhammad",
         "initials": "MI",
         "rating": 5,
-        "role": "Customer",
-        "text": "Bravo, your services are truly amazing, thank you so much 😍😍😍",
+        "role": "Client",
+        "text": "Truly top-tier service, thank you very much for the exceptional growth 😍😍😍",
         "source": "Facebook"
       },
       {
         "name": "Yousif",
         "initials": "YM",
         "rating": 5,
-        "role": "Customer",
-        "text": "Thanks to HBgrow agency — honestly, however much I praise your work, it's not enough. Most importantly, I learned a lot from you about managing my work. The best group for managing an online business 💪",
+        "role": "Client",
+        "text": "Huge appreciation to HBgrow agency — words are not enough. Most importantly, I gained immense valuable knowledge from working with them. The absolute best group to scale an online business 💪",
         "source": "Facebook"
       },
       {
         "name": "Hardi",
         "initials": "HA",
         "rating": 5,
-        "role": "Customer",
-        "text": "Great job hbgrow agency, an experienced staff and their work is very beautiful",
+        "role": "Client",
+        "text": "Great job HBgrow agency, genuinely experienced professionals whose outputs are exceptionally beautiful.",
         "source": "Facebook"
       },
       {
         "name": "Bakhtiar",
         "initials": "BS",
         "rating": 5,
-        "role": "Customer",
-        "text": "I wish you success, I started my first project with you and we have truly benefited a lot ❣️",
+        "role": "Client",
+        "text": "Wishing you continuous success. Started my first campaign with you and we benefited tremendously ❣️",
         "source": "Facebook"
       },
       {
-        "name": "Customer",
+        "name": "Client",
         "initials": "★",
         "rating": 5,
-        "role": "Private Message",
-        "text": "Thank you so much. Since my factory is new, it was first God's grace, but you were also a great help to me in gaining people's trust",
+        "role": "Direct Message",
+        "text": "Thank you so much! For a newly launched business, you were a tremendous help in building instant public trust and customer volume.",
         "source": "Message"
       },
       {
         "name": "Customer",
         "initials": "★",
         "rating": 5,
-        "role": "Private Message",
-        "text": "Best well arranged agency ever.",
+        "role": "Direct Message",
+        "text": "The most professional and well-structured agency we have partnered with to date.",
         "source": "Message"
       },
       {
         "name": "Customer",
         "initials": "★",
         "rating": 5,
-        "role": "Private Message",
-        "text": "Thank you very much, God bless you, everything was perfect. Good luck.",
+        "role": "Direct Message",
+        "text": "Thank you very much, everything was executed flawlessly. Keep succeeding.",
         "source": "Message"
       },
       {
         "name": "Mohammed Nawzad",
         "initials": "MN",
         "rating": 5,
-        "role": "Customer",
-        "text": "The design and everything else is perfect, great job, it's seriously amazing",
+        "role": "Client",
+        "text": "The design aesthetic and creative delivery are absolutely perfect, truly outstanding work.",
         "source": "Message"
       },
       {
-        "name": "Customer",
+        "name": "Client",
         "initials": "★",
         "rating": 5,
-        "role": "Private Message",
-        "text": "Greetings to your staff, thank you so much for what you provided us within a month, your work is truly beautiful and well-organized. You did your work with great honesty, hoping you will continue even better and more successfully in the future.",
+        "role": "Direct Message",
+        "text": "Greetings to your team. Thank you for what you delivered over the past month. Your work is clean, disciplined, and carried out with complete integrity. Wishing you even greater success ahead.",
         "source": "Message"
       }
     ]
   },
   "closing_cta": {
-    "badge": "Time to Decide",
-    "title_p1": "Get your time back for",
-    "title_highlight": "your business.",
-    "subtitle_p1": "Your competitors are not waiting. Let's set your strategy today.",
-    "subtitle_highlight": "A 15-minute call can change the direction of your business.",
-    "btn_schedule": "Schedule a Call",
-    "disclaimer": "The call is free and there are no obligations.",
-    "trusted_by": "Trusted By",
+    "badge": "Decision Time",
+    "title_p1": "Ready to stop wasting money on useless boosts",
+    "title_highlight": "and turn your posts into real sales?",
+    "subtitle_p1": "A direct-response acquisition system that launches within 7–10 days.",
+    "subtitle_highlight": "Connect directly with genuine buyers through WhatsApp.",
+    "btn_schedule": "Send a WhatsApp Message",
+    "disclaimer": "This initial consultation is 100% complimentary with zero obligations.",
+    "trusted_by": "Trusted by Market Leaders",
     "stats": [
       "100+ Brands",
-      "$20K+ Ad Spend",
-      "1000+ Products"
+      "$20K+ Monthly Ad Spend",
+      "1,000+ Creative Assets"
     ]
   },
   "footer": {
-    "brand_desc": "Global Social Media & Growth Marketing Agency. Your brand deserves customers.",
-    "links_title": "Links",
-    "contact_title": "Contact",
-    "btn_schedule": "Schedule a Call",
+    "brand_desc": "Strategic social media sales and growth agency. Your brand deserves paying customers, not just casual viewers.",
+    "links_title": "Navigation",
+    "contact_title": "Direct Contact",
+    "btn_schedule": "Message Us on WhatsApp",
     "copyright": "HBgrow Agency. All rights reserved.",
-    "made_by": "Made with love by the HBgrow team",
-    "nav_about": "About Us",
-    "nav_portfolio": "Our Work",
-    "nav_process": "Our Process",
+    "made_by": "Engineered with precision by HBgrow Team",
+    "nav_about": "Problem & System",
+    "nav_portfolio": "Portfolio",
+    "nav_packages": "Packages",
+    "nav_process": "How It Works",
+    "nav_faq": "FAQ",
     "nav_testimonials": "Testimonials",
     "nav_contact": "Contact"
   },
-  "pain_solution": {
-    "badge": "Challenges",
-    "title_p1": "Is your business facing",
-    "title_highlight": "these challenges?",
-    "title_p2": "",
-    "pains": [
-      {
-        "title": "No real customers?",
-        "desc": "You don't know how to find real customers on social media and turn them into loyal ones."
-      },
-      {
-        "title": "No time to manage?",
-        "desc": "As a business owner, you have no time to professionally manage your pages and ads."
-      },
-      {
-        "title": "Burning money on ads?",
-        "desc": "Your ads waste a lot of money without generating significant sales. You feel competitors are ahead."
-      }
-    ],
-    "shift_p1": "With",
-    "shift_highlight": "HBgrow",
-    "shift_p2": "these problems will disappear.",
-    "solutions": [
-      {
-        "title": "Get your time back",
-        "desc": "We do all the work. Your only job is to approve our content and welcome your customers."
-      },
-      {
-        "title": "Save on expenses",
-        "desc": "No more wasting money on random ads. Your campaigns are managed with proper strategy."
-      },
-      {
-        "title": "A professional brand",
-        "desc": "A dedicated team will be assigned to you, turning your brand into a magnet for new customers."
-      }
-    ],
-    "cta_btn": "Schedule a Call",
-    "cta_desc": "The call is free and there are no obligations."
+  "schedule": {
+    "success_title": "Thank You, Your Request Has Been Recorded!",
+    "success_subtitle1": "Our team will reach out to you via WhatsApp shortly.",
+    "success_subtitle2": "We will send you a confirmation message prior to the conversation.",
+    "btn_close": "Close",
+    "step1_title": "Hello, thank you for choosing HBgrow",
+    "step1_subtitle": "Please provide your basic details so we can connect directly via WhatsApp.",
+    "step1_question": "What is your preferred mode of conversation?",
+    "method_phone": "Phone Call",
+    "method_meeting": "Online Video Call",
+    "method_message": "WhatsApp / Messaging",
+    "step2_title": "Tell us more about your business",
+    "job_label": "What industry or business are you in?",
+    "job_placeholder": "e.g. Clinic, Retail, Real Estate, Automotive...",
+    "city_label": "Which city are you based in?",
+    "city_placeholder": "e.g. Erbil, Sulaymaniyah, Duhok, Baghdad...",
+    "email_label": "Email Address",
+    "email_placeholder": "Enter your email address",
+    "step3_title": "Personal Details",
+    "name_label": "Your Full Name",
+    "name_placeholder": "Enter your name",
+    "phone_label": "Your WhatsApp Phone Number",
+    "phone_placeholder": "0750 123 4567",
+    "time_question": "What time is best to connect with you?",
+    "btn_prev": "Back",
+    "btn_next": "Next",
+    "btn_submitting": "Submitting...",
+    "btn_submit": "Submit Request"
   }
 }

@@ -466,7 +466,7 @@ export default function HeroMockup() {
                       className="w-full flex items-center justify-center gap-2 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#020C1B] via-[#041E42] to-[#0A2E66] text-white text-xs sm:text-sm font-bold shadow-xs hover:opacity-95 transition-all cursor-pointer"
                     >
                       <WhatsAppIcon size={14} />
-                      <span>{isRTL ? 'دەستپێکردنی ڕیکلام بۆ بزنسەکەم' : 'Launch Growth Sprint With HBgrow'}</span>
+                      <span>{isRTL ? 'پشکنینی بێبەرامبەر بۆ ڕیکلامەکەم' : 'Claim Free Audit for My Ads'}</span>
                       <ArrowUpRight size={14} />
                     </button>
                   </div>
@@ -662,7 +662,7 @@ export default function HeroMockup() {
                     onClick={openSchedule}
                     className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#020C1B] via-[#041E42] to-[#0A2E66] text-white text-xs sm:text-sm font-bold shadow-xs hover:opacity-95 transition-all cursor-pointer whitespace-nowrap"
                   >
-                    {isRTL ? 'دەستنیشانکردنی کات بۆ ئەم بودجەیە' : 'Lock In This Growth Capacity'}
+                    {isRTL ? 'پشکنینی بێبەرامبەر بۆ ئەم بودجەیە' : 'Claim Free Audit for this Budget'}
                   </button>
                 </div>
               </div>

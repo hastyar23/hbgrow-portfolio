@@ -136,6 +136,22 @@ export default function PainSolution() {
           </p>
         </div>
 
+        {/* Section 3: Our System Header */}
+        <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)', textAlign: 'center' }}>
+          <span className="badge" style={{ marginBottom: '1.25rem', display: 'inline-flex' }}>
+            {t('pain_solution.system_badge')}
+          </span>
+          <h2 style={{
+            fontFamily: "'Sarchia Bokan', serif",
+            fontSize: 'clamp(1.6rem, 3.5vw, 2.75rem)',
+            fontWeight: 700, lineHeight: 1.25,
+            color: '#0A0A0C', maxWidth: 620, margin: '0 auto',
+          }}>
+            {t('pain_solution.system_title_p1')}{' '}
+            <span className="text-gold">{t('pain_solution.system_title_highlight')}</span>
+          </h2>
+        </div>
+
         {/* Solutions Grid */}
         <div style={{
           display: 'grid',

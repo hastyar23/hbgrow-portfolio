@@ -1,11 +1,12 @@
-import { Calendar, ArrowLeft } from 'lucide-react';
+import { Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
 
 export default function ClosingCTA() {
   const { openSchedule } = useSchedule();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
   const rawStats = t('closing_cta.stats', { returnObjects: true });
   const stats = Array.isArray(rawStats) ? rawStats : [];
 
@@ -77,7 +78,7 @@ export default function ClosingCTA() {
           >
             <WhatsAppIcon size={18} style={{ flexShrink: 0 }} />
             {t('closing_cta.btn_schedule')}
-            <ArrowLeft size={13} style={{ flexShrink: 0 }} />
+            {isRTL ? <ArrowLeft size={13} style={{ flexShrink: 0 }} /> : <ArrowRight size={13} style={{ flexShrink: 0 }} />}
           </button>
         </div>
 

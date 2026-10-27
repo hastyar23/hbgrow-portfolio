@@ -104,26 +104,18 @@ export default function Hero() {
           className="animate-fade-in-up delay-200"
           style={{
             fontFamily: "'Outfit', 'Sarchia Bokan', serif",
-            fontSize: 'clamp(2.75rem, 8vw, 5rem)',
-            fontWeight: 700,
-            lineHeight: 1.05,
+            fontSize: 'clamp(2.35rem, 6vw, 4.25rem)',
+            fontWeight: 800,
+            lineHeight: 1.18,
             color: '#0A0A0C',
-            maxWidth: 820,
-            margin: '0 auto 1.25rem',
+            maxWidth: 880,
+            margin: '0 auto 1.5rem',
             wordBreak: 'break-word',
           }}
         >
           {t('hero.title_p1')}{' '}
-          <span className="text-gold">{t('hero.title_highlight')}</span>
-          <span style={{
-            display: 'block',
-            marginTop: '0.1rem',
-            fontSize: 'clamp(1.5rem, 5vw, 2.75rem)',
-            fontWeight: 400,
-            color: '#52525B',
-          }}>
-            {t('hero.title_p2')}
-          </span>
+          <span className="text-gold" style={{ display: 'inline' }}>{t('hero.title_highlight')}</span>{' '}
+          <span style={{ color: '#0A0A0C' }}>{t('hero.title_p2')}</span>
         </h1>
 
         {/* Sub-headline */}
