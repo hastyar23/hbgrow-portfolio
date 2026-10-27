@@ -208,7 +208,8 @@ export default function Portfolio() {
   const [visibleCount, setVisibleCount]   = useState(12);
   const [isMobile, setIsMobile]           = useState(false);
   const marqueeViewportRef                = useRef(null); // the overflow:hidden wrapper
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 640);
@@ -226,9 +227,14 @@ export default function Portfolio() {
     <section id="portfolio" style={{ padding: 'clamp(4rem, 10vw, 9rem) 0' }}>
       <div className="section-wrap">
 
-        {/* ── Header ── */}
+        {/* ── Header with Statiq-style Handwritten Micro-Tag ── */}
         <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 5rem)' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem' }}>{t('portfolio.badge')}</span>
+          <span className="font-script-accent">
+            {isRTL ? 'بەرهەمی ڤیدیۆ و کەمپەینە سەرکەوتووەکان' : 'Performance Video Creatives'}
+          </span>
+          <div style={{ marginBottom: '1.25rem' }}>
+            <span className="badge">{t('portfolio.badge')}</span>
+          </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem' }}>
             <h2 style={{
               fontFamily: "'Sarchia Bokan', serif",

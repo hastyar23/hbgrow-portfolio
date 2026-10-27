@@ -164,7 +164,8 @@ export default function DesignPortfolio() {
   const [showAllDesigns, setShowAllDesigns] = useState(false);
   const [visibleCount, setVisibleCount] = useState(12);
   const [isMobile, setIsMobile] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 640);
@@ -182,7 +183,12 @@ export default function DesignPortfolio() {
     <section id="designs" style={{ padding: 'clamp(4rem, 10vw, 9rem) 0' }}>
       <div className="section-wrap">
         <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 5rem)', textAlign: 'center' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>{t('design_portfolio.badge')}</span>
+          <span className="font-script-accent">
+            {isRTL ? 'گرافیک دیزاین و شوناسی براند' : 'High-Ticket Brand Assets'}
+          </span>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <span className="badge">{t('design_portfolio.badge')}</span>
+          </div>
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',

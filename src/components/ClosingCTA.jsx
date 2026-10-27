@@ -22,7 +22,7 @@ export default function ClosingCTA() {
       {/* Ambient glows */}
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
-        width: 'min(800px, 100vw)', height: 'min(800px, 100vw)',
+        width: 'min(800px, 100%)', height: 'min(800px, 100%)',
         borderRadius: '50%', transform: 'translate(-50%, -50%)',
         background: 'radial-gradient(circle, rgba(3, 20, 43, 0.02) 0%, transparent 60%)',
         pointerEvents: 'none',
@@ -32,10 +32,18 @@ export default function ClosingCTA() {
 
       <div className="section-wrap" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
 
-        <span className="badge" style={{ marginBottom: 'clamp(1.5rem, 4vw, 3rem)' }}>
-          <span className="dot" />
-          {t('closing_cta.badge')}
-        </span>
+        <div style={{ marginBottom: '0.5rem' }}>
+          <span className="font-script-accent">
+            {isRTL ? 'دەستپێکی گۆڕانکاری لە فرۆشدا' : 'Transform Your Acquisition'}
+          </span>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'clamp(1.5rem, 4vw, 3rem)' }}>
+          <span className="badge">
+            <span className="dot" />
+            {t('closing_cta.badge')}
+          </span>
+        </div>
 
         <h2 style={{
           fontFamily: "'Sarchia Bokan', serif",

@@ -15,7 +15,8 @@ const adResults = [
 export default function StatsBanner() {
   const { openSchedule } = useSchedule();
   const [activeImage, setActiveImage] = useState(null);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
 
   const stats = [
     { icon: <DollarSign size={18} />, val: t('stats.items.0.val'), label: t('stats.items.0.label') },
@@ -74,9 +75,15 @@ export default function StatsBanner() {
 
         <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 3.5rem)', opacity: 0.5 }} />
 
+        <div data-reveal style={{ marginBottom: 'clamp(1rem, 3vw, 1.5rem)' }}>
+          <span className="font-script-accent">
+            {isRTL ? 'داتا و بەڵگەی سەلمێنراوی Meta Ads' : 'Verified Growth Telemetry'}
+          </span>
+        </div>
+
         <p data-reveal style={{
           fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-          fontSize: '0.58rem',
+          fontSize: '0.62rem',
           textTransform: 'uppercase', color: '#64748B',
           marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 700,
         }}>

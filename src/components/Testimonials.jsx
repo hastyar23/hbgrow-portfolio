@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 const AUTOPLAY_MS = 5000;
 
 export default function Testimonials() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
   
   // Get testimonials from translations
   const testimonials = useMemo(() => {
@@ -112,9 +113,14 @@ export default function Testimonials() {
 
       <div className="section-wrap">
 
-        {/* ── Header ── */}
+        {/* ── Header with Statiq-style Handwritten Micro-Tag ── */}
         <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 4.5rem)' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem' }}>{t('testimonials.badge')}</span>
+          <span className="font-script-accent">
+            {isRTL ? 'ڕای کڕیاران و هاوبەشەکانمان' : 'What Our Partners Say'}
+          </span>
+          <div style={{ marginBottom: '1.25rem' }}>
+            <span className="badge">{t('testimonials.badge')}</span>
+          </div>
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',

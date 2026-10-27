@@ -25,19 +25,24 @@ export default function FAQ() {
       {/* Background ambient lighting */}
       <div style={{
         position: 'absolute', top: '25%', left: '50%', transform: 'translateX(-50%)',
-        width: 'min(850px, 95vw)', height: 400,
+        width: 'min(850px, 95%)', height: 400,
         background: 'radial-gradient(ellipse, rgba(3, 20, 43, 0.02) 0%, transparent 70%)',
         filter: 'blur(80px)', pointerEvents: 'none',
       }} />
 
       <div className="section-wrap" style={{ maxWidth: 860, margin: '0 auto' }}>
 
-        {/* ── Section Header ── */}
+        {/* ── Section Header with Statiq-style Handwritten Micro-Tag ── */}
         <div data-reveal style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>
-            <HelpCircle size={12} className="text-[#0B3275]" />
-            {t('faq.badge')}
+          <span className="font-script-accent">
+            {isRTL ? 'پرسیارەکانت، وەڵامە ڕوونەکانمان' : 'You asked. We answered.'}
           </span>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <span className="badge">
+              <HelpCircle size={12} className="text-[#0B3275]" />
+              {t('faq.badge')}
+            </span>
+          </div>
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.75rem, 4vw, 3rem)',

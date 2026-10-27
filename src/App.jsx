@@ -89,9 +89,9 @@ export default function App() {
   }
 
   return (
-    <div style={{ position: 'relative', width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%', maxWidth: '100%', overflowX: 'hidden' }}>
       <Navbar />
-      <main style={{ position: 'relative', width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
+      <main style={{ position: 'relative', width: '100%', maxWidth: '100%', overflowX: 'hidden' }}>
         <Hero />
         <PainSolution />
         <Portfolio />

@@ -441,18 +441,18 @@ export default function ScheduleModal({ onClose }) {
         }
         .options-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 0.75rem;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 0.5rem;
         }
         @media (min-width: 480px) {
           .options-grid { gap: 1rem; }
         }
         .option-btn {
           background: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 14px; padding: 1.25rem 0.75rem; color: #52525B; cursor: pointer;
-          display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
-          transition: all 0.3s ease; font-size: clamp(0.78rem, 2.5vw, 0.95rem);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+          border-radius: 14px; padding: 1.1rem 0.4rem; color: #52525B; cursor: pointer;
+          display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+          transition: all 0.3s ease; font-size: clamp(0.72rem, 2.3vw, 0.95rem);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02); min-width: 0; word-break: break-word; text-align: center;
         }
         @media (min-width: 480px) {
           .option-btn { border-radius: 16px; padding: 2rem 1.5rem; font-size: 1rem; }

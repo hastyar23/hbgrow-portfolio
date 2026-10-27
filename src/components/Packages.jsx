@@ -17,19 +17,24 @@ export default function Packages() {
       {/* Background ambient lighting */}
       <div style={{
         position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
-        width: 'min(900px, 95vw)', height: 450,
+        width: 'min(900px, 95%)', height: 450,
         background: 'radial-gradient(ellipse, rgba(3, 20, 43, 0.03) 0%, transparent 70%)',
         filter: 'blur(90px)', pointerEvents: 'none',
       }} />
 
       <div className="section-wrap">
 
-        {/* ── Section Header ── */}
+        {/* ── Section Header with Statiq-style Handwritten Micro-Tag ── */}
         <div data-reveal style={{ textAlign: 'center', maxWidth: 760, margin: '0 auto clamp(3rem, 7vw, 5rem)' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>
-            <Sparkles size={12} className="text-[#0B3275]" />
-            {t('packages.badge')}
+          <span className="font-script-accent">
+            {isRTL ? 'پاکێج و وەبەرهێنانی فرۆش' : 'Transparent Investment'}
           </span>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <span className="badge">
+              <Sparkles size={12} className="text-[#0B3275]" />
+              {t('packages.badge')}
+            </span>
+          </div>
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.75rem, 4.5vw, 3rem)',
@@ -47,10 +52,10 @@ export default function Packages() {
           </p>
         </div>
 
-        {/* ── 3 Pricing Cards Grid ── */}
+        {/* ── 3 Pricing Cards Grid - Fully Responsive ── */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 310px), 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 290px), 1fr))',
           gap: '1.5rem',
           alignItems: 'stretch',
           marginBottom: 'clamp(2.5rem, 6vw, 4rem)',

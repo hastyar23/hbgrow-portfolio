@@ -59,9 +59,14 @@ export default function Process() {
 
       <div className="section-wrap">
 
-        {/* ── Header ── */}
+        {/* ── Header with Statiq-style Handwritten Micro-Tag ── */}
         <div data-reveal style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto clamp(3rem, 7vw, 5rem)' }}>
-          <span className="badge" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>{t('process.badge')}</span>
+          <span className="font-script-accent">
+            {isRTL ? 'پرۆسەی دەستپێکردنی خێرا' : 'Frictionless Onboarding'}
+          </span>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <span className="badge">{t('process.badge')}</span>
+          </div>
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.75rem, 4vw, 3rem)',

@@ -352,7 +352,7 @@ export default function HeroMockup() {
 
                   {/* SVG Chart Graphic */}
                   <div className="relative w-full h-36 sm:h-44 pt-2">
-                    <svg viewBox="0 0 340 150" className="w-full h-full overflow-visible">
+                    <svg viewBox="0 0 340 150" className="w-full h-full overflow-hidden">
                       <defs>
                         <linearGradient id={chartGradientId} x1="0" y1="0" x2="0" y2="1">
                           <stop offset="0%" stopColor="#0B3275" stopOpacity="0.25" />
@@ -660,7 +660,7 @@ export default function HeroMockup() {
                   </div>
                   <button
                     onClick={openSchedule}
-                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#020C1B] via-[#041E42] to-[#0A2E66] text-white text-xs sm:text-sm font-bold shadow-xs hover:opacity-95 transition-all cursor-pointer whitespace-nowrap"
+                    className="w-full sm:w-auto px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#020C1B] via-[#041E42] to-[#0A2E66] text-white text-xs sm:text-sm font-bold shadow-xs hover:opacity-95 transition-all cursor-pointer text-center"
                   >
                     {isRTL ? 'پشکنینی بێبەرامبەر بۆ ئەم بودجەیە' : 'Claim Free Audit for this Budget'}
                   </button>

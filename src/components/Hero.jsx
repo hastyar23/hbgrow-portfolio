@@ -8,7 +8,8 @@ import HeroMockup from './HeroMockup';
 export default function Hero() {
   const { openSchedule } = useSchedule();
   const glowRef = useRef(null);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
 
   useEffect(() => {
     const move = (e) => {
@@ -91,6 +92,13 @@ export default function Hero() {
           textAlign: 'center',
         }}
       >
+        {/* Handwritten Boutique Accent (Statiq-Style) */}
+        <div className="animate-fade-in-up" style={{ marginBottom: '0.4rem' }}>
+          <span className="font-script-accent">
+            {isRTL ? 'بەرهەمهێنانی فرۆش و ڕیکلام بە داتای ڕاستەقینە' : 'Performance Creative & Meta Growth Engine'}
+          </span>
+        </div>
+
         {/* Badge */}
         <div className="animate-fade-in-up delay-100" style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'center', padding: '0 0.5rem' }}>
           <span className="badge">

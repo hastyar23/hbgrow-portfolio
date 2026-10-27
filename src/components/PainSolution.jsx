@@ -5,7 +5,8 @@ import WhatsAppIcon from './WhatsAppIcon';
 
 export default function PainSolution() {
   const { openSchedule } = useSchedule();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
 
   const pains = t('pain_solution.pains', { returnObjects: true });
   const safePains = Array.isArray(pains) ? pains : [];
@@ -32,9 +33,14 @@ export default function PainSolution() {
 
       <div className="section-wrap">
 
-        {/* Header */}
+        {/* Header with Statiq-style Handwritten Micro-Tag */}
         <div data-reveal style={{ marginBottom: 'clamp(3.5rem, 8vw, 6rem)', textAlign: 'center' }}>
-          <span className="badge" style={{ marginBottom: '1.75rem', display: 'inline-flex' }}>{t('pain_solution.badge')}</span>
+          <span className="font-script-accent">
+            {isRTL ? 'دەستنیشانکردنی کێشە سەرەکییەکان' : 'The Core Bottlenecks'}
+          </span>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <span className="badge">{t('pain_solution.badge')}</span>
+          </div>
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.6rem, 3.5vw, 2.75rem)',
@@ -47,10 +53,10 @@ export default function PainSolution() {
           </h2>
         </div>
 
-        {/* Pain Grid */}
+        {/* Pain Grid - Fully Responsive */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
           gap: '1.25rem',
           marginBottom: 'clamp(3rem, 8vw, 5rem)',
         }}>
@@ -136,11 +142,16 @@ export default function PainSolution() {
           </p>
         </div>
 
-        {/* Section 3: Our System Header */}
+        {/* Section 3: Our System Header with Statiq-style Handwritten Micro-Tag */}
         <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)', textAlign: 'center' }}>
-          <span className="badge" style={{ marginBottom: '1.25rem', display: 'inline-flex' }}>
-            {t('pain_solution.system_badge')}
+          <span className="font-script-accent">
+            {isRTL ? 'سیستەمی گەشەی ٤ هەنگاوی' : 'Our 4-Step Revenue Architecture'}
           </span>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <span className="badge">
+              {t('pain_solution.system_badge')}
+            </span>
+          </div>
           <h2 style={{
             fontFamily: "'Sarchia Bokan', serif",
             fontSize: 'clamp(1.6rem, 3.5vw, 2.75rem)',
@@ -152,10 +163,10 @@ export default function PainSolution() {
           </h2>
         </div>
 
-        {/* Solutions Grid */}
+        {/* Solutions Grid - Fully Responsive */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
           gap: '1.25rem',
           marginBottom: 'clamp(2.5rem, 6vw, 4.5rem)',
         }}>
