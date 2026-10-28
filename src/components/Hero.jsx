@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Calendar, Play } from 'lucide-react';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
-import HeroMockup from './HeroMockup';
+import HeroCreativeGrid from './HeroCreativeGrid';
 
 export default function Hero() {
   const { openSchedule } = useSchedule();
@@ -224,9 +224,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Interactive High-End Mockup Element */}
-        <div className="animate-fade-in-up delay-700" style={{ display: 'flex', justifyContent: 'center', width: '100%', position: 'relative', zIndex: 3 }}>
-          <HeroMockup />
+        {/* Creative Grid — Statiq-style floating ad designs */}
+        <div className="animate-fade-in-up delay-700" style={{ width: '100%', position: 'relative', zIndex: 3 }}>
+          <HeroCreativeGrid />
         </div>
 
         {/* Scroll cue */}

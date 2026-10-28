@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSchedule } from './ScheduleContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import BrandLogos from './components/BrandLogos';
 import PainSolution from './components/PainSolution';
 import Portfolio from './components/Portfolio';
 import DesignPortfolio from './components/DesignPortfolio';
@@ -93,6 +94,7 @@ export default function App() {
       <Navbar />
       <main style={{ position: 'relative', width: '100%', maxWidth: '100%', overflowX: 'hidden' }}>
         <Hero />
+        <BrandLogos />
         <PainSolution />
         <Portfolio />
         <DesignPortfolio />
