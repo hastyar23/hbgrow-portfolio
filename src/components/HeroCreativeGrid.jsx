@@ -30,9 +30,9 @@ export default function HeroCreativeGrid() {
       style={{
         position: 'relative',
         width: '100%',
-        maxWidth: 900,
+        maxWidth: 560,
         margin: '0 auto',
-        height: 'clamp(280px, 48vw, 520px)',
+        height: 'clamp(320px, 46vw, 600px)',
         overflow: 'hidden',
         opacity: mounted ? 1 : 0,
         transition: 'opacity 0.6s ease',

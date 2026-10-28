@@ -87,155 +87,156 @@ export default function Hero() {
         className="section-wrap"
         style={{
           position: 'relative', zIndex: 2,
-          paddingTop: 'clamp(7rem, 16vw, 10.5rem)',
-          paddingBottom: 'clamp(3rem, 8vw, 6rem)',
-          textAlign: 'center',
+          paddingTop: 'clamp(6.5rem, 14vw, 9.5rem)',
+          paddingBottom: 'clamp(2.5rem, 6vw, 4.5rem)',
         }}
       >
-        {/* Handwritten Boutique Accent (Statiq-Style) */}
-        <div className="animate-fade-in-up" style={{ marginBottom: '0.4rem' }}>
-          <span className="font-script-accent">
-            {isRTL ? 'بەرهەمهێنانی فرۆش و ڕیکلام بە داتای ڕاستەقینە' : 'Performance Creative & Meta Growth Engine'}
-          </span>
-        </div>
+        <div className="hero-split-grid">
+          {/* Column 1: Text & Actions & Stats */}
+          <div className="hero-text-col">
+            {/* Handwritten Boutique Accent (Statiq-Style) */}
+            <div className="animate-fade-in-up" style={{ marginBottom: '0.4rem' }}>
+              <span className="font-script-accent">
+                {isRTL ? 'بەرهەمهێنانی فرۆش و ڕیکلام بە داتای ڕاستەقینە' : 'Performance Creative & Meta Growth Engine'}
+              </span>
+            </div>
 
-        {/* Badge */}
-        <div className="animate-fade-in-up delay-100" style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center', padding: '0 0.5rem' }}>
-          <span className="badge">
-            <span className="dot" />
-            {t('hero.badge')}
-          </span>
-        </div>
+            {/* Badge */}
+            <div className="badge-wrap animate-fade-in-up delay-100" style={{ marginBottom: '1.25rem', display: 'flex' }}>
+              <span className="badge">
+                <span className="dot" />
+                {t('hero.badge')}
+              </span>
+            </div>
 
-        {/* Headline */}
-        <h1
-          className="animate-fade-in-up delay-200"
-          style={{
-            fontFamily: "'Outfit', 'Sarchia Bokan', serif",
-            fontSize: 'clamp(1.85rem, 5.5vw, 4.25rem)',
-            fontWeight: 800,
-            lineHeight: 1.18,
-            color: '#0A0A0C',
-            maxWidth: 880,
-            margin: '0 auto 1.25rem',
-            wordBreak: 'break-word',
-          }}
-        >
-          {t('hero.title_p1')}{' '}
-          <span className="text-gold" style={{ display: 'inline' }}>{t('hero.title_highlight')}</span>{' '}
-          <span style={{ color: '#0A0A0C' }}>{t('hero.title_p2')}</span>
-        </h1>
+            {/* Headline */}
+            <h1
+              className="animate-fade-in-up delay-200"
+              style={{
+                fontFamily: "'Outfit', 'Sarchia Bokan', serif",
+                fontSize: 'clamp(1.9rem, 4vw, 3.5rem)',
+                fontWeight: 800,
+                lineHeight: 1.18,
+                color: '#0A0A0C',
+                marginBottom: '1.25rem',
+                wordBreak: 'break-word',
+              }}
+            >
+              {t('hero.title_p1')}{' '}
+              <span className="text-gold" style={{ display: 'inline' }}>{t('hero.title_highlight')}</span>{' '}
+              <span style={{ color: '#0A0A0C' }}>{t('hero.title_p2')}</span>
+            </h1>
 
-        {/* Sub-headline */}
-        <p
-          className="animate-fade-in-up delay-300"
-          style={{
-            fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-            maxWidth: 540,
-            margin: '0 auto clamp(1.5rem, 4vw, 2.5rem)',
-            fontSize: 'clamp(0.875rem, 2.2vw, 1rem)',
-            fontWeight: 400,
-            color: '#52525B',
-            lineHeight: 2.1,
-            wordBreak: 'break-word',
-          }}
-        >
-          {t('hero.subtitle_1')}{' '}
-          <span style={{ color: '#0A0A0C', fontWeight: 600 }}>
-            {t('hero.subtitle_2')}
-          </span>
-        </p>
+            {/* Sub-headline */}
+            <p
+              className="animate-fade-in-up delay-300"
+              style={{
+                fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                fontSize: 'clamp(0.88rem, 1.8vw, 1.05rem)',
+                fontWeight: 400,
+                color: '#52525B',
+                lineHeight: 1.95,
+                marginBottom: '1.75rem',
+                maxWidth: 580,
+                wordBreak: 'break-word',
+              }}
+            >
+              {t('hero.subtitle_1')}{' '}
+              <span style={{ color: '#0A0A0C', fontWeight: 600 }}>
+                {t('hero.subtitle_2')}
+              </span>
+            </p>
 
-        {/* CTAs — responsive via CSS class hero-ctas */}
-        <div className="animate-fade-in-up delay-400 hero-ctas">
-          <button
-            onClick={openSchedule}
-            className="btn-primary"
-            id="hero-cta-book"
-            style={{ boxShadow: '0 4px 20px -2px rgba(3, 20, 43, 0.35)', border: 'none', cursor: 'pointer' }}
-          >
-            <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
-            {t('hero.cta_book')}
-          </button>
-          <a href="#portfolio" className="btn-ghost" id="hero-cta-work">
-            <Play size={13} style={{ fill: 'currentColor', flexShrink: 0 }} />
-            {t('hero.cta_work')}
-          </a>
-        </div>
+            {/* CTAs — responsive via CSS class hero-ctas */}
+            <div className="animate-fade-in-up delay-400 hero-ctas" style={{ marginBottom: '1.75rem' }}>
+              <button
+                onClick={openSchedule}
+                className="btn-primary"
+                id="hero-cta-book"
+                style={{ boxShadow: '0 4px 20px -2px rgba(3, 20, 43, 0.35)', border: 'none', cursor: 'pointer' }}
+              >
+                <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
+                {t('hero.cta_book')}
+              </button>
+              <a href="#portfolio" className="btn-ghost" id="hero-cta-work">
+                <Play size={13} style={{ fill: 'currentColor', flexShrink: 0 }} />
+                {t('hero.cta_work')}
+              </a>
+            </div>
 
-        {/* Hairline */}
-        <div
-          className="hairline animate-fade-in-up delay-500"
-          style={{ maxWidth: 440, margin: '0 auto clamp(1.5rem, 4vw, 2.5rem)', opacity: 0.8 }}
-        />
+            {/* Hairline */}
+            <div
+              className="hairline animate-fade-in-up delay-500 hero-hairline"
+              style={{ opacity: 0.7 }}
+            />
 
-        {/* Stats Card — glassmorphic, responsive via CSS classes */}
-        <div className="animate-fade-in-up delay-600" style={{ display: 'flex', justifyContent: 'center', marginBottom: 'clamp(1.75rem, 4vw, 2.5rem)' }}>
-          <div
-            className="glass-stat-card"
-            style={{
-              position: 'relative',
-              padding: 'clamp(1.25rem, 4vw, 1.85rem) clamp(1rem, 4vw, 2.25rem)',
-              animation: 'float-y 7s ease-in-out infinite',
-              maxWidth: 700,
-              width: '100%',
-            }}
-          >
-            {/* Subtle inner glow */}
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'radial-gradient(ellipse at center top, rgba(3, 20, 43, 0.02) 0%, transparent 60%)',
-              borderRadius: 'inherit',
-              pointerEvents: 'none',
-            }} />
-            
-            <div className="stats-inner" style={{ position: 'relative', zIndex: 1 }}>
-              {stats.map(({ val, label }, index, arr) => (
-                <Fragment key={label}>
-                  <div
-                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1, justifyContent: 'center' }}
-                  >
-                    <div style={{
-                      fontFamily: "'Outfit', 'Sarchia Bokan', serif",
-                      fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
-                      fontWeight: 800, lineHeight: 1,
-                      color: '#0A0A0C',
-                    }}>
-                      {val}
-                    </div>
-                    <div style={{
-                      fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                      fontSize: 'clamp(0.7rem, 2vw, 0.85rem)',
-                      color: '#64748B',
-                      marginTop: '0.5rem',
-                      fontWeight: 500,
-                    }}>
-                      {label}
-                    </div>
-                  </div>
+            {/* Stats Card — glassmorphic, responsive */}
+            <div className="animate-fade-in-up delay-600 hero-stats-wrap">
+              <div
+                className="glass-stat-card"
+                style={{
+                  position: 'relative',
+                  padding: 'clamp(1rem, 2.5vw, 1.35rem) clamp(0.75rem, 2vw, 1.5rem)',
+                  width: '100%',
+                }}
+              >
+                {/* Subtle inner glow */}
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'radial-gradient(ellipse at center top, rgba(3, 20, 43, 0.02) 0%, transparent 60%)',
+                  borderRadius: 'inherit',
+                  pointerEvents: 'none',
+                }} />
+                
+                <div className="stats-inner" style={{ position: 'relative', zIndex: 1 }}>
+                  {stats.map(({ val, label }, index, arr) => (
+                    <Fragment key={label}>
+                      <div
+                        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1, justifyContent: 'center' }}
+                      >
+                        <div style={{
+                          fontFamily: "'Outfit', 'Sarchia Bokan', serif",
+                          fontSize: 'clamp(1.2rem, 2.5vw, 1.7rem)',
+                          fontWeight: 800, lineHeight: 1,
+                          color: '#0A0A0C',
+                        }}>
+                          {val}
+                        </div>
+                        <div style={{
+                          fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                          fontSize: 'clamp(0.68rem, 1.4vw, 0.78rem)',
+                          color: '#64748B',
+                          marginTop: '0.4rem',
+                          fontWeight: 500,
+                        }}>
+                          {label}
+                        </div>
+                      </div>
 
-                  {index !== arr.length - 1 && (
-                    <div className="stats-divider" />
-                  )}
-                </Fragment>
-              ))}
+                      {index !== arr.length - 1 && (
+                        <div className="stats-divider" />
+                      )}
+                    </Fragment>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Creative Grid — Statiq-style floating ad designs */}
-        <div className="animate-fade-in-up delay-700" style={{ width: '100%', position: 'relative', zIndex: 3 }}>
-          <HeroCreativeGrid />
+          {/* Column 2: Creative Grid — Next to the texts! */}
+          <div className="hero-media-col animate-fade-in-up delay-400">
+            <HeroCreativeGrid />
+          </div>
         </div>
 
         {/* Scroll cue */}
         <div style={{
           display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 2,
-          marginTop: 'clamp(2.5rem, 5vw, 4rem)',
+          marginTop: 'clamp(2rem, 4vw, 3.5rem)',
         }}>
           <div style={{
-            width: 1, height: 36,
+            width: 1, height: 32,
             background: 'linear-gradient(to bottom, rgba(3, 20, 43, 0.4), transparent)',
             animation: 'float-y 2.5s ease-in-out infinite',
           }} />

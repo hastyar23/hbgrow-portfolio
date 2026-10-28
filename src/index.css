@@ -881,6 +881,88 @@ p, a, li, button, input, textarea {
 }
 .design-marquee-track:hover { animation-play-state: paused; }
 
+/* ─── Hero Split 2-Column Grid (Statiq-Style) ───────────────── */
+.hero-split-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: center;
+  width: 100%;
+}
+
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-text-col .badge-wrap {
+  justify-content: center;
+}
+
+.hero-text-col .hero-hairline {
+  margin: 0 auto 1.5rem auto;
+  max-width: 440px;
+}
+
+.hero-text-col .hero-stats-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-media-col {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-split-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2.5rem, 4vw, 4.5rem);
+    align-items: center;
+  }
+
+  .hero-text-col {
+    text-align: left;
+  }
+
+  html[dir="rtl"] .hero-text-col {
+    text-align: right;
+  }
+
+  .hero-text-col .badge-wrap {
+    justify-content: flex-start !important;
+  }
+
+  html[dir="rtl"] .hero-text-col .badge-wrap {
+    justify-content: flex-start !important;
+  }
+
+  .hero-text-col .hero-ctas {
+    justify-content: flex-start !important;
+    margin: 0 0 1.75rem 0 !important;
+    max-width: none !important;
+  }
+
+  .hero-text-col .hero-hairline {
+    margin: 0 0 1.5rem 0 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-text-col .hero-stats-wrap {
+    justify-content: flex-start !important;
+  }
+
+  .hero-text-col .glass-stat-card {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
 /* ─── Hero CTA Group ────────────────────────────────────────── */
 .hero-ctas {
   display: flex;
