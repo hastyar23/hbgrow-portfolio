@@ -14,7 +14,7 @@ export default function ClosingCTA() {
     <section
       id="contact"
       style={{
-        padding: 'clamp(5rem, 14vw, 12rem) 0',
+        padding: 'clamp(4.5rem, 10vw, 8rem) 0',
         position: 'relative',
         overflow: 'hidden',
       }}

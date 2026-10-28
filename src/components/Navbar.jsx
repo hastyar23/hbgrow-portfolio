@@ -48,8 +48,8 @@ export default function Navbar() {
           style={{
             display: 'flex', alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '0.65rem 1.1rem',
-            gap: '1rem',
+            padding: 'clamp(0.5rem, 1.5vw, 0.65rem) clamp(0.75rem, 2.5vw, 1.1rem)',
+            gap: '0.75rem',
           }}
         >
           {/* Logo */}
@@ -176,7 +176,9 @@ export default function Navbar() {
             backdropFilter: 'blur(40px)',
             WebkitBackdropFilter: 'blur(40px)',
             display: 'flex', flexDirection: 'column',
-            padding: '5.5rem 1.5rem 2.5rem',
+            padding: '5.5rem clamp(1.25rem, 4vw, 2rem) 2.5rem',
+            overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch',
             animation: 'fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards',
           }}
         >

@@ -47,7 +47,7 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" style={{ padding: 'clamp(5rem, 12vw, 9rem) 0', position: 'relative' }}>
+    <section id="process" style={{ padding: 'clamp(4rem, 10vw, 8rem) 0', position: 'relative' }}>
 
       {/* Ambient background glow */}
       <div style={{
@@ -164,7 +164,7 @@ export default function Process() {
 
         {/* ── Official Iraqi Fintech Payment Trust Section ── */}
         <div data-reveal style={{
-          padding: '2rem 2.5rem',
+          padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3.5vw, 2.5rem)',
           borderRadius: '1.5rem',
           backgroundColor: '#FFFFFF',
           border: '1px solid rgba(0, 0, 0, 0.08)',
@@ -176,9 +176,10 @@ export default function Process() {
           maxWidth: 960,
           margin: '0 auto',
           textAlign: 'center',
+          boxSizing: 'border-box',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#0A0A0C', fontWeight: 700, fontSize: '0.95rem' }}>
-            <ShieldCheck size={18} className="text-[#0B3275]" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#0A0A0C', fontWeight: 700, fontSize: '0.95rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <ShieldCheck size={18} className="text-[#0B3275]" style={{ flexShrink: 0 }} />
             <span>{t('process.payment_title')}</span>
             <span style={{ color: '#52525B', fontWeight: 500, fontSize: '0.85rem' }}>
               {t('process.payment_methods')}
@@ -191,7 +192,7 @@ export default function Process() {
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '1rem',
+            gap: 'clamp(0.6rem, 2vw, 1rem)',
             width: '100%',
           }}>
             {paymentLogos.map((brand) => (
@@ -199,7 +200,7 @@ export default function Process() {
                 key={brand.name}
                 style={{
                   height: 44,
-                  padding: '0.45rem 1.15rem',
+                  padding: '0.45rem clamp(0.75rem, 2vw, 1.15rem)',
                   borderRadius: '0.85rem',
                   backgroundColor: '#03142B',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -208,6 +209,7 @@ export default function Process() {
                   justifyContent: 'center',
                   boxShadow: '0 4px 12px rgba(3, 20, 43, 0.15)',
                   transition: 'transform 0.25s ease',
+                  flexShrink: 0,
                 }}
               >
                 <img
@@ -225,7 +227,7 @@ export default function Process() {
             ))}
             <div style={{
               height: 44,
-              padding: '0.45rem 1.15rem',
+              padding: '0.45rem clamp(0.75rem, 2vw, 1.15rem)',
               borderRadius: '0.85rem',
               backgroundColor: '#FFFFFF',
               border: '1px solid rgba(0, 0, 0, 0.12)',
@@ -233,10 +235,11 @@ export default function Process() {
               alignItems: 'center',
               justifyContent: 'center',
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-              fontSize: '0.82rem',
+              fontSize: 'clamp(0.75rem, 2vw, 0.82rem)',
               fontWeight: 700,
               color: '#03142B',
               boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+              flexShrink: 0,
             }}>
               🏛️ {isRTL ? 'گواستنەوەی بانکی (Bank Transfer)' : 'Direct Bank Transfer'}
             </div>

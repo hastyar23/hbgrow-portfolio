@@ -15,7 +15,7 @@ export default function PainSolution() {
   const safeSolutions = Array.isArray(solutions) ? solutions : [];
 
   return (
-    <section id="about" style={{ padding: 'clamp(5rem, 12vw, 9rem) 0', position: 'relative' }}>
+    <section id="about" style={{ padding: 'clamp(4rem, 10vw, 8rem) 0', position: 'relative' }}>
 
       {/* Ambient background glows */}
       <div style={{
@@ -66,7 +66,7 @@ export default function PainSolution() {
               data-reveal
               className="glass-card"
               style={{
-                padding: '2.25rem',
+                padding: 'clamp(1.35rem, 3.5vw, 2.25rem)',
                 transitionDelay: `${i * 80}ms`,
                 border: '1px solid rgba(0, 0, 0, 0.07)',
                 animationDelay: `${i * 1.5}s`,
@@ -113,7 +113,7 @@ export default function PainSolution() {
 
         {/* Shift Banner */}
         <div data-reveal style={{
-          padding: '3rem 2.5rem',
+          padding: 'clamp(1.75rem, 4vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)',
           marginBottom: 'clamp(3rem, 8vw, 5rem)',
           textAlign: 'center',
           backgroundColor: '#FFFFFF',
@@ -176,7 +176,7 @@ export default function PainSolution() {
               data-reveal
               className="glass-card-blue"
               style={{
-                padding: '2.25rem',
+                padding: 'clamp(1.35rem, 3.5vw, 2.25rem)',
                 transitionDelay: `${i * 80}ms`,
                 border: '1px solid rgba(0, 0, 0, 0.07)',
               }}
@@ -222,7 +222,7 @@ export default function PainSolution() {
 
         {/* CTA */}
         <div data-reveal style={{ textAlign: 'center' }}>
-          <button onClick={openSchedule} className="btn-primary" style={{ fontSize: '0.95rem', padding: '1rem 2.5rem', border: 'none', cursor: 'pointer' }}>
+          <button onClick={openSchedule} className="btn-primary" style={{ fontSize: 'clamp(0.85rem, 2vw, 0.95rem)', padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1.5rem, 4vw, 2.5rem)', border: 'none', cursor: 'pointer', maxWidth: '100%' }}>
             <WhatsAppIcon size={18} />
             {t('pain_solution.cta_btn')}
           </button>

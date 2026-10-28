@@ -224,22 +224,22 @@ export default function Portfolio() {
   }, [activeVideo, showAllVideos]);
 
   return (
-    <section id="portfolio" style={{ padding: 'clamp(4rem, 10vw, 9rem) 0' }}>
+    <section id="portfolio" style={{ padding: 'clamp(4rem, 9vw, 8rem) 0' }}>
       <div className="section-wrap">
 
         {/* ── Header with Statiq-style Handwritten Micro-Tag ── */}
-        <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 5rem)' }}>
+        <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}>
           <span className="font-script-accent">
             {isRTL ? 'بەرهەمی ڤیدیۆ و کەمپەینە سەرکەوتووەکان' : 'Performance Video Creatives'}
           </span>
           <div style={{ marginBottom: '1.25rem' }}>
             <span className="badge">{t('portfolio.badge')}</span>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.25rem' }}>
             <h2 style={{
               fontFamily: "'Sarchia Bokan', serif",
               fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
-              fontWeight: 700, lineHeight: 1.25, color: '#0A0A0C', maxWidth: 460,
+              fontWeight: 700, lineHeight: 1.25, color: '#0A0A0C', maxWidth: 520,
             }}>
               {t('portfolio.title_p1')}{' '}
               <span className="text-gold">{t('portfolio.title_highlight')}</span>
@@ -247,40 +247,14 @@ export default function Portfolio() {
             <p style={{
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: '0.875rem', color: '#52525B',
-              maxWidth: 320, lineHeight: 2, fontWeight: 400,
+              maxWidth: 380, lineHeight: 2, fontWeight: 400,
             }}>
               {t('portfolio.subtitle')}
             </p>
           </div>
         </div>
 
-        {/* ── Client Logo Marquee ── */}
-        <div style={{ overflow: 'hidden', position: 'relative', width: '100%', marginBottom: 'clamp(2rem, 5vw, 4rem)', padding: '1rem 0', direction: 'ltr' }}>
-          {['left', 'right'].map(side => (
-            <div key={side} style={{
-              position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '10%', zIndex: 2,
-              background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, #FFFFFF, transparent)`,
-              pointerEvents: 'none',
-            }} />
-          ))}
-          <div className="marquee-track" style={{ gap: '2.5rem', alignItems: 'center' }}>
-            {[...clients, ...clients].map((src, i) => (
-              <div key={i} style={{
-                flexShrink: 0, height: 30,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                opacity: 0.65, filter: 'grayscale(100%)',
-                transition: 'all 0.4s ease',
-              }}
-                onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.filter = 'grayscale(0%)'; }}
-                onMouseLeave={e => { e.currentTarget.style.opacity = '0.65'; e.currentTarget.style.filter = 'grayscale(100%)'; }}
-              >
-                <img src={src} alt="Client Logo" style={{ height: '100%', width: 'auto', objectFit: 'contain' }} loading="lazy" />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="hairline" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)', opacity: 0.8 }} />
+        <div className="hairline" style={{ marginBottom: 'clamp(1.75rem, 4vw, 3rem)', opacity: 0.8 }} />
       </div>
 
       {/* ── Video GIF Marquee ── */}

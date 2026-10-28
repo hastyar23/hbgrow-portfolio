@@ -87,8 +87,8 @@ export default function Hero() {
         className="section-wrap"
         style={{
           position: 'relative', zIndex: 2,
-          paddingTop: 'clamp(6rem, 15vw, 10rem)',
-          paddingBottom: 'clamp(4rem, 10vw, 7rem)',
+          paddingTop: 'clamp(7rem, 16vw, 10.5rem)',
+          paddingBottom: 'clamp(3rem, 8vw, 6rem)',
           textAlign: 'center',
         }}
       >
@@ -100,7 +100,7 @@ export default function Hero() {
         </div>
 
         {/* Badge */}
-        <div className="animate-fade-in-up delay-100" style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'center', padding: '0 0.5rem' }}>
+        <div className="animate-fade-in-up delay-100" style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center', padding: '0 0.5rem' }}>
           <span className="badge">
             <span className="dot" />
             {t('hero.badge')}
@@ -112,12 +112,12 @@ export default function Hero() {
           className="animate-fade-in-up delay-200"
           style={{
             fontFamily: "'Outfit', 'Sarchia Bokan', serif",
-            fontSize: 'clamp(2.35rem, 6vw, 4.25rem)',
+            fontSize: 'clamp(1.85rem, 5.5vw, 4.25rem)',
             fontWeight: 800,
             lineHeight: 1.18,
             color: '#0A0A0C',
             maxWidth: 880,
-            margin: '0 auto 1.5rem',
+            margin: '0 auto 1.25rem',
             wordBreak: 'break-word',
           }}
         >
@@ -132,7 +132,7 @@ export default function Hero() {
           style={{
             fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
             maxWidth: 540,
-            margin: '0 auto 2.5rem',
+            margin: '0 auto clamp(1.5rem, 4vw, 2.5rem)',
             fontSize: 'clamp(0.875rem, 2.2vw, 1rem)',
             fontWeight: 400,
             color: '#52525B',
@@ -166,11 +166,11 @@ export default function Hero() {
         {/* Hairline */}
         <div
           className="hairline animate-fade-in-up delay-500"
-          style={{ maxWidth: 440, margin: '0 auto 2.5rem', opacity: 0.8 }}
+          style={{ maxWidth: 440, margin: '0 auto clamp(1.5rem, 4vw, 2.5rem)', opacity: 0.8 }}
         />
 
         {/* Stats Card — glassmorphic, responsive via CSS classes */}
-        <div className="animate-fade-in-up delay-600" style={{ display: 'flex', justifyContent: 'center', marginBottom: '2.5rem' }}>
+        <div className="animate-fade-in-up delay-600" style={{ display: 'flex', justifyContent: 'center', marginBottom: 'clamp(1.75rem, 4vw, 2.5rem)' }}>
           <div
             className="glass-stat-card"
             style={{

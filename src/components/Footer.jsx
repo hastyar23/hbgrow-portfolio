@@ -45,8 +45,9 @@ export default function Footer() {
       borderTop: '1px solid rgba(0, 0, 0, 0.06)',
       background: '#F8F9FA',
       backdropFilter: 'blur(12px)',
+      padding: 'clamp(3rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem)',
     }}>
-      <div className="section-wrap" style={{ padding: 'clamp(3rem, 8vw, 5.5rem) 1.25rem clamp(2rem, 5vw, 3.5rem)' }}>
+      <div className="section-wrap">
 
         {/* Grid — uses CSS class for responsiveness */}
         <div className="footer-grid" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>

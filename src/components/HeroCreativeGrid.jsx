@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { designs } from '../data/portfolioData';
 
-// Pick 6 designs evenly distributed from the pool
+// Pick 9 designs evenly distributed from the pool
 const GRID_IMAGES = [
   designs[2],  designs[8],  designs[14],
   designs[20], designs[26], designs[32],
@@ -10,10 +10,10 @@ const GRID_IMAGES = [
 
 // Floating badge overlays for social-proof feel
 const BADGES = [
-  { label: '🔥 ROAS 6.2×', top: '8%',  left: '2%',  delay: 0 },
-  { label: '📈 +340% Sales', top: '14%', right: '3%', delay: 0.6 },
-  { label: '✅ 100+ Brands', bottom: '18%', left: '2%', delay: 1.1 },
-  { label: '⭐ 60K+ Leads', bottom: '12%', right: '3%', delay: 0.3 },
+  { label: '🔥 ROAS 6.2×', top: '6%',  left: '3%',  delay: 0, className: 'badge-pos-1' },
+  { label: '📈 +340% Sales', top: '10%', right: '3%', delay: 0.6, className: 'badge-pos-2' },
+  { label: '✅ 100+ Brands', bottom: '14%', left: '3%', delay: 1.1, className: 'badge-pos-3' },
+  { label: '⭐ 60K+ Leads', bottom: '8%', right: '3%', delay: 0.3, className: 'badge-pos-4' },
 ];
 
 export default function HeroCreativeGrid() {
@@ -32,34 +32,40 @@ export default function HeroCreativeGrid() {
         width: '100%',
         maxWidth: 900,
         margin: '0 auto',
-        height: 'clamp(300px, 45vw, 520px)',
+        height: 'clamp(280px, 48vw, 520px)',
         overflow: 'hidden',
         opacity: mounted ? 1 : 0,
         transition: 'opacity 0.6s ease',
+        boxSizing: 'border-box',
       }}
     >
       {/* ── Floating social-proof badges ── */}
       {BADGES.map((badge, i) => (
         <div
           key={i}
+          className={`hero-creative-badge ${badge.className}`}
           style={{
             position: 'absolute',
-            ...badge,
+            top: badge.top,
+            bottom: badge.bottom,
+            left: badge.left,
+            right: badge.right,
             zIndex: 10,
-            background: 'rgba(255,255,255,0.95)',
+            background: 'rgba(255,255,255,0.96)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             border: '1px solid rgba(3, 20, 43, 0.12)',
             borderRadius: '100px',
-            padding: '0.4rem 0.9rem',
-            fontSize: 'clamp(0.65rem, 1.5vw, 0.78rem)',
+            padding: 'clamp(0.28rem, 1vw, 0.42rem) clamp(0.55rem, 1.8vw, 0.95rem)',
+            fontSize: 'clamp(0.62rem, 1.4vw, 0.78rem)',
             fontWeight: 700,
             color: '#03142B',
             fontFamily: "'Inter', sans-serif",
             whiteSpace: 'nowrap',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
             animation: `float-badge-${i % 2 === 0 ? 'a' : 'b'} ${5 + i * 0.7}s ease-in-out infinite`,
             animationDelay: `${badge.delay}s`,
+            pointerEvents: 'none',
           }}
         >
           {badge.label}
@@ -71,9 +77,10 @@ export default function HeroCreativeGrid() {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 'clamp(8px, 1.5vw, 14px)',
+          gap: 'clamp(6px, 1.5vw, 14px)',
           height: '100%',
-          padding: '0 clamp(0.5rem, 2vw, 1.5rem)',
+          padding: '0 clamp(0.25rem, 1.5vw, 1.25rem)',
+          boxSizing: 'border-box',
         }}
       >
         {/* Column 1 — slides up */}
@@ -98,12 +105,12 @@ export default function HeroCreativeGrid() {
 
       {/* Subtle vignette sides */}
       <div style={{
-        position: 'absolute', top: 0, left: 0, bottom: 0, width: '8%',
+        position: 'absolute', top: 0, left: 0, bottom: 0, width: 'clamp(20px, 6vw, 60px)',
         background: 'linear-gradient(to right, rgba(255,255,255,0.7) 0%, transparent 100%)',
         pointerEvents: 'none', zIndex: 5,
       }} />
       <div style={{
-        position: 'absolute', top: 0, right: 0, bottom: 0, width: '8%',
+        position: 'absolute', top: 0, right: 0, bottom: 0, width: 'clamp(20px, 6vw, 60px)',
         background: 'linear-gradient(to left, rgba(255,255,255,0.7) 0%, transparent 100%)',
         pointerEvents: 'none', zIndex: 5,
       }} />
@@ -111,11 +118,11 @@ export default function HeroCreativeGrid() {
       <style>{`
         @keyframes float-badge-a {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-6px); }
+          50% { transform: translateY(-5px); }
         }
         @keyframes float-badge-b {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(6px); }
+          50% { transform: translateY(5px); }
         }
         @keyframes scroll-col-up {
           0% { transform: translateY(0); }
@@ -124,6 +131,11 @@ export default function HeroCreativeGrid() {
         @keyframes scroll-col-down {
           0% { transform: translateY(-50%); }
           100% { transform: translateY(0); }
+        }
+        @media (max-width: 440px) {
+          .badge-pos-3, .badge-pos-4 {
+            display: none !important;
+          }
         }
       `}</style>
     </div>
@@ -140,7 +152,7 @@ function Column({ images, direction, speed, offset }) {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 'clamp(8px, 1.5vw, 14px)',
+          gap: 'clamp(6px, 1.5vw, 14px)',
           animation: `scroll-col-${direction} ${speed}s linear infinite`,
           willChange: 'transform',
           transform: `translateY(${offset}px)`,
@@ -150,12 +162,12 @@ function Column({ images, direction, speed, offset }) {
           <div
             key={i}
             style={{
-              borderRadius: '0.875rem',
+              borderRadius: 'clamp(0.6rem, 1.5vw, 0.875rem)',
               overflow: 'hidden',
               flexShrink: 0,
               aspectRatio: '9/16',
               border: '1px solid rgba(0,0,0,0.07)',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.05)',
               background: '#F8FAFC',
             }}
           >

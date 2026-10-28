@@ -180,9 +180,9 @@ export default function DesignPortfolio() {
   }, [activeImg, showAllDesigns]);
 
   return (
-    <section id="designs" style={{ padding: 'clamp(4rem, 10vw, 9rem) 0' }}>
+    <section id="designs" style={{ padding: 'clamp(4rem, 8vw, 7.5rem) 0' }}>
       <div className="section-wrap">
-        <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 7vw, 5rem)', textAlign: 'center' }}>
+        <div data-reveal style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)', textAlign: 'center' }}>
           <span className="font-script-accent">
             {isRTL ? 'گرافیک دیزاین و شوناسی براند' : 'High-Ticket Brand Assets'}
           </span>

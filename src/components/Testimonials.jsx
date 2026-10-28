@@ -62,7 +62,7 @@ export default function Testimonials() {
   const currentTestimonial = total > 0 ? testimonials[current] : null;
 
   return (
-    <section id="testimonials" style={{ padding: 'clamp(4rem, 10vw, 9rem) 0' }}>
+    <section id="testimonials" style={{ padding: 'clamp(4rem, 8vw, 8rem) 0' }}>
 
       <style>{`
         .ts-card-enter-next  { animation: ts-slide-in-next  0.42s cubic-bezier(0.25,0.46,0.45,0.94) both; }
@@ -200,7 +200,7 @@ export default function Testimonials() {
               border: '1px solid rgba(0, 0, 0, 0.08)',
               boxShadow: '0 10px 40px -10px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255, 255, 255, 1)',
               borderRadius: '1.25rem',
-              padding: 'clamp(2rem, 5vw, 3.5rem)',
+              padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)',
               display: 'grid',
               gridTemplateColumns: '1fr',
               gap: '1.75rem',

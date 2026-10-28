@@ -20,7 +20,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" style={{ padding: 'clamp(5rem, 12vw, 9rem) 0', position: 'relative' }}>
+    <section id="faq" style={{ padding: 'clamp(4rem, 10vw, 8rem) 0', position: 'relative' }}>
       
       {/* Background ambient lighting */}
       <div style={{
@@ -33,7 +33,7 @@ export default function FAQ() {
       <div className="section-wrap" style={{ maxWidth: 860, margin: '0 auto' }}>
 
         {/* ── Section Header with Statiq-style Handwritten Micro-Tag ── */}
-        <div data-reveal style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
+        <div data-reveal style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
           <span className="font-script-accent">
             {isRTL ? 'پرسیارەکانت، وەڵامە ڕوونەکانمان' : 'You asked. We answered.'}
           </span>
@@ -77,7 +77,7 @@ export default function FAQ() {
                   onClick={() => toggleItem(idx)}
                   style={{
                     width: '100%',
-                    padding: 'clamp(1.25rem, 3.5vw, 1.75rem)',
+                    padding: 'clamp(1rem, 3vw, 1.5rem)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
@@ -91,7 +91,7 @@ export default function FAQ() {
                 >
                   <span style={{
                     fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                    fontSize: 'clamp(0.95rem, 2.5vw, 1.125rem)',
+                    fontSize: 'clamp(0.92rem, 2.2vw, 1.1rem)',
                     fontWeight: 700,
                     color: isOpen ? '#0A0A0C' : '#1E293B',
                     lineHeight: 1.5,
@@ -117,14 +117,14 @@ export default function FAQ() {
                 {/* Accordion Content Body */}
                 {isOpen && (
                   <div style={{
-                    padding: '0 clamp(1.25rem, 3.5vw, 1.75rem) clamp(1.25rem, 3.5vw, 1.75rem)',
+                    padding: '0 clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.5rem)',
                     borderTop: '1px solid rgba(0, 0, 0, 0.04)',
-                    paddingTop: '1rem',
+                    paddingTop: '0.85rem',
                     animation: 'fadeInUp 0.25s ease-out',
                   }}>
                     <p style={{
                       fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                      fontSize: 'clamp(0.875rem, 2vw, 0.975rem)',
+                      fontSize: 'clamp(0.85rem, 1.8vw, 0.95rem)',
                       color: '#475569',
                       lineHeight: 1.95,
                       fontWeight: 400,

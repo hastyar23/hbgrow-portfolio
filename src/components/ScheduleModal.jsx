@@ -401,12 +401,14 @@ export default function ScheduleModal({ onClose }) {
         }
         .success-content { padding: 3rem 1.5rem; justify-content: center; align-items: center; }
         .modal-close {
-          position: absolute; top: 1rem; left: 1rem;
+          position: absolute; top: 1rem;
           background: #F8FAFC; border: 1px solid rgba(0, 0, 0, 0.08);
           color: #0A0A0C; border-radius: 50%; width: 38px; height: 38px;
           display: flex; justify-content: center; align-items: center;
           cursor: pointer; transition: all 0.2s; z-index: 10; flex-shrink: 0;
         }
+        html[dir="rtl"] .modal-close { left: 1rem; right: auto; }
+        html[dir="ltr"] .modal-close { right: 1rem; left: auto; }
         .modal-close:hover { background: #EDF2F7; transform: scale(1.05); }
         .modal-progress {
           height: 4px; background: rgba(0, 0, 0, 0.04); width: 100%;
@@ -416,27 +418,27 @@ export default function ScheduleModal({ onClose }) {
           height: 100%; background: linear-gradient(90deg, #020C1B, #0B3275); box-shadow: 0 0 10px rgba(11, 50, 117, 0.35); transition: width 0.4s ease;
         }
         .step-container {
-          padding: 1.5rem 1.25rem 1rem;
+          padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 3vw, 2.25rem) 1rem;
           flex: 1;
-        }
-        @media (min-width: 600px) {
-          .step-container { padding: 2.5rem 2.5rem 1.5rem; }
+          width: 100%;
+          box-sizing: border-box;
         }
         .step-title {
           font-family: 'Sarchia Bokan', serif;
-          font-size: clamp(1.3rem, 5vw, 2.2rem);
+          font-size: clamp(1.2rem, 4.5vw, 2rem);
           color: #0A0A0C; margin-bottom: 0.5rem; font-weight: 700;
-          padding-left: 2.5rem;
           line-height: 1.3;
         }
+        html[dir="rtl"] .step-title { padding-left: 2.75rem; padding-right: 0; }
+        html[dir="ltr"] .step-title { padding-right: 2.75rem; padding-left: 0; }
         .step-subtitle {
           color: #52525B;
-          font-size: clamp(0.82rem, 3vw, 1.1rem);
-          line-height: 1.7; margin-bottom: 2rem;
+          font-size: clamp(0.82rem, 2.5vw, 1.05rem);
+          line-height: 1.7; margin-bottom: 1.75rem;
         }
         .step-question {
           color: #0A0A0C;
-          font-size: clamp(0.95rem, 3.5vw, 1.5rem);
+          font-size: clamp(0.92rem, 3vw, 1.35rem);
           margin-bottom: 1.25rem; font-weight: 600; line-height: 1.4;
         }
         .options-grid {
@@ -481,6 +483,7 @@ export default function ScheduleModal({ onClose }) {
         .dates-row {
           display: flex; gap: 0.6rem; overflow-x: auto; padding-bottom: 0.75rem;
           scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
         }
         .dates-row::-webkit-scrollbar { display: none; }
         .date-btn {

@@ -15,12 +15,14 @@ export default function BrandLogos() {
   return (
     <section
       style={{
-        padding: 'clamp(3.5rem, 7vw, 5.5rem) 0',
+        padding: 'clamp(2.5rem, 5vw, 4.5rem) 0',
         position: 'relative',
         background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
         borderTop: '1px solid rgba(0,0,0,0.05)',
         borderBottom: '1px solid rgba(0,0,0,0.05)',
         overflow: 'hidden',
+        width: '100%',
+        boxSizing: 'border-box',
       }}
     >
       {/* Subtle radial glow */}
@@ -33,13 +35,13 @@ export default function BrandLogos() {
       }} />
 
       {/* Label */}
-      <div style={{ textAlign: 'center', marginBottom: 'clamp(1.75rem, 4vw, 2.75rem)', position: 'relative', zIndex: 2 }}>
+      <div style={{ textAlign: 'center', marginBottom: 'clamp(1.25rem, 3vw, 2.25rem)', position: 'relative', zIndex: 2, padding: '0 1rem' }}>
         <p style={{
           fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-          fontSize: 'clamp(0.7rem, 1.8vw, 0.8rem)',
+          fontSize: 'clamp(0.68rem, 1.6vw, 0.78rem)',
           fontWeight: 600,
-          color: 'rgba(3,20,43,0.4)',
-          letterSpacing: '0.12em',
+          color: 'rgba(3,20,43,0.45)',
+          letterSpacing: '0.1em',
           textTransform: 'uppercase',
           margin: 0,
         }}>
@@ -57,13 +59,13 @@ export default function BrandLogos() {
       >
         {/* Left fade */}
         <div style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0, width: 120,
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: 'clamp(30px, 8vw, 100px)',
           background: 'linear-gradient(to right, #F8FAFC 0%, transparent 100%)',
           zIndex: 3, pointerEvents: 'none',
         }} />
         {/* Right fade */}
         <div style={{
-          position: 'absolute', right: 0, top: 0, bottom: 0, width: 120,
+          position: 'absolute', right: 0, top: 0, bottom: 0, width: 'clamp(30px, 8vw, 100px)',
           background: 'linear-gradient(to left, #F8FAFC 0%, transparent 100%)',
           zIndex: 3, pointerEvents: 'none',
         }} />
@@ -72,9 +74,10 @@ export default function BrandLogos() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 'clamp(2rem, 5vw, 4rem)',
+            gap: 'clamp(1.5rem, 4vw, 3.5rem)',
             animation: 'brand-scroll 35s linear infinite',
             width: 'max-content',
+            padding: '0.25rem 0',
           }}
         >
           {LOGOS.map((src, i) => (
@@ -82,7 +85,7 @@ export default function BrandLogos() {
               key={i}
               style={{
                 flexShrink: 0,
-                height: 'clamp(32px, 5vw, 46px)',
+                height: 'clamp(28px, 4.5vw, 42px)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -106,7 +109,7 @@ export default function BrandLogos() {
                 decoding="async"
                 style={{
                   height: '100%',
-                  maxWidth: 'clamp(80px, 12vw, 140px)',
+                  maxWidth: 'clamp(70px, 12vw, 130px)',
                   objectFit: 'contain',
                   display: 'block',
                 }}

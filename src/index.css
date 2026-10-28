@@ -632,10 +632,13 @@ p, a, li, button, input, textarea {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (min-width: 640px) { .section-wrap { padding: 0 2rem; } }
 @media (min-width: 1024px) { .section-wrap { padding: 0 2.5rem; } }
+@media (max-width: 480px) { .section-wrap { padding: 0 1rem; } }
 
 /* ─── Subdued Ambient Glow Orbs ─────────────────────────────── */
 .glow-orb {
@@ -886,7 +889,7 @@ p, a, li, button, input, textarea {
   gap: 0.875rem;
   width: 100%;
   max-width: 360px;
-  margin: 0 auto 4rem;
+  margin: 0 auto clamp(2rem, 5vw, 3.5rem);
 }
 
 @media (min-width: 540px) {
@@ -1133,18 +1136,18 @@ p, h1, h2, h3, h4, h5, span, li, button, a {
 /* ─── Mobile Overrides (≤ 480px) ────────────────────────────── */
 @media (max-width: 480px) {
   .btn-primary {
-    padding: 0.9rem 1.4rem;
+    padding: 0.85rem 1.4rem;
     font-size: 0.875rem;
     font-weight: 700;
-    min-height: 52px;
-    border-radius: 16px;
+    min-height: 48px;
+    border-radius: 100px;
   }
 
   .btn-ghost {
     padding: 0.8rem 1.3rem;
     font-size: 0.85rem;
-    min-height: 48px;
-    border-radius: 16px;
+    min-height: 46px;
+    border-radius: 100px;
   }
 
   .badge {

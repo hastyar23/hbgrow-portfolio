@@ -35,7 +35,7 @@ const ALL_FEATURES_KU = [
   'پەروەردەکردنی ستافت و سکریپتی پەیامدان بۆ زیادکردنی نرخی داخستن',
 ];
 
-// Pick 2 showcase designs
+// Pick 3 showcase designs
 const SHOWCASE = [designs[5], designs[18], designs[33]];
 
 export default function Packages() {
@@ -67,7 +67,13 @@ export default function Packages() {
   return (
     <section
       id="packages"
-      style={{ padding: 'clamp(5rem, 12vw, 9rem) 0', position: 'relative', overflow: 'hidden' }}
+      style={{
+        padding: 'clamp(4rem, 10vw, 8rem) 0',
+        position: 'relative',
+        overflow: 'hidden',
+        width: '100%',
+        boxSizing: 'border-box',
+      }}
     >
       {/* Ambient glow */}
       <div style={{
@@ -80,7 +86,7 @@ export default function Packages() {
       <div className="section-wrap">
 
         {/* ── Section Header ── */}
-        <div data-reveal style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto clamp(3rem, 7vw, 5rem)' }}>
+        <div data-reveal style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto clamp(2.5rem, 6vw, 4.5rem)' }}>
           <span className="font-script-accent">
             {isRTL ? 'پلانی گەشە و فرۆش' : 'Growth & Revenue Plans'}
           </span>
@@ -100,7 +106,7 @@ export default function Packages() {
           </h2>
           <p style={{
             fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Inter', sans-serif",
-            fontSize: 'clamp(0.9rem, 2vw, 1.05rem)',
+            fontSize: 'clamp(0.88rem, 2vw, 1.05rem)',
             color: '#52525B', lineHeight: 1.9, maxWidth: 560, margin: '0 auto',
           }}>
             {subheading}
@@ -112,14 +118,14 @@ export default function Packages() {
           data-reveal
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
             gap: 'clamp(2rem, 5vw, 4rem)',
             alignItems: 'center',
             marginBottom: 'clamp(3rem, 7vw, 5rem)',
           }}
         >
           {/* ── Left: Feature List ── */}
-          <div>
+          <div style={{ width: '100%' }}>
             <p style={{
               fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
               fontSize: '0.78rem',
@@ -141,7 +147,7 @@ export default function Packages() {
                     alignItems: 'flex-start',
                     gap: '0.75rem',
                     fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                    fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
+                    fontSize: 'clamp(0.85rem, 1.8vw, 0.95rem)',
                     color: '#334155',
                     lineHeight: 1.65,
                     flexDirection: isRTL ? 'row-reverse' : 'row',
@@ -152,7 +158,7 @@ export default function Packages() {
                     borderRadius: '50%',
                     background: 'rgba(3,20,43,0.07)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    flexShrink: 0, marginTop: '0.1rem',
+                    flexShrink: 0, marginTop: '0.15rem',
                   }}>
                     <Check size={11} style={{ color: '#03142B', strokeWidth: 3 }} />
                   </span>
@@ -162,14 +168,14 @@ export default function Packages() {
             </ul>
 
             {/* CTA block */}
-            <div style={{ marginTop: 'clamp(2rem, 5vw, 3rem)' }}>
+            <div style={{ marginTop: 'clamp(2rem, 4vw, 3rem)' }}>
               <button
                 onClick={openSchedule}
                 className="btn-primary"
                 style={{
                   gap: '0.65rem',
-                  padding: '1rem 2rem',
-                  fontSize: '1rem',
+                  padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1rem, 3.5vw, 2rem)',
+                  fontSize: 'clamp(0.88rem, 2vw, 1rem)',
                   boxShadow: '0 6px 28px -4px rgba(3,20,43,0.35)',
                   border: 'none',
                   cursor: 'pointer',
@@ -178,11 +184,12 @@ export default function Packages() {
                   width: '100%',
                   justifyContent: 'center',
                   maxWidth: 420,
+                  boxSizing: 'border-box',
                 }}
               >
-                <WhatsAppIcon size={18} />
-                {callLabel}
-                {isRTL ? <ArrowLeft size={15} /> : <ArrowRight size={15} />}
+                <WhatsAppIcon size={18} style={{ flexShrink: 0 }} />
+                <span>{callLabel}</span>
+                {isRTL ? <ArrowLeft size={15} style={{ flexShrink: 0 }} /> : <ArrowRight size={15} style={{ flexShrink: 0 }} />}
               </button>
               <p style={{
                 fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
@@ -197,8 +204,8 @@ export default function Packages() {
             </div>
           </div>
 
-          {/* ── Right: Stacked showcase images ── */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+          {/* ── Right: Stacked showcase images (safe bounds, no negative margin overflow) ── */}
+          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', width: '100%', padding: '0.75rem 0' }}>
             {/* Decorative grid background */}
             <div style={{
               position: 'absolute', inset: 0,
@@ -215,8 +222,9 @@ export default function Packages() {
               gap: 'clamp(0.75rem, 2vw, 1.25rem)',
               position: 'relative',
               zIndex: 2,
-              maxWidth: 320,
+              maxWidth: 340,
               width: '100%',
+              boxSizing: 'border-box',
             }}>
               {SHOWCASE.map((src, i) => (
                 <div
@@ -227,7 +235,7 @@ export default function Packages() {
                     boxShadow: '0 10px 40px -10px rgba(3,20,43,0.15)',
                     border: '1px solid rgba(0,0,0,0.07)',
                     aspectRatio: i === 1 ? '16/7' : '16/9',
-                    transform: i === 0 ? 'rotate(-1.5deg)' : i === 2 ? 'rotate(1.2deg)' : 'none',
+                    transform: i === 0 ? 'rotate(-1.2deg)' : i === 2 ? 'rotate(1deg)' : 'none',
                     transition: 'transform 0.3s ease',
                   }}
                 >
@@ -241,24 +249,23 @@ export default function Packages() {
                 </div>
               ))}
 
-              {/* Floating price tag */}
+              {/* Floating price tag — safe inside right edge, no horizontal scroll */}
               <div style={{
                 position: 'absolute',
-                bottom: '-1rem',
-                right: isRTL ? 'auto' : '-1.5rem',
-                left: isRTL ? '-1.5rem' : 'auto',
+                bottom: '-0.75rem',
+                [isRTL ? 'left' : 'right']: '0.5rem',
                 background: 'linear-gradient(135deg, #020C1B 0%, #041E42 50%, #0A2E66 100%)',
                 color: '#FFFFFF',
-                padding: '0.75rem 1.25rem',
+                padding: '0.65rem 1.15rem',
                 borderRadius: '1rem',
                 boxShadow: '0 8px 30px rgba(3,20,43,0.3)',
                 fontFamily: "'Outfit', 'Inter', sans-serif",
                 zIndex: 10,
               }}>
-                <div style={{ fontSize: '0.7rem', opacity: 0.7, marginBottom: '0.2rem', fontWeight: 500 }}>
+                <div style={{ fontSize: '0.68rem', opacity: 0.75, marginBottom: '0.15rem', fontWeight: 500 }}>
                   {isRTL ? 'دەستپێکردن لە' : 'Starting from'}
                 </div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 800, lineHeight: 1 }}>$150</div>
+                <div style={{ fontSize: '1.4rem', fontWeight: 800, lineHeight: 1 }}>$150</div>
               </div>
             </div>
           </div>
@@ -268,7 +275,7 @@ export default function Packages() {
         <div
           data-reveal
           style={{
-            padding: 'clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 3rem)',
+            padding: 'clamp(1.75rem, 4.5vw, 3rem) clamp(1.25rem, 4vw, 3rem)',
             borderRadius: '1.5rem',
             background: 'linear-gradient(135deg, #020C1B 0%, #041E42 50%, #0A2E66 100%)',
             color: '#FFFFFF',
@@ -276,6 +283,7 @@ export default function Packages() {
             overflow: 'hidden',
             maxWidth: 960,
             margin: '0 auto',
+            boxSizing: 'border-box',
           }}
         >
           {/* Subtle dot grid on dark bg */}
@@ -292,9 +300,9 @@ export default function Packages() {
           }} />
 
           <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexDirection: isRTL ? 'row-reverse' : 'row' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexDirection: isRTL ? 'row-reverse' : 'row', flexWrap: 'wrap' }}>
               <div style={{
-                width: 44, height: 44, borderRadius: '0.85rem',
+                width: 42, height: 42, borderRadius: '0.85rem',
                 background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
@@ -303,9 +311,9 @@ export default function Packages() {
               <span style={{
                 background: 'rgba(255,255,255,0.12)',
                 border: '1px solid rgba(255,255,255,0.2)',
-                padding: '0.3rem 0.9rem',
+                padding: '0.3rem 0.85rem',
                 borderRadius: '100px',
-                fontSize: '0.75rem',
+                fontSize: '0.72rem',
                 fontWeight: 700,
                 letterSpacing: '0.05em',
                 textTransform: 'uppercase',
@@ -316,7 +324,7 @@ export default function Packages() {
 
             <h3 style={{
               fontFamily: "'Sarchia Bokan', 'Outfit', serif",
-              fontSize: 'clamp(1.3rem, 3.5vw, 2rem)',
+              fontSize: 'clamp(1.25rem, 3.5vw, 2rem)',
               fontWeight: 700, color: '#FFFFFF', lineHeight: 1.3,
             }}>
               {guaranteeTitle}
@@ -324,7 +332,7 @@ export default function Packages() {
 
             <p style={{
               fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Inter', sans-serif",
-              fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+              fontSize: 'clamp(0.88rem, 2vw, 1rem)',
               color: 'rgba(255,255,255,0.75)',
               lineHeight: 1.85, maxWidth: 700,
             }}>
@@ -338,14 +346,16 @@ export default function Packages() {
                 background: 'rgba(255,255,255,0.12)',
                 border: '1px solid rgba(255,255,255,0.25)',
                 color: '#FFFFFF',
-                padding: '0.8rem 1.5rem',
+                padding: 'clamp(0.75rem, 2vw, 0.85rem) clamp(1.25rem, 3.5vw, 1.75rem)',
                 borderRadius: '100px',
-                fontSize: '0.9rem', fontWeight: 600,
+                fontSize: 'clamp(0.82rem, 2vw, 0.9rem)', fontWeight: 600,
                 cursor: 'pointer',
                 fontFamily: "'Inter', sans-serif",
                 alignSelf: 'flex-start',
                 transition: 'background 0.25s ease, border-color 0.25s ease',
                 flexDirection: isRTL ? 'row-reverse' : 'row',
+                maxWidth: '100%',
+                boxSizing: 'border-box',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
@@ -356,9 +366,9 @@ export default function Packages() {
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
               }}
             >
-              <Phone size={16} />
-              {isRTL ? 'داوای دانیشتنی خۆرایی بکە' : 'Claim My Free Audit Call'}
-              {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+              <Phone size={16} style={{ flexShrink: 0 }} />
+              <span>{isRTL ? 'داوای دانیشتنی خۆرایی بکە' : 'Claim My Free Audit Call'}</span>
+              {isRTL ? <ArrowLeft size={14} style={{ flexShrink: 0 }} /> : <ArrowRight size={14} style={{ flexShrink: 0 }} />}
             </button>
           </div>
         </div>
