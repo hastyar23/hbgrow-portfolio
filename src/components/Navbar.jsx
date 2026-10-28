@@ -14,7 +14,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 768) setOpen(false); };
+    const onResize = () => { if (window.innerWidth >= 1024) setOpen(false); };
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
@@ -48,14 +48,24 @@ export default function Navbar() {
           style={{
             display: 'flex', alignItems: 'center',
             justifyContent: 'space-between',
-            padding: 'clamp(0.5rem, 1.5vw, 0.65rem) clamp(0.75rem, 2.5vw, 1.1rem)',
+            padding: 'clamp(0.45rem, 1.2vw, 0.65rem) clamp(0.75rem, 2vw, 1.25rem)',
             gap: '0.75rem',
+            width: '100%',
+            boxSizing: 'border-box',
           }}
         >
-          {/* Logo */}
+          {/* Logo — strictly LTR so it NEVER flips to growHB */}
           <a
             href="#"
-            style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none', flexShrink: 0 }}
+            dir="ltr"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.65rem',
+              textDecoration: 'none',
+              flexShrink: 0,
+              direction: 'ltr',
+            }}
           >
             <img
               src="/images/optimized/U9X57gP.avif"
@@ -64,33 +74,47 @@ export default function Navbar() {
                 height: 34, width: 34, objectFit: 'contain', borderRadius: '50%',
                 border: '1px solid rgba(3, 20, 43, 0.15)',
                 boxShadow: '0 0 12px rgba(3, 20, 43, 0.10)',
+                flexShrink: 0,
               }}
             />
-            <span style={{
-              fontFamily: "'Outfit', sans-serif",
-              fontWeight: 700,
-              fontSize: '1.05rem',
-              letterSpacing: '-0.02em',
-              color: '#0A0A0C',
-              display: 'inline-flex',
-              alignItems: 'center',
-            }}>
+            <span
+              dir="ltr"
+              style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontWeight: 700,
+                fontSize: '1.05rem',
+                letterSpacing: '-0.02em',
+                color: '#0A0A0C',
+                whiteSpace: 'nowrap',
+                direction: 'ltr',
+                display: 'inline',
+              }}
+            >
               HB<span style={{ color: '#0B3275' }}>grow</span>
             </span>
           </a>
 
-          {/* Desktop Links */}
+          {/* Desktop Links (Breakpoint lg: 1024px+) */}
           <ul
-            className="hidden md:flex"
-            style={{ gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }}
+            className="hidden lg:flex"
+            style={{
+              gap: 'clamp(0.75rem, 1.3vw, 1.75rem)',
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+              alignItems: 'center',
+              flexWrap: 'nowrap',
+            }}
           >
             {links.map(({ label, href }) => (
-              <li key={href}>
+              <li key={href} style={{ flexShrink: 0 }}>
                 <a
                   href={href}
                   className="nav-link"
                   style={{
                     fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                    whiteSpace: 'nowrap',
+                    wordBreak: 'keep-all',
                   }}
                 >
                   {label}
@@ -100,16 +124,17 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop Right: Language + CTA */}
-          <div className="hidden md:flex items-center" style={{ gap: '0.75rem' }}>
+          <div className="hidden lg:flex items-center" style={{ gap: '0.65rem', flexShrink: 0 }}>
             {/* Language Switcher */}
             <div style={{
-              display: 'flex', alignItems: 'center', gap: '0.35rem',
+              display: 'flex', alignItems: 'center', gap: '0.25rem',
               background: 'rgba(0, 0, 0, 0.04)',
-              padding: '0.3rem 0.6rem',
+              padding: '0.25rem 0.5rem',
               borderRadius: '100px',
               border: '1px solid rgba(0, 0, 0, 0.08)',
+              flexShrink: 0,
             }}>
-              <Globe size={12} color="#0B3275" />
+              <Globe size={13} color="#0B3275" style={{ flexShrink: 0 }} />
               {langs.map((lang) => (
                 <button
                   key={lang.code}
@@ -122,12 +147,16 @@ export default function Navbar() {
                     border: i18n.language.startsWith(lang.code) ? '1px solid rgba(3, 20, 43, 0.25)' : '1px solid transparent',
                     color: i18n.language.startsWith(lang.code) ? '#03142B' : '#64748B',
                     boxShadow: i18n.language.startsWith(lang.code) ? '0 0 8px rgba(3, 20, 43, 0.08)' : 'none',
-                    fontSize: '0.68rem',
+                    fontSize: '0.7rem',
                     fontWeight: i18n.language.startsWith(lang.code) ? 700 : 500,
                     cursor: 'pointer',
-                    padding: '0.2rem 0.5rem',
+                    padding: '0.2rem 0.45rem',
                     borderRadius: '100px',
                     transition: 'all 0.25s ease',
+                    whiteSpace: 'nowrap',
+                    lineHeight: 1.2,
+                    flexShrink: 0,
+                    display: 'inline-block',
                   }}
                 >
                   {lang.label}
@@ -139,15 +168,21 @@ export default function Navbar() {
             <a
               href="#contact"
               className="btn-primary"
-              style={{ padding: '0.6rem 1.25rem', fontSize: '0.78rem' }}
+              style={{
+                padding: '0.55rem 1.15rem',
+                fontSize: '0.78rem',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+                lineHeight: 1.3,
+              }}
             >
               {t('nav.cta')}
             </a>
           </div>
 
-          {/* Mobile toggle */}
+          {/* Mobile toggle (Visible below lg: 1024px) */}
           <button
-            className="md:hidden flex items-center justify-center"
+            className="lg:hidden flex items-center justify-center"
             onClick={() => setOpen(!open)}
             aria-label={open ? t('nav.close_menu') : t('nav.open_menu')}
             style={{
@@ -190,7 +225,7 @@ export default function Navbar() {
                 href={href}
                 onClick={() => setOpen(false)}
                 style={{
-                  fontSize: '1.5rem', fontWeight: 600,
+                  fontSize: '1.4rem', fontWeight: 600,
                   color: '#475569',
                   textDecoration: 'none',
                   padding: '1rem 0',
@@ -199,6 +234,7 @@ export default function Navbar() {
                   display: 'block',
                   transition: 'color 0.25s, padding-right 0.3s',
                   animationDelay: `${i * 60}ms`,
+                  whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={e => { e.target.style.color = '#03142B'; e.target.style.paddingRight = '0.5rem'; }}
                 onMouseLeave={e => { e.target.style.color = '#475569'; e.target.style.paddingRight = '0'; }}
@@ -225,6 +261,7 @@ export default function Navbar() {
                   fontWeight: i18n.language.startsWith(lang.code) ? 700 : 400,
                   cursor: 'pointer',
                   transition: 'all 0.25s ease',
+                  whiteSpace: 'nowrap',
                 }}
               >
                 {lang.label}

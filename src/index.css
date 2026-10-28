@@ -570,13 +570,13 @@ p, a, li, button, input, textarea {
 /* ─── Floating Navbar Pill ──────────────────────────────────── */
 .navbar-pill {
   position: fixed;
-  top: 1.25rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 200;
-  width: calc(100% - 2.5rem);
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.85);
+  width: calc(100% - 2rem);
+  max-width: 1160px;
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -598,13 +598,17 @@ p, a, li, button, input, textarea {
 
 /* Nav link styles */
 .nav-link {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 500;
   color: #475569;
   text-decoration: none;
   transition: color 0.25s ease;
   position: relative;
   padding-bottom: 2px;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  flex-shrink: 0;
 }
 
 .nav-link::after {
@@ -625,6 +629,12 @@ p, a, li, button, input, textarea {
 
 .nav-link:hover::after {
   transform: scaleX(1);
+}
+
+.navbar-pill,
+.navbar-pill * {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
 }
 
 /* ─── Section Wrapper ───────────────────────────────────────── */
