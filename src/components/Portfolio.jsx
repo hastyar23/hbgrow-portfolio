@@ -98,9 +98,14 @@ const THEMED_CARDS_DATA = {
       theme: 'theme-forest-emerald',
       stickerColor: 'statiq-sticker-lime',
       spendKey: 'spend_3',
-      brand: 'Urban Cafe Hub',
-      tag: 'Brand Story Reel',
-      id: videoIds[2] || 'GnJOvjbR-QI',
+      spendLabel: {
+        ku: '125,000 بینین',
+        ar: '125,000 مشاهدة',
+        en: '125,000 Views',
+      },
+      brand: 'CHIC MONARCH',
+      tag: 'Brand Enthusiast',
+      id: videoIds[2] || 'wGJAucD8CVo',
       type: 'video',
     },
     {

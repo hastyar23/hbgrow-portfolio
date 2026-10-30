@@ -26,7 +26,7 @@ export const clients = [
 ];
 
 export const videoIds = Array.from(new Set([
-  'VT5BZvIWplg', 'dm-k3s2QmcsfWuphvMe2Rk', 'GnJOvjbR-QI', 'vCpcE-WclXw', 'p0aFJdaP7pM', 'vsodX5maE0Y',
+  'VT5BZvIWplg', 'dm-k3s2QmcsfWuphvMe2Rk', 'wGJAucD8CVo', 'vCpcE-WclXw', 'GnJOvjbR-QI', 'p0aFJdaP7pM', 'vsodX5maE0Y',
   'RmtVkzzyj6w', 'swsbNcqVeGY', 'mpD_NsfH8tg', 'KFzJ6bk_61g',
   'xzEuBbw1Qn4', 'f_DTggAc378', '1yqfB-MXdcI', 'nNSHp3bsSBw',
   'CXVaAGWucqg', 'jJbVeiI79H8', 'NJHue-TKTv4', 'jrKgxXOWuUI',
