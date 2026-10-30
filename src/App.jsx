@@ -76,13 +76,34 @@ export default function App() {
       document.title = "HBgrow Agency | Global Social Media & Growth Marketing";
     }
 
-    const els = document.querySelectorAll('[data-reveal]');
     const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.01, rootMargin: '120px 0px 120px 0px' }
     );
-    els.forEach(el => io.observe(el));
-    return () => io.disconnect();
+
+    const observeAll = () => {
+      const els = document.querySelectorAll('[data-reveal]:not(.visible)');
+      els.forEach((el) => io.observe(el));
+    };
+
+    observeAll();
+
+    const mo = new MutationObserver(() => {
+      observeAll();
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
   }, [i18n.language, i18n.dir(), isPitchRoute]);
 
   if (isPitchRoute) {
