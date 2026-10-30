@@ -1024,9 +1024,11 @@ export default function PitchDeck({ onScheduleClick }) {
                         {/* High-res Thumbnail */}
                         <img
                           src={
-                            id.startsWith('dm-')
-                              ? (id === 'dm-k3s2QmcsfWuphvMe2Rk' ? '/images/crumbs_iq.webp' : `https://www.dailymotion.com/thumbnail/video/${id.replace('dm-', '')}`)
-                              : `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
+                            id.startsWith('st-')
+                              ? '/images/crumbs_iq.webp'
+                              : id.startsWith('dm-')
+                                ? (id === 'dm-k3s2QmcsfWuphvMe2Rk' ? '/images/crumbs_iq.webp' : `https://www.dailymotion.com/thumbnail/video/${id.replace('dm-', '')}`)
+                                : `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
                           }
                           onError={(e) => {
                             if (e.target.src.includes('maxresdefault')) {
@@ -2326,9 +2328,11 @@ export default function PitchDeck({ onScheduleClick }) {
                       >
                         <img
                           src={
-                            id.startsWith('dm-')
-                              ? (id === 'dm-k3s2QmcsfWuphvMe2Rk' ? '/images/crumbs_iq.webp' : `https://www.dailymotion.com/thumbnail/video/${id.replace('dm-', '')}`)
-                              : `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
+                            id.startsWith('st-')
+                              ? '/images/crumbs_iq.webp'
+                              : id.startsWith('dm-')
+                                ? (id === 'dm-k3s2QmcsfWuphvMe2Rk' ? '/images/crumbs_iq.webp' : `https://www.dailymotion.com/thumbnail/video/${id.replace('dm-', '')}`)
+                                : `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
                           }
                           onError={(e) => {
                             if (e.target.src.includes('maxresdefault')) {
@@ -2580,9 +2584,11 @@ export default function PitchDeck({ onScheduleClick }) {
                 <iframe
                   className="w-full h-full"
                   src={
-                    activeVideo?.startsWith('dm-')
-                      ? `https://geo.dailymotion.com/player.html?video=${activeVideo.replace('dm-', '')}&autoplay=1`
-                      : `https://www.youtube-nocookie.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`
+                    activeVideo?.startsWith('st-')
+                      ? `https://streamable.com/e/${activeVideo.replace('st-', '')}?autoplay=1`
+                      : activeVideo?.startsWith('dm-')
+                        ? `https://geo.dailymotion.com/player.html?video=${activeVideo.replace('dm-', '')}&autoplay=1`
+                        : `https://www.youtube-nocookie.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`
                   }
                   title="HBgrow Portfolio Reel Player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -2594,8 +2600,8 @@ export default function PitchDeck({ onScheduleClick }) {
               <a
                 href={getWhatsAppUrl(
                   isKurdish
-                    ? `سڵاو HBgrow، سەیری ئەم نموونە ڤیدیۆیەتم کرد (${activeVideo?.startsWith('dm-') ? 'https://dai.ly/' + activeVideo.replace('dm-', '') : 'https://youtu.be/' + activeVideo}) لە ناو پرێزێنتەیشنەکەتاندا. دەمەوێت ڤیدیۆی هاوشێوە بۆ براندەکەم بەرهەم بهێنین.`
-                    : `Hello HBgrow, I watched this portfolio reel (${activeVideo?.startsWith('dm-') ? 'https://dai.ly/' + activeVideo.replace('dm-', '') : 'https://youtu.be/' + activeVideo}) in your pitch deck. I would like to produce similar videos for my brand.`
+                    ? `سڵاو HBgrow، سەیری ئەم نموونە ڤیدیۆیەتم کرد (${activeVideo?.startsWith('st-') ? 'https://streamable.com/' + activeVideo.replace('st-', '') : activeVideo?.startsWith('dm-') ? 'https://dai.ly/' + activeVideo.replace('dm-', '') : 'https://youtu.be/' + activeVideo}) لە ناو پرێزێنتەیشنەکەتاندا. دەمەوێت ڤیدیۆی هاوشێوە بۆ براندەکەم بەرهەم بهێنین.`
+                    : `Hello HBgrow, I watched this portfolio reel (${activeVideo?.startsWith('st-') ? 'https://streamable.com/' + activeVideo.replace('st-', '') : activeVideo?.startsWith('dm-') ? 'https://dai.ly/' + activeVideo.replace('dm-', '') : 'https://youtu.be/' + activeVideo}) in your pitch deck. I would like to produce similar videos for my brand.`
                 )}
                 target="_blank"
                 rel="noopener noreferrer"

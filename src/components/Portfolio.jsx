@@ -90,7 +90,7 @@ const THEMED_CARDS_DATA = {
       },
       brand: 'Crumbs IQ',
       tag: 'Local Bakery',
-      id: 'dm-k3s2QmcsfWuphvMe2Rk',
+      id: videoIds[1] || 'st-y3h704',
       thumb: '/images/crumbs_iq.webp',
       type: 'video',
     },
@@ -166,6 +166,9 @@ const THEMED_CARDS_DATA = {
 const getVideoThumb = (id, customThumb) => {
   if (customThumb) return customThumb;
   if (!id) return '';
+  if (id.startsWith('st-')) {
+    return '/images/crumbs_iq.webp';
+  }
   if (id.startsWith('dm-')) {
     if (id === 'dm-k3s2QmcsfWuphvMe2Rk') return '/images/crumbs_iq.webp';
     return `https://www.dailymotion.com/thumbnail/video/${id.replace('dm-', '')}`;
@@ -175,6 +178,9 @@ const getVideoThumb = (id, customThumb) => {
 
 const getVideoEmbedUrl = (id) => {
   if (!id) return '';
+  if (id.startsWith('st-')) {
+    return `https://streamable.com/e/${id.replace('st-', '')}?autoplay=1`;
+  }
   if (id.startsWith('dm-')) {
     return `https://geo.dailymotion.com/player.html?video=${id.replace('dm-', '')}&autoplay=1`;
   }
