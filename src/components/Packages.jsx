@@ -62,7 +62,7 @@ export default function Packages() {
       title: t('packages.card3_title', 'کۆرس و کتێب'),
       tagline: t('packages.card3_type', 'Do-It-Yourself ↗'),
       tag: t('packages.card3_tag', 'خۆت فێربە'),
-      subtitle: t('packages.card3_sub', 'فێرکاری و کۆرسیت پێدەدەین تا خۆت لە سفرەوە بیانکەیت'),
+      subtitle: t('packages.card3_sub', 'فێرکاری و کۆرست پێدەدەین تا خۆت لە سفرەوە بیانکەیت'),
       icon: BookOpen,
       accentColor: '#FCD34D',
       glowColor: 'rgba(252, 211, 77, 0.35)',
@@ -998,7 +998,7 @@ export default function Packages() {
                     lineHeight: 1.25,
                   }}
                 >
-                  {t('packages.diy_title', 'کۆرس و کتێب: فێرکاری و کۆرسیت پێدەدەین تا خۆت لە سفرەوە بیانکەیت')}
+                  {t('packages.diy_title', 'کۆرس و کتێب: فێرکاری و کۆرست پێدەدەین تا خۆت لە سفرەوە بیانکەیت')}
                 </h3>
 
                 <p
@@ -1011,7 +1011,7 @@ export default function Packages() {
                     lineHeight: 1.6,
                   }}
                 >
-                  {t('packages.diy_lead', 'فێرکاری و کۆرسیت پێدەدەین تا خۆت لە سفرەوە بیانکەیت. هەموو زانیاری، ستراتیژی و ئەزموونی ڕاستەقینەی خۆمان لە فرۆشگای مۆزان بۆ ئامادە کردوویت.')}
+                  {t('packages.diy_lead', 'فێرکاری و کۆرست پێدەدەین تا خۆت لە سفرەوە کارەکان بکەیت. هەموو زانیاری، ستراتیژی و ئەزموونی ڕاستەقینەی خۆمان لە ڕێبەر و کۆرسەکانماندا بۆ ئامادە کردوویت.')}
                 </p>
 
                 <p
@@ -1023,7 +1023,7 @@ export default function Packages() {
                     margin: 0,
                   }}
                 >
-                  {t('packages.diy_intro', 'تایبەتمەندییە سەرەکییەکانی فرۆشگای کۆرس و پەرتووکەکانی HBgrow:')}
+                  {t('packages.diy_intro', 'تایبەتمەندییە سەرەکییەکانی کۆرس و ڕێبەرەکانی HBgrow:')}
                 </p>
               </div>
 
