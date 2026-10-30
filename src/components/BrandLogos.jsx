@@ -17,9 +17,9 @@ export default function BrandLogos() {
       style={{
         padding: 'clamp(2.5rem, 5vw, 4.5rem) 0',
         position: 'relative',
-        background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
-        borderTop: '1px solid rgba(0,0,0,0.05)',
-        borderBottom: '1px solid rgba(0,0,0,0.05)',
+        background: 'linear-gradient(180deg, #050811 0%, #080C16 50%, #050811 100%)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
         overflow: 'hidden',
         width: '100%',
         boxSizing: 'border-box',
@@ -29,8 +29,8 @@ export default function BrandLogos() {
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 700, height: 250,
-        background: 'radial-gradient(ellipse, rgba(3,20,43,0.025) 0%, transparent 70%)',
+        width: 'min(90vw, 800px)', height: 260,
+        background: 'radial-gradient(ellipse, rgba(30, 58, 138, 0.18) 0%, rgba(3, 20, 43, 0.3) 45%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -40,8 +40,8 @@ export default function BrandLogos() {
           fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
           fontSize: 'clamp(0.68rem, 1.6vw, 0.78rem)',
           fontWeight: 600,
-          color: 'rgba(3,20,43,0.45)',
-          letterSpacing: '0.1em',
+          color: 'rgba(255, 255, 255, 0.65)',
+          letterSpacing: '0.12em',
           textTransform: 'uppercase',
           margin: 0,
         }}>
@@ -59,14 +59,14 @@ export default function BrandLogos() {
       >
         {/* Left fade */}
         <div style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0, width: 'clamp(30px, 8vw, 100px)',
-          background: 'linear-gradient(to right, #F8FAFC 0%, transparent 100%)',
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: 'clamp(35px, 9vw, 120px)',
+          background: 'linear-gradient(to right, #050811 0%, transparent 100%)',
           zIndex: 3, pointerEvents: 'none',
         }} />
         {/* Right fade */}
         <div style={{
-          position: 'absolute', right: 0, top: 0, bottom: 0, width: 'clamp(30px, 8vw, 100px)',
-          background: 'linear-gradient(to left, #F8FAFC 0%, transparent 100%)',
+          position: 'absolute', right: 0, top: 0, bottom: 0, width: 'clamp(35px, 9vw, 120px)',
+          background: 'linear-gradient(to left, #050811 0%, transparent 100%)',
           zIndex: 3, pointerEvents: 'none',
         }} />
 
@@ -89,17 +89,19 @@ export default function BrandLogos() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                filter: 'grayscale(100%)',
-                opacity: 0.55,
-                transition: 'opacity 0.3s ease, filter 0.3s ease',
+                filter: 'grayscale(100%) brightness(1.05)',
+                opacity: 0.7,
+                transition: 'opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.filter = 'grayscale(0%)';
+                e.currentTarget.style.filter = 'grayscale(0%) brightness(1.25)';
+                e.currentTarget.style.transform = 'scale(1.06)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.opacity = '0.55';
-                e.currentTarget.style.filter = 'grayscale(100%)';
+                e.currentTarget.style.opacity = '0.7';
+                e.currentTarget.style.filter = 'grayscale(100%) brightness(1.05)';
+                e.currentTarget.style.transform = 'scale(1)';
               }}
             >
               <img
