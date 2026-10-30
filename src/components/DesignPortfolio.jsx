@@ -18,19 +18,19 @@ const FAN_CARDS = [
 // The 4 collage cards for "Get ads your team wouldn't think of" (Screenshot 5)
 const COLLAGE_CARDS = [
   {
-    src: designs[3] || designs[0],
+    src: '/images/showcase_vala_1.webp',
     style: { top: '0%', left: '2%', transform: 'rotate(-4deg)', zIndex: 1 },
   },
   {
-    src: designs[5] || designs[1],
+    src: '/images/showcase_supergrid.webp',
     style: { top: '6%', right: '2%', transform: 'rotate(3deg)', zIndex: 2 },
   },
   {
-    src: designs[7] || designs[2],
+    src: '/images/showcase_vala_2.webp',
     style: { bottom: '2%', left: '6%', transform: 'rotate(-2deg)', zIndex: 3 },
   },
   {
-    src: designs[9] || designs[3],
+    src: '/images/showcase_karashor.webp',
     style: { bottom: '0%', right: '4%', transform: 'rotate(4deg)', zIndex: 4 },
   },
 ];
