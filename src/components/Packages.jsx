@@ -1308,7 +1308,7 @@ export default function Packages() {
                   color: '#FFFFFF',
                 }}
               >
-                {t('packages.guarantee_badge', 'گەرەنتی مسۆگەر')}
+                {t('packages.guarantee_badge', 'گەرەنتی')}
               </span>
             </div>
 
@@ -1321,7 +1321,7 @@ export default function Packages() {
                 lineHeight: 1.3,
               }}
             >
-              {t('packages.guarantee_title', 'گەرەنتی ١٤ ڕۆژ ئەنجام — ئێمە بە داتا کار دەکەین نەک بە قسە')}
+              {t('packages.guarantee_title', 'گەرەنتی ئەنجام — ئێمە بە داتا کار دەکەین نەک بە قسە')}
             </h3>
 
             <p
@@ -1333,7 +1333,7 @@ export default function Packages() {
                 maxWidth: 720,
               }}
             >
-              {t('packages.guarantee_desc', 'ئەگەر لە ١٤ ڕۆژی یەکەمدا نەگەینە ئامانجی پێشتر دیاریکراوی لیدی کڕیار، بەردەوام دەبین بێ هیچ کرێیەکی زیادە تاوەکو دەگەین بە ئامانجەکە.')}
+              {t('packages.guarantee_desc', 'ئەگەر نەگەینە ئەو ئامانجەی لەسەری ڕێکدەکەوین، بەردەوام دەبین لە کارکردن بێ هیچ کرێیەکی زیادە تاوەکو دەگەین بە ئامانجەکە.')}
             </p>
 
             <button
