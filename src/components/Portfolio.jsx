@@ -69,9 +69,14 @@ const THEMED_CARDS_DATA = {
       theme: 'theme-royal-blue',
       stickerColor: 'statiq-sticker-purple',
       spendKey: 'spend_1',
-      brand: 'Apex Automotive',
-      tag: 'Meta Video Ad',
-      id: videoIds[0] || 'p0aFJdaP7pM',
+      spendLabel: {
+        ku: '378,000 بینین',
+        ar: '378,000 مشاهدة',
+        en: '378,000 Views',
+      },
+      brand: 'Binasaz Engineering',
+      tag: 'Engineering Course App',
+      id: videoIds[0] || 'VT5BZvIWplg',
       type: 'video',
     },
     {
