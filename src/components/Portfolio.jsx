@@ -12,7 +12,7 @@ const THEMED_CARDS_DATA = {
       spendKey: 'spend_1',
       brand: 'Lotus Scent',
       tag: 'E-Commerce Hero',
-      src: designs[2],
+      src: designs[51],
       type: 'image',
     },
     {
@@ -26,7 +26,7 @@ const THEMED_CARDS_DATA = {
       },
       brand: 'Zesty',
       tag: 'Health & Beauty',
-      src: designs[8],
+      src: designs[2],
       type: 'image',
     },
     {
