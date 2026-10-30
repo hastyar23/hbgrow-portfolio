@@ -1,213 +1,135 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, X, Grid } from 'lucide-react';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { Play, X, Grid, Maximize2, ExternalLink, Sparkles, Flame, CheckCircle2, Star, Eye } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { clients, videoIds, designs } from '../data/portfolioData';
 
-import { clients, videoIds } from '../data/portfolioData';
+// Top curated featured items for the 4 themed showcase cards across categories
+const THEMED_CARDS_DATA = {
+  ads: [
+    {
+      theme: 'theme-royal-blue',
+      stickerColor: 'statiq-sticker-purple',
+      spendKey: 'spend_1',
+      brand: 'Lotus Scent',
+      tag: 'E-Commerce Hero',
+      src: designs[2],
+      type: 'image',
+    },
+    {
+      theme: 'theme-sky-periwinkle',
+      stickerColor: 'statiq-sticker-yellow',
+      spendKey: 'spend_2',
+      brand: 'Zesty Care',
+      tag: 'Health & Beauty',
+      src: designs[8],
+      type: 'image',
+    },
+    {
+      theme: 'theme-forest-emerald',
+      stickerColor: 'statiq-sticker-lime',
+      spendKey: 'spend_3',
+      brand: 'Canephora Coffee',
+      tag: 'Beverage & Cafe',
+      src: designs[14],
+      type: 'image',
+    },
+    {
+      theme: 'theme-blush-rose',
+      stickerColor: 'statiq-sticker-cyan',
+      spendKey: 'spend_4',
+      brand: 'Dream Trip Travel',
+      tag: 'Tourism & Flight',
+      src: designs[20],
+      type: 'image',
+    },
+  ],
+  videos: [
+    {
+      theme: 'theme-royal-blue',
+      stickerColor: 'statiq-sticker-purple',
+      spendKey: 'spend_1',
+      brand: 'Apex Automotive',
+      tag: 'Meta Video Ad',
+      id: videoIds[0] || 'p0aFJdaP7pM',
+      type: 'video',
+    },
+    {
+      theme: 'theme-sky-periwinkle',
+      stickerColor: 'statiq-sticker-yellow',
+      spendKey: 'spend_2',
+      brand: 'Glow Cosmetics',
+      tag: 'TikTok Viral Reel',
+      id: videoIds[1] || 'vsodX5maE0Y',
+      type: 'video',
+    },
+    {
+      theme: 'theme-forest-emerald',
+      stickerColor: 'statiq-sticker-lime',
+      spendKey: 'spend_3',
+      brand: 'Urban Cafe Hub',
+      tag: 'Brand Story Reel',
+      id: videoIds[2] || 'GnJOvjbR-QI',
+      type: 'video',
+    },
+    {
+      theme: 'theme-blush-rose',
+      stickerColor: 'statiq-sticker-cyan',
+      spendKey: 'spend_4',
+      brand: 'Elite Real Estate',
+      tag: 'Conversion Campaign',
+      id: videoIds[3] || 'vCpcE-WclXw',
+      type: 'video',
+    },
+  ],
+  branding: [
+    {
+      theme: 'theme-royal-blue',
+      stickerColor: 'statiq-sticker-purple',
+      spendKey: 'spend_1',
+      brand: 'Nordic Minimal',
+      tag: 'Identity System',
+      src: designs[26],
+      type: 'image',
+    },
+    {
+      theme: 'theme-sky-periwinkle',
+      stickerColor: 'statiq-sticker-yellow',
+      spendKey: 'spend_2',
+      brand: 'Silk & Soul',
+      tag: 'Packaging Design',
+      src: designs[32],
+      type: 'image',
+    },
+    {
+      theme: 'theme-forest-emerald',
+      stickerColor: 'statiq-sticker-lime',
+      spendKey: 'spend_3',
+      brand: 'Verde Botanics',
+      tag: 'Social Grid System',
+      src: designs[38],
+      type: 'image',
+    },
+    {
+      theme: 'theme-blush-rose',
+      stickerColor: 'statiq-sticker-cyan',
+      spendKey: 'spend_4',
+      brand: 'Aura Glow',
+      tag: 'Full Brand Rebrand',
+      src: designs[44],
+      type: 'image',
+    },
+  ],
+};
 
-// Limit marquee to top 15 videos to prevent iOS Safari memory crashes
-const marqueeVideoIds = videoIds.slice(0, 15);
-
-/* ─────────────────────────────────────────────────────────────
-   VideoThumbnail
-   • Always shows the static thumbnail as a base layer
-   • Mounts an autoplay/muted iframe ONLY when the card is
-     intersecting its scrolling container (root = marquee viewport)
-   • Clicking opens the full theater modal
-───────────────────────────────────────────────────────────── */
-function VideoThumbnail({ id, onClick, isMobile, rootRef }) {
-  const cardRef   = useRef(null);
-  const [hover,   setHover]   = useState(false);
-
-  const W = isMobile ? 185 : 230;
-  const H = isMobile ? 328 : 410;
-
-  // Reel SVG icon (Instagram Reels clapperboard)
-  const ReelIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21 3H3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H4V5h16v14z"/>
-      <path d="M10 8l6 4-6 4V8z"/>
-    </svg>
-  );
-
-  return (
-    <div
-      ref={cardRef}
-      style={{
-        width: W, height: H,
-        position: 'relative',
-        borderRadius: '0.875rem',
-        overflow: 'hidden',
-        cursor: 'pointer',
-        flexShrink: 0,
-        transition: 'transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.38s ease',
-        transform: hover ? 'scale(1.03) translateY(-3px)' : 'scale(1)',
-        boxShadow: hover
-          ? '0 16px 36px -4px rgba(3, 20, 43, 0.15), 0 0 0 1px rgba(3, 20, 43, 0.25)'
-          : '0 4px 16px rgba(0,0,0,0.06)',
-        background: '#FFFFFF',
-      }}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      onClick={() => onClick(id)}
-    >
-      {/* ── Thumbnail image ── */}
-      <img
-        src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-        onError={(e) => {
-          if (e.target.src.includes('maxresdefault')) {
-            e.target.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-          }
-        }}
-        alt="Video Reel"
-        loading="lazy"
-        decoding="async"
-        style={{
-          position: 'absolute', inset: 0,
-          width: '100%', height: '100%',
-          objectFit: 'cover',
-          opacity: 0.85,
-          pointerEvents: 'none',
-          zIndex: 1,
-          transition: 'opacity 0.4s ease, transform 0.6s ease',
-          transform: hover ? 'scale(1.04)' : 'scale(1)',
-        }}
-      />
-
-      {/* Bottom gradient scrim */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0, height: '65%',
-        background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 55%, transparent 100%)',
-        zIndex: 2, pointerEvents: 'none',
-      }} />
-
-      {/* Top gradient scrim */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0, height: '28%',
-        background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)',
-        zIndex: 2, pointerEvents: 'none',
-      }} />
-
-      {/* ── TOP BAR: Reels logo + camera icon ── */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0,
-        padding: '0.65rem 0.75rem 0',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        zIndex: 5,
-      }}>
-        {/* Instagram Reels wordmark */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/>
-          </svg>
-          <span style={{ color: 'white', fontSize: '0.72rem', fontWeight: 700, fontFamily: "'Inter', sans-serif" }}>
-            Reels
-          </span>
-        </div>
-        {/* Camera icon */}
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-          <circle cx="12" cy="13" r="3"/>
-        </svg>
-      </div>
-
-      {/* ── RIGHT SIDE: Action buttons — icons only ── */}
-      <div style={{
-        position: 'absolute', right: '0.6rem', bottom: '3.5rem',
-        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem',
-        zIndex: 5,
-      }}>
-        {/* Heart */}
-        <div style={{
-          width: 34, height: 34, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.12)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          border: '1px solid rgba(255,255,255,0.15)',
-        }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        {/* Comment */}
-        <div style={{
-          width: 34, height: 34, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.12)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          border: '1px solid rgba(255,255,255,0.15)',
-        }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        {/* Share */}
-        <div style={{
-          width: 34, height: 34, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.12)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          border: '1px solid rgba(255,255,255,0.15)',
-        }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </div>
-      </div>
-
-      {/* ── BOTTOM: Profile row only ── */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0,
-        padding: '0 0.75rem 0.7rem',
-        zIndex: 5,
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <img
-            src="/images/optimized/U9X57gP.avif"
-            alt="HBgrow"
-            style={{ width: 26, height: 26, borderRadius: '50%', border: '1.5px solid rgba(212, 175, 55, 0.85)', objectFit: 'cover', flexShrink: 0 }}
-          />
-          <span style={{ color: 'white', fontSize: '0.72rem', fontWeight: 700, fontFamily: "'Inter', sans-serif", }}>
-            hbgrow
-          </span>
-          <span style={{
-            color: 'rgba(255,255,255,0.85)', fontSize: '0.65rem', fontWeight: 600,
-            border: '1px solid rgba(255,255,255,0.5)', borderRadius: '4px',
-            padding: '0.08rem 0.45rem', marginLeft: '0.1rem',
-          }}>
-            Follow
-          </span>
-        </div>
-      </div>
-
-      {/* ── Center play button (on hover) ── */}
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 4,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        opacity: hover ? 1 : 0,
-        transition: 'opacity 0.3s ease',
-        pointerEvents: 'none',
-      }}>
-        <div style={{
-          width: 52, height: 52, borderRadius: '50%',
-          background: 'rgba(212, 175, 55, 0.15)',
-          border: '1.5px solid rgba(229, 228, 226, 0.6)',
-          backdropFilter: 'blur(12px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transform: hover ? 'scale(1.05)' : 'scale(0.9)',
-          transition: 'transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94)',
-          boxShadow: '0 0 24px rgba(212, 175, 55, 0.3)',
-        }}>
-          <Play size={20} style={{ fill: '#D4AF37', color: '#D4AF37', marginLeft: 2 }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-
-/* ─────────────────────────────────────────────────────────────
-   Portfolio
-───────────────────────────────────────────────────────────── */
 export default function Portfolio() {
-  const [activeVideo, setActiveVideo]     = useState(null);
-  const [showAllVideos, setShowAllVideos] = useState(false);
-  const [visibleCount, setVisibleCount]   = useState(12);
-  const [isMobile, setIsMobile]           = useState(false);
-  const marqueeViewportRef                = useRef(null); // the overflow:hidden wrapper
+  const [activeTab, setActiveTab] = useState('ads'); // 'ads' | 'videos' | 'branding'
+  const [activeVideo, setActiveVideo] = useState(null);
+  const [activeImage, setActiveImage] = useState(null);
+  const [showArchive, setShowArchive] = useState(false);
+  const [archiveFilter, setArchiveFilter] = useState('all'); // 'all' | 'ads' | 'videos'
+  const [visibleCount, setVisibleCount] = useState(16);
+  const [isMobile, setIsMobile] = useState(false);
+
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
 
@@ -218,123 +140,546 @@ export default function Portfolio() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
+  // Lock body scroll when modal is open
   useEffect(() => {
-    document.body.style.overflow = (activeVideo || showAllVideos) ? 'hidden' : '';
+    document.body.style.overflow = (activeVideo || activeImage || showArchive) ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [activeVideo, showAllVideos]);
+  }, [activeVideo, activeImage, showArchive]);
+
+  // Featured 4 cards according to active tab
+  const featuredCards = useMemo(() => {
+    return THEMED_CARDS_DATA[activeTab] || THEMED_CARDS_DATA.ads;
+  }, [activeTab]);
+
+  // Secondary stream items (marquees)
+  const marqueeVideos = useMemo(() => videoIds.slice(4, 18), []);
+  const marqueeDesigns = useMemo(() => designs.slice(4, 24), []);
 
   return (
-    <section id="portfolio" style={{ padding: 'clamp(4rem, 9vw, 8rem) 0' }}>
-      <div className="section-wrap">
+    <section id="portfolio" className="statiq-dark-stage" style={{ padding: 'clamp(4.5rem, 9vw, 8rem) 0' }}>
+      {/* Subtle Dot Grid */}
+      <div className="statiq-dot-grid" />
 
-        {/* ── Header with Statiq-style Handwritten Micro-Tag ── */}
-        <div data-reveal style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}>
-          <span className="font-script-accent">
-            {isRTL ? 'بەرهەمی ڤیدیۆ و کەمپەینە سەرکەوتووەکان' : 'Performance Video Creatives'}
-          </span>
-          <div style={{ marginBottom: '1.25rem' }}>
-            <span className="badge">{t('portfolio.badge')}</span>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.25rem' }}>
-            <h2 style={{
-              fontFamily: "'Sarchia Bokan', serif",
-              fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
-              fontWeight: 700, lineHeight: 1.25, color: '#0A0A0C', maxWidth: 520,
-            }}>
-              {t('portfolio.title_p1')}{' '}
-              <span className="text-gold">{t('portfolio.title_highlight')}</span>
-            </h2>
-            <p style={{
-              fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-              fontSize: '0.875rem', color: '#52525B',
-              maxWidth: 380, lineHeight: 2, fontWeight: 400,
-            }}>
-              {t('portfolio.subtitle')}
-            </p>
-          </div>
-        </div>
-
-        <div className="hairline" style={{ marginBottom: 'clamp(1.75rem, 4vw, 3rem)', opacity: 0.8 }} />
-      </div>
-
-      {/* ── Video GIF Marquee ── */}
-      {/*
-        marqueeViewportRef is the overflow:hidden div.
-        Each VideoThumbnail uses it as its IntersectionObserver root
-        so only cards visible INSIDE this div get active iframes.
-      */}
+      {/* Ambient Radial Mesh Spotlights */}
       <div
-        ref={marqueeViewportRef}
         style={{
-          overflow: 'hidden', position: 'relative', width: '100%',
-          marginBottom: '1.5rem', direction: 'ltr', padding: '0.5rem 0',
+          position: 'absolute',
+          top: '-10%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 'clamp(500px, 70vw, 1000px)',
+          height: 'clamp(350px, 45vw, 600px)',
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.16) 0%, rgba(139, 92, 246, 0.10) 45%, transparent 75%)',
+          pointerEvents: 'none',
+          filter: 'blur(60px)',
+          zIndex: 0,
         }}
-      >
-        {['left', 'right'].map(side => (
-          <div key={side} style={{
-            position: 'absolute', top: 0, bottom: 0, [side]: 0, width: '8%', zIndex: 2,
-            background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, #FFFFFF, transparent)`,
-            pointerEvents: 'none',
-          }} />
-        ))}
+      />
 
-        <div className="video-marquee-track">
-          {[...marqueeVideoIds, ...marqueeVideoIds].map((id, i) => (
-            <VideoThumbnail
-              key={`${id}-${i}`}
-              id={id}
-              onClick={setActiveVideo}
-              isMobile={isMobile}
-              rootRef={marqueeViewportRef}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* ── See More ── */}
-      <div className="section-wrap">
-        <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '0.5rem' }}>
-          <button onClick={() => setShowAllVideos(true)} className="btn-ghost">
-            <Grid size={14} style={{ opacity: 0.75, flexShrink: 0 }} />
-            {t('portfolio.btn_more')}
-          </button>
-        </div>
-      </div>
-
-      {/* ── Theater Modal ── */}
-      {activeVideo && (
-        <div
-          style={{
-            position: 'fixed', inset: 0, zIndex: 9999,
-            background: 'rgba(10,10,12,0.96)', backdropFilter: 'blur(24px)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem',
-          }}
-          onClick={() => setActiveVideo(null)}
-        >
-          <button
-            onClick={e => { e.stopPropagation(); setActiveVideo(null); }}
+      <div className="section-wrap" style={{ position: 'relative', zIndex: 2 }}>
+        {/* ── Section Header (Statiq Typography & Sticker System) ── */}
+        <div data-reveal style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 5vw, 3.5rem)' }}>
+          {/* Cursive purple handwritten micro-tag: "What we do" */}
+          <span
+            className="font-script-accent"
             style={{
-              position: 'absolute', top: '1rem', right: '1rem',
-              background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
-              color: '#ffffff', borderRadius: '50%', width: 40, height: 40,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer', zIndex: 10,
+              color: '#A78BFA',
+              textShadow: '0 0 20px rgba(167, 139, 250, 0.4)',
+              marginBottom: '0.5rem',
             }}
           >
-            <X size={18} />
+            {t('portfolio.what_we_do', 'What we do')}
+          </span>
+
+          {/* Luxury Badge */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <span
+              className="badge"
+              style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderColor: 'rgba(255, 255, 255, 0.12)',
+                color: '#E2E8F0',
+                backdropFilter: 'blur(12px)',
+              }}
+            >
+              <span className="dot" style={{ background: '#FFE043', boxShadow: '0 0 10px #FFE043' }} />
+              {t('portfolio.badge', 'Performance Portfolio')}
+            </span>
+          </div>
+
+          {/* Massive Headline with Yellow Highlight & Blue Sticker Badge */}
+          <h2
+            style={{
+              fontFamily: "'Outfit', 'Sarchia Bokan', sans-serif",
+              fontSize: 'clamp(2rem, 5.2vw, 4rem)',
+              fontWeight: 800,
+              lineHeight: 1.15,
+              color: '#FFFFFF',
+              maxWidth: 820,
+              margin: '0 auto',
+              display: 'inline-block',
+              position: 'relative',
+            }}
+          >
+            {t('portfolio.title_p1', 'Performance Design That')}{' '}
+            <span style={{ color: '#FFE043', textShadow: '0 0 35px rgba(255, 224, 67, 0.35)', position: 'relative' }}>
+              {t('portfolio.title_highlight', 'Drives Revenue')}
+              {/* Attached Tilted Blue Sticker (Screenshot 1 & 3) */}
+              <span
+                className="statiq-sticker statiq-sticker-blue"
+                style={{
+                  position: 'relative',
+                  display: 'inline-flex',
+                  verticalAlign: 'middle',
+                  transform: isRTL ? 'rotate(8deg) translateY(-6px)' : 'rotate(-9deg) translateY(-8px)',
+                  marginLeft: isRTL ? 0 : '0.75rem',
+                  marginRight: isRTL ? '0.75rem' : 0,
+                  fontSize: 'clamp(0.68rem, 1.2vw, 0.82rem)',
+                  padding: '0.28rem 0.75rem',
+                }}
+              >
+                {t('portfolio.sticker_highly_creative', 'Highly Creative')}
+              </span>
+            </span>
+          </h2>
+
+          <p
+            style={{
+              fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+              fontSize: 'clamp(0.85rem, 1.4vw, 1rem)',
+              color: '#94A3B8',
+              maxWidth: 580,
+              lineHeight: 1.8,
+              margin: '1.25rem auto 0',
+            }}
+          >
+            {t('portfolio.subtitle', 'Curated high-converting creative ad campaigns, video reels, and brand identity assets engineered for real market scale.')}
+          </p>
+        </div>
+
+        {/* ── Category Navigation Tabs (Statiq Underline Bar) ── */}
+        <div data-reveal className="statiq-tabs-bar" dir={isRTL ? 'rtl' : 'ltr'}>
+          <button
+            onClick={() => setActiveTab('ads')}
+            className={`statiq-tab-btn ${activeTab === 'ads' ? 'active' : ''}`}
+          >
+            {t('portfolio.tab_ads', 'Ad Creatives')}
           </button>
+          <button
+            onClick={() => setActiveTab('videos')}
+            className={`statiq-tab-btn ${activeTab === 'videos' ? 'active' : ''}`}
+          >
+            {t('portfolio.tab_videos', 'Video Reels')}
+          </button>
+          <button
+            onClick={() => setActiveTab('branding')}
+            className={`statiq-tab-btn ${activeTab === 'branding' ? 'active' : ''}`}
+          >
+            {t('portfolio.tab_branding', 'Brand Identity')}
+          </button>
+          <button
+            onClick={() => setShowArchive(true)}
+            className="statiq-tab-btn"
+            style={{ color: '#E2E8F0', opacity: 0.85 }}
+          >
+            {t('portfolio.tab_all', 'All Works (100+)')}
+          </button>
+        </div>
+
+        {/* ── Statiq 4-Card Themed Showcase Grid (Screenshot 1 & 3) ── */}
+        <div data-reveal className="statiq-showcase-container">
+          <div className="statiq-showcase-grid">
+            {featuredCards.map((card, i) => (
+              <div
+                key={`${activeTab}-${i}`}
+                className={`statiq-themed-card ${card.theme}`}
+                onClick={() => {
+                  if (card.type === 'video') setActiveVideo(card.id);
+                  else setActiveImage(card.src);
+                }}
+              >
+                {/* Top Tilted Spend Sticker Badge */}
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginBottom: '0.75rem' }}>
+                  <span
+                    className={`statiq-sticker ${card.stickerColor}`}
+                    style={{
+                      transform: i % 2 === 0 ? 'rotate(-4deg)' : 'rotate(3deg)',
+                    }}
+                  >
+                    {t(`portfolio.${card.spendKey}`, card.spendKey)}
+                  </span>
+                </div>
+
+                {/* Brand & Category micro-header */}
+                <div style={{ textAlign: 'center', marginBottom: '0.25rem' }}>
+                  <h4
+                    style={{
+                      fontFamily: "'Outfit', 'Sarchia Bokan', sans-serif",
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      color: '#FFFFFF',
+                      letterSpacing: '-0.01em',
+                    }}
+                  >
+                    {card.brand}
+                  </h4>
+                  <span
+                    style={{
+                      fontSize: '0.7rem',
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      fontWeight: 500,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
+                    }}
+                  >
+                    {card.tag}
+                  </span>
+                </div>
+
+                {/* Floating Inner Artwork Frame — Full Natural Size, Zero Cropping */}
+                <div className="statiq-floating-frame">
+                  {card.type === 'video' ? (
+                    <div style={{ position: 'relative', width: '100%', aspectRatio: '9/16' }}>
+                      <img
+                        src={`https://i.ytimg.com/vi/${card.id}/hqdefault.jpg`}
+                        alt={card.brand}
+                        loading="lazy"
+                        className="statiq-floating-img"
+                        style={{ height: '100%', objectFit: 'cover' }}
+                      />
+                      {/* Play Button Indicator */}
+                      <div
+                        style={{
+                          position: 'absolute',
+                          inset: 0,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          background: 'rgba(0, 0, 0, 0.3)',
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: 52,
+                            height: 52,
+                            borderRadius: '50%',
+                            background: 'rgba(255, 255, 255, 0.95)',
+                            backdropFilter: 'blur(8px)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
+                            color: '#0A0A0C',
+                          }}
+                        >
+                          <Play size={20} fill="#0A0A0C" style={{ marginLeft: 2 }} />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <img
+                      src={card.src}
+                      alt={card.brand}
+                      loading="lazy"
+                      className="statiq-floating-img"
+                    />
+                  )}
+
+                  {/* Interactive Hover Cue */}
+                  <div className="statiq-card-hover-cue">
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.4rem',
+                        padding: '0.4rem 0.85rem',
+                        borderRadius: '100px',
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        color: '#0A0A0C',
+                        fontWeight: 700,
+                        fontSize: '0.74rem',
+                        boxShadow: '0 6px 18px rgba(0,0,0,0.3)',
+                      }}
+                    >
+                      <Maximize2 size={12} />
+                      {card.type === 'video' ? 'Play Video' : 'View Fullsize'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Dynamic Category Marquee Stream ── */}
+        <div data-reveal style={{ position: 'relative', width: '100%', margin: '2rem 0 clamp(2.5rem, 5vw, 4rem)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', padding: '0 0.5rem' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              {activeTab === 'videos' ? 'Recent Campaign Reels' : 'Continuous Creative Stream'}
+            </span>
+            <span style={{ fontSize: '0.75rem', color: '#64748B' }}>
+              Swipe or hover to pause
+            </span>
+          </div>
+
           <div
             style={{
-              width: '100%', maxWidth: 450, aspectRatio: '9/16', maxHeight: '85vh',
-              background: '#000', borderRadius: '0.75rem', overflow: 'hidden',
-              boxShadow: '0 32px 80px -12px rgba(0,0,0,0.9)',
+              overflow: 'hidden',
+              position: 'relative',
+              width: '100%',
+              direction: 'ltr',
+              padding: '0.5rem 0',
+              borderRadius: '1rem',
             }}
-            onClick={e => e.stopPropagation()}
+          >
+            {/* Fade Gradients on edges */}
+            {['left', 'right'].map((side) => (
+              <div
+                key={side}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  [side]: 0,
+                  width: 'clamp(30px, 8vw, 80px)',
+                  zIndex: 5,
+                  background: `linear-gradient(to ${side === 'left' ? 'right' : 'left'}, #080C15 0%, transparent 100%)`,
+                  pointerEvents: 'none',
+                }}
+              />
+            ))}
+
+            {activeTab === 'videos' ? (
+              <div className="video-marquee-track">
+                {[...marqueeVideos, ...marqueeVideos].map((id, idx) => (
+                  <div
+                    key={`v-${idx}`}
+                    onClick={() => setActiveVideo(id)}
+                    style={{
+                      width: isMobile ? 180 : 220,
+                      aspectRatio: '9/16',
+                      borderRadius: '0.9rem',
+                      overflow: 'hidden',
+                      position: 'relative',
+                      cursor: 'pointer',
+                      flexShrink: 0,
+                      background: '#111827',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
+                      transition: 'transform 0.3s ease, border-color 0.3s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.04) translateY(-4px)';
+                      e.currentTarget.style.borderColor = 'rgba(255, 224, 67, 0.5)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                  >
+                    <img
+                      src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+                      alt="Reel Preview"
+                      loading="lazy"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                    <div
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: 42,
+                          height: 42,
+                          borderRadius: '50%',
+                          background: 'rgba(255, 255, 255, 0.9)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#0A0A0C',
+                        }}
+                      >
+                        <Play size={16} fill="#0A0A0C" style={{ marginLeft: 2 }} />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="design-marquee-track forward">
+                {[...marqueeDesigns, ...marqueeDesigns].map((src, idx) => (
+                  <div
+                    key={`d-${idx}`}
+                    onClick={() => setActiveImage(src)}
+                    style={{
+                      width: isMobile ? 180 : 220,
+                      borderRadius: '0.9rem',
+                      overflow: 'hidden',
+                      position: 'relative',
+                      cursor: 'pointer',
+                      flexShrink: 0,
+                      background: '#111827',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
+                      transition: 'transform 0.3s ease, border-color 0.3s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.04) translateY(-4px)';
+                      e.currentTarget.style.borderColor = 'rgba(255, 224, 67, 0.5)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                  >
+                    <img
+                      src={src}
+                      alt="Portfolio Design"
+                      loading="lazy"
+                      style={{ width: '100%', height: 'auto', display: 'block' }}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* ── View Full Archive CTA Button ── */}
+        <div data-reveal style={{ display: 'flex', justifyContent: 'center' }}>
+          <button
+            onClick={() => setShowArchive(true)}
+            className="btn-ghost"
+            style={{
+              background: 'rgba(255, 255, 255, 0.05)',
+              borderColor: 'rgba(255, 255, 255, 0.18)',
+              color: '#FFFFFF',
+              boxShadow: '0 8px 28px rgba(0, 0, 0, 0.4)',
+              padding: '0.9rem 2.2rem',
+            }}
+          >
+            <Grid size={15} style={{ opacity: 0.85, flexShrink: 0 }} />
+            {t('portfolio.btn_more', 'Explore Full Portfolio Archive (100+ Works)')}
+          </button>
+        </div>
+      </div>
+
+      {/* ── Lightbox Modal for Designs ── */}
+      {activeImage && (
+        <div
+          onClick={() => setActiveImage(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 99999,
+            background: 'rgba(3, 8, 20, 0.92)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 'clamp(1rem, 4vw, 2.5rem)',
+            cursor: 'zoom-out',
+          }}
+        >
+          <button
+            onClick={() => setActiveImage(null)}
+            style={{
+              position: 'absolute',
+              top: 'clamp(1rem, 3vw, 2rem)',
+              right: 'clamp(1rem, 3vw, 2rem)',
+              width: 44,
+              height: 44,
+              borderRadius: '50%',
+              background: 'rgba(255, 255, 255, 0.15)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 10,
+            }}
+            aria-label="Close"
+          >
+            <X size={20} />
+          </button>
+          <img
+            src={activeImage}
+            alt="Fullscreen Ad Preview"
+            style={{
+              maxWidth: '92vw',
+              maxHeight: '90vh',
+              objectFit: 'contain',
+              borderRadius: '16px',
+              boxShadow: '0 32px 80px rgba(0, 0, 0, 0.8)',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
+      {/* ── Video Player Modal ── */}
+      {activeVideo && (
+        <div
+          onClick={() => setActiveVideo(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 99999,
+            background: 'rgba(3, 8, 20, 0.94)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 'clamp(1rem, 3vw, 2rem)',
+          }}
+        >
+          <button
+            onClick={() => setActiveVideo(null)}
+            style={{
+              position: 'absolute',
+              top: 'clamp(1rem, 3vw, 2rem)',
+              right: 'clamp(1rem, 3vw, 2rem)',
+              width: 44,
+              height: 44,
+              borderRadius: '50%',
+              background: 'rgba(255, 255, 255, 0.15)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 10,
+            }}
+            aria-label="Close"
+          >
+            <X size={20} />
+          </button>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: '100%',
+              maxWidth: 420,
+              aspectRatio: '9/16',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              boxShadow: '0 32px 80px rgba(0, 0, 0, 0.9)',
+              background: '#000000',
+            }}
           >
             <iframe
-              width="100%" height="100%"
               src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`}
-              frameBorder="0"
+              title="Campaign Video Reel"
+              style={{ width: '100%', height: '100%', border: 'none' }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -342,88 +687,155 @@ export default function Portfolio() {
         </div>
       )}
 
-      {/* ── All Videos Modal ── */}
-      {showAllVideos && (
-        <div className="modal-scroll" style={{
-          position: 'fixed', inset: 0, zIndex: 9998,
-          background: 'rgba(255, 255, 255, 0.98)', backdropFilter: 'blur(24px)',
-          overflowY: 'auto', direction: 'rtl',
-        }}>
-          <div className="section-wrap" style={{ padding: 'clamp(2rem, 6vw, 4rem) 1.25rem' }}>
+      {/* ── Complete Portfolio Archive Modal (100+ Works) ── */}
+      {showArchive && (
+        <div
+          className="modal-scroll"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 99998,
+            background: 'rgba(8, 12, 21, 0.98)',
+            backdropFilter: 'blur(30px)',
+            overflowY: 'auto',
+            color: '#FFFFFF',
+          }}
+          dir={isRTL ? 'rtl' : 'ltr'}
+        >
+          <div className="section-wrap" style={{ padding: 'clamp(2rem, 5vw, 4rem) 1.25rem' }}>
             <div className="modal-header">
               <div>
-                <span className="badge" style={{ marginBottom: '0.75rem' }}>{t('portfolio.archive_badge')}</span>
-                <h2 style={{
-                  fontFamily: "'Sarchia Bokan', serif",
-                  fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 700, color: '#0A0A0C',
-                }}>
-                  {t('portfolio.archive_title_p1')}<span className="text-gold">{t('portfolio.archive_title_highlight')}</span>
+                <span className="badge" style={{ marginBottom: '0.75rem', background: 'rgba(255,255,255,0.06)', color: '#E2E8F0' }}>
+                  {t('portfolio.archive_badge', 'Archive')}
+                </span>
+                <h2
+                  style={{
+                    fontFamily: "'Outfit', 'Sarchia Bokan', sans-serif",
+                    fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+                    fontWeight: 800,
+                    color: '#FFFFFF',
+                  }}
+                >
+                  {t('portfolio.archive_title_p1', 'Explore our portfolio of ')}
+                  <span style={{ color: '#FFE043' }}>{t('portfolio.archive_title_highlight', 'Selected Works')}</span>
                 </h2>
-                <p style={{
-                  fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                  fontSize: '0.875rem', color: '#52525B',
-                  marginTop: '0.5rem',
-                }}>
-                  {t('portfolio.archive_subtitle')}
+                <p style={{ color: '#94A3B8', fontSize: '0.875rem', marginTop: '0.5rem' }}>
+                  {t('portfolio.archive_subtitle', 'High-ticket performance creatives and brand assets engineered for scale')}
                 </p>
               </div>
-              <button onClick={() => { setShowAllVideos(false); setVisibleCount(12); }} className="btn-ghost" style={{ padding: '0.625rem 1rem', flexShrink: 0 }}>
-                <X size={15} />
-                {t('portfolio.btn_close')}
+
+              <button
+                onClick={() => {
+                  setShowArchive(false);
+                  setVisibleCount(16);
+                }}
+                className="btn-ghost"
+                style={{
+                  padding: '0.625rem 1.25rem',
+                  flexShrink: 0,
+                  background: 'rgba(255,255,255,0.08)',
+                  color: '#FFFFFF',
+                }}
+              >
+                <X size={16} />
+                {t('portfolio.btn_close', 'Close')}
               </button>
             </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 160px), 1fr))',
-              gap: '1.25rem',
-            }}>
-              {videoIds.slice(0, visibleCount).map((id, i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: '100%', aspectRatio: '9/16',
-                    position: 'relative', borderRadius: '0.75rem', overflow: 'hidden',
-                    cursor: 'pointer', border: '1px solid rgba(0, 0, 0, 0.08)',
-                    background: '#FFFFFF', transition: 'all 0.35s ease',
-                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
-                  }}
-                  onClick={() => { setShowAllVideos(false); setActiveVideo(id); }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.borderColor = '#03142B'; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)'; }}
-                >
-                  <img
-                    src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-                    onError={(e) => {
-                      if (e.target.src.includes('maxresdefault')) {
-                        e.target.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-                      }
-                    }}
-                    alt="Video Thumbnail"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }}
-                  />
-                  <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{
-                      width: 40, height: 40, borderRadius: '50%',
-                      background: 'rgba(3, 20, 43, 0.85)', border: '1px solid rgba(255, 255, 255, 0.3)',
-                      backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                      <Play size={16} style={{ fill: '#FFFFFF', color: '#FFFFFF', marginRight: -2 }} />
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* Archive Filter Pills */}
+            <div style={{ display: 'flex', gap: '0.75rem', margin: '2rem 0', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => setArchiveFilter('all')}
+                style={{
+                  padding: '0.45rem 1rem',
+                  borderRadius: '100px',
+                  background: archiveFilter === 'all' ? '#FFFFFF' : 'rgba(255,255,255,0.06)',
+                  color: archiveFilter === 'all' ? '#0A0A0C' : '#CBD5E1',
+                  fontWeight: 600,
+                  fontSize: '0.8rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                }}
+              >
+                All Assets ({designs.length + videoIds.length})
+              </button>
+              <button
+                onClick={() => setArchiveFilter('ads')}
+                style={{
+                  padding: '0.45rem 1rem',
+                  borderRadius: '100px',
+                  background: archiveFilter === 'ads' ? '#FFFFFF' : 'rgba(255,255,255,0.06)',
+                  color: archiveFilter === 'ads' ? '#0A0A0C' : '#CBD5E1',
+                  fontWeight: 600,
+                  fontSize: '0.8rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                }}
+              >
+                Ad Designs ({designs.length})
+              </button>
+              <button
+                onClick={() => setArchiveFilter('videos')}
+                style={{
+                  padding: '0.45rem 1rem',
+                  borderRadius: '100px',
+                  background: archiveFilter === 'videos' ? '#FFFFFF' : 'rgba(255,255,255,0.06)',
+                  color: archiveFilter === 'videos' ? '#0A0A0C' : '#CBD5E1',
+                  fontWeight: 600,
+                  fontSize: '0.8rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                }}
+              >
+                Video Reels ({videoIds.length})
+              </button>
             </div>
 
-            {visibleCount < videoIds.length && (
-              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+            {/* Masonry Grid */}
+            <div className="masonry-grid">
+              {archiveFilter !== 'videos' &&
+                designs.slice(0, visibleCount).map((src, i) => (
+                  <div key={`arch-d-${i}`} className="masonry-item" onClick={() => setActiveImage(src)}>
+                    <img src={src} alt="Ad creative" loading="lazy" />
+                    <div className="masonry-overlay">
+                      <div className="masonry-btn">
+                        <Maximize2 size={18} style={{ color: '#FFFFFF' }} />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+              {archiveFilter !== 'ads' &&
+                videoIds.slice(0, visibleCount / 2).map((id, i) => (
+                  <div
+                    key={`arch-v-${i}`}
+                    className="masonry-item"
+                    onClick={() => setActiveVideo(id)}
+                    style={{ position: 'relative' }}
+                  >
+                    <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="Video reel" loading="lazy" />
+                    <div className="masonry-overlay" style={{ opacity: 1, background: 'rgba(0,0,0,0.35)' }}>
+                      <div className="masonry-btn" style={{ background: 'rgba(255,255,255,0.9)' }}>
+                        <Play size={18} fill="#0A0A0C" style={{ color: '#0A0A0C', marginLeft: 2 }} />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            {visibleCount < designs.length && (
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3.5rem' }}>
                 <button
-                  onClick={() => setVisibleCount(prev => prev + 12)}
+                  onClick={() => setVisibleCount((prev) => prev + 16)}
                   className="btn-ghost"
-                  style={{ padding: '0.875rem 2rem', fontSize: '1rem' }}
+                  style={{
+                    background: 'rgba(255,255,255,0.08)',
+                    borderColor: 'rgba(255,255,255,0.2)',
+                    color: '#FFFFFF',
+                    padding: '0.85rem 2.2rem',
+                  }}
                 >
-                  <Grid size={16} style={{ opacity: 0.75, flexShrink: 0, marginLeft: '0.5rem' }} />
-                  {t('portfolio.btn_load_more')}
+                  {t('portfolio.btn_load_more', 'Load More')}
                 </button>
               </div>
             )}

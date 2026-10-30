@@ -1272,3 +1272,355 @@ p, h1, h2, h3, h4, h5, span, li, button, a {
 @media (max-width: 768px) {
   body { background-attachment: scroll; }
 }
+
+/* ═════════════════════════════════════════════════════════════
+   STATIQ.CLUB SIGNATURE PORTFOLIO DESIGN SYSTEM (2026)
+   ═════════════════════════════════════════════════════════════ */
+
+/* ─── Deep Studio Dark Stage ───────────────────────────────── */
+.statiq-dark-stage {
+  background: #080C15;
+  background-image:
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(20, 35, 70, 0.45) 0%, transparent 65%),
+    radial-gradient(circle at 10% 40%, rgba(37, 99, 235, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 90% 60%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
+    linear-gradient(180deg, #060911 0%, #080C15 50%, #05070D 100%);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.statiq-dot-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 30%, black 0%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 30%, black 0%, transparent 85%);
+}
+
+/* ─── Playful Tilted Stickers / Tape Badges ─────────────────── */
+.statiq-sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-family: 'Outfit', 'Inter', 'Noto Kufi Arabic', sans-serif;
+  font-weight: 800;
+  border-radius: 8px;
+  padding: 0.35rem 0.85rem;
+  font-size: clamp(0.72rem, 1.3vw, 0.84rem);
+  white-space: nowrap;
+  user-select: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  z-index: 10;
+  cursor: default;
+}
+
+.statiq-sticker-blue {
+  background: #0070F3;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 112, 243, 0.45);
+}
+
+.statiq-sticker-yellow {
+  background: #FEE75C;
+  color: #0A0A0C;
+  box-shadow: 0 8px 24px rgba(254, 231, 92, 0.35);
+}
+
+.statiq-sticker-purple {
+  background: #8B5CF6;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.45);
+}
+
+.statiq-sticker-lime {
+  background: #4ADE80;
+  color: #0A0A0C;
+  box-shadow: 0 8px 24px rgba(74, 222, 128, 0.35);
+}
+
+.statiq-sticker-cyan {
+  background: #38BDF8;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.45);
+}
+
+/* ─── Category Navigation Tabs (Statiq Underline) ───────────── */
+.statiq-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3.5vw, 2.75rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.25rem;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.75rem);
+  max-width: 680px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.statiq-tabs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.statiq-tab-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', 'Noto Kufi Arabic', 'Rabar', sans-serif;
+  font-size: clamp(0.92rem, 1.6vw, 1.08rem);
+  font-weight: 500;
+  color: #94A3B8;
+  padding: 0.65rem 0.75rem 1rem;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.statiq-tab-btn:hover {
+  color: #FFFFFF;
+}
+
+.statiq-tab-btn.active {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.statiq-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Statiq 4-Card Showcase Grid ───────────────────────────── */
+.statiq-showcase-container {
+  background: rgba(11, 16, 28, 0.85);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: clamp(1.5rem, 3.5vw, 2.25rem);
+  padding: clamp(1.25rem, 2.5vw, 2.25rem);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.statiq-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.8vw, 20px);
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .statiq-showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .statiq-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ─── Individual Themed Cards ───────────────────────────────── */
+.statiq-themed-card {
+  border-radius: 1.35rem;
+  overflow: hidden;
+  position: relative;
+  padding: clamp(1.25rem, 2vw, 1.5rem) clamp(0.9rem, 1.5vw, 1.25rem) 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 480px;
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  user-select: none;
+}
+
+.statiq-themed-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px -10px rgba(0, 0, 0, 0.75);
+}
+
+.statiq-themed-card:hover .statiq-card-hover-cue {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statiq-themed-card:hover .statiq-floating-img {
+  transform: scale(1.025);
+}
+
+/* Themes */
+.theme-royal-blue {
+  background: linear-gradient(180deg, #13274F 0%, #0C1E4A 60%, #071330 100%);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+}
+.theme-royal-blue:hover { border-color: rgba(96, 165, 250, 0.6); }
+
+.theme-sky-periwinkle {
+  background: linear-gradient(180deg, #7E9ECB 0%, #5E80B0 60%, #476693 100%);
+  border: 1px solid rgba(147, 197, 253, 0.35);
+}
+.theme-sky-periwinkle:hover { border-color: rgba(191, 219, 254, 0.7); }
+
+.theme-forest-emerald {
+  background: linear-gradient(180deg, #163E2D 0%, #102F22 60%, #0A2016 100%);
+  border: 1px solid rgba(52, 211, 153, 0.28);
+}
+.theme-forest-emerald:hover { border-color: rgba(110, 231, 183, 0.6); }
+
+.theme-blush-rose {
+  background: linear-gradient(180deg, #C26B82 0%, #9E4D63 60%, #7A3549 100%);
+  border: 1px solid rgba(244, 114, 182, 0.35);
+}
+.theme-blush-rose:hover { border-color: rgba(249, 168, 212, 0.7); }
+
+/* Floating Inner Artwork Frame */
+.statiq-floating-frame {
+  width: 100%;
+  margin-top: 1.25rem;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  position: relative;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statiq-floating-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.statiq-card-hover-cue {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 10, 25, 0.75) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+/* ─── Signature Red-Orange Growth Banner (Screenshot 2) ────── */
+.statiq-orange-banner {
+  background: linear-gradient(135deg, #FF3D1E 0%, #FF5A2E 50%, #FF3D1E 100%);
+  border-radius: clamp(1.5rem, 3.5vw, 2.5rem);
+  overflow: hidden;
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem) 0;
+  box-shadow: 0 25px 70px -15px rgba(255, 61, 30, 0.45);
+  color: #FFFFFF;
+  margin: clamp(3rem, 6vw, 5rem) auto;
+  max-width: 1240px;
+}
+
+.statiq-orange-banner::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.statiq-fan-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  position: relative;
+  padding-bottom: 0;
+  overflow: hidden;
+  height: clamp(200px, 28vw, 320px);
+}
+
+.statiq-fan-card {
+  width: clamp(140px, 18vw, 220px);
+  border-radius: 1rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.2s;
+  cursor: pointer;
+  background: #FFFFFF;
+}
+
+.statiq-fan-card:hover {
+  transform: translateY(-24px) scale(1.08) !important;
+  z-index: 50 !important;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── "Get ads your team wouldn't think of" Split (Screenshot 5) */
+.statiq-team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: center;
+  margin: clamp(3rem, 6vw, 5rem) 0;
+}
+
+@media (min-width: 1024px) {
+  .statiq-team-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+}
+
+.statiq-collage-container {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+.statiq-collage-card {
+  position: absolute;
+  width: 54%;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.2s;
+  cursor: pointer;
+  background: #000;
+}
+
+.statiq-collage-card:hover {
+  transform: scale(1.06) !important;
+  z-index: 40 !important;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+}
+
