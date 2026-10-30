@@ -8,9 +8,11 @@ export default function BrandLogos() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
 
-  const label = isRTL
-    ? 'براندەکان و کۆمپانیاکانمان کە پێیانخزمەت کردووین'
-    : 'Trusted by 100+ Brands & Businesses';
+  const label = i18n.language?.startsWith('ku')
+    ? 'هەندێک لەو براند و کۆمپانیایانەی کە کارمان بۆ کردوون'
+    : i18n.language?.startsWith('ar')
+      ? 'بعض العلامات التجارية والشركات التي عملنا معها'
+      : 'Trusted by 100+ Brands & Businesses';
 
   return (
     <section
