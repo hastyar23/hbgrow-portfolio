@@ -10,9 +10,14 @@ const THEMED_CARDS_DATA = {
       theme: 'theme-royal-blue',
       stickerColor: 'statiq-sticker-purple',
       spendKey: 'spend_1',
-      brand: 'Lotus Scent',
-      tag: 'E-Commerce Hero',
-      src: designs[51],
+      spendLabel: {
+        ku: '18,309 نامەی فرۆش',
+        ar: '18,309 رسالة مبيعات',
+        en: '18,309 Sales Inquiries',
+      },
+      brand: 'Nawandi Awer',
+      tag: 'Book Shop',
+      src: '/images/nawandi_awer.webp',
       type: 'image',
     },
     {
