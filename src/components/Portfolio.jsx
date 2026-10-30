@@ -19,7 +19,12 @@ const THEMED_CARDS_DATA = {
       theme: 'theme-sky-periwinkle',
       stickerColor: 'statiq-sticker-yellow',
       spendKey: 'spend_2',
-      brand: 'Zesty Care',
+      spendLabel: {
+        ku: '1,413 نامەی فرۆش',
+        ar: '1,413 رسالة مبيعات',
+        en: '1,413 Sales Inquiries',
+      },
+      brand: 'Zesty',
       tag: 'Health & Beauty',
       src: designs[8],
       type: 'image',
@@ -306,7 +311,9 @@ export default function Portfolio() {
                       transform: i % 2 === 0 ? 'rotate(-4deg)' : 'rotate(3deg)',
                     }}
                   >
-                    {t(`portfolio.${card.spendKey}`, card.spendKey)}
+                    {card.spendLabel
+                      ? (typeof card.spendLabel === 'object' ? (isRTL ? card.spendLabel.ku : card.spendLabel.en) : card.spendLabel)
+                      : t(`portfolio.${card.spendKey}`, card.spendKey)}
                   </span>
                 </div>
 
