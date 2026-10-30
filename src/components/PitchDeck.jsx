@@ -22,6 +22,7 @@ import {
   Lock,
   Sparkles,
   Shield,
+  ShieldCheck,
   Play,
   Grid,
   Star,

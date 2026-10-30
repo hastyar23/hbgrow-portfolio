@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
-  Check, Sparkles, ShieldCheck, ArrowRight, ArrowLeft, Phone, 
+  Check, Sparkles, ShieldCheck, ArrowRight, ArrowLeft, ArrowUpRight, Phone, 
   Rocket, Users, BookOpen, ExternalLink, Video, Compass,
   Calendar, CheckCircle2, ChevronRight, Zap, Target
 } from 'lucide-react';
