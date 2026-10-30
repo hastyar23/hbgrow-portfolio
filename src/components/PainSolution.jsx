@@ -606,8 +606,13 @@ export default function PainSolution() {
 
         {/* ── ACTION CTA ── */}
         <div style={{ textAlign: 'center' }}>
-          <button
-            onClick={openSchedule}
+          <a
+            href="#packages"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' });
+              window.history.pushState(null, '', '#packages');
+            }}
             className="btn-primary"
             style={{
               fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
@@ -619,15 +624,16 @@ export default function PainSolution() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.75rem',
+              textDecoration: 'none',
               boxShadow: '0 8px 24px -4px rgba(3, 20, 43, 0.25)',
               transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
             onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'none'}
           >
-            <WhatsAppIcon size={18} />
+            {isRTL ? <ArrowLeft size={18} /> : <ArrowRight size={18} />}
             <span>{t('pain_solution.cta_btn')}</span>
-          </button>
+          </a>
           <p 
             style={{
               marginTop: '1.25rem',

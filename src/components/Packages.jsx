@@ -99,6 +99,7 @@ export default function Packages() {
         width: '100%',
         boxSizing: 'border-box',
         color: '#FFFFFF',
+        scrollMarginTop: '90px',
       }}
     >
       {/* ── Ambient Background Glows ── */}

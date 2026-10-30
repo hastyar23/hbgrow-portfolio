@@ -1,6 +1,6 @@
 import { useEffect, useRef, Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Calendar, Play } from 'lucide-react';
+import { Calendar, Play, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
 import HeroCreativeGrid from './HeroCreativeGrid';
@@ -186,15 +186,25 @@ export default function Hero() {
 
             {/* CTAs — responsive via CSS class hero-ctas */}
             <div className="animate-fade-in-up delay-400 hero-ctas" style={{ marginBottom: '1.75rem' }}>
-              <button
-                onClick={openSchedule}
+              <a
+                href="#packages"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' });
+                  window.history.pushState(null, '', '#packages');
+                }}
                 className="btn-primary"
-                id="hero-cta-book"
-                style={{ boxShadow: '0 4px 20px -2px rgba(3, 20, 43, 0.35)', border: 'none', cursor: 'pointer' }}
+                id="hero-cta-packages"
+                style={{
+                  boxShadow: '0 4px 20px -2px rgba(3, 20, 43, 0.35)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                }}
               >
-                <WhatsAppIcon size={16} style={{ flexShrink: 0 }} />
-                {t('hero.cta_book')}
-              </button>
+                {isRTL ? <ArrowLeft size={16} style={{ flexShrink: 0 }} /> : <ArrowRight size={16} style={{ flexShrink: 0 }} />}
+                <span>{t('hero.cta_book')}</span>
+              </a>
               <a href="#portfolio" className="btn-ghost" id="hero-cta-work">
                 <Play size={13} style={{ fill: 'currentColor', flexShrink: 0 }} />
                 {t('hero.cta_work')}
