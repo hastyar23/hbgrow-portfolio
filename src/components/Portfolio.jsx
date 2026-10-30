@@ -293,12 +293,6 @@ export default function Portfolio() {
             {t('portfolio.tab_videos', 'Video Reels')}
           </button>
           <button
-            onClick={() => setActiveTab('branding')}
-            className={`statiq-tab-btn ${activeTab === 'branding' ? 'active' : ''}`}
-          >
-            {t('portfolio.tab_branding', 'Brand Identity')}
-          </button>
-          <button
             onClick={() => setShowArchive(true)}
             className="statiq-tab-btn"
             style={{ color: '#E2E8F0', opacity: 0.85 }}
