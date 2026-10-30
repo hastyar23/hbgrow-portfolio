@@ -83,9 +83,15 @@ const THEMED_CARDS_DATA = {
       theme: 'theme-sky-periwinkle',
       stickerColor: 'statiq-sticker-yellow',
       spendKey: 'spend_2',
-      brand: 'Glow Cosmetics',
-      tag: 'TikTok Viral Reel',
-      id: videoIds[1] || 'vsodX5maE0Y',
+      spendLabel: {
+        ku: '100,000 بینین',
+        ar: '100,000 مشاهدة',
+        en: '100,000 Views',
+      },
+      brand: 'Crumbs IQ',
+      tag: 'Local Bakery',
+      id: 'dm-k3s2QmcsfWuphvMe2Rk',
+      thumb: '/images/crumbs_iq.webp',
       type: 'video',
     },
     {
@@ -145,6 +151,24 @@ const THEMED_CARDS_DATA = {
       type: 'image',
     },
   ],
+};
+
+const getVideoThumb = (id, customThumb) => {
+  if (customThumb) return customThumb;
+  if (!id) return '';
+  if (id.startsWith('dm-')) {
+    if (id === 'dm-k3s2QmcsfWuphvMe2Rk') return '/images/crumbs_iq.webp';
+    return `https://www.dailymotion.com/thumbnail/video/${id.replace('dm-', '')}`;
+  }
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+};
+
+const getVideoEmbedUrl = (id) => {
+  if (!id) return '';
+  if (id.startsWith('dm-')) {
+    return `https://geo.dailymotion.com/player.html?video=${id.replace('dm-', '')}&autoplay=1`;
+  }
+  return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
 };
 
 export default function Portfolio() {
@@ -365,7 +389,7 @@ export default function Portfolio() {
                   {card.type === 'video' ? (
                     <div style={{ position: 'relative', width: '100%', aspectRatio: '9/16' }}>
                       <img
-                        src={`https://i.ytimg.com/vi/${card.id}/hqdefault.jpg`}
+                        src={getVideoThumb(card.id, card.thumb)}
                         alt={card.brand}
                         loading="lazy"
                         className="statiq-floating-img"
@@ -539,7 +563,7 @@ export default function Portfolio() {
                     }}
                   >
                     <img
-                      src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+                      src={getVideoThumb(id)}
                       alt="Reel Preview"
                       loading="lazy"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -780,10 +804,10 @@ export default function Portfolio() {
             }}
           >
             <iframe
-              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`}
+              src={getVideoEmbedUrl(activeVideo)}
               title="Campaign Video Reel"
               style={{ width: '100%', height: '100%', border: 'none' }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
           </div>
@@ -916,7 +940,7 @@ export default function Portfolio() {
                     onClick={() => setActiveVideo(id)}
                     style={{ position: 'relative' }}
                   >
-                    <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="Video reel" loading="lazy" />
+                    <img src={getVideoThumb(id)} alt="Video reel" loading="lazy" />
                     <div className="masonry-overlay" style={{ opacity: 1, background: 'rgba(0,0,0,0.35)' }}>
                       <div className="masonry-btn" style={{ background: 'rgba(255,255,255,0.9)' }}>
                         <Play size={18} fill="#0A0A0C" style={{ color: '#0A0A0C', marginLeft: 2 }} />

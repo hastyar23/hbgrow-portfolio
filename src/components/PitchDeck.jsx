@@ -1023,7 +1023,11 @@ export default function PitchDeck({ onScheduleClick }) {
                       >
                         {/* High-res Thumbnail */}
                         <img
-                          src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+                          src={
+                            id.startsWith('dm-')
+                              ? (id === 'dm-k3s2QmcsfWuphvMe2Rk' ? '/images/crumbs_iq.webp' : `https://www.dailymotion.com/thumbnail/video/${id.replace('dm-', '')}`)
+                              : `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
+                          }
                           onError={(e) => {
                             if (e.target.src.includes('maxresdefault')) {
                               e.target.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
@@ -2321,7 +2325,11 @@ export default function PitchDeck({ onScheduleClick }) {
                         className="group relative aspect-[9/16] rounded-xl overflow-hidden cursor-pointer border border-black/[0.08] hover:border-[#03142B] transition-all duration-300 bg-zinc-100 hover:scale-102 shadow-xs"
                       >
                         <img
-                          src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+                          src={
+                            id.startsWith('dm-')
+                              ? (id === 'dm-k3s2QmcsfWuphvMe2Rk' ? '/images/crumbs_iq.webp' : `https://www.dailymotion.com/thumbnail/video/${id.replace('dm-', '')}`)
+                              : `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`
+                          }
                           onError={(e) => {
                             if (e.target.src.includes('maxresdefault')) {
                               e.target.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
@@ -2571,9 +2579,13 @@ export default function PitchDeck({ onScheduleClick }) {
               <div className="w-full aspect-[9/16] max-h-[76vh] rounded-2xl overflow-hidden border border-white/20 bg-black shadow-[0_24px_80px_rgba(0,0,0,0.7)] relative">
                 <iframe
                   className="w-full h-full"
-                  src={`https://www.youtube-nocookie.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`}
+                  src={
+                    activeVideo?.startsWith('dm-')
+                      ? `https://geo.dailymotion.com/player.html?video=${activeVideo.replace('dm-', '')}&autoplay=1`
+                      : `https://www.youtube-nocookie.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`
+                  }
                   title="HBgrow Portfolio Reel Player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>
@@ -2582,8 +2594,8 @@ export default function PitchDeck({ onScheduleClick }) {
               <a
                 href={getWhatsAppUrl(
                   isKurdish
-                    ? `سڵاو HBgrow، سەیری ئەم نموونە ڤیدیۆیەتم کرد (https://youtu.be/${activeVideo}) لە ناو پرێزێنتەیشنەکەتاندا. دەمەوێت ڤیدیۆی هاوشێوە بۆ براندەکەم بەرهەم بهێنین.`
-                    : `Hello HBgrow, I watched this portfolio reel (https://youtu.be/${activeVideo}) in your pitch deck. I would like to produce similar videos for my brand.`
+                    ? `سڵاو HBgrow، سەیری ئەم نموونە ڤیدیۆیەتم کرد (${activeVideo?.startsWith('dm-') ? 'https://dai.ly/' + activeVideo.replace('dm-', '') : 'https://youtu.be/' + activeVideo}) لە ناو پرێزێنتەیشنەکەتاندا. دەمەوێت ڤیدیۆی هاوشێوە بۆ براندەکەم بەرهەم بهێنین.`
+                    : `Hello HBgrow, I watched this portfolio reel (${activeVideo?.startsWith('dm-') ? 'https://dai.ly/' + activeVideo.replace('dm-', '') : 'https://youtu.be/' + activeVideo}) in your pitch deck. I would like to produce similar videos for my brand.`
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
