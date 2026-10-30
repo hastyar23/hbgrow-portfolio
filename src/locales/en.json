@@ -221,27 +221,27 @@
     "steps": {
       "0": {
         "num": "1",
-        "title": "Send a WhatsApp Message",
-        "duration": "Step 1",
-        "desc": "Click the button below to start a direct chat with our team."
+        "title": "First Step",
+        "duration": "Choose Model",
+        "desc": "Select one of the working models above that fits your business."
       },
       "1": {
         "num": "2",
-        "title": "Brief 15-Minute Call",
-        "duration": "15 Mins",
-        "desc": "We listen to your commercial targets and audit your current setup."
+        "title": "Preferred Contact Method",
+        "duration": "Get in Touch",
+        "desc": "Choose your preferred channel of communication and share your details."
       },
       "2": {
         "num": "3",
-        "title": "System Setup (5-7 Days)",
-        "duration": "5–7 Days",
-        "desc": "We build your commercial offer, video scripts, and custom ad creatives."
+        "title": "Strategy Discussion",
+        "duration": "Needs Audit",
+        "desc": "We listen to your challenges, diagnose bottlenecks, and craft a custom offer."
       },
       "3": {
         "num": "4",
-        "title": "Campaign Launch & Inbound Leads",
-        "duration": "Go Live",
-        "desc": "Your campaign goes live and qualified customer inquiries begin flowing in."
+        "title": "Execution & Delivery",
+        "duration": "Launch & Results",
+        "desc": "We execute according to your chosen plan; your campaign launches and buyer inquiries start flowing in."
       }
     },
     "payment_title": "Supported Payment Methods:",

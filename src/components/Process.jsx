@@ -1,4 +1,4 @@
-import { MessageSquare, PhoneCall, Sliders, Rocket, ShieldCheck, ArrowRight, ArrowLeft } from 'lucide-react';
+import { MessageSquare, PhoneCall, Sparkles, Rocket, ShieldCheck, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
@@ -11,7 +11,7 @@ export default function Process() {
   const steps = [
     { 
       num: t('process.steps.0.num'), 
-      icon: <MessageSquare size={18} />, 
+      icon: <Sparkles size={18} />, 
       title: t('process.steps.0.title'), 
       duration: t('process.steps.0.duration'), 
       desc: t('process.steps.0.desc') 
@@ -25,7 +25,7 @@ export default function Process() {
     },
     { 
       num: t('process.steps.2.num'), 
-      icon: <Sliders size={18} />, 
+      icon: <MessageSquare size={18} />, 
       title: t('process.steps.2.title'), 
       duration: t('process.steps.2.duration'), 
       desc: t('process.steps.2.desc') 
