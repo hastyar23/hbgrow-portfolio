@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Flame, TrendingUp, CheckCircle2, Star, Maximize2, X } from 'lucide-react';
+import { TrendingUp, CheckCircle2, Star, Maximize2, X } from 'lucide-react';
 import { designs } from '../data/portfolioData';
 
 // Curated pool of high-performing creatives (keeping all 9 iconic creatives from user's showcase + additions)
@@ -10,27 +10,15 @@ const COL_3_IMAGES = [designs[14], designs[32], designs[50], designs[18]];
 // Luxury floating social-proof badges
 const BADGES = [
   {
-    id: 'roas',
-    top: '5%',
-    left: '2%',
-    sub: 'AVERAGE ROAS',
-    value: '6.2×',
-    icon: Flame,
-    iconBg: 'linear-gradient(135deg, #FF6B4A 0%, #D9381E 100%)',
-    iconShadow: '0 4px 14px rgba(235, 87, 87, 0.4)',
-    delay: 0,
-    className: 'badge-pos-1',
-  },
-  {
-    id: 'sales',
-    top: '8%',
+    id: 'content',
+    top: '7%',
     right: '2%',
-    sub: 'META REVENUE',
-    value: '+340% Sales',
+    sub: 'CONTENT CREATED',
+    value: '+1000',
     icon: TrendingUp,
     iconBg: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
     iconShadow: '0 4px 14px rgba(16, 185, 129, 0.4)',
-    delay: 0.6,
+    delay: 0.2,
     className: 'badge-pos-2',
   },
   {
@@ -42,7 +30,7 @@ const BADGES = [
     icon: CheckCircle2,
     iconBg: 'linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)',
     iconShadow: '0 4px 14px rgba(59, 130, 246, 0.4)',
-    delay: 1.1,
+    delay: 0.8,
     className: 'badge-pos-3',
   },
   {
@@ -54,7 +42,7 @@ const BADGES = [
     icon: Star,
     iconBg: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
     iconShadow: '0 4px 14px rgba(245, 158, 11, 0.4)',
-    delay: 0.3,
+    delay: 0.4,
     className: 'badge-pos-4',
   },
 ];
