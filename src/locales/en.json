@@ -150,72 +150,68 @@
     "cta_btn": "Launch Your Campaign"
   },
   "packages": {
-    "badge": "Growth Retainers",
-    "title": "Select the Sales Package Built for Your Business",
-    "subtitle": "Transparent, low-risk revenue systems designed specifically for businesses across Kurdistan and Iraq.",
-    "items": [
-      {
-        "id": "launch",
-        "name": "Sales Launch",
-        "tagline": "Immediate Sales Jumpstart",
-        "price": "$150",
-        "period": "One-time (14-20 Day Sprint)",
-        "desc": "Built for businesses seeking minimal risk to witness the full power of our sales system on their own bottom line before a monthly commitment. System launches in 10 days.",
-        "features": [
-          "Complete audit of your business, products, and advertising data",
-          "Architecting 1 high-converting commercial sales offer",
-          "4 bespoke ad creative assets (2 Video Reels + 2 Conversion Designs)",
-          "Setting up and managing the sales campaign for the first 7 days",
-          "Custom guide and reply script to convert incoming message inquiries into sales",
-          "Final performance report backed by verified numbers and data"
-        ],
-        "specialOffer": "✨ Special Incentive: Upgrade to the monthly Sales Engine within 7 days and receive a $75 discount on your first month.",
-        "cta": "Start With Sales Launch"
-      },
-      {
-        "id": "engine",
-        "name": "Sales Engine",
-        "tagline": "Continuous Sales Engine",
-        "badge": "⭐ Most Popular Choice for Established Businesses",
-        "isPopular": true,
-        "price": "$350",
-        "period": "Monthly Retainer",
-        "desc": "For businesses, boutique shops, and growing brands that require a disciplined monthly plan to acquire steady new paying customers continuously.",
-        "features": [
-          "Includes all deliverables from Sales Launch",
-          "8 bespoke ad creative assets monthly (4 Video Reels + 4 Conversion Designs)",
-          "Weekly active ad optimization and Meta budget management",
-          "Monthly iteration and refinement of your sales offers",
-          "Staff sales training and messaging conversion scripts to maximize close rates",
-          "Transparent monthly performance reports with verified analytics",
-          "Managing up to $1,500 in monthly ad spend"
-        ],
-        "cta": "Partner With Sales Engine"
-      },
-      {
-        "id": "machine",
-        "name": "Sales Machine",
-        "tagline": "Complete Revenue Machine",
-        "badge": "VIP Strategic Partner",
-        "price": "$750",
-        "period": "Monthly Retainer",
-        "desc": "Engineered for medical clinics, luxury showrooms, real estate developments, and premier corporations. We handle everything from video production to customer acquisition and lead qualification.",
-        "features": [
-          "Includes all deliverables from Sales Engine",
-          "12 bespoke ad creative assets monthly (6 Video Reels + 6 Designs)",
-          "Automated lead filtration + direct qualification of serious buyers by our internal team (up to 300 buyers/mo)",
-          "Retargeting & Follow-up systems to recover prospects who inquired but haven't purchased yet",
-          "Monthly executive strategy sessions to scale transaction volume",
-          "Managing up to $3,000 in monthly ad spend"
-        ],
-        "cta": "Apply for VIP Sales Machine"
-      }
+    "badge": "Engagement Models",
+    "title": "How We Help You Grow",
+    "subtitle": "We offer 3 distinct working models: choose what fits your business best",
+    "choose_hint": "Select one of the models below to explore deliverables and execution",
+    "card1_tag": "Done-For-You",
+    "card1_type": "Done-For-You",
+    "card1_title": "Packages & Offers",
+    "card1_sub": "We handle everything for you end-to-end",
+    "card2_tag": "Done-With-You",
+    "card2_type": "Done-With-You",
+    "card2_title": "1-on-1 Consulting",
+    "card2_sub": "Direct mentorship & guidance so you master execution yourself",
+    "card3_tag": "Do-It-Yourself",
+    "card3_type": "Do-It-Yourself ↗",
+    "card3_title": "Courses & Books",
+    "card3_sub": "Self-paced training and books to learn and execute from scratch",
+    "card3_action": "Opens store in a new tab",
+    "dfy_title": "Packages & Offers: We handle everything for you",
+    "dfy_lead": "We execute every single step for you — you focus on fulfillment while we deliver paying customers.",
+    "dfy_intro": "Our end-to-end scope directly impacts your bottom line:",
+    "dfy_features": [
+      "Full business, product & ad audit + High-converting offer architecture",
+      "Creative production: High-performing Video Reels + Conversion Designs",
+      "Sales campaign launch & active Meta Ads performance management",
+      "Sales chat reply scripts & transparent verified reporting",
+      "Buyer message reply guide & team conversion coaching",
+      "Direct inbox & lead messaging management as required",
+      "High-converting landing page or website development as needed",
+      "Monthly executive revenue & scaling strategy sessions"
     ],
-    "notice": "⚠️ Important Notice: The prices above represent HBgrow's management and creative system fee. Ad spend (paid directly to Meta for Facebook & Instagram) is separate, paid straight to Meta, and your ad account remains 100% under your ownership and control.",
+    "dfy_cta": "Choose a Growth Package",
+    "dfy_cta_sub": "Zero commitment — 15-minute free strategy audit call",
+    "dwy_title": "1-on-1 Consulting: Mentorship and guidance to achieve excellence",
+    "dwy_lead": "Direct 1-on-1 screen-share sessions with a senior growth specialist to guide your business and teach you how to run high-ROI campaigns tailored to your niche.",
+    "dwy_intro": "What you receive in the 1-on-1 Consulting Program:",
+    "dwy_features": [
+      "Direct 1-on-1 live screen-share strategy sessions with senior Meta specialists",
+      "Comprehensive ad account audit to identify budget leaks and conversion bottlenecks",
+      "Crafting an irresistible sales offer tailored to customers across Kurdistan & Iraq",
+      "Hands-on training to film engaging short-form video reels on minimal budget",
+      "Lead qualification & message closing scripts to maximize close rates",
+      "Weekly milestone check-ins to review progress and troubleshoot road blocks"
+    ],
+    "dwy_cta": "Schedule a Call With Us",
+    "dwy_cta_sub": "Connect via WhatsApp or book a consultation on our calendar",
+    "diy_title": "Courses & Books: Learn and execute yourself from scratch",
+    "diy_lead": "Master social media advertising and sales with our practical courses and blueprints available directly on the Mozan store.",
+    "diy_intro": "Key highlights of our courses and digital books:",
+    "diy_features": [
+      "Step-by-step video courses on social media ads and conversion mastery",
+      "Ready-to-use customer messaging scripts and DM closing guides",
+      "Real-world case studies and frameworks proven in the Iraqi & Kurdish markets",
+      "Lifetime access with self-paced learning from any device",
+      "Continuous curriculum updates following the latest Meta algorithm changes"
+    ],
+    "diy_cta": "Visit Courses & Books Store (hbgrow.mozan.store)",
+    "diy_cta_sub": "Opens immediately in a new tab on Mozan store",
+    "diy_url": "https://hbgrow.mozan.store",
     "guarantee_badge": "Performance Guarantee",
-    "guarantee_title": "14-Day Guaranteed Results: We work with data, not hollow words.",
-    "guarantee_desc": "If we do not hit the pre-agreed volume of qualified customer inquiries within the first 14 days of your campaign, we will continue working completely free of charge until the goal is achieved.",
-    "guarantee_condition": "(Guarantee condition: Maintaining the agreed daily ad spend and approving the creative strategy promptly)."
+    "guarantee_title": "14-Day Performance Guarantee — Results or we work for free",
+    "guarantee_desc": "If we do not achieve the pre-agreed volume of qualified customer inquiries in the first 14 days, we continue working at zero fee until the goal is achieved.",
+    "guarantee_btn": "Claim My Free Audit Call"
   },
   "process": {
     "badge": "Onboarding",

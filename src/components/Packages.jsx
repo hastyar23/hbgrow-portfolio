@@ -1,41 +1,15 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Check, Sparkles, ShieldCheck, ArrowRight, ArrowLeft, Phone } from 'lucide-react';
+import { 
+  Check, Sparkles, ShieldCheck, ArrowRight, ArrowLeft, Phone, 
+  Rocket, Users, BookOpen, ExternalLink, Video, Compass,
+  Calendar, CheckCircle2, ChevronRight, Zap, Target
+} from 'lucide-react';
 import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
 import { designs } from '../data/portfolioData';
 
-// All features combined across all 3 packages (deduplicated)
-const ALL_FEATURES_EN = [
-  'Full audit of your business, products & advertising data',
-  'Crafting high-converting commercial sales offers',
-  'Ad creative production: Video Reels + Conversion Designs',
-  'Campaign setup & active Meta Ads management',
-  'WhatsApp conversion scripts to turn leads into sales',
-  'Weekly optimization & Meta budget management',
-  'Monthly offer iteration & refinement',
-  'Transparent monthly performance reports with verified data',
-  'Automated lead filtration & buyer qualification (up to 300/mo)',
-  'Retargeting & follow-up systems to recover lost prospects',
-  'Monthly executive strategy sessions to scale revenue',
-  'Staff sales training & messaging scripts for maximum close rate',
-];
-
-const ALL_FEATURES_KU = [
-  'توێژینەوەی تەواوی کارەکەت، بەرهەمەکانت و داتای ڕیکلامەکانت',
-  'دامەزراندنی پێشکەشکردنی بازرگانی بەرز کە فرۆش درووست دەکات',
-  'بەرهەمهێنانی کریتیڤ: ڤیدیۆی ریلز + دیزاینی فرۆش',
-  'دامەزراندن و بەرێوەبردنی چالاکانەی کامپەینی مەتا ئادز',
-  'سکریپتی گفتوگۆ بۆ وهاتساپ بۆ گوردانەوەی لیدەکان بۆ فرۆش',
-  'باشترکردنی هەفتانەی کامپەین و بەرێوەبردنی بودجەی ئادز',
-  'نوێکردنەوەی مانگانەی پێشکەشکردنەکان',
-  'ڕاپۆرتی کارلێکی مانگانەی ڕوون و داتا-بنچینەیی',
-  'فلترکردنی ئۆتۆماتیکی لیدەکان و پێناسەکردنی کڕیارانی ڕاستەقینە',
-  'سیستەمی ریتارگێتینگ بۆ گەڕاندنەوەی ئەوانەی نەیکڕیون',
-  'دانیشتنی ئیستراتیژی مانگانە بۆ زیادکردنی فرۆش',
-  'پەروەردەکردنی ستافت و سکریپتی پەیامدان بۆ زیادکردنی نرخی داخستن',
-];
-
-// Pick 3 showcase designs
+// Pick 3 showcase designs for DFY packages visual
 const SHOWCASE = [designs[5], designs[18], designs[33]];
 
 export default function Packages() {
@@ -43,239 +17,1153 @@ export default function Packages() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language?.startsWith('ku') || i18n.language?.startsWith('ar');
 
-  const features = isRTL ? ALL_FEATURES_KU : ALL_FEATURES_EN;
+  // Active Model Tab: 'dfy' (Packages) | 'dwy' (Consulting) | 'diy' (Courses & Books)
+  const [activeTab, setActiveTab] = useState('dfy');
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-  const heading = isRTL
-    ? 'ئەمەش کە لەگەڵ هەموو پلانێکدا دێت'
-    : 'Everything Included in Every Plan';
+  const handleSelectTab = (tabId) => {
+    setActiveTab(tabId);
+    if (tabId === 'diy') {
+      window.open('https://hbgrow.mozan.store', '_blank', 'noopener,noreferrer');
+    }
+  };
 
-  const subheading = isRTL
-    ? 'کۆنتراکتی تایبەت بەپێی پێداویستی کارەکەت. نرخ لە دانیشتنی خۆرایی دەمێنینەوە.'
-    : 'Custom contracts built for your business. Pricing discussed on your free audit call.';
+  // Model Cards Configuration
+  const models = [
+    {
+      id: 'dfy',
+      title: t('packages.card1_title', 'پاکێج و ئۆفەر'),
+      tagline: t('packages.card1_type', 'Done-For-You'),
+      tag: t('packages.card1_tag', 'خۆمان دەیکەین'),
+      subtitle: t('packages.card1_sub', 'خۆمان هەموو کارەکانت بۆ دەکەین'),
+      icon: Rocket,
+      color: '#0B3275',
+      lightBg: 'rgba(11, 50, 117, 0.08)',
+      badgeBorder: 'rgba(11, 50, 117, 0.22)',
+      isExternal: false,
+    },
+    {
+      id: 'dwy',
+      title: t('packages.card2_title', 'ڕاوێژکاری'),
+      tagline: t('packages.card2_type', 'Done-With-You'),
+      tag: t('packages.card2_tag', 'پێکەوە دەیکەین'),
+      subtitle: t('packages.card2_sub', 'ڕاوێژکاریت پێدەدەین و لەگەڵت دەبین خۆت بیکەیت تا ئاستێکی باش'),
+      icon: Users,
+      color: '#4F46E5',
+      lightBg: 'rgba(79, 70, 229, 0.08)',
+      badgeBorder: 'rgba(79, 70, 229, 0.22)',
+      isExternal: false,
+    },
+    {
+      id: 'diy',
+      title: t('packages.card3_title', 'کۆرس و کتێب'),
+      tagline: t('packages.card3_type', 'Do-It-Yourself ↗'),
+      tag: t('packages.card3_tag', 'خۆت فێربە'),
+      subtitle: t('packages.card3_sub', 'فێرکاری و کۆرسیت پێدەدەین تا خۆت لە سفرەوە بیانکەیت'),
+      icon: BookOpen,
+      color: '#D97706',
+      lightBg: 'rgba(217, 119, 6, 0.08)',
+      badgeBorder: 'rgba(217, 119, 6, 0.25)',
+      isExternal: true,
+    },
+  ];
 
-  const callLabel = isRTL ? 'پەیوەندیمان پێوە بکە بۆ خۆرایی' : 'Book Your Free Strategy Call';
-  const callSub = isRTL ? 'بێ پابەندی — دانیشتنی ڕاوێژکاری خۆرایی ١٥ خولەک' : 'No commitment — 15-min free consultation';
+  // Raw features from translations
+  const dfyFeatures = t('packages.dfy_features', { returnObjects: true });
+  const safeDfyFeatures = Array.isArray(dfyFeatures) ? dfyFeatures : [];
 
-  const guaranteeTitle = isRTL
-    ? 'گەرەنتی ١٤ ڕۆژ — ئەگەر ئەنجام نەبینیت، بێ بەها کاردەکەین'
-    : '14-Day Performance Guarantee — Results or we work free';
+  const dwyFeatures = t('packages.dwy_features', { returnObjects: true });
+  const safeDwyFeatures = Array.isArray(dwyFeatures) ? dwyFeatures : [];
 
-  const guaranteeDesc = isRTL
-    ? 'ئەگەر لە ١٤ ڕۆژی یەکەمدا نەگەینە ئامانجی پێش تای کراوی لیدی کڕیاری پێوانەپێکراو، بەردەوام دەکەین بێ هیچ کرێیەکی زیادە تا بگەینە ئامانجەکە.'
-    : 'If we don\'t hit the pre-agreed volume of qualified leads in the first 14 days, we continue at zero charge until the goal is achieved.';
+  const diyFeatures = t('packages.diy_features', { returnObjects: true });
+  const safeDiyFeatures = Array.isArray(diyFeatures) ? diyFeatures : [];
 
   return (
     <section
       id="packages"
       style={{
-        padding: 'clamp(4rem, 10vw, 8rem) 0',
+        padding: 'clamp(4rem, 9vw, 7.5rem) 0',
         position: 'relative',
         overflow: 'hidden',
         width: '100%',
         boxSizing: 'border-box',
+        background: '#FFFFFF',
       }}
     >
-      {/* Ambient glow */}
-      <div style={{
-        position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)',
-        width: 'min(1000px, 95%)', height: 500,
-        background: 'radial-gradient(ellipse, rgba(3,20,43,0.025) 0%, transparent 70%)',
-        filter: 'blur(80px)', pointerEvents: 'none',
-      }} />
+      {/* Ambient background glow */}
+      <div 
+        style={{
+          position: 'absolute',
+          top: '20%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: 'min(1100px, 95%)',
+          height: 600,
+          background: 'radial-gradient(ellipse, rgba(11, 50, 117, 0.035) 0%, transparent 70%)',
+          filter: 'blur(90px)',
+          pointerEvents: 'none',
+        }} 
+      />
 
       <div className="section-wrap">
 
         {/* ── Section Header ── */}
-        <div data-reveal style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto clamp(2.5rem, 6vw, 4.5rem)' }}>
-          <span className="font-script-accent">
-            {isRTL ? 'پلانی گەشە و فرۆش' : 'Growth & Revenue Plans'}
-          </span>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
-            <span className="badge">
-              <Sparkles size={12} />
-              {t('packages.badge')}
+        <div style={{ textAlign: 'center', maxWidth: 760, margin: '0 auto clamp(2.5rem, 6vw, 4rem)' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.85rem' }}>
+            <span 
+              className="badge"
+              style={{
+                background: 'rgba(11, 50, 117, 0.06)',
+                border: '1px solid rgba(11, 50, 117, 0.16)',
+                color: '#0B3275',
+                padding: '0.35rem 0.95rem',
+                borderRadius: '100px',
+                fontSize: '0.78rem',
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+              }}
+            >
+              <Sparkles size={13} style={{ color: '#0B3275' }} />
+              {t('packages.badge', 'شێوازی هاوکاری')}
             </span>
           </div>
-          <h2 style={{
-            fontFamily: "'Sarchia Bokan', 'Outfit', serif",
-            fontSize: 'clamp(1.75rem, 4.5vw, 3rem)',
-            fontWeight: 700, lineHeight: 1.25,
-            color: '#0A0A0C', marginBottom: '1rem',
-          }}>
-            {heading}
+
+          <h2 
+            style={{
+              fontFamily: "'Sarchia Bokan', 'Outfit', serif",
+              fontSize: 'clamp(1.95rem, 5vw, 3.25rem)',
+              fontWeight: 800,
+              lineHeight: 1.22,
+              color: '#0A0A0C',
+              marginBottom: '1rem',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            {t('packages.title', 'ئێمە چۆن یارمەتیت دەدەین؟')}
           </h2>
-          <p style={{
-            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Inter', sans-serif",
-            fontSize: 'clamp(0.88rem, 2vw, 1.05rem)',
-            color: '#52525B', lineHeight: 1.9, maxWidth: 560, margin: '0 auto',
-          }}>
-            {subheading}
+
+          <p 
+            style={{
+              fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Inter', sans-serif",
+              fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)',
+              color: '#4B5563',
+              lineHeight: 1.8,
+              maxWidth: 620,
+              margin: '0 auto',
+              fontWeight: 500,
+            }}
+          >
+            {t('packages.subtitle', 'سێ شێوازی کارکردنمان هەیە: (کام شێواز بۆ تۆ دەگونجێت ئەوە هەڵبژێرە)')}
           </p>
         </div>
 
-        {/* ── Main Split Layout (Statiq-style) ── */}
-        <div
-          data-reveal
+        {/* ── 3 Interactive High-End Selector Cards ── */}
+        <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
-            gap: 'clamp(2rem, 5vw, 4rem)',
-            alignItems: 'center',
-            marginBottom: 'clamp(3rem, 7vw, 5rem)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'clamp(1rem, 2.5vw, 1.5rem)',
+            marginBottom: 'clamp(2rem, 5vw, 3.5rem)',
           }}
         >
-          {/* ── Left: Feature List ── */}
-          <div style={{ width: '100%' }}>
-            <p style={{
-              fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-              fontSize: '0.78rem',
-              fontWeight: 700,
-              color: 'rgba(3,20,43,0.45)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '1.5rem',
-            }}>
-              {isRTL ? '— داگیرکراوەی هەموو پلانەکان' : '— What every plan includes'}
-            </p>
+          {models.map((m) => {
+            const isActive = activeTab === m.id;
+            const isHovered = hoveredCard === m.id;
+            const Icon = m.icon;
 
-            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              {features.map((feat, i) => (
-                <li
-                  key={i}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '0.75rem',
-                    fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                    fontSize: 'clamp(0.85rem, 1.8vw, 0.95rem)',
-                    color: '#334155',
-                    lineHeight: 1.65,
-                    flexDirection: isRTL ? 'row-reverse' : 'row',
-                  }}
-                >
-                  <span style={{
-                    width: 20, height: 20,
-                    borderRadius: '50%',
-                    background: 'rgba(3,20,43,0.07)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    flexShrink: 0, marginTop: '0.15rem',
-                  }}>
-                    <Check size={11} style={{ color: '#03142B', strokeWidth: 3 }} />
-                  </span>
-                  <span>{feat}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA block */}
-            <div style={{ marginTop: 'clamp(2rem, 4vw, 3rem)' }}>
-              <button
-                onClick={openSchedule}
-                className="btn-primary"
+            return (
+              <div
+                key={m.id}
+                role="button"
+                tabIndex={0}
+                onClick={() => handleSelectTab(m.id)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleSelectTab(m.id);
+                  }
+                }}
+                onMouseEnter={() => setHoveredCard(m.id)}
+                onMouseLeave={() => setHoveredCard(null)}
                 style={{
-                  gap: '0.65rem',
-                  padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1rem, 3.5vw, 2rem)',
-                  fontSize: 'clamp(0.88rem, 2vw, 1rem)',
-                  boxShadow: '0 6px 28px -4px rgba(3,20,43,0.35)',
-                  border: 'none',
                   cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  width: '100%',
-                  justifyContent: 'center',
-                  maxWidth: 420,
+                  position: 'relative',
+                  padding: 'clamp(1.25rem, 2.8vw, 1.75rem)',
+                  borderRadius: '1.35rem',
+                  background: isActive 
+                    ? 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)' 
+                    : isHovered 
+                      ? '#FFFFFF' 
+                      : '#FAFAFC',
+                  border: isActive 
+                    ? `2px solid ${m.color}` 
+                    : isHovered 
+                      ? '2px solid rgba(11, 50, 117, 0.25)' 
+                      : '2px solid rgba(0, 0, 0, 0.07)',
+                  boxShadow: isActive
+                    ? `0 18px 40px -10px ${m.color}25, 0 4px 12px rgba(0, 0, 0, 0.04)`
+                    : isHovered
+                      ? '0 12px 30px -8px rgba(0, 0, 0, 0.08)'
+                      : '0 2px 8px rgba(0, 0, 0, 0.02)',
+                  transform: isActive ? 'translateY(-3px)' : isHovered ? 'translateY(-2px)' : 'none',
+                  transition: 'all 0.28s cubic-bezier(0.16, 1, 0.3, 1)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  minHeight: 180,
                   boxSizing: 'border-box',
                 }}
               >
-                <WhatsAppIcon size={18} style={{ flexShrink: 0 }} />
-                <span>{callLabel}</span>
-                {isRTL ? <ArrowLeft size={15} style={{ flexShrink: 0 }} /> : <ArrowRight size={15} style={{ flexShrink: 0 }} />}
-              </button>
-              <p style={{
-                fontFamily: "'Inter', 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
-                fontSize: '0.8rem',
-                color: 'rgba(3,20,43,0.45)',
-                marginTop: '0.7rem',
-                textAlign: 'center',
-                maxWidth: 420,
-              }}>
-                {callSub}
-              </p>
-            </div>
-          </div>
+                {/* Active Indicator Top Pill */}
+                {isActive && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '-0.7rem',
+                      [isRTL ? 'left' : 'right']: '1.25rem',
+                      background: m.color,
+                      color: '#FFFFFF',
+                      fontSize: '0.68rem',
+                      fontWeight: 700,
+                      padding: '0.2rem 0.65rem',
+                      borderRadius: '100px',
+                      boxShadow: `0 4px 12px ${m.color}40`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.3rem',
+                      fontFamily: "'Inter', 'IBM Plex Sans Arabic', sans-serif",
+                    }}
+                  >
+                    <span 
+                      style={{ 
+                        width: 5, 
+                        height: 5, 
+                        borderRadius: '50%', 
+                        background: '#FFFFFF',
+                        boxShadow: '0 0 6px #FFFFFF',
+                      }} 
+                    />
+                    <span>{isRTL ? 'هەڵبژێردراوە' : 'Active Choice'}</span>
+                  </div>
+                )}
 
-          {/* ── Right: Stacked showcase images (safe bounds, no negative margin overflow) ── */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', width: '100%', padding: '0.75rem 0' }}>
-            {/* Decorative grid background */}
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: 'radial-gradient(rgba(3,20,43,0.07) 1px, transparent 1px)',
-              backgroundSize: '24px 24px',
-              borderRadius: '1.5rem',
-              opacity: 0.5,
-              pointerEvents: 'none',
-            }} />
+                {/* Top Row: Icon + Badge */}
+                <div>
+                  <div 
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginBottom: '1rem',
+                      flexDirection: 'row',
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 44,
+                        height: 44,
+                        borderRadius: '0.9rem',
+                        background: m.lightBg,
+                        border: `1px solid ${m.badgeBorder}`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: m.color,
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Icon size={22} style={{ strokeWidth: 2.2 }} />
+                    </div>
 
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 'clamp(0.75rem, 2vw, 1.25rem)',
-              position: 'relative',
-              zIndex: 2,
-              maxWidth: 340,
-              width: '100%',
-              boxSizing: 'border-box',
-            }}>
-              {SHOWCASE.map((src, i) => (
+                    <span
+                      style={{
+                        background: m.lightBg,
+                        color: m.color,
+                        border: `1px solid ${m.badgeBorder}`,
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '100px',
+                        fontSize: '0.72rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.04em',
+                        fontFamily: "'Inter', 'IBM Plex Sans Arabic', sans-serif",
+                      }}
+                    >
+                      {m.tag}
+                    </span>
+                  </div>
+
+                  {/* Card Title */}
+                  <h3
+                    style={{
+                      fontFamily: "'Sarchia Bokan', 'Outfit', serif",
+                      fontSize: '1.28rem',
+                      fontWeight: 800,
+                      color: '#0A0A0C',
+                      marginBottom: '0.45rem',
+                      lineHeight: 1.35,
+                    }}
+                  >
+                    {m.title}
+                  </h3>
+
+                  {/* Card Subtitle */}
+                  <p
+                    style={{
+                      fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                      fontSize: '0.88rem',
+                      color: '#52525B',
+                      lineHeight: 1.6,
+                      margin: 0,
+                    }}
+                  >
+                    {m.subtitle}
+                  </p>
+                </div>
+
+                {/* Bottom Action Pill */}
                 <div
-                  key={i}
                   style={{
-                    borderRadius: '1.25rem',
-                    overflow: 'hidden',
-                    boxShadow: '0 10px 40px -10px rgba(3,20,43,0.15)',
-                    border: '1px solid rgba(0,0,0,0.07)',
-                    aspectRatio: i === 1 ? '16/7' : '16/9',
-                    transform: i === 0 ? 'rotate(-1.2deg)' : i === 2 ? 'rotate(1deg)' : 'none',
-                    transition: 'transform 0.3s ease',
+                    marginTop: '1.25rem',
+                    paddingTop: '0.75rem',
+                    borderTop: '1px solid rgba(0, 0, 0, 0.06)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    color: isActive ? m.color : '#64748B',
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
                   }}
                 >
-                  <img
-                    src={src}
-                    alt="HBgrow ad creative"
-                    loading="lazy"
-                    decoding="async"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                  />
+                  <span>
+                    {m.isExternal 
+                      ? (isRTL ? 'کردنەوەی فرۆشگا ↗' : 'Visit Store ↗')
+                      : (isRTL ? 'بینینی خزمەتگوزارییەکان' : 'View Scope & Deliverables')}
+                  </span>
+                  {m.isExternal ? (
+                    <ExternalLink size={14} style={{ color: m.color }} />
+                  ) : isRTL ? (
+                    <ArrowLeft size={14} style={{ color: isActive ? m.color : '#94A3B8' }} />
+                  ) : (
+                    <ArrowRight size={14} style={{ color: isActive ? m.color : '#94A3B8' }} />
+                  )}
                 </div>
-              ))}
-
-              {/* Floating price tag — safe inside right edge, no horizontal scroll */}
-              <div style={{
-                position: 'absolute',
-                bottom: '-0.75rem',
-                [isRTL ? 'left' : 'right']: '0.5rem',
-                background: 'linear-gradient(135deg, #020C1B 0%, #041E42 50%, #0A2E66 100%)',
-                color: '#FFFFFF',
-                padding: '0.65rem 1.15rem',
-                borderRadius: '1rem',
-                boxShadow: '0 8px 30px rgba(3,20,43,0.3)',
-                fontFamily: "'Outfit', 'Inter', sans-serif",
-                zIndex: 10,
-              }}>
-                <div style={{ fontSize: '0.68rem', opacity: 0.75, marginBottom: '0.15rem', fontWeight: 500 }}>
-                  {isRTL ? 'دەستپێکردن لە' : 'Starting from'}
-                </div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, lineHeight: 1 }}>$150</div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
 
-        {/* ── 14-Day Guarantee Card ── */}
+        {/* ── Main Detail Panel for Selected Model ── */}
         <div
-          data-reveal
           style={{
-            padding: 'clamp(1.75rem, 4.5vw, 3rem) clamp(1.25rem, 4vw, 3rem)',
+            background: 'linear-gradient(180deg, #FFFFFF 0%, #FAFAFC 100%)',
+            border: '1.5px solid rgba(11, 50, 117, 0.12)',
+            borderRadius: '1.75rem',
+            padding: 'clamp(1.75rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem)',
+            boxShadow: '0 25px 60px -15px rgba(11, 50, 117, 0.08), 0 4px 16px rgba(0, 0, 0, 0.03)',
+            position: 'relative',
+            overflow: 'hidden',
+            marginBottom: 'clamp(3rem, 7vw, 4.5rem)',
+            animation: 'fadeInPanel 0.3s ease-out forwards',
+          }}
+        >
+          {/* Subtle top indicator bar */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 4,
+              background: activeTab === 'dfy' 
+                ? 'linear-gradient(90deg, #0B3275, #2563EB)' 
+                : activeTab === 'dwy' 
+                  ? 'linear-gradient(90deg, #4F46E5, #7C3AED)' 
+                  : 'linear-gradient(90deg, #D97706, #EA580C)',
+            }}
+          />
+
+          {/* ──────────────── TAB 1: پاکێج و ئۆفەر (DFY) ──────────────── */}
+          {activeTab === 'dfy' && (
+            <div>
+              {/* Header inside Panel */}
+              <div style={{ maxWidth: 840, marginBottom: 'clamp(1.75rem, 4vw, 2.5rem)' }}>
+                <span
+                  style={{
+                    display: 'inline-block',
+                    background: 'rgba(11, 50, 117, 0.08)',
+                    color: '#0B3275',
+                    fontSize: '0.74rem',
+                    fontWeight: 700,
+                    padding: '0.3rem 0.85rem',
+                    borderRadius: '100px',
+                    marginBottom: '0.85rem',
+                    letterSpacing: '0.04em',
+                    fontFamily: "'Inter', 'IBM Plex Sans Arabic', sans-serif",
+                  }}
+                >
+                  {isRTL ? 'خزمەتگوزاری و بەڕێوەبردنی تەواو (Done-For-You)' : 'Full Service Growth Agency (Done-For-You)'}
+                </span>
+
+                <h3
+                  style={{
+                    fontFamily: "'Sarchia Bokan', 'Outfit', serif",
+                    fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)',
+                    fontWeight: 800,
+                    color: '#0A0A0C',
+                    marginBottom: '0.75rem',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {t('packages.dfy_title', 'پاکێج و ئۆفەر: خۆمان هەموو کارەکانت بۆ دەکەین')}
+                </h3>
+
+                <p
+                  style={{
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                    fontSize: 'clamp(0.95rem, 2vw, 1.12rem)',
+                    fontWeight: 600,
+                    color: '#0B3275',
+                    marginBottom: '0.5rem',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {t('packages.dfy_lead', 'سەرجەم کارەکان خۆمان بۆت دەکەین، واتە تۆ تەنها سەیر دەکەیت.')}
+                </p>
+
+                <p
+                  style={{
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                    fontSize: '0.9rem',
+                    color: '#64748B',
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  {t('packages.dfy_intro', 'کارەکانیش پێک دێن لەمانەی خوارەوە، کە ڕاستەوخۆ کار لەسەر فرۆشی بزنسەکەت دەکەین:')}
+                </p>
+              </div>
+
+              {/* Split Layout: Deliverables (Left) + Visual Showcase (Right) */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+                  gap: 'clamp(2rem, 5vw, 3.5rem)',
+                  alignItems: 'center',
+                }}
+              >
+                {/* 8 Deliverable Items */}
+                <div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.85rem',
+                    }}
+                  >
+                    {safeDfyFeatures.map((feat, idx) => (
+                      <div
+                        key={idx}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '0.75rem',
+                          background: '#FFFFFF',
+                          border: '1px solid rgba(0, 0, 0, 0.06)',
+                          borderRadius: '1rem',
+                          padding: '0.8rem 1rem',
+                          boxShadow: '0 2px 6px rgba(0, 0, 0, 0.02)',
+                          transition: 'border-color 0.2s ease, transform 0.2s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(11, 50, 117, 0.25)';
+                          e.currentTarget.style.transform = isRTL ? 'translateX(-3px)' : 'translateX(3px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.06)';
+                          e.currentTarget.style.transform = 'none';
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: 24,
+                            height: 24,
+                            borderRadius: '50%',
+                            background: 'rgba(11, 50, 117, 0.09)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                            marginTop: '0.15rem',
+                          }}
+                        >
+                          <Check size={13} style={{ color: '#0B3275', strokeWidth: 3 }} />
+                        </div>
+
+                        <span
+                          style={{
+                            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                            fontSize: 'clamp(0.85rem, 1.8vw, 0.94rem)',
+                            color: '#1E293B',
+                            fontWeight: 500,
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {feat}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA Action */}
+                  <div style={{ marginTop: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+                    <button
+                      onClick={openSchedule}
+                      className="btn-primary"
+                      style={{
+                        padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1.25rem, 3.5vw, 2.2rem)',
+                        fontSize: 'clamp(0.92rem, 2vw, 1.05rem)',
+                        boxShadow: '0 8px 30px -4px rgba(11, 50, 117, 0.4)',
+                        border: 'none',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.65rem',
+                        width: '100%',
+                        maxWidth: 380,
+                        borderRadius: '100px',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      <WhatsAppIcon size={19} style={{ flexShrink: 0 }} />
+                      <span>{t('packages.dfy_cta', 'یەکێک لە پاکێجەکان هەڵبژێرە')}</span>
+                      {isRTL ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+                    </button>
+                    <p
+                      style={{
+                        fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                        fontSize: '0.8rem',
+                        color: '#64748B',
+                        marginTop: '0.6rem',
+                        maxWidth: 380,
+                        textAlign: 'center',
+                      }}
+                    >
+                      {t('packages.dfy_cta_sub', 'بێ پابەندی — دانیشتنی ڕاوێژکاری خۆڕایی ١٥ خولەک')}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right: Stacked Creative Visuals */}
+                <div 
+                  style={{ 
+                    position: 'relative', 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    width: '100%', 
+                    padding: '0.5rem 0',
+                  }}
+                >
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      backgroundImage: 'radial-gradient(rgba(11, 50, 117, 0.08) 1px, transparent 1px)',
+                      backgroundSize: '22px 22px',
+                      borderRadius: '1.5rem',
+                      opacity: 0.6,
+                      pointerEvents: 'none',
+                    }}
+                  />
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 'clamp(0.75rem, 2vw, 1.15rem)',
+                      position: 'relative',
+                      zIndex: 2,
+                      maxWidth: 340,
+                      width: '100%',
+                      boxSizing: 'border-box',
+                    }}
+                  >
+                    {SHOWCASE.map((src, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          borderRadius: '1.25rem',
+                          overflow: 'hidden',
+                          boxShadow: '0 10px 35px -10px rgba(11, 50, 117, 0.16)',
+                          border: '1px solid rgba(0, 0, 0, 0.08)',
+                          aspectRatio: i === 1 ? '16/7' : '16/9',
+                          transform: i === 0 ? 'rotate(-1.2deg)' : i === 2 ? 'rotate(1deg)' : 'none',
+                          transition: 'transform 0.3s ease',
+                          background: '#F1F5F9',
+                        }}
+                      >
+                        <img
+                          src={src}
+                          alt="HBgrow ad creative"
+                          loading="lazy"
+                          decoding="async"
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        />
+                      </div>
+                    ))}
+
+                    {/* Floating Price Sticker */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: '-0.75rem',
+                        [isRTL ? 'left' : 'right']: '0.5rem',
+                        background: 'linear-gradient(135deg, #020C1B 0%, #041E42 50%, #0A2E66 100%)',
+                        color: '#FFFFFF',
+                        padding: '0.65rem 1.15rem',
+                        borderRadius: '1rem',
+                        boxShadow: '0 8px 30px rgba(11, 50, 117, 0.35)',
+                        fontFamily: "'Outfit', 'Inter', sans-serif",
+                        zIndex: 10,
+                      }}
+                    >
+                      <div style={{ fontSize: '0.68rem', opacity: 0.8, marginBottom: '0.15rem', fontWeight: 500 }}>
+                        {isRTL ? 'دەستپێکردن لە' : 'Starting from'}
+                      </div>
+                      <div style={{ fontSize: '1.4rem', fontWeight: 800, lineHeight: 1 }}>$150</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ──────────────── TAB 2: ڕاوێژکاری (DWY) ──────────────── */}
+          {activeTab === 'dwy' && (
+            <div>
+              {/* Header inside Panel */}
+              <div style={{ maxWidth: 840, marginBottom: 'clamp(1.75rem, 4vw, 2.5rem)' }}>
+                <span
+                  style={{
+                    display: 'inline-block',
+                    background: 'rgba(79, 70, 229, 0.08)',
+                    color: '#4F46E5',
+                    fontSize: '0.74rem',
+                    fontWeight: 700,
+                    padding: '0.3rem 0.85rem',
+                    borderRadius: '100px',
+                    marginBottom: '0.85rem',
+                    letterSpacing: '0.04em',
+                    fontFamily: "'Inter', 'IBM Plex Sans Arabic', sans-serif",
+                  }}
+                >
+                  {isRTL ? 'ڕاوێژکاری و هاوکاری ٢ بە ٢ (Done-With-You)' : '1-on-1 Strategic Consulting (Done-With-You)'}
+                </span>
+
+                <h3
+                  style={{
+                    fontFamily: "'Sarchia Bokan', 'Outfit', serif",
+                    fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)',
+                    fontWeight: 800,
+                    color: '#0A0A0C',
+                    marginBottom: '0.75rem',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {t('packages.dwy_title', 'ڕاوێژکاری: ڕاوێژکاریت پێدەدەین و لەگەڵت دەبین خۆت بیکەیت تا ئاستێکی باش')}
+                </h3>
+
+                <p
+                  style={{
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                    fontSize: 'clamp(0.95rem, 2vw, 1.12rem)',
+                    fontWeight: 600,
+                    color: '#4F46E5',
+                    marginBottom: '0.5rem',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {t('packages.dwy_lead', 'ڕاوێژت پێدەدەین و ٢ بە ٢ لەگەڵ شارەزای تایبەت بە بوارەکە فێرت دەکەین چۆن بزنسەکەت بەرەو پێشەوە ببەیت لە سۆشیاڵ میدیا و فێری سپۆنسەرکردن ببیت بە تایبەت بۆ بزنسەکەی خۆت')}
+                </p>
+
+                <p
+                  style={{
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                    fontSize: '0.9rem',
+                    color: '#64748B',
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  {t('packages.dwy_intro', 'لە پرۆگرامی ڕاوێژکاری تایبەتی ٢ بە ٢ چی بەدەست دەهێنیت؟')}
+                </p>
+              </div>
+
+              {/* Split Layout: Consulting Pillars + Meeting Preview Card */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+                  gap: 'clamp(2rem, 5vw, 3.5rem)',
+                  alignItems: 'center',
+                }}
+              >
+                {/* Features List */}
+                <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                    {safeDwyFeatures.map((feat, idx) => (
+                      <div
+                        key={idx}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '0.75rem',
+                          background: '#FFFFFF',
+                          border: '1px solid rgba(0, 0, 0, 0.06)',
+                          borderRadius: '1rem',
+                          padding: '0.85rem 1rem',
+                          boxShadow: '0 2px 6px rgba(0, 0, 0, 0.02)',
+                          transition: 'border-color 0.2s ease, transform 0.2s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(79, 70, 229, 0.25)';
+                          e.currentTarget.style.transform = isRTL ? 'translateX(-3px)' : 'translateX(3px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.06)';
+                          e.currentTarget.style.transform = 'none';
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: 24,
+                            height: 24,
+                            borderRadius: '50%',
+                            background: 'rgba(79, 70, 229, 0.09)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                            marginTop: '0.15rem',
+                          }}
+                        >
+                          <Check size={13} style={{ color: '#4F46E5', strokeWidth: 3 }} />
+                        </div>
+
+                        <span
+                          style={{
+                            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                            fontSize: 'clamp(0.85rem, 1.8vw, 0.94rem)',
+                            color: '#1E293B',
+                            fontWeight: 500,
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {feat}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA Action */}
+                  <div style={{ marginTop: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+                    <button
+                      onClick={openSchedule}
+                      className="btn-primary"
+                      style={{
+                        padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1.25rem, 3.5vw, 2.2rem)',
+                        fontSize: 'clamp(0.92rem, 2vw, 1.05rem)',
+                        background: 'linear-gradient(135deg, #4338CA 0%, #4F46E5 50%, #6366F1 100%)',
+                        boxShadow: '0 8px 30px -4px rgba(79, 70, 229, 0.4)',
+                        border: 'none',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.65rem',
+                        width: '100%',
+                        maxWidth: 380,
+                        borderRadius: '100px',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      <Calendar size={18} style={{ flexShrink: 0 }} />
+                      <span>{t('packages.dwy_cta', 'کاتێک دیاریبکە بۆ پەیوەندیکردن لەگەڵمان')}</span>
+                      {isRTL ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+                    </button>
+                    <p
+                      style={{
+                        fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                        fontSize: '0.8rem',
+                        color: '#64748B',
+                        marginTop: '0.6rem',
+                        maxWidth: 380,
+                        textAlign: 'center',
+                      }}
+                    >
+                      {t('packages.dwy_cta_sub', 'پەیوەندی لە ڕێگەی واتسئاپ یان دیاریکردنی کاتی دانیشتن لە کالیندەر')}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right: Consulting Preview Card */}
+                <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                  <div
+                    style={{
+                      maxWidth: 360,
+                      width: '100%',
+                      background: 'linear-gradient(145deg, #1E1B4B 0%, #0F172A 100%)',
+                      borderRadius: '1.5rem',
+                      padding: '1.75rem',
+                      color: '#FFFFFF',
+                      boxShadow: '0 20px 50px -10px rgba(79, 70, 229, 0.25)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      position: 'relative',
+                      boxSizing: 'border-box',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                      <div
+                        style={{
+                          width: 44,
+                          height: 44,
+                          borderRadius: '0.85rem',
+                          background: 'rgba(255, 255, 255, 0.1)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#A5B4FC',
+                        }}
+                      >
+                        <Video size={22} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.75rem', color: '#A5B4FC', fontWeight: 600 }}>
+                          {isRTL ? 'دانیشتنی ڕاستەوخۆ' : 'Live Screen-Share'}
+                        </div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 800 }}>
+                          {isRTL ? 'ڕاوێژکاری ٢ بە ٢' : '1-on-1 Intensive'}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderRadius: '1rem',
+                        padding: '1rem',
+                        marginBottom: '1.25rem',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.65rem',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem' }}>
+                        <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>
+                        <span>{isRTL ? 'شیکردنەوەی خێرای ئەکاونتی ڕیکلامەکەت' : 'Instant ad account performance audit'}</span>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem' }}>
+                        <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>
+                        <span>{isRTL ? 'داڕشتنی ئۆفەری فرۆش بە دەستی پسپۆڕ' : 'Handcrafted conversion offer'}</span>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem' }}>
+                        <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span>
+                        <span>{isRTL ? 'ڕاهێنانی وەڵامدانەوەی نامەی کڕیار' : 'DM message close rate coaching'}</span>
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        padding: '0.75rem 1rem',
+                        borderRadius: '0.85rem',
+                        background: 'rgba(79, 70, 229, 0.25)',
+                        border: '1px solid rgba(165, 180, 252, 0.25)',
+                        fontSize: '0.8rem',
+                        color: '#E0E7FF',
+                        textAlign: 'center',
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {isRTL ? 'دانیشتنەکە بە تەواوی تۆمار دەکرێت و دەدرێتەوە پێت' : 'Full call recording + action notes provided'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ──────────────── TAB 3: کۆرس و کتێب (DIY) ──────────────── */}
+          {activeTab === 'diy' && (
+            <div>
+              {/* Header inside Panel */}
+              <div style={{ maxWidth: 840, marginBottom: 'clamp(1.75rem, 4vw, 2.5rem)' }}>
+                <span
+                  style={{
+                    display: 'inline-block',
+                    background: 'rgba(217, 119, 6, 0.08)',
+                    color: '#D97706',
+                    fontSize: '0.74rem',
+                    fontWeight: 700,
+                    padding: '0.3rem 0.85rem',
+                    borderRadius: '100px',
+                    marginBottom: '0.85rem',
+                    letterSpacing: '0.04em',
+                    fontFamily: "'Inter', 'IBM Plex Sans Arabic', sans-serif",
+                  }}
+                >
+                  {isRTL ? 'فێرکاری و کتێبی دیجیتاڵی (Do-It-Yourself)' : 'Self-Paced Courses & Digital Blueprints'}
+                </span>
+
+                <h3
+                  style={{
+                    fontFamily: "'Sarchia Bokan', 'Outfit', serif",
+                    fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)',
+                    fontWeight: 800,
+                    color: '#0A0A0C',
+                    marginBottom: '0.75rem',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {t('packages.diy_title', 'کۆرس و کتێب: فێرکاری و کۆرسیت پێدەدەین تا خۆت لە سفرەوە بیانکەیت')}
+                </h3>
+
+                <p
+                  style={{
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                    fontSize: 'clamp(0.95rem, 2vw, 1.12rem)',
+                    fontWeight: 600,
+                    color: '#D97706',
+                    marginBottom: '0.5rem',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {t('packages.diy_lead', 'فێرکاری و کۆرسیت پێدەدەین تا خۆت لە سفرەوە بیانکەیت. هەموو زانیاری، ستراتیژی و ئەزموونی ڕاستەقینەی خۆمان لە فرۆشگای مۆزان بۆ ئامادە کردوویت.')}
+                </p>
+
+                <p
+                  style={{
+                    fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                    fontSize: '0.9rem',
+                    color: '#64748B',
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  {t('packages.diy_intro', 'تایبەتمەندییە سەرەکییەکانی فرۆشگای کۆرس و پەرتووکەکانی HBgrow:')}
+                </p>
+              </div>
+
+              {/* Split Layout: Course Pillars + Mozan Store Card */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+                  gap: 'clamp(2rem, 5vw, 3.5rem)',
+                  alignItems: 'center',
+                }}
+              >
+                {/* Features List */}
+                <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                    {safeDiyFeatures.map((feat, idx) => (
+                      <div
+                        key={idx}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '0.75rem',
+                          background: '#FFFFFF',
+                          border: '1px solid rgba(0, 0, 0, 0.06)',
+                          borderRadius: '1rem',
+                          padding: '0.85rem 1rem',
+                          boxShadow: '0 2px 6px rgba(0, 0, 0, 0.02)',
+                          transition: 'border-color 0.2s ease, transform 0.2s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(217, 119, 6, 0.3)';
+                          e.currentTarget.style.transform = isRTL ? 'translateX(-3px)' : 'translateX(3px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.06)';
+                          e.currentTarget.style.transform = 'none';
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: 24,
+                            height: 24,
+                            borderRadius: '50%',
+                            background: 'rgba(217, 119, 6, 0.1)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                            marginTop: '0.15rem',
+                          }}
+                        >
+                          <Check size={13} style={{ color: '#D97706', strokeWidth: 3 }} />
+                        </div>
+
+                        <span
+                          style={{
+                            fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                            fontSize: 'clamp(0.85rem, 1.8vw, 0.94rem)',
+                            color: '#1E293B',
+                            fontWeight: 500,
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {feat}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA Action: Opens Store */}
+                  <div style={{ marginTop: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+                    <a
+                      href="https://hbgrow.mozan.store"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary"
+                      style={{
+                        padding: 'clamp(0.85rem, 2.5vw, 1rem) clamp(1.25rem, 3.5vw, 2.2rem)',
+                        fontSize: 'clamp(0.92rem, 2vw, 1.05rem)',
+                        background: 'linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%)',
+                        boxShadow: '0 8px 30px -4px rgba(217, 119, 6, 0.45)',
+                        border: 'none',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.65rem',
+                        width: '100%',
+                        maxWidth: 420,
+                        borderRadius: '100px',
+                        boxSizing: 'border-box',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <BookOpen size={18} style={{ flexShrink: 0 }} />
+                      <span>{t('packages.diy_cta', 'سەردانی فرۆشگای کۆرسەکان بکە (hbgrow.mozan.store)')}</span>
+                      <ExternalLink size={15} style={{ flexShrink: 0 }} />
+                    </a>
+                    <p
+                      style={{
+                        fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', sans-serif",
+                        fontSize: '0.8rem',
+                        color: '#64748B',
+                        marginTop: '0.6rem',
+                        maxWidth: 420,
+                        textAlign: 'center',
+                      }}
+                    >
+                      {t('packages.diy_cta_sub', 'ڕاستەوخۆ لە فرۆشگای مۆزان لە تابی نوێ دەکرێتەوە')}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right: Mozan Store Showcase Card */}
+                <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                  <a
+                    href="https://hbgrow.mozan.store"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      maxWidth: 360,
+                      width: '100%',
+                      background: 'linear-gradient(145deg, #2A1705 0%, #0F172A 100%)',
+                      borderRadius: '1.5rem',
+                      padding: '1.75rem',
+                      color: '#FFFFFF',
+                      boxShadow: '0 20px 50px -10px rgba(217, 119, 6, 0.25)',
+                      border: '1px solid rgba(245, 158, 11, 0.2)',
+                      position: 'relative',
+                      boxSizing: 'border-box',
+                      textDecoration: 'none',
+                      display: 'block',
+                      transition: 'transform 0.25s ease, border-color 0.25s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'none';
+                      e.currentTarget.style.borderColor = 'rgba(245, 158, 11, 0.2)';
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+                      <span
+                        style={{
+                          background: 'rgba(245, 158, 11, 0.2)',
+                          color: '#FCD34D',
+                          fontSize: '0.72rem',
+                          fontWeight: 700,
+                          padding: '0.25rem 0.65rem',
+                          borderRadius: '100px',
+                          border: '1px solid rgba(245, 158, 11, 0.3)',
+                        }}
+                      >
+                        Mozan Store
+                      </span>
+                      <ExternalLink size={16} style={{ color: '#FCD34D' }} />
+                    </div>
+
+                    <h4
+                      style={{
+                        fontFamily: "'Sarchia Bokan', 'Outfit', serif",
+                        fontSize: '1.35rem',
+                        fontWeight: 800,
+                        marginBottom: '0.6rem',
+                        color: '#FFFFFF',
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {isRTL ? 'فرۆشگای فەرمی HBgrow' : 'HBgrow Official Academy'}
+                    </h4>
+
+                    <p style={{ fontSize: '0.85rem', color: '#CBD5E1', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                      {isRTL
+                        ? 'تەواوی کۆرسە تۆمارکراوەکان، کتێبی ئەلیکترۆنی و سکریپتەکان لە فرۆشگای مۆزان دەستدەکەوێت.'
+                        : 'Explore recorded masterclasses, frameworks, and plug-and-play DM sales scripts on Mozan store.'}
+                    </p>
+
+                    <div
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.08)',
+                        padding: '0.85rem 1rem',
+                        borderRadius: '0.85rem',
+                        fontSize: '0.82rem',
+                        color: '#FDE68A',
+                        fontWeight: 600,
+                        textAlign: 'center',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.4rem',
+                      }}
+                    >
+                      <span>hbgrow.mozan.store</span>
+                      <ArrowUpRight size={14} />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* ── 14-Day Performance Guarantee Card ── */}
+        <div
+          style={{
+            padding: 'clamp(1.75rem, 4.5vw, 2.75rem) clamp(1.25rem, 4vw, 2.75rem)',
             borderRadius: '1.5rem',
             background: 'linear-gradient(135deg, #020C1B 0%, #041E42 50%, #0A2E66 100%)',
             color: '#FFFFFF',
@@ -286,94 +1174,130 @@ export default function Packages() {
             boxSizing: 'border-box',
           }}
         >
-          {/* Subtle dot grid on dark bg */}
-          <div style={{
-            position: 'absolute', inset: 0,
-            backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-            pointerEvents: 'none',
-          }} />
+          {/* Subtle dot grid */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+              pointerEvents: 'none',
+            }}
+          />
           {/* Top shine */}
-          <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0, height: 1,
-            background: 'linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.2) 50%, transparent 90%)',
-          }} />
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 1,
+              background: 'linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.2) 50%, transparent 90%)',
+            }}
+          />
 
           <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexDirection: isRTL ? 'row-reverse' : 'row', flexWrap: 'wrap' }}>
-              <div style={{
-                width: 42, height: 42, borderRadius: '0.85rem',
-                background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-              }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexDirection: 'row', flexWrap: 'wrap' }}>
+              <div
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: '0.85rem',
+                  background: 'rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+              >
                 <ShieldCheck size={22} style={{ color: '#FFFFFF' }} />
               </div>
-              <span style={{
-                background: 'rgba(255,255,255,0.12)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                padding: '0.3rem 0.85rem',
-                borderRadius: '100px',
-                fontSize: '0.72rem',
-                fontWeight: 700,
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase',
-              }}>
-                {t('packages.guarantee_badge')}
+              <span
+                style={{
+                  background: 'rgba(255,255,255,0.12)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  padding: '0.3rem 0.85rem',
+                  borderRadius: '100px',
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {t('packages.guarantee_badge', 'گەرەنتی مسۆگەر')}
               </span>
             </div>
 
-            <h3 style={{
-              fontFamily: "'Sarchia Bokan', 'Outfit', serif",
-              fontSize: 'clamp(1.25rem, 3.5vw, 2rem)',
-              fontWeight: 700, color: '#FFFFFF', lineHeight: 1.3,
-            }}>
-              {guaranteeTitle}
+            <h3
+              style={{
+                fontFamily: "'Sarchia Bokan', 'Outfit', serif",
+                fontSize: 'clamp(1.2rem, 3.2vw, 1.85rem)',
+                fontWeight: 700,
+                color: '#FFFFFF',
+                lineHeight: 1.3,
+              }}
+            >
+              {t('packages.guarantee_title', 'گەرەنتی ١٤ ڕۆژ ئەنجام — ئێمە بە داتا کار دەکەین نەک بە قسە')}
             </h3>
 
-            <p style={{
-              fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Inter', sans-serif",
-              fontSize: 'clamp(0.88rem, 2vw, 1rem)',
-              color: 'rgba(255,255,255,0.75)',
-              lineHeight: 1.85, maxWidth: 700,
-            }}>
-              {guaranteeDesc}
+            <p
+              style={{
+                fontFamily: "'IBM Plex Sans Arabic', 'Noto Kufi Arabic', 'Inter', sans-serif",
+                fontSize: 'clamp(0.88rem, 2vw, 0.98rem)',
+                color: 'rgba(255,255,255,0.8)',
+                lineHeight: 1.85,
+                maxWidth: 720,
+              }}
+            >
+              {t('packages.guarantee_desc', 'ئەگەر لە ١٤ ڕۆژی یەکەمدا نەگەینە ئامانجی پێشتر دیاریکراوی لیدی کڕیار، بەردەوام دەبین بێ هیچ کرێیەکی زیادە تاوەکو دەگەین بە ئامانجەکە.')}
             </p>
 
             <button
               onClick={openSchedule}
               style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
                 background: 'rgba(255,255,255,0.12)',
                 border: '1px solid rgba(255,255,255,0.25)',
                 color: '#FFFFFF',
                 padding: 'clamp(0.75rem, 2vw, 0.85rem) clamp(1.25rem, 3.5vw, 1.75rem)',
                 borderRadius: '100px',
-                fontSize: 'clamp(0.82rem, 2vw, 0.9rem)', fontWeight: 600,
+                fontSize: 'clamp(0.82rem, 2vw, 0.9rem)',
+                fontWeight: 600,
                 cursor: 'pointer',
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Inter', 'IBM Plex Sans Arabic', sans-serif",
                 alignSelf: 'flex-start',
                 transition: 'background 0.25s ease, border-color 0.25s ease',
-                flexDirection: isRTL ? 'row-reverse' : 'row',
+                flexDirection: 'row',
                 maxWidth: '100%',
                 boxSizing: 'border-box',
               }}
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
               }}
             >
               <Phone size={16} style={{ flexShrink: 0 }} />
-              <span>{isRTL ? 'داوای دانیشتنی خۆرایی بکە' : 'Claim My Free Audit Call'}</span>
+              <span>{t('packages.guarantee_btn', 'داوای دانیشتنی خۆڕایی بکە')}</span>
               {isRTL ? <ArrowLeft size={14} style={{ flexShrink: 0 }} /> : <ArrowRight size={14} style={{ flexShrink: 0 }} />}
             </button>
           </div>
         </div>
 
       </div>
+
+      <style>{`
+        @keyframes fadeInPanel {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 }
