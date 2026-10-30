@@ -911,6 +911,32 @@ p, a, li, button, input, textarea {
   justify-content: center;
 }
 
+.hero-sticker-top-wrap,
+.hero-sticker-bottom-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero-sticker-top-wrap,
+  .hero-sticker-bottom-wrap {
+    justify-content: flex-start !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title-yellow-sticker {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    display: inline-flex !important;
+    margin: 0.35rem 0.5rem !important;
+    vertical-align: middle !important;
+  }
+}
+
 .hero-text-col .hero-hairline {
   margin: 0 auto 1.5rem auto;
   max-width: 440px;
