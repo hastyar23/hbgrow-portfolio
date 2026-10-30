@@ -26,12 +26,12 @@ export const clients = [
 ];
 
 export const videoIds = Array.from(new Set([
-  'VT5BZvIWplg', 'dm-k3s2QmcsfWuphvMe2Rk', 'wGJAucD8CVo', 'vCpcE-WclXw', 'GnJOvjbR-QI', 'p0aFJdaP7pM', 'vsodX5maE0Y',
+  'VT5BZvIWplg', 'dm-k3s2QmcsfWuphvMe2Rk', 'wGJAucD8CVo', 'HWz7SrUfUGQ', 'vCpcE-WclXw', 'GnJOvjbR-QI', 'p0aFJdaP7pM', 'vsodX5maE0Y',
   'RmtVkzzyj6w', 'swsbNcqVeGY', 'mpD_NsfH8tg', 'KFzJ6bk_61g',
   'xzEuBbw1Qn4', 'f_DTggAc378', '1yqfB-MXdcI', 'nNSHp3bsSBw',
   'CXVaAGWucqg', 'jJbVeiI79H8', 'NJHue-TKTv4', 'jrKgxXOWuUI',
   'Gh6nQCcXGP8', 'h8bVnb3SjGw', 'avEqHqHveEs', 'GH-k2yu9kxI',
-  'HWz7SrUfUGQ', '_l8bWRuJL4I', 'PSwS5ozVYQU', 'cuP7mgwGY6k',
+  '_l8bWRuJL4I', 'PSwS5ozVYQU', 'cuP7mgwGY6k',
   'wIaDWAcGuO4', '8yUThY5Fez8', 'wGJAucD8CVo', 'mi-bfHoeFKk',
   'ARDIm5i0-9w', '9nkGvpejPTk', '91k9IF-tsQs', 'exoj6m8Ib34',
   '9sJRa8MC6a8', 'xVHH-M45E8g', 'a5r5bGOUFOk', 'EY_bEfzykZI',
