@@ -33,10 +33,16 @@ const THEMED_CARDS_DATA = {
       theme: 'theme-forest-emerald',
       stickerColor: 'statiq-sticker-lime',
       spendKey: 'spend_3',
-      brand: 'Canephora Coffee',
-      tag: 'Beverage & Cafe',
-      src: designs[14],
+      spendLabel: {
+        ku: '13,195 نامەی فرۆش',
+        ar: '13,195 رسالة مبيعات',
+        en: '13,195 Sales Inquiries',
+      },
+      brand: 'Abdullah Accessories',
+      tag: 'Jewellery & Accessories',
+      src: '/images/abdullah_accessories.webp',
       type: 'image',
+      showPlayButton: true,
     },
     {
       theme: 'theme-blush-rose',
@@ -312,7 +318,9 @@ export default function Portfolio() {
                     }}
                   >
                     {card.spendLabel
-                      ? (typeof card.spendLabel === 'object' ? (isRTL ? card.spendLabel.ku : card.spendLabel.en) : card.spendLabel)
+                      ? (typeof card.spendLabel === 'object'
+                          ? (i18n.language?.startsWith('ar') ? card.spendLabel.ar : (isRTL ? card.spendLabel.ku : card.spendLabel.en))
+                          : card.spendLabel)
                       : t(`portfolio.${card.spendKey}`, card.spendKey)}
                   </span>
                 </div>
@@ -372,6 +380,7 @@ export default function Portfolio() {
                             borderRadius: '50%',
                             background: 'rgba(255, 255, 255, 0.95)',
                             backdropFilter: 'blur(8px)',
+                            WebkitBackdropFilter: 'blur(8px)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -384,12 +393,46 @@ export default function Portfolio() {
                       </div>
                     </div>
                   ) : (
-                    <img
-                      src={card.src}
-                      alt={card.brand}
-                      loading="lazy"
-                      className="statiq-floating-img"
-                    />
+                    <div style={{ position: 'relative', width: '100%' }}>
+                      <img
+                        src={card.src}
+                        alt={card.brand}
+                        loading="lazy"
+                        className="statiq-floating-img"
+                      />
+                      {/* Video Play Button in Center for Video Snapshot Card */}
+                      {card.showPlayButton && (
+                        <div
+                          style={{
+                            position: 'absolute',
+                            inset: 0,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: 'rgba(0, 0, 0, 0.22)',
+                            pointerEvents: 'none',
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: 54,
+                              height: 54,
+                              borderRadius: '50%',
+                              background: 'rgba(255, 255, 255, 0.95)',
+                              backdropFilter: 'blur(8px)',
+                              WebkitBackdropFilter: 'blur(8px)',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
+                              color: '#0A0A0C',
+                            }}
+                          >
+                            <Play size={22} fill="#0A0A0C" style={{ marginLeft: 2 }} />
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   )}
 
                   {/* Interactive Hover Cue */}
@@ -409,7 +452,9 @@ export default function Portfolio() {
                       }}
                     >
                       <Maximize2 size={12} />
-                      {card.type === 'video' ? 'Play Video' : 'View Fullsize'}
+                      {card.type === 'video' || card.showPlayButton
+                        ? (isRTL ? 'پێشاندانی ڤیدیۆ' : 'Play Video')
+                        : (isRTL ? 'بینینی کارەکە' : 'View Fullsize')}
                     </span>
                   </div>
                 </div>
@@ -617,18 +662,60 @@ export default function Portfolio() {
           >
             <X size={20} />
           </button>
-          <img
-            src={activeImage}
-            alt="Fullscreen Ad Preview"
+          <div
+            onClick={(e) => e.stopPropagation()}
             style={{
+              position: 'relative',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               maxWidth: '92vw',
               maxHeight: '90vh',
-              objectFit: 'contain',
-              borderRadius: '16px',
-              boxShadow: '0 32px 80px rgba(0, 0, 0, 0.8)',
             }}
-            onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <img
+              src={activeImage}
+              alt="Fullscreen Ad Preview"
+              style={{
+                maxWidth: '92vw',
+                maxHeight: '90vh',
+                objectFit: 'contain',
+                borderRadius: '16px',
+                boxShadow: '0 32px 80px rgba(0, 0, 0, 0.8)',
+                display: 'block',
+              }}
+            />
+            {activeImage && activeImage.includes('abdullah') && (
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  pointerEvents: 'none',
+                }}
+              >
+                <div
+                  style={{
+                    width: 64,
+                    height: 64,
+                    borderRadius: '50%',
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 12px 32px rgba(0, 0, 0, 0.5)',
+                    color: '#0A0A0C',
+                  }}
+                >
+                  <Play size={26} fill="#0A0A0C" style={{ marginLeft: 3 }} />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
