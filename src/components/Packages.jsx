@@ -8,8 +8,12 @@ import { useSchedule } from '../ScheduleContext';
 import WhatsAppIcon from './WhatsAppIcon';
 import { designs } from '../data/portfolioData';
 
-// Pick 3 showcase designs for DFY packages visual
-const SHOWCASE = [designs[5], designs[18], designs[33]];
+// Top attractive agency portfolio designs
+const SHOWCASE = [
+  '/images/showcase_supergrid.webp',
+  '/images/showcase_vala_1.webp',
+  '/images/showcase_karashor.webp',
+];
 
 export default function Packages() {
   const { openSchedule } = useSchedule();
@@ -638,10 +642,10 @@ export default function Packages() {
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: 'clamp(0.75rem, 2vw, 1.15rem)',
+                      gap: 'clamp(0.85rem, 2vw, 1.25rem)',
                       position: 'relative',
                       zIndex: 2,
-                      maxWidth: 340,
+                      maxWidth: 360,
                       width: '100%',
                       boxSizing: 'border-box',
                     }}
@@ -652,12 +656,23 @@ export default function Packages() {
                         style={{
                           borderRadius: '1.25rem',
                           overflow: 'hidden',
-                          boxShadow: '0 15px 40px -10px rgba(0, 0, 0, 0.6)',
-                          border: '1px solid rgba(255, 255, 255, 0.12)',
-                          aspectRatio: i === 1 ? '16/7' : '16/9',
+                          boxShadow: '0 18px 45px -10px rgba(0, 0, 0, 0.7)',
+                          border: '1px solid rgba(255, 255, 255, 0.14)',
+                          aspectRatio: '4/3',
                           transform: i === 0 ? 'rotate(-1.2deg)' : i === 2 ? 'rotate(1deg)' : 'none',
-                          transition: 'transform 0.3s ease',
+                          transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                           background: '#0F172A',
+                          cursor: 'pointer',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = 'translateY(-4px) scale(1.02)';
+                          e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.5)';
+                          e.currentTarget.style.boxShadow = '0 22px 50px -10px rgba(56, 189, 248, 0.25)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = i === 0 ? 'rotate(-1.2deg)' : i === 2 ? 'rotate(1deg)' : 'none';
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)';
+                          e.currentTarget.style.boxShadow = '0 18px 45px -10px rgba(0, 0, 0, 0.7)';
                         }}
                       >
                         <img
@@ -665,7 +680,7 @@ export default function Packages() {
                           alt="HBgrow ad creative"
                           loading="lazy"
                           decoding="async"
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
                         />
                       </div>
                     ))}
