@@ -1515,9 +1515,40 @@ export default function PitchDeck({ onScheduleClick }) {
         <section
           ref={(el) => (slideRefs.current[3] = el)}
           id="slide-4"
-          className="relative w-full min-h-[100dvh] snap-start flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 lg:px-16 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:py-24 overflow-y-auto bg-[#FAFAFA]"
+          className="relative w-full min-h-[100dvh] snap-start flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 lg:px-16 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:py-24 overflow-y-auto bg-[#080C15] text-white"
         >
-          <div className="max-w-6xl w-full mx-auto my-auto flex flex-col items-center py-4">
+          {/* Ambient Lighting & Luxury Atmosphere */}
+          <div
+            className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[420px]"
+            style={{
+              background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(30, 64, 175, 0.28) 0%, transparent 70%)',
+              filter: 'blur(80px)',
+            }}
+          />
+          <div
+            className="pointer-events-none absolute top-1/3 left-[-5%] w-[380px] h-[380px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(147, 51, 234, 0.14) 0%, transparent 65%)',
+              filter: 'blur(90px)',
+            }}
+          />
+          <div
+            className="pointer-events-none absolute bottom-1/4 right-[-5%] w-[400px] h-[400px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(197, 164, 89, 0.12) 0%, transparent 65%)',
+              filter: 'blur(100px)',
+            }}
+          />
+          {/* Subtle Dot Grid */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-40"
+            style={{
+              backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+            }}
+          />
+
+          <div className="max-w-6xl w-full mx-auto my-auto flex flex-col items-center py-4 relative z-10">
             {/* Header: Headline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1526,50 +1557,66 @@ export default function PitchDeck({ onScheduleClick }) {
               transition={{ duration: 1.2, ease: EASE_PRO }}
               className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-3xl mx-auto"
             >
-              <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#03142B] px-3.5 py-1.5 rounded-full border border-[#03142B]/20 bg-[#03142B]/[0.08] mb-3 sm:mb-4 shadow-xs">
-                <Sparkles size={12} className="text-[#0B3275]" />
+              <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#38BDF8] px-3.5 py-1.5 rounded-full border border-[#38BDF8]/30 bg-[#38BDF8]/10 mb-3 sm:mb-4 shadow-[0_0_20px_rgba(56,189,248,0.2)]">
+                <Sparkles size={12} className="text-[#38BDF8]" />
                 <span>{isKurdish ? 'پاکێجەکان و وەبەرهێنان' : 'PACKAGES & PRICING'}</span>
               </div>
-              <h2 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#0A0A0C] leading-snug sm:leading-tight ${isKurdish ? 'tracking-normal' : 'tracking-tighter'}`}>
-                {isKurdish
-                  ? 'سیستەمی گونجاو بۆ قۆناغی ئێستای بزنسەکەت هەڵبژێرە'
-                  : 'Choose the Right Acquisition Engine for Your Business Stage'}
+              <h2 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-snug sm:leading-tight ${isKurdish ? 'tracking-normal' : 'tracking-tighter'}`}>
+                {isKurdish ? (
+                  <>
+                    سیستەمی گونجاو بۆ قۆناغی ئێستای بزنسەکەت{' '}
+                    <span className="text-[#FFE043] drop-shadow-[0_0_35px_rgba(255,224,67,0.45)]">
+                      هەڵبژێرە
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    Choose the Right Acquisition Engine for Your{' '}
+                    <span className="text-[#FFE043] drop-shadow-[0_0_35px_rgba(255,224,67,0.45)]">
+                      Business Stage
+                    </span>
+                  </>
+                )}
               </h2>
-              <p className="text-xs sm:text-sm text-zinc-600 mt-3 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-400 mt-3 max-w-2xl mx-auto leading-relaxed">
                 {isKurdish
                   ? 'نرخی ڕوون، بێ تێچووی شاراوە، لەگەڵ گەرەنتی ئەنجامی مسۆگەر لەسەر داتا.'
                   : 'Transparent retainers, zero hidden markups, paired with a verifiable 14-day performance guarantee.'}
               </p>
             </motion.div>
 
-            {/* 3 Packages Cards */}
+            {/* 3 Packages Cards (Dark Luxury Glassmorphic) */}
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 mb-6 sm:mb-8 items-stretch">
               
               {/* Package 1: Sales Launch */}
-              <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-black/[0.08] bg-white rounded-3xl shadow-[0_12px_40px_rgba(0,0,0,0.03)] hover:border-black/[0.15] transition-all">
+              <div className="group relative p-6 sm:p-7 flex flex-col justify-between rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] via-white/[0.025] to-transparent backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-[#38BDF8]/40 hover:shadow-[0_25px_60px_rgba(56,189,248,0.15)] transition-all duration-300">
+                {/* Hairline shimmer at top */}
+                <div className="pointer-events-none absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[11px] font-bold text-zinc-600 uppercase tracking-wider">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                       {isKurdish ? 'دەستپێکی فرۆش' : 'VALIDATION SPRINT'}
                     </span>
-                    <span className="text-[10px] text-zinc-600 font-medium px-2 py-0.5 rounded-full bg-zinc-100 border border-black/[0.06]">
+                    <span className="text-[10px] text-[#38BDF8] font-semibold px-2.5 py-0.5 rounded-full bg-[#38BDF8]/10 border border-[#38BDF8]/25 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] shadow-[0_0_6px_#38BDF8]" />
                       {isKurdish ? 'تاقیکردنەوە' : 'Sprint'}
                     </span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-extrabold text-[#0A0A0C] mb-2 font-mono">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 font-mono">
                     Sales Launch
                   </h3>
 
                   {/* Price */}
-                  <div className="mb-4 pb-3 border-b border-black/[0.06]">
-                    <div className="text-3xl sm:text-4xl font-extrabold text-[#0A0A0C] tracking-tight font-mono">
+                  <div className="mb-4 pb-3 border-b border-white/[0.08]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono flex items-baseline gap-1.5">
                       $150
-                      <span className="text-xs font-normal text-zinc-500 ms-1.5 font-sans">
+                      <span className="text-xs font-normal text-slate-400 font-sans">
                         {isKurdish ? '/ یەک جار' : '/ One-time'}
                       </span>
                     </div>
-                    <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
+                    <p className="text-xs text-slate-300 mt-2 leading-relaxed">
                       {isKurdish
                         ? 'تایبەت بەو بزنسانەی دەیانەوێت بە کەمترین تێچوو و بەبێ پابەندبوونی مانگانە، کاریگەری سیستەمی HBgrow تاقیبکەنەوە.'
                         : 'For businesses wanting to test HBgrow’s conversion engine with minimal risk and zero monthly commitment.'}
@@ -1579,86 +1626,100 @@ export default function PitchDeck({ onScheduleClick }) {
                   {/* Scannable Deliverables */}
                   <div className="space-y-2.5 text-xs">
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#38BDF8]/15 border border-[#38BDF8]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#38BDF8]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'داڕشتنی ئۆفەری سەرەکی فرۆش' : 'Core High-Converting Sales Offer'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'داڕشتنی ئۆفەری سەرەکی فرۆش' : 'Core High-Converting Sales Offer'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#38BDF8]/15 border border-[#38BDF8]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#38BDF8]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? '٣ ڤیدیۆ ڕیلی مۆنتاژکراو + ٣ دیزاین' : '3 High-Retention Reels + 3 Ad Designs'}</span>
+                      <span className="text-slate-200">{isKurdish ? '٣ ڤیدیۆ ڕیلی مۆنتاژکراو + ٣ دیزاین' : '3 High-Retention Reels + 3 Ad Designs'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#38BDF8]/15 border border-[#38BDF8]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#38BDF8]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'نووسینی دەق و سیناریۆی فرۆش' : 'Persuasive Scriptwriting & Hooks'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'نووسینی دەق و سیناریۆی فرۆش' : 'Persuasive Scriptwriting & Hooks'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#38BDF8]/15 border border-[#38BDF8]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#38BDF8]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'ڕێکخستنی کەمپەینی نامە لە Meta' : 'Targeted Meta Messaging Campaign'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'ڕێکخستنی کەمپەینی نامە لە Meta' : 'Targeted Meta Messaging Campaign'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#38BDF8]/15 border border-[#38BDF8]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#38BDF8]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'ماوەی کارکردن: ١٤ بۆ ٢٠ ڕۆژ' : 'Sprint Duration: 14 to 20 days'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'ماوەی کارکردن: ١٤ بۆ ٢٠ ڕۆژ' : 'Sprint Duration: 14 to 20 days'}</span>
                     </div>
                   </div>
 
                   {/* Special Discount Notice */}
-                  <div className="mt-4 p-2.5 rounded-xl bg-zinc-50 border border-black/[0.05] text-[11px] text-[#03142B] font-semibold leading-relaxed">
+                  <div className="mt-4 p-2.5 rounded-xl bg-[#38BDF8]/10 border border-[#38BDF8]/20 text-[11px] text-[#7DD3FC] font-semibold leading-relaxed">
                     {isKurdish
                       ? '💡 داشکاندن: لە کاتی نوێکردنەوە بۆ پاکێجی مانگانە، ٧٥$ داشکاندنت بۆ دەکرێت.'
                       : '💡 Upgrade Bonus: $75 credited toward your next monthly retainer.'}
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-black/[0.06]">
-                  <WireframeCTA
+                <div className="mt-5 pt-4 border-t border-white/[0.08]">
+                  <a
                     href={getWhatsAppUrl(
                       isKurdish
                         ? 'سڵاو HBgrow، دەمەوێت بە پاکێجی Sales Launch ($150) دەستپێبکەم بۆ بزنسەکەم.'
                         : 'Hello HBgrow, I want to start with the Sales Launch package ($150).'
                     )}
-                    className="w-full !py-3 text-xs font-semibold !bg-white hover:!bg-[#03142B] !text-[#0A0A0C] hover:!text-white !border-black/[0.12] hover:!border-[#03142B]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 rounded-full text-xs font-bold inline-flex items-center justify-center gap-2 border border-[#38BDF8]/35 bg-[#38BDF8]/10 text-[#38BDF8] hover:bg-[#38BDF8] hover:text-[#080C15] transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.15)]"
                   >
                     <WhatsAppIcon size={14} />
                     <span>{isKurdish ? 'بەم پاکێجە دەستپێبکە' : 'Start with Sales Launch'}</span>
                     {isRTL ? <ArrowLeft size={12} /> : <ArrowRight size={12} />}
-                  </WireframeCTA>
+                  </a>
                 </div>
-              </SpotlightCard>
+              </div>
 
               {/* Package 2: Sales Engine (Featured) */}
-              <SpotlightCard className="relative p-6 sm:p-7 flex flex-col justify-between rounded-3xl border-2 border-[#03142B] bg-gradient-to-b from-white via-white to-zinc-50/70 backdrop-blur-2xl shadow-[0_20px_50px_rgba(3,20,43,0.12)] hover:border-[#03142B] transition-all scale-[1.02] z-10">
+              <div className="relative p-6 sm:p-7 flex flex-col justify-between rounded-3xl border-2 border-[#C5A459]/60 bg-gradient-to-b from-[#0F1E3A] via-[#0A162B] to-[#060D1A] backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_50px_rgba(197,164,89,0.2)] hover:border-[#FFE043] transition-all duration-300 scale-[1.02] sm:scale-[1.03] z-10">
+                {/* Gold beam shimmer at top */}
+                <div className="pointer-events-none absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFE043] to-transparent" />
+                
+                {/* Radial gold sheen */}
+                <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 bg-[radial-gradient(circle,rgba(255,224,67,0.15)_0%,transparent_70%)]" />
+
+                {/* Floating "Best Value" Badge */}
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-[#C5A459] via-[#FFE043] to-[#C5A459] text-[#080C15] text-[10px] font-extrabold uppercase tracking-wider shadow-[0_4px_16px_rgba(255,224,67,0.4)] flex items-center gap-1.5 whitespace-nowrap">
+                  <Sparkles size={11} />
+                  <span>{isKurdish ? 'باشترین هەڵبژاردە' : 'MOST POPULAR'}</span>
+                </div>
+
                 <div>
-                  <div className="flex items-center justify-between mb-3 flex-wrap gap-1.5">
-                    <span className="text-[11px] font-bold text-[#0B3275] uppercase tracking-wider">
+                  <div className="flex items-center justify-between mb-3.5 pt-1">
+                    <span className="text-[11px] font-bold text-[#FFE043] uppercase tracking-wider">
                       {isKurdish ? 'بزوێنەری فرۆش' : 'GROWTH ENGINE'}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#03142B] text-white text-[10px] font-bold shadow-xs">
-                      {isKurdish ? '⭐ باشترین هەڵبژاردە' : '⭐ MOST POPULAR'}
+                    <span className="text-[10px] text-[#FFE043] font-semibold px-2.5 py-0.5 rounded-full bg-[#FFE043]/10 border border-[#FFE043]/30">
+                      Featured
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#0A0A0C] mb-2 font-mono">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2 font-mono">
                     Sales Engine
                   </h3>
 
                   {/* Price */}
-                  <div className="mb-4 pb-3 border-b border-black/[0.06]">
-                    <div className="text-3xl sm:text-4xl font-extrabold text-[#03142B] tracking-tight font-mono">
+                  <div className="mb-4 pb-3 border-b border-white/[0.1]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#FFE043] tracking-tight font-mono flex items-baseline gap-1.5 drop-shadow-[0_0_25px_rgba(255,224,67,0.35)]">
                       $350
-                      <span className="text-xs font-normal text-zinc-500 ms-1.5 font-sans">
+                      <span className="text-xs font-normal text-amber-200/70 font-sans">
                         {isKurdish ? '/ مانگانە' : '/ Month'}
                       </span>
                     </div>
-                    <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
+                    <p className="text-xs text-slate-300 mt-2 leading-relaxed">
                       {isKurdish
                         ? 'بۆ بزنس و براندێک کە دەیەوێت هەموو مانگێک بە پلان و سیستەمێکی جێگیر کڕیاری نوێ و فرۆشی بەردەوام بەدەستبهێنێت.'
                         : 'Engineered for businesses requiring a steady stream of qualified inbound buyer inquiries each month.'}
@@ -1668,86 +1729,91 @@ export default function PitchDeck({ onScheduleClick }) {
                   {/* Scannable Deliverables */}
                   <div className="space-y-2.5 text-xs">
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#FFE043] flex items-center justify-center shrink-0 mt-0.5 text-[#080C15]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <strong className="text-zinc-900">{isKurdish ? 'هەموو خزمەتگوزارییەکانی Sales Launch' : 'All Sales Launch Deliverables'}</strong>
+                      <strong className="text-[#FFE043] font-bold">{isKurdish ? 'هەموو خزمەتگوزارییەکانی Sales Launch' : 'All Sales Launch Deliverables'}</strong>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#FFE043] flex items-center justify-center shrink-0 mt-0.5 text-[#080C15]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-800 font-medium">{isKurdish ? '٨ بەرهەمی تایبەت (٤ ڤیدیۆ ڕیل + ٤ دیزاین)' : '8 Assets / Month (4 Reels + 4 Designs)'}</span>
+                      <span className="text-white font-semibold">{isKurdish ? '٨ بەرهەمی تایبەت (٤ ڤیدیۆ ڕیل + ٤ دیزاین)' : '8 Assets / Month (4 Reels + 4 Designs)'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#FFE043]/20 border border-[#FFE043]/40 flex items-center justify-center shrink-0 mt-0.5 text-[#FFE043]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'بەڕێوەبردنی هەفتانەی کامپەینەکان' : 'Weekly Campaign Management & Tuning'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'بەڕێوەبردنی هەفتانەی کامپەینەکان' : 'Weekly Campaign Management & Tuning'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#FFE043]/20 border border-[#FFE043]/40 flex items-center justify-center shrink-0 mt-0.5 text-[#FFE043]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'نوێکردنەوە و پەرەپێدانی ئۆفەری فرۆش' : 'Monthly Offer Iteration & Hook Refresh'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'نوێکردنەوە و پەرەپێدانی ئۆفەری فرۆش' : 'Monthly Offer Iteration & Hook Refresh'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#FFE043]/20 border border-[#FFE043]/40 flex items-center justify-center shrink-0 mt-0.5 text-[#FFE043]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'سکرێپت و ڕاهێنانی ستاف بۆ فرۆش لە نامە' : 'Sales Scripting for Your Chat Admins'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'سکرێپت و ڕاهێنانی ستاف بۆ فرۆش لە نامە' : 'Sales Scripting for Your Chat Admins'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B] flex items-center justify-center shrink-0 mt-0.5 text-white">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#FFE043]/20 border border-[#FFE043]/40 flex items-center justify-center shrink-0 mt-0.5 text-[#FFE043]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'بەڕێوەبردنی سپۆنسەر تا 1,500$ لە مانگێکدا' : 'Manages Ad Spend up to $1,500/mo'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'بەڕێوەبردنی سپۆنسەر تا 1,500$ لە مانگێکدا' : 'Manages Ad Spend up to $1,500/mo'}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-black/[0.06]">
-                  <WireframeCTA
+                <div className="mt-5 pt-4 border-t border-white/[0.1]">
+                  <a
                     href={getWhatsAppUrl(
                       isKurdish
                         ? 'سڵاو HBgrow، دەمەوێت بە پاکێجی Sales Engine ($350) دەستپێبکەم بۆ بزنسەکەم.'
                         : 'Hello HBgrow, I want to partner on the Sales Engine package ($350/mo).'
                     )}
-                    isPrimary={true}
-                    className="w-full !py-3.5 text-xs font-bold shadow-md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3.5 px-4 rounded-full text-xs font-extrabold inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#C5A459] via-[#FFE043] to-[#C5A459] text-[#080C15] hover:brightness-110 transition-all duration-300 shadow-[0_4px_24px_rgba(255,224,67,0.35)]"
                   >
                     <WhatsAppIcon size={14} />
                     <span>{isKurdish ? 'ببە بە خاوەنی بزوێنەری فرۆش' : 'Claim Sales Engine'}</span>
                     {isRTL ? <ArrowLeft size={12} /> : <ArrowRight size={12} />}
-                  </WireframeCTA>
+                  </a>
                 </div>
-              </SpotlightCard>
+              </div>
 
               {/* Package 3: Sales Machine */}
-              <SpotlightCard className="p-6 sm:p-7 flex flex-col justify-between border-black/[0.08] bg-white rounded-3xl shadow-[0_12px_40px_rgba(0,0,0,0.03)] hover:border-black/[0.15] transition-all">
+              <div className="group relative p-6 sm:p-7 flex flex-col justify-between rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] via-white/[0.025] to-transparent backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-[#C084FC]/40 hover:shadow-[0_25px_60px_rgba(192,132,252,0.15)] transition-all duration-300">
+                {/* Hairline shimmer at top */}
+                <div className="pointer-events-none absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[#C084FC]/30 to-transparent" />
+
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[11px] font-bold text-zinc-600 uppercase tracking-wider">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                       {isKurdish ? 'ماشینی فرۆش' : 'ENTERPRISE PARTNER'}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#03142B]/10 text-[#03142B] border border-[#03142B]/20 text-[10px] font-bold">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#C084FC]/15 text-[#C084FC] border border-[#C084FC]/30 text-[10px] font-bold flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C084FC] shadow-[0_0_6px_#C084FC]" />
                       VIP Partner
                     </span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-extrabold text-[#0A0A0C] mb-2 font-mono">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-white mb-2 font-mono">
                     Sales Machine
                   </h3>
 
                   {/* Price */}
-                  <div className="mb-4 pb-3 border-b border-black/[0.06]">
-                    <div className="text-3xl sm:text-4xl font-extrabold text-[#0A0A0C] tracking-tight font-mono">
+                  <div className="mb-4 pb-3 border-b border-white/[0.08]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono flex items-baseline gap-1.5">
                       $750
-                      <span className="text-xs font-normal text-zinc-500 ms-1.5 font-sans">
+                      <span className="text-xs font-normal text-slate-400 font-sans">
                         {isKurdish ? '/ مانگانە' : '/ Month'}
                       </span>
                     </div>
-                    <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
+                    <p className="text-xs text-slate-300 mt-2 leading-relaxed">
                       {isKurdish
                         ? 'تایبەت بە کلینیکەکان، شۆڕووم، پڕۆژەکانی عقارات و کۆمپانیاکان. ئێمە لە وێنەگرتنەوە تا هێنانی کڕیار و وەڵامدانەوەی نامەکان جێبەجێ دەکەین.'
                         : 'End-to-end turnkey acquisition for clinics, real estate, and enterprise brands — including chat handling.'}
@@ -1757,83 +1823,86 @@ export default function PitchDeck({ onScheduleClick }) {
                   {/* Scannable Deliverables */}
                   <div className="space-y-2.5 text-xs">
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#C084FC]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <strong className="text-zinc-900">{isKurdish ? 'هەموو خزمەتگوزارییەکانی Sales Engine' : 'All Sales Engine Deliverables'}</strong>
+                      <strong className="text-white font-bold">{isKurdish ? 'هەموو خزمەتگوزارییەکانی Sales Engine' : 'All Sales Engine Deliverables'}</strong>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#C084FC]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? '١٢ بەرهەم مانگانە (٦ ڕیل + ٦ دیزاین)' : '12 Assets / Mo (6 Reels + 6 Designs)'}</span>
+                      <span className="text-slate-200">{isKurdish ? '١٢ بەرهەم مانگانە (٦ ڕیل + ٦ دیزاین)' : '12 Assets / Mo (6 Reels + 6 Designs)'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#C084FC]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-800 font-medium">{isKurdish ? 'وەڵامدانەوەی کڕیارە جدییەکان تا ٣٠٠ نامە' : 'HBgrow Team Answers up to 300 Buyers'}</span>
+                      <span className="text-white font-semibold">{isKurdish ? 'وەڵامدانەوەی کڕیارە جدییەکان تا ٣٠٠ نامە' : 'HBgrow Team Answers up to 300 Buyers'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#C084FC]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'سیستەمی بەدواداچوون (Retargeting & Follow-up)' : 'Retargeting & Follow-up System'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'سیستەمی بەدواداچوون (Retargeting & Follow-up)' : 'Retargeting & Follow-up System'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#C084FC]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'کۆبوونەوەی ستراتیژی مانگانە' : 'Monthly Executive Strategy Review'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'کۆبوونەوەی ستراتیژی مانگانە' : 'Monthly Executive Strategy Review'}</span>
                     </div>
                     <div className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-[#03142B]/10 border border-[#03142B]/20 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
-                        <Check size={10} />
+                      <div className="w-4 h-4 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/30 flex items-center justify-center shrink-0 mt-0.5 text-[#C084FC]">
+                        <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-zinc-700">{isKurdish ? 'بەڕێوەبردنی سپۆنسەر تا 3,000$ لە مانگێکدا' : 'Manages Ad Spend up to $3,000/mo'}</span>
+                      <span className="text-slate-200">{isKurdish ? 'بەڕێوەبردنی سپۆنسەر تا 3,000$ لە مانگێکدا' : 'Manages Ad Spend up to $3,000/mo'}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-black/[0.06]">
-                  <WireframeCTA
+                <div className="mt-5 pt-4 border-t border-white/[0.08]">
+                  <a
                     href={getWhatsAppUrl(
                       isKurdish
                         ? 'سڵاو HBgrow، دەمەوێت کۆبوونەوەیەکی تایبەت دابنێین بۆ پاکێجی Sales Machine ($750) بۆ براندەکەم.'
                         : 'Hello HBgrow, I want to book a VIP strategy session for Sales Machine ($750/mo).'
                     )}
-                    className="w-full !py-3 text-xs font-semibold !bg-white hover:!bg-[#03142B] !text-[#0A0A0C] hover:!text-white !border-black/[0.12] hover:!border-[#03142B]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 rounded-full text-xs font-bold inline-flex items-center justify-center gap-2 border border-[#C084FC]/35 bg-[#C084FC]/10 text-[#C084FC] hover:bg-[#C084FC] hover:text-[#080C15] transition-all duration-300 shadow-[0_0_20px_rgba(192,132,252,0.15)]"
                   >
                     <WhatsAppIcon size={14} />
                     <span>{isKurdish ? 'داوای پاکێجی VIP بکە' : 'Request VIP Partnership'}</span>
                     {isRTL ? <ArrowLeft size={12} /> : <ArrowRight size={12} />}
-                  </WireframeCTA>
+                  </a>
                 </div>
-              </SpotlightCard>
+              </div>
 
             </div>
 
             {/* 14-Day Performance Guarantee Card */}
-            <div className="w-full p-5 sm:p-6 md:p-7 rounded-2xl border border-black/[0.09] bg-white shadow-xs mb-4 text-start">
-              <div className="flex items-start gap-3.5">
-                <div className="h-10 w-10 rounded-xl border border-[#03142B]/20 bg-[#03142B]/10 flex items-center justify-center shrink-0 mt-0.5 text-[#03142B]">
+            <div className="w-full p-5 sm:p-6 md:p-7 rounded-2xl border border-white/10 bg-gradient-to-r from-white/[0.05] via-white/[0.02] to-transparent backdrop-blur-xl shadow-lg mb-4 text-start relative overflow-hidden">
+              <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+              <div className="flex items-start gap-3.5 relative z-10">
+                <div className="h-10 w-10 rounded-xl border border-[#38BDF8]/30 bg-[#38BDF8]/15 flex items-center justify-center shrink-0 mt-0.5 text-[#38BDF8] shadow-[0_0_15px_rgba(56,189,248,0.2)]">
                   <ShieldCheck size={20} />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-bold text-[#03142B] px-2 py-0.5 rounded-full bg-[#03142B]/10">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <span className="text-[10px] font-bold text-[#38BDF8] px-2 py-0.5 rounded-full bg-[#38BDF8]/15 border border-[#38BDF8]/30">
                       {isKurdish ? 'گەرەنتی' : 'GUARANTEE'}
                     </span>
-                    <span className="text-xs sm:text-sm font-bold text-[#0A0A0C]">
+                    <span className="text-xs sm:text-sm font-bold text-white">
                       {isKurdish ? 'گەرەنتی ١٤ ڕۆژ ئەنجامی مسۆگەر: ئێمە بە داتا کار دەکەین نەک بە قسە.' : '14-Day Verifiable Performance Guarantee: Results Driven by Data.'}
                     </span>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed max-w-3xl">
+                  <p className="text-xs text-slate-300 leading-relaxed max-w-3xl">
                     {isKurdish
                       ? 'ئەگەر لە ١٤ ڕۆژی یەکەمی کامپەینەکەتدا نەگەیشتین بەو ژمارە نامەیەی کە لە سەرەتادا لەسەری ڕێکدەکەوین، بەبێ هیچ کرێیەکی زیادە بەردەوام دەبین لە کارکردن تاوەکو دەگەین بە ئامانجەکە.'
                       : 'If we do not achieve our mutually agreed lead volume target in the first 14 days, our team works at zero additional fee until the target is met.'}
                   </p>
-                  <p className="text-[11px] text-zinc-500 mt-1.5 font-medium">
+                  <p className="text-[11px] text-slate-400 mt-1.5 font-medium">
                     {isKurdish
                       ? '(مەرجی گەرەنتی: بەردەوامبوونی بودجەی سپۆنسەری دیاریکراو و پەسەندکردنی ئۆفەر و سیستەمەکە لەلایەن خۆتەوە).'
                       : '(Condition: Continuous active ad budget and owner approval of the offer and system architecture).'}
@@ -1843,21 +1912,21 @@ export default function PitchDeck({ onScheduleClick }) {
             </div>
 
             {/* Financial Transparency Banner */}
-            <div className="w-full p-4 sm:p-5 rounded-2xl border border-black/[0.06] bg-zinc-50/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-start">
+            <div className="w-full p-4 sm:p-5 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-start">
               <div className="flex items-center gap-3">
                 <span className="text-base">⚠️</span>
-                <p className="text-xs text-zinc-600 leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   {isKurdish
                     ? 'تێبینی گرنگ: نرخەکانی سەرەوە کرێی کار و سیستەمی HBgrowـە. بودجەی سپۆنسەر بە تەواوی جیاوازە، ڕاستەوخۆ دەدرێت بە Meta و ئەکاونتی ڕیکلامەکە ٪١٠٠ لەژێر کۆنترۆڵ و خاوەندارێتی خۆتدا دەبێت.'
                     : 'Important Note: Retainers reflect HBgrow’s system fees. Ad spend is paid directly to Meta with zero markup and 100% owner control.'}
                 </p>
               </div>
 
-              <div className="flex flex-wrap md:flex-col gap-1.5 shrink-0 text-[10px] text-zinc-700 font-mono font-medium">
-                <span className="px-2 py-0.5 rounded-full bg-white border border-black/[0.06] text-center">
+              <div className="flex flex-wrap md:flex-col gap-1.5 shrink-0 text-[10px] text-slate-200 font-mono font-medium">
+                <span className="px-2.5 py-0.5 rounded-full bg-white/[0.08] border border-white/10 text-center">
                   ✓ {isKurdish ? '٠٪ زیادکراو لەسەر ڕیکلام' : '0% Ad Markup'}
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-white border border-black/[0.06] text-center">
+                <span className="px-2.5 py-0.5 rounded-full bg-white/[0.08] border border-white/10 text-center">
                   ✓ {isKurdish ? 'ئەکاونتی مێتا لەژێر دەستی خۆتە' : 'Client Owns Account'}
                 </span>
               </div>
